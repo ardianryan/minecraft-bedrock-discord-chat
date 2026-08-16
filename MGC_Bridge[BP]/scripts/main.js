@@ -31,12 +31,21 @@ async function sendRequest(endpoint, method, payload = null) {
 
 // ========================================================
 // 1. EVENT: In-Game Chat -> Forward to Hono Backend
-// Supports both afterEvents.chatSend and beforeEvents.chatSend
+// Subscribe to BOTH before & after events to ensure capture
+// even when other addons intercept/cancel the chat event.
 // ========================================================
+let lastChatKey = "";
+
 const chatHandler = async (event) => {
   try {
     const senderName = event.sender?.name || "Player";
     const messageText = event.message || "";
+
+    // Deduplicate: skip if same sender+message within 2 seconds
+    const chatKey = `${senderName}:${messageText}`;
+    if (chatKey === lastChatKey) return;
+    lastChatKey = chatKey;
+    system.runTimeout(() => { lastChatKey = ""; }, 40); // reset after 2 ticks (~2s)
 
     const res = await sendRequest("/chat", HttpRequestMethod.Post, {
       sender: senderName,
@@ -60,10 +69,13 @@ const chatHandler = async (event) => {
   } catch (err) {}
 };
 
+// Subscribe to beforeEvents first (fires before addon interception)
+if (world.beforeEvents?.chatSend?.subscribe) {
+  world.beforeEvents.chatSend.subscribe(chatHandler);
+}
+// Also subscribe to afterEvents as backup (deduplication prevents double-send)
 if (world.afterEvents?.chatSend?.subscribe) {
   world.afterEvents.chatSend.subscribe(chatHandler);
-} else if (world.beforeEvents?.chatSend?.subscribe) {
-  world.beforeEvents.chatSend.subscribe(chatHandler);
 }
 
 // ========================================================
