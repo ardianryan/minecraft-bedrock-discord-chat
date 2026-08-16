@@ -133,31 +133,43 @@ world.afterEvents.entityDie.subscribe((event) => {
 
 // ========================================================
 // 4. INTERVAL: Poll Pending Messages & Execute Commands
-// Interval 20 ticks = 1 second
+// Non-blocking async with concurrency guard (zero TPS lag)
 // ========================================================
+let isPolling = false;
+
 system.runInterval(async () => {
-  const res = await sendRequest("/pending", HttpRequestMethod.Get);
-  if (res && res.status === 200) {
-    try {
-      const messages = JSON.parse(res.body);
-      if (Array.isArray(messages)) {
-        for (const msg of messages) {
-          // If message is an In-Game Slash Command
-          if (msg.isCommand || (msg.message && msg.message.startsWith("/"))) {
-            const cleanCommand = msg.message.startsWith("/") ? msg.message.substring(1) : msg.message;
-            try {
-              const overworld = world.getDimension("overworld");
-              await overworld.runCommandAsync(cleanCommand);
-              world.sendMessage(`§6[Admin Command] §e${msg.sender}§f: §a/${cleanCommand}`);
-            } catch (cmdErr) {
-              world.sendMessage(`§c[Command Error] §f/${cleanCommand} (Execution failed)`);
+  if (isPolling) return;
+  isPolling = true;
+
+  try {
+    const res = await sendRequest("/pending", HttpRequestMethod.Get);
+    if (res && res.status === 200) {
+      try {
+        const messages = JSON.parse(res.body);
+        if (Array.isArray(messages) && messages.length > 0) {
+          const overworld = world.getDimension("overworld");
+
+          for (const msg of messages) {
+            // If message is an In-Game Slash Command
+            if (msg.isCommand || (msg.message && msg.message.startsWith("/"))) {
+              const cleanCommand = msg.message.startsWith("/") ? msg.message.substring(1) : msg.message;
+              try {
+                await overworld.runCommandAsync(cleanCommand);
+                world.sendMessage(`§6[Admin Command] §e${msg.sender}§f: §a/${cleanCommand}`);
+              } catch (cmdErr) {
+                world.sendMessage(`§c[Command Error] §f/${cleanCommand} (Execution failed)`);
+              }
+            } else {
+              // Display normal chat message in game
+              world.sendMessage(`§b[${msg.source || "Bridge"}] §e${msg.sender}§f: ${msg.message}`);
             }
-          } else {
-            // Display normal chat message in game
-            world.sendMessage(`§b[${msg.source || "Bridge"}] §e${msg.sender}§f: ${msg.message}`);
           }
         }
-      }
-    } catch (e) {}
+      } catch (parseErr) {}
+    }
+  } catch (err) {
+    // Network or fetch error silently caught
+  } finally {
+    isPolling = false;
   }
 }, 20);

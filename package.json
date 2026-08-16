@@ -12,12 +12,16 @@
     "build:server": "tsc",
     "dev:client": "npm --prefix client run dev",
     "build:client": "npm --prefix client run build",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\""
   },
   "dependencies": {
     "@hono/node-server": "^1.13.8",
     "discord.js": "^14.18.0",
     "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.45.2",
     "hono": "^4.7.2",
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.23.0"
@@ -27,6 +31,7 @@
     "@types/node": "^22.13.9",
     "@types/pg": "^8.21.0",
     "concurrently": "^9.1.2",
+    "drizzle-kit": "^0.31.10",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
     "vitest": "^4.1.10"

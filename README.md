@@ -9,6 +9,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3+-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Hono.js](https://img.shields.io/badge/Hono.js-4.0+-E36002?style=for-the-badge&logo=hono&logoColor=white)](https://hono.dev/)
 [![React](https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![Drizzle ORM](https://img.shields.io/badge/Drizzle_ORM-0.45+-C5F74F?style=for-the-badge&logo=drizzle&logoColor=black)](https://orm.drizzle.team/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15+-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Discord.js](https://img.shields.io/badge/Discord.js-v14-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.js.org/)
 [![Minecraft Bedrock](https://img.shields.io/badge/Bedrock%20Engine-1.20%20--%201.26+-2C7A32?style=for-the-badge&logo=minecraft&logoColor=white)](https://minecraft.net/)
@@ -18,8 +19,10 @@
   <a href="#-key-features">Key Features</a> •
   <a href="#-quick-docker-deployment-1-command">Docker Deployment</a> •
   <a href="#-complete-installation-guide">Manual Installation</a> •
-  <a href="#-behavior-pack-setup--usage">Behavior Pack Tutorial</a> •
-  <a href="#-bot-controls--commands">Bot Controls</a> •
+  <a href="#-behavior-pack-setup--usage">Behavior Pack</a> •
+  <a href="./CONTRIBUTING.md">Contributing</a> •
+  <a href="./SECURITY.md">Security</a> •
+  <a href="./CODE_OF_CONDUCT.md">Code of Conduct</a> •
   <a href="./CHANGELOG.md">Changelog</a>
 </p>
 
@@ -380,11 +383,20 @@ discordmchat/
 │   ├── routes/
 │   │   ├── auth.ts                # Discord OAuth2 & User Profile API
 │   │   └── office.ts              # Office Admin & Settings Management
-│   ├── db.ts                      # PostgreSQL Pool & Schema Initializer
+│   ├── db.ts                      # Drizzle ORM Database Query Layer
+│   ├── schema.ts                  # Type-Safe PostgreSQL Table Schemas
 │   └── index.ts                   # Main Server Entry & Discord.js 2-Way Bot
+├── drizzle.config.ts              # Drizzle Kit Migration Configuration
+├── drizzle/                       # Generated SQL Schema Migrations
 ├── package.json
 ├── tsconfig.json
+├── docker-compose.yml             # Full Stack Docker Compose Orchestration
+├── Dockerfile                     # Multi-Stage Lightweight Production Image
 ├── .env.example
+├── CONTRIBUTING.md                # Conventional Commits & Development Guide
+├── SECURITY.md                    # Threat Model & Vulnerability Policy
+├── CODE_OF_CONDUCT.md             # Contributor Covenant v2.1
+├── CHANGELOG.md                   # Chronological Semantic Releases
 └── README.md
 ```
 
@@ -395,7 +407,8 @@ discordmchat/
 - **JWT Session Tokens**: Stored securely in `HttpOnly` cookies.
 - **Role Verification**: Admin-exclusive endpoints (`/api/office/*`) and command triggers are strictly verified against PostgreSQL records.
 - **Script API Bearer Authentication**: Bedrock communication endpoints (`/api/game/*`) require an authorized Bearer token header.
-- **SQL Sanitization**: All database queries use parameterized SQL queries through `pg.Pool` to prevent SQL injection.
+- **SQL Sanitization**: All database operations use type-safe parameterized query builders via **Drizzle ORM** (`drizzle-orm`) to guarantee SQL injection prevention.
+- **Vulnerability Reporting**: See our comprehensive [Security Policy](SECURITY.md) for disclosure guidelines and incident SLA.
 
 ---
 

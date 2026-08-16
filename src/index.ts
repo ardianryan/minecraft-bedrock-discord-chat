@@ -609,7 +609,7 @@ app.post('/api/game/chat', bedrockAuthMiddleware, async (c) => {
       discordUser: linkedUser ? {
         id: linkedUser.discord_id,
         username: linkedUser.discord_username,
-        avatar: linkedUser.discord_avatar,
+        avatar: linkedUser.discord_avatar || undefined,
       } : null,
     });
 

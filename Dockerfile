@@ -32,9 +32,10 @@ ENV PORT=3000
 COPY package*.json ./
 RUN npm install --omit=dev && npm cache clean --force
 
-# Copy compiled backend and frontend assets from builder
+# Copy compiled backend, frontend assets and Drizzle migrations from builder
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/client/dist ./client/dist
+COPY --from=builder /app/drizzle ./drizzle
 
 # Expose unified service port
 EXPOSE 3000
