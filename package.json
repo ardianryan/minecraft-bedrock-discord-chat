@@ -1,0 +1,34 @@
+{
+  "name": "discordmchat",
+  "version": "1.0.0",
+  "description": "Real-time Minecraft Bedrock, Discord, and Web Dashboard integration using Hono.js and React",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "npm run build:client && npm run build:server",
+    "start": "node dist/index.js",
+    "serve": "npm run build:client && tsx src/index.ts",
+    "dev:server": "tsx watch src/index.ts",
+    "build:server": "tsc",
+    "dev:client": "npm --prefix client run dev",
+    "build:client": "npm --prefix client run build",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\""
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.8",
+    "discord.js": "^14.18.0",
+    "dotenv": "^16.4.7",
+    "hono": "^4.7.2",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^22.13.9",
+    "@types/pg": "^8.21.0",
+    "concurrently": "^9.1.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vitest": "^4.1.10"
+  }
+}

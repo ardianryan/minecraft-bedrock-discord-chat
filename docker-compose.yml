@@ -1,0 +1,65 @@
+services:
+  # =========================================================================
+  # 1. PostgreSQL Database Service
+  # =========================================================================
+  postgres:
+    image: postgres:15-alpine
+    container_name: bedrock_bridge_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres_secure_password}
+      POSTGRES_DB: ${POSTGRES_DB:-discordmchat}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-discordmchat}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - bridge_network
+
+  # =========================================================================
+  # 2. Unified Bedrock Bridge Application (Hono + React + Discord Bot)
+  # =========================================================================
+  app:
+    image: ardianryan/minecraft-bedrock-discord-chat:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bedrock_bridge_app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres_secure_password}@postgres:5432/${POSTGRES_DB:-discordmchat}
+      API_KEY: ${API_KEY:-SECRET_BEARER_TOKEN}
+      JWT_SECRET: ${JWT_SECRET:-SUPER_SECRET_JWT_KEY_DISCORD_MCHAT_123}
+      DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID:-}
+      DISCORD_CLIENT_SECRET: ${DISCORD_CLIENT_SECRET:-}
+      DISCORD_REDIRECT_URI: ${DISCORD_REDIRECT_URI:-http://localhost:3000/api/auth/discord/callback}
+      INITIAL_ADMIN_DISCORD_ID: ${INITIAL_ADMIN_DISCORD_ID:-}
+      DISCORD_WEBHOOK_URL: ${DISCORD_WEBHOOK_URL:-}
+      DISCORD_BOT_TOKEN: ${DISCORD_BOT_TOKEN:-}
+      DISCORD_CHANNEL_ID: ${DISCORD_CHANNEL_ID:-}
+      DISCORD_INVITE_URL: ${DISCORD_INVITE_URL:-}
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:3000}
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - bridge_network
+
+volumes:
+  pgdata:
+    driver: local
+
+networks:
+  bridge_network:
+    driver: bridge
