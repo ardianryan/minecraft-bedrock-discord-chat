@@ -30,6 +30,57 @@ async function sendRequest(endpoint, method, payload = null) {
 }
 
 // ========================================================
+// Helper: Read KiwEssentials Scoreboard Objective safely
+// Returns 0 if objective doesn't exist (safe no-crash fallback)
+// KiwEssentials objectives: kill, death, money, coin, playtime
+// ========================================================
+function readScore(player, objective) {
+  try {
+    const obj = world.scoreboard.getObjective(objective);
+    if (!obj) return 0;
+    const score = obj.getScore(player.scoreboardIdentity);
+    return typeof score === "number" ? Math.max(0, score) : 0;
+  } catch {
+    return 0;
+  }
+}
+
+function collectAllPlayerScores() {
+  const stats = [];
+  try {
+    for (const player of world.getPlayers()) {
+      try {
+        stats.push({
+          username: player.name,
+          kills:    readScore(player, "kill"),
+          deaths:   readScore(player, "death"),
+          money:    readScore(player, "money"),
+          coin:     readScore(player, "coin"),
+          playtime: readScore(player, "playtime"),
+          online:   true,
+        });
+      } catch {}
+    }
+  } catch {}
+  return stats;
+}
+
+// Sync KiwEssentials stats to backend every 3 min (3600 ticks ≈ 180s)
+let isSyncingScores = false;
+system.runInterval(async () => {
+  if (isSyncingScores) return;
+  isSyncingScores = true;
+  try {
+    const stats = collectAllPlayerScores();
+    if (stats.length > 0) {
+      await sendRequest("/scoreboard", HttpRequestMethod.Post, { players: stats });
+    }
+  } catch {} finally {
+    isSyncingScores = false;
+  }
+}, 3600);
+
+// ========================================================
 // 1. EVENT: In-Game Chat -> Forward to Hono Backend
 //
 // COMPATIBILITY NOTE — KiwEssentials Integration:
@@ -124,9 +175,16 @@ if (world.afterEvents?.playerSpawn?.subscribe) {
         const player = event.player;
         const username = player.name;
 
-        const res = await sendRequest("/join", HttpRequestMethod.Post, {
-          username: username
-        });
+        // Send KiwEssentials stats alongside join event
+        const joinStats = {
+          username: username,
+          kills:    readScore(player, "kill"),
+          deaths:   readScore(player, "death"),
+          money:    readScore(player, "money"),
+          coin:     readScore(player, "coin"),
+          playtime: readScore(player, "playtime"),
+        };
+        const res = await sendRequest("/join", HttpRequestMethod.Post, joinStats);
 
         if (res) {
           if (res.status === 403) {

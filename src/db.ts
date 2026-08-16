@@ -11,11 +11,13 @@ import {
   bannedPlayers, 
   chatLogs, 
   knownPlayers,
+  playerScores,
   type User,
   type NewUser,
   type BannedPlayer,
   type ChatLog,
-  type KnownPlayer
+  type KnownPlayer,
+  type PlayerScore
 } from './schema.js';
 
 dotenv.config();
@@ -139,6 +141,28 @@ export async function initDb() {
         last_seen TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL
       );
       CREATE INDEX IF NOT EXISTS idx_known_players_last_seen ON known_players(last_seen DESC);
+
+      -- KiwEssentials Scoreboard columns on users
+      ALTER TABLE users ADD COLUMN IF NOT EXISTS kw_kills    INT DEFAULT 0 NOT NULL;
+      ALTER TABLE users ADD COLUMN IF NOT EXISTS kw_deaths   INT DEFAULT 0 NOT NULL;
+      ALTER TABLE users ADD COLUMN IF NOT EXISTS kw_money    BIGINT DEFAULT 0 NOT NULL;
+      ALTER TABLE users ADD COLUMN IF NOT EXISTS kw_coin     INT DEFAULT 0 NOT NULL;
+      ALTER TABLE users ADD COLUMN IF NOT EXISTS kw_playtime INT DEFAULT 0 NOT NULL;
+      ALTER TABLE users ADD COLUMN IF NOT EXISTS kw_last_synced TIMESTAMP WITH TIME ZONE;
+
+      -- KiwEssentials Scoreboard for all players (incl. unlinked)
+      CREATE TABLE IF NOT EXISTS player_scores (
+        username    VARCHAR(64) PRIMARY KEY,
+        kills       INT DEFAULT 0 NOT NULL,
+        deaths      INT DEFAULT 0 NOT NULL,
+        money       BIGINT DEFAULT 0 NOT NULL,
+        coin        INT DEFAULT 0 NOT NULL,
+        playtime    INT DEFAULT 0 NOT NULL,
+        online      INT DEFAULT 0 NOT NULL,
+        last_synced TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL
+      );
+      CREATE INDEX IF NOT EXISTS idx_player_scores_kills ON player_scores(kills DESC);
+      CREATE INDEX IF NOT EXISTS idx_player_scores_money ON player_scores(money DESC);
     `);
 
     // Initialize default Webhook if present in env
@@ -567,13 +591,10 @@ export async function recordKnownPlayer(username: string) {
 
 export async function getKnownPlayers(retentionDays = 14): Promise<KnownPlayer[]> {
   try {
-    // 1. Purge records older than retentionDays (14 days)
     await pool.query(`
       DELETE FROM known_players
       WHERE last_seen < NOW() - ($1 || ' days')::INTERVAL;
     `, [retentionDays]);
-
-    // 2. Fetch active directory
     return await db
       .select()
       .from(knownPlayers)
@@ -581,5 +602,133 @@ export async function getKnownPlayers(retentionDays = 14): Promise<KnownPlayer[]
   } catch (err: any) {
     console.error('Failed to fetch known players:', err.message);
     return [];
+  }
+}
+
+// ========================================================
+// KIWESSENTIALS SCOREBOARD FUNCTIONS
+// ========================================================
+
+export interface PlayerStatPayload {
+  username: string;
+  kills:    number;
+  deaths:   number;
+  money:    number;
+  coin:     number;
+  playtime: number;
+  online?:  boolean;
+}
+
+/**
+ * Upsert KiwEssentials stats for a batch of players.
+ * Updates player_scores for all players, and kw_* on users if linked.
+ */
+export async function upsertPlayerScores(players: PlayerStatPayload[]): Promise<void> {
+  if (!players || players.length === 0) return;
+  try {
+    for (const p of players) {
+      // 1. Upsert into player_scores (works for ALL players)
+      await db
+        .insert(playerScores)
+        .values({
+          username:    p.username,
+          kills:       p.kills,
+          deaths:      p.deaths,
+          money:       p.money,
+          coin:        p.coin,
+          playtime:    p.playtime,
+          online:      p.online ? 1 : 0,
+          last_synced: new Date(),
+        })
+        .onConflictDoUpdate({
+          target: playerScores.username,
+          set: {
+            kills:       p.kills,
+            deaths:      p.deaths,
+            money:       p.money,
+            coin:        p.coin,
+            playtime:    p.playtime,
+            online:      p.online ? 1 : 0,
+            last_synced: new Date(),
+          },
+        });
+
+      // 2. Update kw_* on linked user (if minecraft_username matches)
+      await db
+        .update(users)
+        .set({
+          kw_kills:       p.kills,
+          kw_deaths:      p.deaths,
+          kw_money:       p.money,
+          kw_coin:        p.coin,
+          kw_playtime:    p.playtime,
+          kw_last_synced: new Date(),
+        })
+        .where(sql`LOWER(${users.minecraft_username}) = LOWER(${p.username})`);
+    }
+  } catch (err: any) {
+    console.error('Failed to upsert player scores:', err.message);
+  }
+}
+
+/** Sort options for the scoreboard leaderboard */
+export type ScoreboardSortKey = 'kills' | 'deaths' | 'money' | 'coin' | 'playtime';
+
+/**
+ * Get sorted leaderboard from player_scores joined with users.
+ * Returns enriched entries with Discord info for linked players.
+ */
+export async function getPlayerScoreboard(
+  sortBy: ScoreboardSortKey = 'kills',
+  limit = 100
+): Promise<Array<PlayerScore & { discord_username?: string; discord_avatar?: string; discord_id?: string }>> {
+  try {
+    const validCols: Record<ScoreboardSortKey, any> = {
+      kills:    playerScores.kills,
+      deaths:   playerScores.deaths,
+      money:    playerScores.money,
+      coin:     playerScores.coin,
+      playtime: playerScores.playtime,
+    };
+    const orderCol = validCols[sortBy] ?? playerScores.kills;
+
+    const rows = await db
+      .select({
+        username:         playerScores.username,
+        kills:            playerScores.kills,
+        deaths:           playerScores.deaths,
+        money:            playerScores.money,
+        coin:             playerScores.coin,
+        playtime:         playerScores.playtime,
+        online:           playerScores.online,
+        last_synced:      playerScores.last_synced,
+        discord_username: users.discord_username,
+        discord_avatar:   users.discord_avatar,
+        discord_id:       users.discord_id,
+      })
+      .from(playerScores)
+      .leftJoin(users, sql`LOWER(${users.minecraft_username}) = LOWER(${playerScores.username})`)
+      .orderBy(desc(orderCol))
+      .limit(limit);
+
+    return rows as any;
+  } catch (err: any) {
+    console.error('Failed to get player scoreboard:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Get KiwEssentials stats for a single player by IGN
+ */
+export async function getSinglePlayerScore(username: string): Promise<PlayerScore | null> {
+  try {
+    const [row] = await db
+      .select()
+      .from(playerScores)
+      .where(sql`LOWER(${playerScores.username}) = LOWER(${username})`);
+    return row ?? null;
+  } catch {
+    return null;
   }
 }

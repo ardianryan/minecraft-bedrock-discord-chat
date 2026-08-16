@@ -37,7 +37,12 @@ import {
   getKnownPlayers,
   getSetting, 
   setSetting,
-  isDbConnected 
+  isDbConnected,
+  upsertPlayerScores,
+  getPlayerScoreboard,
+  getSinglePlayerScore,
+  type PlayerStatPayload,
+  type ScoreboardSortKey
 } from './db.js';
 import { authRouter } from './routes/auth.js';
 import { officeRouter } from './routes/office.js';
@@ -648,32 +653,30 @@ app.post('/api/game/chat', bedrockAuthMiddleware, async (c) => {
 // Player Join Event
 app.post('/api/game/join', bedrockAuthMiddleware, async (c) => {
   try {
-    const { username } = await c.req.json();
+    const body = await c.req.json();
+    const { username, kills = 0, deaths = 0, money = 0, coin = 0, playtime = 0 } = body;
     if (!username) return c.json({ error: 'Username required' }, 400);
 
-    // Track in 14-day directory
+    // Track in 14-day directory & upsert KiwEssentials stats
     recordKnownPlayer(username);
+    upsertPlayerScores([{ username, kills, deaths, money, coin, playtime, online: true }]);
 
     // Check if player is on the banlist
     const banInfo = await isPlayerBanned(username);
     if (banInfo.isBanned) {
-      // Disconnect banned player immediately
       pendingGameMessages.push({
         source: 'Moderation',
         sender: 'SecurityBot',
         message: `/kick "${username}" Banned: ${banInfo.reason || 'Banned by Administrator'}`,
         isCommand: true,
       });
-
       addChatMessage({
         source: 'System',
         sender: 'Security',
         message: `🚫 Banned player ${username} attempted to join and was kicked (${banInfo.reason || 'Banned'}).`,
       });
-
       return c.json({ 
-        status: 'banned', 
-        isBanned: true, 
+        status: 'banned', isBanned: true, 
         reason: banInfo.reason || 'Banned by Administrator',
         activeCount: activePlayers.size
       }, 403);
@@ -682,6 +685,8 @@ app.post('/api/game/join', bedrockAuthMiddleware, async (c) => {
     activePlayers.add(username);
     const linkedUser = await getUserByMinecraftUsername(username);
     const isLinked = !!linkedUser;
+    const kd = deaths > 0 ? (kills / deaths).toFixed(2) : kills.toString();
+    const playtimeHrs = (playtime / 3600).toFixed(1);
 
     addChatMessage({
       source: 'System',
@@ -693,26 +698,36 @@ app.post('/api/game/join', bedrockAuthMiddleware, async (c) => {
 
     const webhook = await getActiveWebhookClient();
     if (webhook) {
-      const desc = linkedUser 
-        ? `🟢 **${username}** (<@${linkedUser.discord_id}>) joined the server.` 
-        : `🟢 **${username}** *(Unlinked Discord account - Link in Web)* joined the server.`;
-      webhook.send({ content: desc }).catch(() => {});
+      const embed = new EmbedBuilder()
+        .setColor(0x22c55e)
+        .setAuthor({ 
+          name: `${username} joined the server`,
+          iconURL: `https://mc-heads.net/avatar/${encodeURIComponent(username)}/64`
+        })
+        .addFields(
+          { name: '⚔️ Kills', value: `${kills}`, inline: true },
+          { name: '💀 Deaths', value: `${deaths}`, inline: true },
+          { name: '📊 K/D', value: kd, inline: true },
+          { name: '💰 Money', value: `$${money.toLocaleString()}`, inline: true },
+          { name: '🪙 Coin', value: `${coin.toLocaleString()}`, inline: true },
+          { name: '⏱️ Playtime', value: `${playtimeHrs}h`, inline: true },
+        )
+        .setFooter({ text: isLinked ? `Linked: @${linkedUser!.discord_username}` : 'Account not linked to Discord' })
+        .setTimestamp();
+      webhook.send({ embeds: [embed] }).catch(() => {});
     }
 
-    console.log(`[PLAYER JOIN] ${username} (Linked: ${isLinked})`);
+    console.log(`[PLAYER JOIN] ${username} K:${kills} D:${deaths} $${money} (Linked: ${isLinked})`);
     return c.json({ 
-      status: 'success', 
-      activeCount: activePlayers.size,
+      status: 'success', activeCount: activePlayers.size,
       isLinked,
-      discordUser: linkedUser ? {
-        username: linkedUser.discord_username,
-        id: linkedUser.discord_id,
-      } : null,
+      discordUser: linkedUser ? { username: linkedUser.discord_username, id: linkedUser.discord_id } : null,
     });
   } catch (err) {
     return c.json({ error: 'Failed to process join event' }, 500);
   }
 });
+
 
 // Player Leave Event
 app.post('/api/game/leave', bedrockAuthMiddleware, async (c) => {
@@ -781,6 +796,21 @@ app.get('/api/game/pending', bedrockAuthMiddleware, (c) => {
   return c.json(messages);
 });
 
+// KiwEssentials Scoreboard Sync (from Bedrock BP every 3 minutes)
+app.post('/api/game/scoreboard', bedrockAuthMiddleware, async (c) => {
+  try {
+    const body = await c.req.json();
+    const players: PlayerStatPayload[] = Array.isArray(body.players) ? body.players : [];
+    if (players.length === 0) return c.json({ error: 'No players provided' }, 400);
+
+    await upsertPlayerScores(players);
+    console.log(`[SCOREBOARD] Synced stats for ${players.length} players`);
+    return c.json({ status: 'ok', synced: players.length });
+  } catch (err) {
+    return c.json({ error: 'Failed to sync scoreboard' }, 500);
+  }
+});
+
 // ==========================================
 // FRONTEND WEBSITE DASHBOARD ENDPOINTS
 // ==========================================
@@ -792,6 +822,24 @@ app.get('/api/web/players', (c) => {
     players: Array.from(activePlayers),
   });
 });
+
+// KiwEssentials Scoreboard Leaderboard
+// ?sort=kills|deaths|money|coin|playtime  (default: kills)
+// ?limit=N (default: 100)
+app.get('/api/web/scoreboard', async (c) => {
+  try {
+    const sortParam = (c.req.query('sort') || 'kills') as ScoreboardSortKey;
+    const limitParam = Math.min(parseInt(c.req.query('limit') || '100', 10), 200);
+    const validSorts: ScoreboardSortKey[] = ['kills', 'deaths', 'money', 'coin', 'playtime'];
+    const sortBy = validSorts.includes(sortParam) ? sortParam : 'kills';
+
+    const rows = await getPlayerScoreboard(sortBy, limitParam);
+    return c.json({ scoreboard: rows, sortBy, total: rows.length });
+  } catch (err) {
+    return c.json({ error: 'Failed to get scoreboard' }, 500);
+  }
+});
+
 
 // Get Live Chat Feed History (Persistent 50-Message Retention)
 app.get('/api/web/messages', async (c) => {

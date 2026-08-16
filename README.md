@@ -13,10 +13,12 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15+-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Discord.js](https://img.shields.io/badge/Discord.js-v14-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.js.org/)
 [![Minecraft Bedrock](https://img.shields.io/badge/Bedrock%20Engine-1.20%20--%201.26+-2C7A32?style=for-the-badge&logo=minecraft&logoColor=white)](https://minecraft.net/)
+[![KiwEssentials](https://img.shields.io/badge/KiwEssentials-33.x%20Compatible-10B981?style=for-the-badge&logo=minecraft&logoColor=white)](https://kiwstudio.com/)
 
 <p align="center">
   <a href="#-overview">Overview</a> •
   <a href="#-key-features">Key Features</a> •
+  <a href="#-kiwessentials-integration">KiwEssentials</a> •
   <a href="#-quick-docker-deployment-1-command">Docker Deployment</a> •
   <a href="#-complete-installation-guide">Manual Installation</a> •
   <a href="#-behavior-pack-setup--usage">Behavior Pack</a> •
@@ -27,6 +29,56 @@
 </p>
 
 </div>
+
+---
+
+## 🟢 KiwEssentials Integration
+
+> [!IMPORTANT]
+> **MGC Bedrock Bridge is fully compatible with [KiwEssentials](https://kiwstudio.com/)** — the most popular all-in-one server management addon for Minecraft Bedrock. Both addons coexist seamlessly at the same time.
+
+### What's Integrated
+
+| Feature | Description |
+|---|---|
+| **Chat Compatibility** | MGC Bridge captures chat messages **before** KiwEssentials cancels them, using `beforeEvents.chatSend` + `system.run()` defer. No chat interference. |
+| **Kill / Death Tracking** | Reads KiwEssentials `kill` and `death` scoreboard objectives every 3 minutes and syncs to the Web Dashboard. |
+| **Money & Coin** | Reads `money` and `coin` objectives — displayed in the Leaderboard. |
+| **Playtime** | Reads `playtime` objective and displays it as hours/minutes on the scoreboard. |
+| **Discord Join Embeds** | When a player joins, Discord receives a rich embed with their **K/D, Money, Coins, and Playtime** from KiwEssentials. |
+| **Web Scoreboard** | Multi-tab leaderboard on the Web Dashboard: ⚔️ Kills · 💀 Deaths · 💰 Money · 🪙 Coins · ⏱️ Playtime |
+
+### Scoreboard Sync Flow
+
+```
+Minecraft Bedrock (KiwEssentials scoreboard)
+           │
+           │ [every 3 min via HTTP POST /api/game/scoreboard]
+           ▼
+     Hono.js Backend ──→ PostgreSQL (player_scores table)
+           │
+           ├──→ Discord Webhook (enriched embeds on join)
+           └──→ Web Dashboard (real-time leaderboard tabs)
+```
+
+### Required KiwEssentials Version
+
+- **Minimum:** KiwEssentials **33.x** or later
+- Download: [kiwstudio.com](https://kiwstudio.com/)
+
+### Pack Load Order
+
+In your Bedrock server's `world_behavior_packs.json`, ensure **KiwEssentials** loads **before** MGC Bridge:
+
+```json
+[
+  { "pack_id": "7a211304-6b66-4679-8e00-c4ca1529235a", "version": [33, 1, 6] },
+  { "pack_id": "a5d8b724-4f51-4c31-89a3-5c218683f120", "version": [1, 4, 0] }
+]
+```
+
+> [!NOTE]
+> If KiwEssentials is not installed, MGC Bridge works fully independently — scoreboard features will simply show empty until data is present.
 
 ---
 

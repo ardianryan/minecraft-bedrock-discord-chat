@@ -1,4 +1,4 @@
-import { pgTable, serial, varchar, text, integer, timestamp, jsonb, index } from 'drizzle-orm/pg-core';
+import { pgTable, serial, varchar, text, integer, bigint, timestamp, jsonb, index } from 'drizzle-orm/pg-core';
 import { type InferSelectModel, type InferInsertModel } from 'drizzle-orm';
 
 /**
@@ -15,6 +15,13 @@ export const users = pgTable('users', {
   last_active: timestamp('last_active', { withTimezone: true }).defaultNow().notNull(),
   created_at: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
   updated_at: timestamp('updated_at', { withTimezone: true }).defaultNow().notNull(),
+  // KiwEssentials Scoreboard Stats (synced every 3 min from Bedrock BP)
+  kw_kills:       integer('kw_kills').default(0).notNull(),
+  kw_deaths:      integer('kw_deaths').default(0).notNull(),
+  kw_money:       bigint('kw_money', { mode: 'number' }).default(0).notNull(),
+  kw_coin:        integer('kw_coin').default(0).notNull(),
+  kw_playtime:    integer('kw_playtime').default(0).notNull(),
+  kw_last_synced: timestamp('kw_last_synced', { withTimezone: true }),
 }, (table) => [
   index('idx_users_minecraft_username').on(table.minecraft_username),
   index('idx_users_discord_id').on(table.discord_id),
@@ -73,6 +80,24 @@ export const knownPlayers = pgTable('known_players', {
   last_seen: timestamp('last_seen', { withTimezone: true }).defaultNow().notNull(),
 });
 
+/**
+ * 7. Player Scores Table (KiwEssentials stats for ALL players incl. unlinked)
+ *    Synced from Bedrock Behavior Pack every 3 minutes
+ */
+export const playerScores = pgTable('player_scores', {
+  username:    varchar('username', { length: 64 }).primaryKey(),
+  kills:       integer('kills').default(0).notNull(),
+  deaths:      integer('deaths').default(0).notNull(),
+  money:       bigint('money', { mode: 'number' }).default(0).notNull(),
+  coin:        integer('coin').default(0).notNull(),
+  playtime:    integer('playtime').default(0).notNull(),
+  online:      integer('online').default(0).notNull(),   // 1 = currently online
+  last_synced: timestamp('last_synced', { withTimezone: true }).defaultNow().notNull(),
+}, (table) => [
+  index('idx_player_scores_kills').on(table.kills),
+  index('idx_player_scores_money').on(table.money),
+]);
+
 // Infer TypeScript Models
 export type User = InferSelectModel<typeof users>;
 export type NewUser = InferInsertModel<typeof users>;
@@ -91,3 +116,6 @@ export type NewChatLog = InferInsertModel<typeof chatLogs>;
 
 export type KnownPlayer = InferSelectModel<typeof knownPlayers>;
 export type NewKnownPlayer = InferInsertModel<typeof knownPlayers>;
+
+export type PlayerScore = InferSelectModel<typeof playerScores>;
+export type NewPlayerScore = InferInsertModel<typeof playerScores>;
