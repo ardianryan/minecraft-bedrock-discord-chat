@@ -1,7 +1,8 @@
 # =========================================================================
 # Stage 1: Build Frontend (Vite) & Backend (TypeScript)
+# Use --platform=$BUILDPLATFORM for native compilation speed & zero QEMU crashes
 # =========================================================================
-FROM node:20-alpine AS builder
+FROM --platform=$BUILDPLATFORM node:20-alpine AS builder
 
 WORKDIR /app
 
