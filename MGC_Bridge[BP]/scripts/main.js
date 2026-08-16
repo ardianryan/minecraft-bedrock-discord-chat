@@ -31,105 +31,123 @@ async function sendRequest(endpoint, method, payload = null) {
 
 // ========================================================
 // 1. EVENT: In-Game Chat -> Forward to Hono Backend
+// Supports both afterEvents.chatSend and beforeEvents.chatSend
 // ========================================================
-world.afterEvents.chatSend.subscribe(async (event) => {
-  const senderName = event.sender.name;
-  const messageText = event.message;
+const chatHandler = async (event) => {
+  try {
+    const senderName = event.sender?.name || "Player";
+    const messageText = event.message || "";
 
-  const res = await sendRequest("/chat", HttpRequestMethod.Post, {
-    sender: senderName,
-    message: messageText
-  });
+    const res = await sendRequest("/chat", HttpRequestMethod.Post, {
+      sender: senderName,
+      message: messageText
+    });
 
-  // If player account is not linked, send a gentle reminder whisper
-  if (res && res.status === 200) {
-    try {
-      const data = JSON.parse(res.body);
-      if (data.isLinked === false) {
-        system.run(() => {
-          try {
-            event.sender.sendMessage(
-              `§e[Info] §fYour account is not linked to Discord. Visit Web Dashboard to link your IGN!`
-            );
-          } catch {}
-        });
-      }
-    } catch {}
-  }
-});
+    if (res && res.status === 200) {
+      try {
+        const data = JSON.parse(res.body);
+        if (data.isLinked === false) {
+          system.run(() => {
+            try {
+              event.sender?.sendMessage(
+                `§e[Info] §fYour account is not linked to Discord. Visit Web Dashboard to link your IGN!`
+              );
+            } catch {}
+          });
+        }
+      } catch {}
+    }
+  } catch (err) {}
+};
+
+if (world.afterEvents?.chatSend?.subscribe) {
+  world.afterEvents.chatSend.subscribe(chatHandler);
+} else if (world.beforeEvents?.chatSend?.subscribe) {
+  world.beforeEvents.chatSend.subscribe(chatHandler);
+}
 
 // ========================================================
 // 2. EVENT: Player Spawn / Join & Account Status Check
 // ========================================================
-world.afterEvents.playerSpawn.subscribe(async (event) => {
-  if (event.initialSpawn) {
-    const player = event.player;
-    const username = player.name;
+if (world.afterEvents?.playerSpawn?.subscribe) {
+  world.afterEvents.playerSpawn.subscribe(async (event) => {
+    try {
+      if (event.initialSpawn) {
+        const player = event.player;
+        const username = player.name;
 
-    const res = await sendRequest("/join", HttpRequestMethod.Post, {
-      username: username
-    });
-
-    if (res) {
-      if (res.status === 403) {
-        // Player is banned
-        system.run(async () => {
-          try {
-            const overworld = world.getDimension("overworld");
-            await overworld.runCommandAsync(`kick "${username}" You are banned from this server.`);
-          } catch {}
+        const res = await sendRequest("/join", HttpRequestMethod.Post, {
+          username: username
         });
-        return;
-      }
 
-      if (res.status === 200) {
-        try {
-          const data = JSON.parse(res.body);
-          system.run(() => {
-            if (data.isLinked && data.discordUser) {
-              player.sendMessage(
-                `§a[Discord Bridge] §fWelcome, §b${username}§f! Linked with Discord §e@${data.discordUser.username}§f.`
-              );
-            } else {
-              player.sendMessage(
-                `§6[Server Info] §fHello §e${username}§f! Your account is not linked to Discord. Link at: §bhttp://localhost:3000`
-              );
-            }
-          });
-        } catch {}
+        if (res) {
+          if (res.status === 403) {
+            // Player is banned
+            system.run(async () => {
+              try {
+                const overworld = world.getDimension("overworld");
+                await overworld.runCommandAsync(`kick "${username}" You are banned from this server.`);
+              } catch {}
+            });
+            return;
+          }
+
+          if (res.status === 200) {
+            try {
+              const data = JSON.parse(res.body);
+              system.run(() => {
+                if (data.isLinked && data.discordUser) {
+                  player.sendMessage(
+                    `§a[Discord Bridge] §fWelcome, §b${username}§f! Linked with Discord §e@${data.discordUser.username}§f.`
+                  );
+                } else {
+                  player.sendMessage(
+                    `§6[Server Info] §fHello §e${username}§f! Your account is not linked to Discord. Link at: §bhttp://localhost:3000`
+                  );
+                }
+              });
+            } catch {}
+          }
+        }
       }
-    }
-  }
-});
+    } catch (e) {}
+  });
+}
 
 // ========================================================
 // 3. EVENT: Player Leave
 // ========================================================
-world.afterEvents.playerLeave.subscribe((event) => {
-  sendRequest("/leave", HttpRequestMethod.Post, {
-    username: event.playerName
+if (world.afterEvents?.playerLeave?.subscribe) {
+  world.afterEvents.playerLeave.subscribe((event) => {
+    try {
+      sendRequest("/leave", HttpRequestMethod.Post, {
+        username: event.playerName
+      });
+    } catch (e) {}
   });
-});
+}
 
 // ========================================================
 // 3.1. EVENT: Player Death (In-Game Death Notification)
 // ========================================================
-world.afterEvents.entityDie.subscribe((event) => {
-  try {
-    const deadEntity = event.deadEntity;
-    if (deadEntity && deadEntity.typeId === "minecraft:player") {
-      const playerName = deadEntity.name || "Player";
-      const killer = event.damageSource?.damagingEntity?.name || event.damageSource?.damagingEntity?.typeId?.replace("minecraft:", "") || null;
-      const cause = event.damageSource?.cause || "died";
+if (world.afterEvents?.entityDie?.subscribe) {
+  world.afterEvents.entityDie.subscribe((event) => {
+    try {
+      const deadEntity = event.deadEntity;
+      if (deadEntity && deadEntity.typeId === "minecraft:player") {
+        const playerName = deadEntity.name || "Player";
+        const killer = event.damageSource?.damagingEntity?.name || event.damageSource?.damagingEntity?.typeId?.replace("minecraft:", "") || null;
+        const cause = event.damageSource?.cause || "died";
 
-      sendRequest("/death", HttpRequestMethod.Post, {
-        player: playerName,
-        killer: killer,
-        cause: cause
-      });
-    }
-  } catch (err) {}
-});
+        sendRequest("/death", HttpRequestMethod.Post, {
+          player: playerName,
+          killer: killer,
+          cause: cause
+        });
+      }
+    } catch (err) {}
+  });
+}
 
 // ========================================================
 // 4. INTERVAL: Poll Pending Messages & Execute Commands
