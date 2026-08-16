@@ -31,51 +31,87 @@ async function sendRequest(endpoint, method, payload = null) {
 
 // ========================================================
 // 1. EVENT: In-Game Chat -> Forward to Hono Backend
-// Subscribe to BOTH before & after events to ensure capture
-// even when other addons intercept/cancel the chat event.
+//
+// COMPATIBILITY NOTE — KiwEssentials Integration:
+//   KiwEssentials (board/chat.js & chatGames.js) always sets
+//   data.cancel = true in beforeEvents.chatSend, which means
+//   afterEvents.chatSend NEVER fires when KiwEssentials is active.
+//
+//   Fix: Subscribe to beforeEvents.chatSend, capture sender &
+//   message immediately (sync), then defer the HTTP call via
+//   system.run() to avoid before-event async restrictions.
+//   A dedup guard prevents double-send in case both events fire.
 // ========================================================
 let lastChatKey = "";
+let lastChatTs = 0;
+const CHAT_DEDUP_MS = 2000;
 
-const chatHandler = async (event) => {
-  try {
-    const senderName = event.sender?.name || "Player";
-    const messageText = event.message || "";
-
-    // Deduplicate: skip if same sender+message within 2 seconds
-    const chatKey = `${senderName}:${messageText}`;
-    if (chatKey === lastChatKey) return;
-    lastChatKey = chatKey;
-    system.runTimeout(() => { lastChatKey = ""; }, 40); // reset after 2 ticks (~2s)
-
-    const res = await sendRequest("/chat", HttpRequestMethod.Post, {
-      sender: senderName,
-      message: messageText
-    });
-
-    if (res && res.status === 200) {
-      try {
-        const data = JSON.parse(res.body);
-        if (data.isLinked === false) {
-          system.run(() => {
-            try {
-              event.sender?.sendMessage(
-                `§e[Info] §fYour account is not linked to Discord. Visit Web Dashboard to link your IGN!`
-              );
-            } catch {}
-          });
-        }
-      } catch {}
-    }
-  } catch (err) {}
-};
-
-// Subscribe to beforeEvents first (fires before addon interception)
+// Subscribe to beforeEvents.chatSend — fires before KiwEssentials cancels it
 if (world.beforeEvents?.chatSend?.subscribe) {
-  world.beforeEvents.chatSend.subscribe(chatHandler);
+  world.beforeEvents.chatSend.subscribe((event) => {
+    try {
+      // Capture data synchronously (before-event context — no async allowed)
+      const senderName = event.sender?.name || "Player";
+      const messageText = event.message || "";
+
+      // Skip empty messages or KiwEssentials rank commands (+cmd)
+      if (!messageText || messageText.startsWith("+")) return;
+
+      // Deduplication: same sender+message within 2 seconds = skip
+      const chatKey = `${senderName}:${messageText}`;
+      const now = Date.now();
+      if (chatKey === lastChatKey && now - lastChatTs < CHAT_DEDUP_MS) return;
+      lastChatKey = chatKey;
+      lastChatTs = now;
+
+      // Defer HTTP call to next tick (required: before-events are synchronous)
+      const senderRef = event.sender;
+      system.run(async () => {
+        try {
+          const res = await sendRequest("/chat", HttpRequestMethod.Post, {
+            sender: senderName,
+            message: messageText
+          });
+
+          if (res && res.status === 200) {
+            try {
+              const data = JSON.parse(res.body);
+              if (data.isLinked === false && senderRef) {
+                try {
+                  senderRef.sendMessage(
+                    `§e[Bridge Info] §fAkun kamu belum terhubung ke Discord. Kunjungi Web Dashboard untuk link IGN!`
+                  );
+                } catch {}
+              }
+            } catch {}
+          }
+        } catch {}
+      });
+    } catch {}
+  });
 }
-// Also subscribe to afterEvents as backup (deduplication prevents double-send)
+
+// Fallback: afterEvents.chatSend (fires only if no addon sets cancel=true)
+// Dedup guard above ensures no double-send when beforeEvents already handled it.
 if (world.afterEvents?.chatSend?.subscribe) {
-  world.afterEvents.chatSend.subscribe(chatHandler);
+  world.afterEvents.chatSend.subscribe(async (event) => {
+    try {
+      const senderName = event.sender?.name || "Player";
+      const messageText = event.message || "";
+      if (!messageText || messageText.startsWith("+")) return;
+
+      const chatKey = `${senderName}:${messageText}`;
+      const now = Date.now();
+      if (chatKey === lastChatKey && now - lastChatTs < CHAT_DEDUP_MS) return;
+      lastChatKey = chatKey;
+      lastChatTs = now;
+
+      await sendRequest("/chat", HttpRequestMethod.Post, {
+        sender: senderName,
+        message: messageText
+      });
+    } catch {}
+  });
 }
 
 // ========================================================
