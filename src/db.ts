@@ -32,10 +32,43 @@ export const db = drizzle(pool, { schema });
 export let isDbConnected = false;
 
 /**
+ * Automatically create target database if it does not exist on the PostgreSQL server
+ */
+async function ensureDatabaseExists() {
+  try {
+    const parsed = new URL(DATABASE_URL);
+    const targetDb = parsed.pathname.replace(/^\//, '') || 'discordmchat';
+    if (targetDb === 'postgres') return;
+
+    const adminUrl = new URL(DATABASE_URL);
+    adminUrl.pathname = '/postgres';
+
+    const adminPool = new Pool({ connectionString: adminUrl.toString(), connectionTimeoutMillis: 5000 });
+    try {
+      const client = await adminPool.connect();
+      const checkRes = await client.query('SELECT 1 FROM pg_database WHERE datname = $1', [targetDb]);
+      if (checkRes.rowCount === 0) {
+        console.log(`🔨 Database "${targetDb}" not found. Creating database automatically...`);
+        await client.query(`CREATE DATABASE "${targetDb}"`);
+        console.log(`✅ Database "${targetDb}" created successfully!`);
+      }
+      client.release();
+    } catch (e: any) {
+      console.log('ℹ️ Database pre-check:', e.message);
+    } finally {
+      await adminPool.end().catch(() => {});
+    }
+  } catch (err: any) {
+    // Ignore URL parse errors
+  }
+}
+
+/**
  * Initialize Database Tables, Automatic Drizzle Migrations & Connections
  */
 export async function initDb() {
   try {
+    await ensureDatabaseExists();
     const client = await pool.connect();
     console.log('🐘 Connected to PostgreSQL database with Drizzle ORM (discordmchat).');
     isDbConnected = true;
