@@ -1,6 +1,14 @@
 import { world, system } from "@minecraft/server";
 import { http, HttpRequest, HttpRequestMethod, HttpHeader } from "@minecraft/server-net";
 
+// ── Startup Diagnostic (visible in BDS console logs)
+system.run(() => {
+  console.warn("[MGC-BRIDGE] v1.6.0 loaded — checking event availability:");
+  console.warn("[MGC-BRIDGE]  beforeEvents.chatSend:", !!world.beforeEvents?.chatSend);
+  console.warn("[MGC-BRIDGE]  afterEvents.chatSend :", !!world.afterEvents?.chatSend);
+  console.warn("[MGC-BRIDGE]  afterEvents.playerSpawn:", !!world.afterEvents?.playerSpawn);
+});
+
 /**
  * Hono Backend Configuration
  */
