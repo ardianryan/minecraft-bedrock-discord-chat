@@ -116,6 +116,7 @@ export async function initDb() {
         value TEXT NOT NULL,
         updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL
       );
+      ALTER TABLE system_settings ADD COLUMN IF NOT EXISTS updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW();
 
       CREATE TABLE IF NOT EXISTS banned_players (
         id SERIAL PRIMARY KEY,

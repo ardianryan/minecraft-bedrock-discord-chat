@@ -27,7 +27,10 @@ import {
   BookOpen,
   ExternalLink,
   Info,
-  CheckCircle2
+  CheckCircle2,
+  Globe,
+  Compass,
+  FileText
 } from 'lucide-react';
 import { AuthUser } from './Navbar.tsx';
 import { Sheet } from './Sheet.tsx';
@@ -42,6 +45,13 @@ interface SystemSettings {
   server_name: string;
   server_ip: string;
   server_port: string;
+  allow_indexing?: string;
+  seo_title?: string;
+  seo_description?: string;
+  seo_keywords?: string;
+  seo_geo_region?: string;
+  seo_geo_placename?: string;
+  seo_geo_position?: string;
 }
 
 interface BannedPlayer {
@@ -1209,6 +1219,223 @@ const API_KEY = "${settings.api_key || 'SECRET_BEARER_TOKEN'}";`}
                   </a>
                 </div>
               )}
+            </div>
+
+            {/* ========================================================
+                SEO, GEO, AEO, LLMS.TXT & SEARCH ENGINE INDEXING CARD
+                ======================================================== */}
+            <div className="form-field-card" style={{ borderColor: 'rgba(56, 189, 248, 0.35)', background: 'rgba(56, 189, 248, 0.03)' }}>
+              <label className="field-label-group">
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', flexWrap: 'wrap', gap: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Globe size={18} color="#38bdf8" />
+                    <span className="field-title" style={{ color: '#38bdf8' }}>SEO, GEO, AEO & AI Bot Indexing (llms.txt / Robots)</span>
+                    <Tooltip content="Master controls for Search Engine Optimization (SEO), Answer Engine Optimization (AEO for ChatGPT, Perplexity, Claude), Geolocation targeting, and llms.txt standard." />
+                  </div>
+                  {settings.allow_indexing === 'true' || settings.allow_indexing === undefined ? (
+                    <span className="badge-role-admin" style={{ background: 'rgba(34, 197, 94, 0.2)', color: '#34d399', borderColor: 'rgba(34, 197, 94, 0.4)' }}>
+                      <Check size={12} />
+                      <span>Indexing Enabled (Public)</span>
+                    </span>
+                  ) : (
+                    <span className="badge-role-admin" style={{ background: 'rgba(244, 63, 94, 0.2)', color: '#fda4af', borderColor: 'rgba(244, 63, 94, 0.4)' }}>
+                      <ShieldBan size={12} />
+                      <span>Indexing Blocked (Noindex)</span>
+                    </span>
+                  )}
+                </div>
+                <span className="field-subtitle">
+                  Configure search engine visibility, AI answer engine context (Perplexity/ChatGPT), geo-targeting, and robots policies.
+                </span>
+              </label>
+
+              {/* Master Indexing Toggle */}
+              <div style={{ padding: '14px 16px', background: 'rgba(15, 23, 42, 0.65)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.08)', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: '0.88rem', color: '#f8fafc', marginBottom: '2px' }}>
+                    Allow Public Search Engine & AI Crawler Indexing
+                  </div>
+                  <div style={{ fontSize: '0.74rem', color: 'var(--text-muted)' }}>
+                    {(settings.allow_indexing === 'true' || settings.allow_indexing === undefined)
+                      ? 'Enabled: Search engines (Google, Bing) and AI crawlers (ChatGPT, Claude, Perplexity) are allowed to index this site.'
+                      : 'Disabled: HTTP Header X-Robots-Tag: noindex is active and all bots/scrapers are disallowed in robots.txt.'}
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <button
+                    type="button"
+                    onClick={() => setSettings({ ...settings, allow_indexing: 'true' })}
+                    style={{
+                      padding: '7px 14px',
+                      borderRadius: '8px',
+                      fontSize: '0.8rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      border: '1px solid',
+                      background: (settings.allow_indexing === 'true' || settings.allow_indexing === undefined) ? 'rgba(34, 197, 94, 0.25)' : 'rgba(255,255,255,0.05)',
+                      borderColor: (settings.allow_indexing === 'true' || settings.allow_indexing === undefined) ? '#22c55e' : 'rgba(255,255,255,0.1)',
+                      color: (settings.allow_indexing === 'true' || settings.allow_indexing === undefined) ? '#4ade80' : '#94a3b8',
+                    }}
+                  >
+                    Enable Indexing
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSettings({ ...settings, allow_indexing: 'false' })}
+                    style={{
+                      padding: '7px 14px',
+                      borderRadius: '8px',
+                      fontSize: '0.8rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      border: '1px solid',
+                      background: settings.allow_indexing === 'false' ? 'rgba(244, 63, 94, 0.25)' : 'rgba(255,255,255,0.05)',
+                      borderColor: settings.allow_indexing === 'false' ? '#f43f5e' : 'rgba(255,255,255,0.1)',
+                      color: settings.allow_indexing === 'false' ? '#fda4af' : '#94a3b8',
+                    }}
+                  >
+                    Block All Bots (Noindex)
+                  </button>
+                </div>
+              </div>
+
+              {/* SEO Meta Title & Description */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '14px' }}>
+                <div>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '4px', display: 'block', fontWeight: 600 }}>
+                    Page Meta Title (SEO & Social Embeds)
+                  </span>
+                  <input 
+                    type="text"
+                    className="settings-text-field"
+                    placeholder="e.g. MagicalCraft • Minecraft Bedrock Community Portal"
+                    value={settings.seo_title || ''}
+                    onChange={(e) => setSettings({ ...settings, seo_title: e.target.value })}
+                  />
+                </div>
+
+                <div>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '4px', display: 'block', fontWeight: 600 }}>
+                    Meta Description (Search Snippet & AI Summary)
+                  </span>
+                  <textarea 
+                    className="settings-text-field"
+                    rows={2}
+                    placeholder="e.g. Official Minecraft Bedrock server live portal. Real-time chat sync with Discord, active player leaderboard, and 1-click connect."
+                    value={settings.seo_description || ''}
+                    onChange={(e) => setSettings({ ...settings, seo_description: e.target.value })}
+                    style={{ resize: 'vertical' }}
+                  />
+                </div>
+
+                <div>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '4px', display: 'block', fontWeight: 600 }}>
+                    Meta Keywords (Comma-separated)
+                  </span>
+                  <input 
+                    type="text"
+                    className="settings-text-field"
+                    placeholder="e.g. minecraft bedrock, mcpe, server minecraft indonesia, magicalcraft, discord bridge"
+                    value={settings.seo_keywords || ''}
+                    onChange={(e) => setSettings({ ...settings, seo_keywords: e.target.value })}
+                  />
+                </div>
+              </div>
+
+              {/* GEO / Location Targeting */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px', marginBottom: '16px' }}>
+                <div>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '4px', fontWeight: 600 }}>
+                    <Compass size={13} color="#f59e0b" />
+                    <span>GEO Region Code (ISO 3166-2)</span>
+                  </span>
+                  <input 
+                    type="text"
+                    className="settings-text-field"
+                    placeholder="e.g. ID-JK or ID"
+                    value={settings.seo_geo_region || ''}
+                    onChange={(e) => setSettings({ ...settings, seo_geo_region: e.target.value })}
+                  />
+                </div>
+                <div>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '4px', display: 'block', fontWeight: 600 }}>
+                    GEO Placename (City, Country)
+                  </span>
+                  <input 
+                    type="text"
+                    className="settings-text-field"
+                    placeholder="e.g. Jakarta, Indonesia"
+                    value={settings.seo_geo_placename || ''}
+                    onChange={(e) => setSettings({ ...settings, seo_geo_placename: e.target.value })}
+                  />
+                </div>
+                <div>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '4px', display: 'block', fontWeight: 600 }}>
+                    Coordinates (Lat;Long)
+                  </span>
+                  <input 
+                    type="text"
+                    className="settings-text-field"
+                    placeholder="e.g. -6.2088;106.8456"
+                    value={settings.seo_geo_position || ''}
+                    onChange={(e) => setSettings({ ...settings, seo_geo_position: e.target.value })}
+                  />
+                </div>
+              </div>
+
+              {/* Dynamic Live Endpoints Inspection Bar */}
+              <div style={{ padding: '12px 14px', background: 'rgba(15, 23, 42, 0.8)', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                <span style={{ fontSize: '0.75rem', color: '#cbd5e1', fontWeight: 700, display: 'block', marginBottom: '8px' }}>
+                  Live Dynamic Endpoints (Click to inspect output):
+                </span>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                  <a 
+                    href="/robots.txt" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="btn-action-test"
+                    style={{ fontSize: '0.75rem', textDecoration: 'none', padding: '5px 10px' }}
+                  >
+                    <FileText size={13} />
+                    <span>/robots.txt</span>
+                    <ExternalLink size={11} />
+                  </a>
+                  <a 
+                    href="/sitemap.xml" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="btn-action-test"
+                    style={{ fontSize: '0.75rem', textDecoration: 'none', padding: '5px 10px' }}
+                  >
+                    <FileCode size={13} />
+                    <span>/sitemap.xml</span>
+                    <ExternalLink size={11} />
+                  </a>
+                  <a 
+                    href="/llms.txt" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="btn-action-test"
+                    style={{ fontSize: '0.75rem', textDecoration: 'none', padding: '5px 10px', background: 'rgba(99, 102, 241, 0.15)', borderColor: 'rgba(99, 102, 241, 0.35)', color: '#c7d2fe' }}
+                  >
+                    <Sparkles size={13} color="#818cf8" />
+                    <span>/llms.txt (AI Overview)</span>
+                    <ExternalLink size={11} />
+                  </a>
+                  <a 
+                    href="/llms-full.txt" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="btn-action-test"
+                    style={{ fontSize: '0.75rem', textDecoration: 'none', padding: '5px 10px', background: 'rgba(56, 189, 248, 0.15)', borderColor: 'rgba(56, 189, 248, 0.35)', color: '#7dd3fc' }}
+                  >
+                    <Sparkles size={13} color="#38bdf8" />
+                    <span>/llms-full.txt (Full AI Context)</span>
+                    <ExternalLink size={11} />
+                  </a>
+                </div>
+              </div>
             </div>
 
             <div className="form-submit-row">

@@ -10,10 +10,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.10.0] - 2026-08-18
 
 ### ✨ Added
+- **🌐 Dynamic SEO, GEO, AEO & LLMs Knowledge Standard (`/llms.txt` & `/llms-full.txt`)**:
+  - **llmstxt.org Standard Integration**: Added dynamic `/llms.txt` and `/llms-full.txt` providing structured, machine-readable server knowledge, connection guides, top leaderboard highlights, and Discord bot commands for AI Answer Engines (ChatGPT, Claude, Perplexity, Gemini).
+  - **Dynamic `/robots.txt` & `/sitemap.xml`**: Automatically generated search engine and AI crawler policies with standard sitemap indexing.
+  - **Dynamic SSR Meta Tag & JSON-LD Injection**: Injected real-time OpenGraph (`og:title`, `og:description`, `og:image`, `og:url`), Twitter Cards, GEO location tags (`geo.region`, `geo.placename`, `geo.position`), and `schema.org` Structured Data (`WebSite`, `VideoGame`, `GameServer`).
+  - **Admin Master Indexing Toggle (`/office`)**: Added master switch to allow public indexing or completely block all search bots and AI scrapers via HTTP `X-Robots-Tag: noindex, nofollow, noarchive, nosnippet` and `Disallow: /` in `robots.txt`.
+- **🎮 2-Column Split Desktop & Mobile-First Gaming Login Portal**:
+  - Re-architected public landing page (`LoginPage.tsx`) into a modern 2-column split layout (Left: Server Showcase & 1-Click Bedrock Connect; Right: Elevated Discord Auth Card).
+  - Mobile-first layout priority (`< 960px`) placing the sign-in card and 1-tap launcher at the top for frictionless mobile entry.
 - **🎮 1-Click Join Minecraft Server & Direct Connect Integration**:
   - Added configurable `server_ip` (Hostname/Domain) and `server_port` (default `19132`) in `/office` Admin Settings.
-  - **Web Live Chat & Landing Page**: Prominent glassmorphic **"🎮 Join Minecraft Server"** Card with 1-Click Launch button (`minecraft://?addExternalServer=...`) and 1-Click Copy IP button with instant clipboard checkmark animation.
-  - **Discord Bot Interactive Integration**: Added `🎮 Server IP & Join` button in `!panel` / `!menu` and new text commands `!ip`, `!join`, `!server`, `!connect` with rich embed detailing server address, port, and 1-click connect URL.
+  - **Web Live Chat & Landing Page**: Prominent glassmorphic **"Join Minecraft Server"** Card with 1-Click Launch button (`minecraft://?addExternalServer=...`) and 1-Click Copy IP button with instant clipboard checkmark animation.
+  - **Discord Bot Interactive Integration**: Added `Server IP & Join` button in `!panel` / `!menu` and new text commands `!ip`, `!join`, `!server`, `!connect` with rich embed detailing server address, port, and 1-click connect URL.
+- **🔒 Privacy & Role-Based UI Sanitization**:
+  - Cleaned all internal database/admin architecture mentions (`/office`, PostgreSQL, developer Script APIs) from the public login page.
+  - Restricted internal "Integration Status" telemetry in the live chat sidebar strictly to Admins (`user.role === 'admin'`). Regular community members now see a clean Player Profile card with verified Minecraft IGN.
+- **🎨 Complete Frontend Emoji-Free Icon Overhaul**:
+  - Replaced all raw unicode emojis across the web frontend (`client/src/`) with crisp, accessible SVG icons from `lucide-react`.
 - **🏆 Olympic Leaderboard Desktop & Mobile Split Refinement**:
   - Restored 3-column Olympic podium on desktop ($\ge 768\text{px}$).
   - Mobile split layout: #1 Champion on top with gold glow + #2 & #3 in a clean 2-column grid.

@@ -68,6 +68,15 @@ officeRouter.get('/settings', async (c) => {
     const serverName = await getSetting('server_name', 'Minecraft Bedrock Server');
     const serverIp = await getSetting('server_ip', process.env.SERVER_IP || '');
     const serverPort = await getSetting('server_port', process.env.SERVER_PORT || '19132');
+    
+    // SEO & Search / AI Bot Indexing
+    const allowIndexing = await getSetting('allow_indexing', 'true');
+    const seoTitle = await getSetting('seo_title', `${serverName} • Bedrock Community Portal & Live Chat`);
+    const seoDescription = await getSetting('seo_description', `Official Minecraft Bedrock server live portal for ${serverName}. Real-time chat sync with Discord, active player leaderboard, and instant 1-click connect.`);
+    const seoKeywords = await getSetting('seo_keywords', 'minecraft bedrock, minecraft server indonesia, magicalcraft, discord minecraft bridge, bedrock live chat, kiwessentials leaderboard, mcpe server');
+    const seoGeoRegion = await getSetting('seo_geo_region', 'ID-JK');
+    const seoGeoPlacename = await getSetting('seo_geo_placename', 'Jakarta, Indonesia');
+    const seoGeoPosition = await getSetting('seo_geo_position', '-6.2088;106.8456');
 
     return c.json({
       settings: {
@@ -79,6 +88,13 @@ officeRouter.get('/settings', async (c) => {
         server_name: serverName,
         server_ip: serverIp,
         server_port: serverPort,
+        allow_indexing: allowIndexing,
+        seo_title: seoTitle,
+        seo_description: seoDescription,
+        seo_keywords: seoKeywords,
+        seo_geo_region: seoGeoRegion,
+        seo_geo_placename: seoGeoPlacename,
+        seo_geo_position: seoGeoPosition,
       },
     });
   } catch (err) {
@@ -97,7 +113,14 @@ officeRouter.post('/settings', async (c) => {
       api_key, 
       server_name,
       server_ip,
-      server_port
+      server_port,
+      allow_indexing,
+      seo_title,
+      seo_description,
+      seo_keywords,
+      seo_geo_region,
+      seo_geo_placename,
+      seo_geo_position
     } = await c.req.json();
 
     if (discord_webhook_url !== undefined) {
@@ -123,6 +146,27 @@ officeRouter.post('/settings', async (c) => {
     }
     if (server_port !== undefined) {
       await setSetting('server_port', String(server_port).trim());
+    }
+    if (allow_indexing !== undefined) {
+      await setSetting('allow_indexing', String(allow_indexing) === 'true' ? 'true' : 'false');
+    }
+    if (seo_title !== undefined) {
+      await setSetting('seo_title', String(seo_title).trim());
+    }
+    if (seo_description !== undefined) {
+      await setSetting('seo_description', String(seo_description).trim());
+    }
+    if (seo_keywords !== undefined) {
+      await setSetting('seo_keywords', String(seo_keywords).trim());
+    }
+    if (seo_geo_region !== undefined) {
+      await setSetting('seo_geo_region', String(seo_geo_region).trim());
+    }
+    if (seo_geo_placename !== undefined) {
+      await setSetting('seo_geo_placename', String(seo_geo_placename).trim());
+    }
+    if (seo_geo_position !== undefined) {
+      await setSetting('seo_geo_position', String(seo_geo_position).trim());
     }
 
     // Hot-reload / re-initialize Discord Bot if token was updated

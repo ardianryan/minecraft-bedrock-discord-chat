@@ -2,6 +2,8 @@ import { serve } from '@hono/node-server';
 import { serveStatic } from '@hono/node-server/serve-static';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
+import fs from 'node:fs';
+import path from 'node:path';
 import { 
   Client, 
   GatewayIntentBits, 
@@ -1146,10 +1148,345 @@ app.post('/api/web/chat', async (c) => {
   }
 });
 
+// ==========================================
+// DYNAMIC SEO, GEO, AEO, LLMS.TXT & ROBOTS.TXT
+// ==========================================
+
+// Global X-Robots-Tag Enforcement Middleware
+app.use('*', async (c, next) => {
+  const allowIndexing = await getSetting('allow_indexing', 'true');
+  if (allowIndexing === 'false') {
+    c.header('X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet, noimageindex');
+  }
+  await next();
+});
+
+// Dynamic robots.txt
+app.get('/robots.txt', async (c) => {
+  const allowIndexing = await getSetting('allow_indexing', 'true');
+  const frontendUrl = (await getSetting('frontend_url', process.env.FRONTEND_URL || 'https://mgc.ppti.me')).trim().replace(/\/+$/, '');
+
+  c.header('Content-Type', 'text/plain; charset=utf-8');
+
+  if (allowIndexing === 'false') {
+    return c.text(`# Search Engine & AI Crawler Policy
+# Indexing is currently disabled by administrator.
+User-agent: *
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: Applebot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+`);
+  }
+
+  return c.text(`# Robots.txt for ${frontendUrl}
+# Minecraft Bedrock Community Portal & Live Chat Bridge
+
+User-agent: *
+Allow: /
+Allow: /leaderboard
+Allow: /join
+Disallow: /office
+Disallow: /api/
+Disallow: /assets/
+
+# AI Crawlers & LLM Answer Engines (AEO & LLMs Standard)
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: ClaudeBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: PerplexityBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: Google-Extended
+Allow: /
+
+# Sitemap & LLM Knowledge Endpoints
+Sitemap: ${frontendUrl}/sitemap.xml
+LLMs: ${frontendUrl}/llms.txt
+LLMs-Full: ${frontendUrl}/llms-full.txt
+`);
+});
+
+// Dynamic sitemap.xml
+app.get('/sitemap.xml', async (c) => {
+  const allowIndexing = await getSetting('allow_indexing', 'true');
+  const frontendUrl = (await getSetting('frontend_url', process.env.FRONTEND_URL || 'https://mgc.ppti.me')).trim().replace(/\/+$/, '');
+  const nowIso = new Date().toISOString();
+
+  c.header('Content-Type', 'application/xml; charset=utf-8');
+
+  if (allowIndexing === 'false') {
+    return c.text(`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+</urlset>`);
+  }
+
+  return c.text(`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>${frontendUrl}/</loc>
+    <lastmod>${nowIso}</lastmod>
+    <changefreq>always</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>${frontendUrl}/leaderboard</loc>
+    <lastmod>${nowIso}</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${frontendUrl}/join</loc>
+    <lastmod>${nowIso}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>`);
+});
+
+// Dynamic llms.txt (llmstxt.org Standard for LLMs & AI Answer Engines)
+app.get('/llms.txt', async (c) => {
+  const allowIndexing = await getSetting('allow_indexing', 'true');
+  if (allowIndexing === 'false') {
+    return c.text('# Access Denied\nAI Indexing and LLM scraping is disabled on this server by administrator.', 403);
+  }
+
+  const serverName = await getSetting('server_name', 'Minecraft Bedrock Server');
+  const serverIp = await getSetting('server_ip', process.env.SERVER_IP || '');
+  const serverPort = await getSetting('server_port', process.env.SERVER_PORT || '19132');
+  const frontendUrl = (await getSetting('frontend_url', process.env.FRONTEND_URL || 'https://mgc.ppti.me')).trim().replace(/\/+$/, '');
+  const inviteUrl = await getSetting('discord_invite_url', process.env.DISCORD_INVITE_URL || '');
+  const seoDesc = await getSetting('seo_description', `Official Minecraft Bedrock server live portal for ${serverName}.`);
+
+  c.header('Content-Type', 'text/markdown; charset=utf-8');
+
+  return c.text(`# ${serverName}
+
+> ${seoDesc}
+
+## Overview
+- **Game Edition**: Minecraft Bedrock Edition (Android, iOS, iPadOS, Windows 10/11, Consoles)
+- **Bedrock Server IP**: ${serverIp || 'mcserver.ppti.me'}
+- **Bedrock Port**: ${serverPort || '19132'}
+- **Direct Connect URI**: minecraft://?addExternalServer=${encodeURIComponent(serverName)}|${serverIp || 'mcserver.ppti.me'}:${serverPort || '19132'}
+- **Web Live Portal**: ${frontendUrl}/
+- **Server Leaderboard**: ${frontendUrl}/leaderboard
+- **Discord Community**: ${inviteUrl || 'https://discord.gg'}
+- **Active Players Online**: ${activePlayers.size}
+- **Status**: Operational / Online
+
+## Core Features
+- **2-Way Live Chat Bridge**: Real-time bidirectional chat synchronization between Minecraft Bedrock players, Discord channels, and the Web Portal.
+- **1-Click Bedrock Connect**: Connect automatically via deep-link (${frontendUrl}/join).
+- **KiwEssentials Stats Leaderboard**: Live in-game rankings for kills, deaths, coins, playtime, and Discord community messages.
+- **Player Verification**: Synchronize Discord accounts with Minecraft In-Game Names (IGNs).
+
+## Reference Links
+- [Web Live Portal](${frontendUrl}/)
+- [Leaderboard & Rankings](${frontendUrl}/leaderboard)
+- [1-Click Server Joiner](${frontendUrl}/join)
+- [Full LLM Documentation](${frontendUrl}/llms-full.txt)
+`);
+});
+
+// Dynamic llms-full.txt (Comprehensive Knowledge for LLMs & AI Agents)
+app.get('/llms-full.txt', async (c) => {
+  const allowIndexing = await getSetting('allow_indexing', 'true');
+  if (allowIndexing === 'false') {
+    return c.text('# Access Denied\nAI Indexing and LLM scraping is disabled on this server by administrator.', 403);
+  }
+
+  const serverName = await getSetting('server_name', 'Minecraft Bedrock Server');
+  const serverIp = await getSetting('server_ip', process.env.SERVER_IP || '');
+  const serverPort = await getSetting('server_port', process.env.SERVER_PORT || '19132');
+  const frontendUrl = (await getSetting('frontend_url', process.env.FRONTEND_URL || 'https://mgc.ppti.me')).trim().replace(/\/+$/, '');
+  const inviteUrl = await getSetting('discord_invite_url', process.env.DISCORD_INVITE_URL || '');
+  const seoDesc = await getSetting('seo_description', `Official Minecraft Bedrock server live portal for ${serverName}.`);
+  const topPlayers = await getPlayerScoreboard('kills', 10);
+
+  c.header('Content-Type', 'text/markdown; charset=utf-8');
+
+  return c.text(`# ${serverName} — Full Technical & Community Documentation
+
+> ${seoDesc}
+
+## 1. Server Connectivity & Quick Launch
+- **Server Name**: ${serverName}
+- **Platform**: Minecraft Bedrock Edition (Protocol UDP)
+- **Hostname / IP**: ${serverIp || 'mcserver.ppti.me'}
+- **Port**: ${serverPort || '19132'}
+- **Direct Connect Link**: ${frontendUrl}/join
+- **Community Discord**: ${inviteUrl || 'https://discord.gg'}
+- **Web Live Portal**: ${frontendUrl}/
+- **Active Players Online**: ${activePlayers.size} player(s)
+
+### How to Connect:
+1. **Android / iOS / iPadOS**:
+   Click the 1-Click Launch link [${frontendUrl}/join](${frontendUrl}/join) to open Minecraft Bedrock and add the server automatically.
+2. **Windows 10 / 11**:
+   Click [${frontendUrl}/join](${frontendUrl}/join) or open Minecraft -> Play -> Servers -> Add Server -> Enter \`${serverIp || 'mcserver.ppti.me'}\` and port \`${serverPort || '19132'}\`.
+3. **Consoles (PlayStation, Xbox, Switch)**:
+   Use standard Bedrock DNS / Bedrock Together proxy to connect to \`${serverIp || 'mcserver.ppti.me'}\` on port \`${serverPort || '19132'}\`.
+
+## 2. Discord Bot Commands
+- \`!ip\` or \`!join\`: View server IP, port, and 1-Click launcher button.
+- \`!status\`: View live server status and online player count.
+- \`!panel\`: Summon interactive buttons (Link IGN, Check Ranks, Server IP).
+- \`!link <IGN>\`: Link Discord user account with a Minecraft character.
+- \`/command <cmd>\` *(Admin)*: Execute Minecraft in-game slash commands directly from Discord.
+
+## 3. Current Top Leaderboard (Kills)
+${topPlayers.length > 0 ? topPlayers.map((p, i) => `${i + 1}. **${p.username}** — ${p.kills} kills, ${p.deaths} deaths (K/D: ${p.deaths > 0 ? (p.kills / p.deaths).toFixed(2) : p.kills})`).join('\n') : '- No player stats recorded yet.'}
+
+## 4. Architecture & Security
+- **Backend**: Hono TypeScript on Node.js.
+- **Database**: PostgreSQL with persistent chat logs and player stats.
+- **Script API Integration**: Native @minecraft/server-net HTTP bridge.
+- **Authentication**: Official Discord OAuth2 with role-based access control.
+`);
+});
+
 // Serve Static Frontend Assets (Vite React Build)
 app.use('/assets/*', serveStatic({ root: './client/dist' }));
-app.use('/*', serveStatic({ root: './client/dist' }));
-app.get('*', serveStatic({ path: './client/dist/index.html' }));
+app.use('/logo.png', serveStatic({ path: './client/dist/logo.png' }));
+app.use('/favicon.ico', serveStatic({ path: './client/dist/favicon.ico' }));
+
+// Dynamic HTML & SEO/AEO/GEO Meta Tag Injection for Root SPA routes
+app.get('*', async (c) => {
+  try {
+    const indexPath = path.resolve('./client/dist/index.html');
+    if (!fs.existsSync(indexPath)) {
+      return c.text('Frontend build not found. Run npm run build.', 404);
+    }
+
+    let html = fs.readFileSync(indexPath, 'utf-8');
+
+    const serverName = await getSetting('server_name', 'Minecraft Bedrock Server');
+    const allowIndexing = await getSetting('allow_indexing', 'true');
+    const seoTitle = await getSetting('seo_title', `${serverName} • Bedrock Community Portal & Live Chat`);
+    const seoDesc = await getSetting('seo_description', `Official Minecraft Bedrock server live portal for ${serverName}. Real-time chat sync with Discord, active player leaderboard, and instant 1-click connect.`);
+    const seoKeywords = await getSetting('seo_keywords', 'minecraft bedrock, minecraft server indonesia, magicalcraft, discord minecraft bridge, bedrock live chat, kiwessentials leaderboard');
+    const geoRegion = await getSetting('seo_geo_region', 'ID-JK');
+    const geoPlacename = await getSetting('seo_geo_placename', 'Jakarta, Indonesia');
+    const geoPosition = await getSetting('seo_geo_position', '-6.2088;106.8456');
+    const frontendUrl = (await getSetting('frontend_url', process.env.FRONTEND_URL || 'https://mgc.ppti.me')).trim().replace(/\/+$/, '');
+
+    const robotsMeta = allowIndexing === 'true'
+      ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+      : 'noindex, nofollow, noarchive, nosnippet, noimageindex';
+
+    // Structured Data JSON-LD (schema.org)
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": `${frontendUrl}/#website`,
+          "url": frontendUrl,
+          "name": serverName,
+          "description": seoDesc,
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "VideoGame",
+          "@id": `${frontendUrl}/#game`,
+          "name": serverName,
+          "gamePlatform": ["Android", "iOS", "Windows 10", "Windows 11", "Xbox", "PlayStation", "Nintendo Switch"],
+          "applicationCategory": "Game",
+          "genre": ["Sandbox", "Multiplayer", "Survival", "Adventure"],
+          "description": seoDesc,
+          "url": frontendUrl
+        }
+      ]
+    };
+
+    const injectedHead = `
+    <!-- SEO & Metadata -->
+    <title>${seoTitle}</title>
+    <meta name="description" content="${seoDesc}">
+    <meta name="keywords" content="${seoKeywords}">
+    <meta name="robots" content="${robotsMeta}">
+    <link rel="canonical" href="${frontendUrl}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="${frontendUrl}">
+    <meta property="og:title" content="${seoTitle}">
+    <meta property="og:description" content="${seoDesc}">
+    <meta property="og:image" content="${frontendUrl}/logo.png">
+    <meta property="og:site_name" content="${serverName}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${seoTitle}">
+    <meta name="twitter:description" content="${seoDesc}">
+    <meta name="twitter:image" content="${frontendUrl}/logo.png">
+
+    <!-- GEO / Location Targeting -->
+    <meta name="geo.region" content="${geoRegion}">
+    <meta name="geo.placename" content="${geoPlacename}">
+    <meta name="geo.position" content="${geoPosition}">
+    <meta name="ICBM" content="${geoPosition.replace(';', ', ')}">
+
+    <!-- LLMs.txt & Sitemap Auto-Discovery -->
+    <link rel="alternate" type="text/markdown" href="${frontendUrl}/llms.txt" title="LLM Documentation">
+    <link rel="sitemap" type="application/xml" href="${frontendUrl}/sitemap.xml" title="Sitemap">
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+      ${JSON.stringify(jsonLd, null, 2)}
+    </script>
+    `;
+
+    // Replace <title>...</title> if exists, and inject into <head>
+    html = html.replace(/<title>.*?<\/title>/i, '');
+    html = html.replace('</head>', `${injectedHead}\n  </head>`);
+
+    if (allowIndexing === 'false') {
+      c.header('X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet, noimageindex');
+    }
+
+    return c.html(html);
+  } catch (err) {
+    return c.text('Internal Server Error while rendering page', 500);
+  }
+});
 
 // Initialize Database, Discord Bot & Start Server
 async function start() {
