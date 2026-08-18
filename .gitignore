@@ -5,3 +5,7 @@ dist/
 client/node_modules/
 client/dist/
 scratch/
+KiwEssentials/
+KiwBP/
+KiwRP/
+*.mcpack
