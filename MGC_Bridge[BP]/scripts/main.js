@@ -12,7 +12,7 @@ system.run(() => {
 /**
  * Hono Backend Configuration
  */
-const HONO_BACKEND_URL = "http://localhost:3000/api/game";
+const HONO_BACKEND_URL = "https://mgc.ppti.me/api/game";
 const API_KEY = "SECRET_BEARER_TOKEN";
 
 /**
