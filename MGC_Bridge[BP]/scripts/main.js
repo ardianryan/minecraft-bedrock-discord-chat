@@ -1,4 +1,4 @@
-import { world, system } from "@minecraft/server";
+import { world, system, ItemStack } from "@minecraft/server";
 import { http, HttpRequest, HttpRequestMethod, HttpHeader } from "@minecraft/server-net";
 
 // ── Startup Diagnostic (visible in BDS console logs)
@@ -435,7 +435,54 @@ system.runInterval(async () => {
           const overworld = world.getDimension("overworld");
 
           for (const msg of messages) {
-            // If message is an In-Game Slash Command
+            // 1. Direct Script API Action Dispatch (Give, Heal, Clear, Wipe)
+            if (msg.actionPayload) {
+              const { action, itemId, amount = 1, target } = msg.actionPayload;
+              const targetPlayer = world.getPlayers().find(
+                p => p.name.toLowerCase() === String(target).toLowerCase()
+              );
+
+              if (targetPlayer) {
+                if (action === 'give') {
+                  try {
+                    const cleanType = String(itemId).includes(":") ? String(itemId) : `minecraft:${itemId}`;
+                    const count = Math.max(1, Math.min(Number(amount) || 1, 64));
+                    const itemStack = new ItemStack(cleanType, count);
+                    const inv = targetPlayer.getComponent("minecraft:inventory") || targetPlayer.getComponent("inventory");
+                    if (inv && inv.container) {
+                      inv.container.addItem(itemStack);
+                      world.sendMessage(`§6[Admin Action] §eGave ${count}x ${itemId} to §a${targetPlayer.name}`);
+                      system.runTimeout(() => { syncAllInventories(); }, 10);
+                      continue;
+                    }
+                  } catch (itemErr) {
+                    // Fallback to command execution below
+                  }
+                } else if (action === 'wipe_inventory') {
+                  try {
+                    const inv = targetPlayer.getComponent("minecraft:inventory") || targetPlayer.getComponent("inventory");
+                    if (inv && inv.container) {
+                      inv.container.clearAll();
+                      world.sendMessage(`§6[Admin Action] §cWiped inventory of §e${targetPlayer.name}`);
+                      system.runTimeout(() => { syncAllInventories(); }, 10);
+                      continue;
+                    }
+                  } catch (e) {}
+                } else if (action === 'heal') {
+                  try {
+                    const health = targetPlayer.getComponent("minecraft:health") || targetPlayer.getComponent("health");
+                    if (health) {
+                      health.setCurrentValue(health.defaultValue);
+                      world.sendMessage(`§6[Admin Action] §aHealed §e${targetPlayer.name} §ato full`);
+                      system.runTimeout(() => { syncAllInventories(); }, 10);
+                      continue;
+                    }
+                  } catch (e) {}
+                }
+              }
+            }
+
+            // 2. Standard In-Game Slash Command Execution
             if (msg.isCommand || (msg.message && msg.message.startsWith("/"))) {
               const cleanCommand = msg.message.startsWith("/") ? msg.message.substring(1) : msg.message;
               let executed = false;
@@ -446,11 +493,11 @@ system.runInterval(async () => {
                 await overworld.runCommandAsync(cleanCommand);
                 executed = true;
               } catch (cmdErr) {
-                errorReason = cmdErr?.message || "Dimension execution failed";
-                // Fallback: try executing via any online player's dimension
+                errorReason = cmdErr?.message || "Command execution failed";
+                // Fallback: execute via player entity itself (player.runCommandAsync)
                 for (const p of world.getPlayers()) {
                   try {
-                    await p.dimension.runCommandAsync(cleanCommand);
+                    await p.runCommandAsync(cleanCommand);
                     executed = true;
                     break;
                   } catch (pErr) {

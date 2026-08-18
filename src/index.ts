@@ -71,7 +71,13 @@ export interface ChatMessage {
 
 // In-Memory State Management
 export const activePlayers = new Set<string>();
-export const pendingGameMessages: Array<{ source: string; sender: string; message: string; isCommand?: boolean }> = [];
+export const pendingGameMessages: Array<{ 
+  source: string; 
+  sender: string; 
+  message: string; 
+  isCommand?: boolean;
+  actionPayload?: { action: string; itemId?: string; amount?: number; target?: string; [key: string]: any };
+}> = [];
 export const chatHistory: ChatMessage[] = [];
 const MAX_HISTORY = 50;
 

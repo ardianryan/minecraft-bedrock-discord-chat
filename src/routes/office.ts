@@ -624,14 +624,16 @@ officeRouter.post('/players/:ign/action', async (c) => {
 
     let commandToRun = '';
     let actionDescription = '';
+    let actionPayload: any = null;
 
     switch (action) {
       case 'give': {
         if (!itemId) return c.json({ error: 'Item ID is required' }, 400);
         const cleanItem = String(itemId).trim().replace(/^minecraft:/, '');
         const cleanAmount = Math.max(1, Math.min(Number(amount) || 1, 64));
-        commandToRun = `/give @a[name="${ign}"] ${cleanItem} ${cleanAmount}`;
+        commandToRun = `/give @a[name="${ign}"] ${cleanItem} ${cleanAmount} 0`;
         actionDescription = `Gave ${cleanAmount}x ${cleanItem} to ${ign}`;
+        actionPayload = { action: 'give', itemId: cleanItem, amount: cleanAmount, target: ign };
         break;
       }
       case 'clear_item': {
@@ -642,16 +644,19 @@ officeRouter.post('/players/:ign/action', async (c) => {
           ? `/clear @a[name="${ign}"] ${cleanItem} 0 ${cleanAmount}` 
           : `/clear @a[name="${ign}"] ${cleanItem}`;
         actionDescription = `Cleared ${cleanItem} from ${ign}`;
+        actionPayload = { action: 'clear_item', itemId: cleanItem, amount: cleanAmount, target: ign };
         break;
       }
       case 'wipe_inventory': {
         commandToRun = `/clear @a[name="${ign}"]`;
         actionDescription = `Wiped all inventory of ${ign}`;
+        actionPayload = { action: 'wipe_inventory', target: ign };
         break;
       }
       case 'heal': {
         // Instant health & saturation
         commandToRun = `/effect @a[name="${ign}"] instant_health 1 255 true`;
+        actionPayload = { action: 'heal', target: ign };
         pendingGameMessages.push({
           source: 'Office-Heal',
           sender: 'Administrator',
@@ -665,12 +670,14 @@ officeRouter.post('/players/:ign/action', async (c) => {
         if (!gamemode) return c.json({ error: 'Gamemode is required' }, 400);
         commandToRun = `/gamemode ${gamemode} @a[name="${ign}"]`;
         actionDescription = `Changed ${ign}'s gamemode to ${gamemode}`;
+        actionPayload = { action: 'gamemode', gamemode, target: ign };
         break;
       }
       case 'teleport': {
         if (!coords || typeof coords.x !== 'number') return c.json({ error: 'Coordinates x, y, z are required' }, 400);
         commandToRun = `/tp @a[name="${ign}"] ${coords.x} ${coords.y} ${coords.z}`;
         actionDescription = `Teleported ${ign} to (${coords.x}, ${coords.y}, ${coords.z})`;
+        actionPayload = { action: 'teleport', coords, target: ign };
         break;
       }
       case 'message': {
@@ -689,6 +696,7 @@ officeRouter.post('/players/:ign/action', async (c) => {
         sender: 'Administrator',
         message: commandToRun,
         isCommand: true,
+        actionPayload: actionPayload || undefined,
       });
 
       addChatMessage({
