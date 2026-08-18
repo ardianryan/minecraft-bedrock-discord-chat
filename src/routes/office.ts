@@ -630,7 +630,7 @@ officeRouter.post('/players/:ign/action', async (c) => {
         if (!itemId) return c.json({ error: 'Item ID is required' }, 400);
         const cleanItem = String(itemId).trim().replace(/^minecraft:/, '');
         const cleanAmount = Math.max(1, Math.min(Number(amount) || 1, 64));
-        commandToRun = `/give "${ign}" ${cleanItem} ${cleanAmount}`;
+        commandToRun = `/give @a[name="${ign}"] ${cleanItem} ${cleanAmount}`;
         actionDescription = `Gave ${cleanAmount}x ${cleanItem} to ${ign}`;
         break;
       }
@@ -639,23 +639,23 @@ officeRouter.post('/players/:ign/action', async (c) => {
         const cleanItem = String(itemId).trim().replace(/^minecraft:/, '');
         const cleanAmount = amount ? Number(amount) : 0;
         commandToRun = cleanAmount > 0 
-          ? `/clear "${ign}" ${cleanItem} 0 ${cleanAmount}` 
-          : `/clear "${ign}" ${cleanItem}`;
+          ? `/clear @a[name="${ign}"] ${cleanItem} 0 ${cleanAmount}` 
+          : `/clear @a[name="${ign}"] ${cleanItem}`;
         actionDescription = `Cleared ${cleanItem} from ${ign}`;
         break;
       }
       case 'wipe_inventory': {
-        commandToRun = `/clear "${ign}"`;
+        commandToRun = `/clear @a[name="${ign}"]`;
         actionDescription = `Wiped all inventory of ${ign}`;
         break;
       }
       case 'heal': {
         // Instant health & saturation
-        commandToRun = `/effect give "${ign}" instant_health 1 255 true`;
+        commandToRun = `/effect @a[name="${ign}"] instant_health 1 255 true`;
         pendingGameMessages.push({
           source: 'Office-Heal',
           sender: 'Administrator',
-          message: `/effect give "${ign}" saturation 1 255 true`,
+          message: `/effect @a[name="${ign}"] saturation 1 255 true`,
           isCommand: true,
         });
         actionDescription = `Healed and fed ${ign} to max`;
@@ -663,19 +663,19 @@ officeRouter.post('/players/:ign/action', async (c) => {
       }
       case 'gamemode': {
         if (!gamemode) return c.json({ error: 'Gamemode is required' }, 400);
-        commandToRun = `/gamemode ${gamemode} "${ign}"`;
+        commandToRun = `/gamemode ${gamemode} @a[name="${ign}"]`;
         actionDescription = `Changed ${ign}'s gamemode to ${gamemode}`;
         break;
       }
       case 'teleport': {
         if (!coords || typeof coords.x !== 'number') return c.json({ error: 'Coordinates x, y, z are required' }, 400);
-        commandToRun = `/tp "${ign}" ${coords.x} ${coords.y} ${coords.z}`;
+        commandToRun = `/tp @a[name="${ign}"] ${coords.x} ${coords.y} ${coords.z}`;
         actionDescription = `Teleported ${ign} to (${coords.x}, ${coords.y}, ${coords.z})`;
         break;
       }
       case 'message': {
         if (!message) return c.json({ error: 'Message is required' }, 400);
-        commandToRun = `/tell "${ign}" §e[Admin PM] §f${message}`;
+        commandToRun = `/tell @a[name="${ign}"] §e[Admin PM] §f${message}`;
         actionDescription = `Sent private message to ${ign}`;
         break;
       }

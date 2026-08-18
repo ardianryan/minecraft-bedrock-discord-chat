@@ -17,6 +17,7 @@ import {
   Settings
 } from 'lucide-react';
 import { PanelSetupGuideSheet } from './PanelSetupGuideSheet.tsx';
+import { Sheet } from './Sheet.tsx';
 
 interface ServerPanelTabProps {
   onRefreshAll?: () => void;
@@ -53,6 +54,10 @@ export const ServerPanelTab: React.FC<ServerPanelTabProps> = () => {
   const [savingSettings, setSavingSettings] = useState<boolean>(false);
   const [testingConnection, setTestingConnection] = useState<boolean>(false);
   const [feedback, setFeedback] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
+
+  // Power action confirmation Sheet state
+  const [powerConfirmSignal, setPowerConfirmSignal] = useState<'start' | 'stop' | 'restart' | 'kill' | null>(null);
+  const [submittingPower, setSubmittingPower] = useState<boolean>(false);
 
   const [isGuideOpen, setIsGuideOpen] = useState<boolean>(false);
 
@@ -167,10 +172,14 @@ export const ServerPanelTab: React.FC<ServerPanelTabProps> = () => {
     }
   };
 
-  const handlePowerAction = async (signal: 'start' | 'stop' | 'restart' | 'kill') => {
-    if (!confirm(`Are you sure you want to send power signal "${signal.toUpperCase()}" to the server?`)) {
-      return;
-    }
+  const handlePowerAction = (signal: 'start' | 'stop' | 'restart' | 'kill') => {
+    setPowerConfirmSignal(signal);
+  };
+
+  const executePowerAction = async () => {
+    if (!powerConfirmSignal) return;
+    const signal = powerConfirmSignal;
+    setSubmittingPower(true);
 
     try {
       const res = await fetch('/api/office/server/power', {
@@ -186,12 +195,15 @@ export const ServerPanelTab: React.FC<ServerPanelTabProps> = () => {
           ...prev, 
           { text: `⚡ [POWER ACTION]: Dispatched ${signal.toUpperCase()}`, type: 'info', ts: new Date().toLocaleTimeString('id-ID') }
         ]);
+        setPowerConfirmSignal(null);
         setTimeout(fetchLiveStats, 2000);
       } else {
         setFeedback({ text: data.error || 'Failed to dispatch power action', type: 'error' });
       }
     } catch (err) {
       setFeedback({ text: 'Network connection failed', type: 'error' });
+    } finally {
+      setSubmittingPower(false);
     }
   };
 
@@ -644,6 +656,82 @@ export const ServerPanelTab: React.FC<ServerPanelTabProps> = () => {
         onClose={() => setIsGuideOpen(false)}
         defaultTab={provider === 'crafty' ? 'crafty' : 'pterodactyl'}
       />
+
+      {/* Power Signal Confirmation Sheet */}
+      <Sheet
+        isOpen={!!powerConfirmSignal}
+        onClose={() => setPowerConfirmSignal(null)}
+        title={
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            {powerConfirmSignal === 'start' && <Play size={20} color="#34d399" />}
+            {powerConfirmSignal === 'restart' && <RotateCw size={20} color="#38bdf8" />}
+            {powerConfirmSignal === 'stop' && <Square size={20} color="#fbbf24" />}
+            {powerConfirmSignal === 'kill' && <Power size={20} color="#f87171" />}
+            <span>
+              {powerConfirmSignal === 'start' && 'Start Server'}
+              {powerConfirmSignal === 'restart' && 'Restart Server'}
+              {powerConfirmSignal === 'stop' && 'Graceful Stop Server'}
+              {powerConfirmSignal === 'kill' && 'Force Kill Server'}
+            </span>
+          </div>
+        }
+        description={`Confirm sending power operation signal to ${serverName || 'Minecraft Server'}.`}
+        footer={
+          <div style={{ display: 'flex', gap: 10, width: '100%', justifyContent: 'flex-end' }}>
+            <button
+              type="button"
+              className="btn-modal-cancel"
+              onClick={() => setPowerConfirmSignal(null)}
+              disabled={submittingPower}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              className="btn-primary-save"
+              style={{
+                background: powerConfirmSignal === 'kill' ? '#ef4444' : powerConfirmSignal === 'stop' ? '#d97706' : powerConfirmSignal === 'start' ? '#10b981' : '#0284c7',
+                borderColor: powerConfirmSignal === 'kill' ? '#dc2626' : powerConfirmSignal === 'stop' ? '#b45309' : powerConfirmSignal === 'start' ? '#059669' : '#0369a1'
+              }}
+              onClick={executePowerAction}
+              disabled={submittingPower}
+            >
+              {submittingPower ? 'Dispatching...' : `Confirm ${powerConfirmSignal?.toUpperCase()}`}
+            </button>
+          </div>
+        }
+      >
+        {powerConfirmSignal && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 12,
+              padding: 14,
+              borderRadius: 12,
+              background: 'rgba(255,255,255,0.04)',
+              border: '1px solid var(--border-subtle)'
+            }}>
+              <div>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Target Provider & Server</span>
+                <h4 style={{ color: '#f8fafc', fontSize: '1rem', margin: 0, textTransform: 'capitalize' }}>
+                  {provider} Panel • {serverName}
+                </h4>
+              </div>
+            </div>
+
+            <div className={`office-alert-pill ${powerConfirmSignal === 'kill' ? 'error' : 'info'}`} style={{ margin: 0 }}>
+              <AlertCircle size={16} />
+              <span style={{ fontSize: '0.8rem' }}>
+                {powerConfirmSignal === 'start' && 'Sending START signal will boot up the Bedrock server instance.'}
+                {powerConfirmSignal === 'restart' && 'Sending RESTART signal will gracefully reboot the server process. Players will be temporarily disconnected.'}
+                {powerConfirmSignal === 'stop' && 'Sending STOP signal will safely save all world chunks and shut down the server.'}
+                {powerConfirmSignal === 'kill' && 'Warning: FORCE KILL will immediately terminate the server process without saving pending chunks.'}
+              </span>
+            </div>
+          </div>
+        )}
+      </Sheet>
     </div>
   );
 };

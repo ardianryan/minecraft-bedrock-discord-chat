@@ -81,10 +81,9 @@ export const PlayerInventorySheet: React.FC<PlayerInventorySheetProps> = ({
 
   // Give item form
   const [giveItemId, setGiveItemId] = useState<string>('diamond');
-  const [giveAmount, setGiveAmount] = useState<number>(16);
-
-  // Gamemode form
+  const [giveAmount, setGiveAmount] = useState<number>(1);
   const [selectedGamemode, setSelectedGamemode] = useState<string>('survival');
+  const [showWipeConfirm, setShowWipeConfirm] = useState<boolean>(false);
 
   const fetchInventory = async () => {
     if (!ign) return;
@@ -99,8 +98,8 @@ export const PlayerInventorySheet: React.FC<PlayerInventorySheetProps> = ({
           setSelectedGamemode(data.telemetry.gameMode);
         }
       }
-    } catch (e) {
-      console.error('Failed to load player inventory:', e);
+    } catch (err) {
+      console.error('Failed to fetch inventory:', err);
     } finally {
       setLoading(false);
     }
@@ -109,7 +108,6 @@ export const PlayerInventorySheet: React.FC<PlayerInventorySheetProps> = ({
   useEffect(() => {
     if (isOpen && ign) {
       fetchInventory();
-      setFeedback(null);
     }
   }, [isOpen, ign]);
 
@@ -117,26 +115,24 @@ export const PlayerInventorySheet: React.FC<PlayerInventorySheetProps> = ({
     if (!ign) return;
     setActionLoading(true);
     setFeedback(null);
-
     try {
       const res = await fetch(`/api/office/players/${encodeURIComponent(ign)}/action`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action, ...payload }),
       });
-
       const data = await res.json();
       if (res.ok) {
-        setFeedback({ text: data.message || 'Action executed successfully!', type: 'success' });
-        // Refresh after action
+        setFeedback({ text: data.message || `Action dispatched for ${ign}!`, type: 'success' });
         setTimeout(fetchInventory, 1000);
       } else {
-        setFeedback({ text: data.error || 'Failed to execute action', type: 'error' });
+        setFeedback({ text: data.error || 'Failed to dispatch action', type: 'error' });
       }
     } catch (err) {
       setFeedback({ text: 'Network connection failed', type: 'error' });
     } finally {
       setActionLoading(false);
+      setTimeout(() => setFeedback(null), 4000);
     }
   };
 
@@ -151,7 +147,12 @@ export const PlayerInventorySheet: React.FC<PlayerInventorySheetProps> = ({
   };
 
   const handleWipeInventory = () => {
+    setShowWipeConfirm(true);
+  };
+
+  const executeWipeInventory = () => {
     executeAction('wipe_inventory');
+    setShowWipeConfirm(false);
   };
 
   const handleHeal = () => {
@@ -535,6 +536,69 @@ export const PlayerInventorySheet: React.FC<PlayerInventorySheetProps> = ({
           </form>
         </div>
       </div>
+
+      {/* Wipe Confirmation Sheet */}
+      <Sheet
+        isOpen={showWipeConfirm}
+        onClose={() => setShowWipeConfirm(false)}
+        title={
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Trash2 size={20} color="#f43f5e" />
+            <span>Wipe Player Inventory</span>
+          </div>
+        }
+        description={`Permanently remove all items from ${ign}'s inventory.`}
+        footer={
+          <div style={{ display: 'flex', gap: 10, width: '100%', justifyContent: 'flex-end' }}>
+            <button 
+              type="button" 
+              className="btn-modal-cancel" 
+              onClick={() => setShowWipeConfirm(false)}
+              disabled={actionLoading}
+            >
+              Cancel
+            </button>
+            <button 
+              type="button" 
+              className="btn-primary-save"
+              style={{ background: '#e11d48', borderColor: '#be123c' }}
+              onClick={executeWipeInventory}
+              disabled={actionLoading}
+            >
+              {actionLoading ? 'Wiping...' : 'Confirm Wipe Inventory'}
+            </button>
+          </div>
+        }
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 12,
+            padding: 14,
+            borderRadius: 12,
+            background: 'rgba(244, 63, 94, 0.08)',
+            border: '1px solid rgba(244, 63, 94, 0.2)'
+          }}>
+            <img 
+              src={`https://mc-heads.net/avatar/${encodeURIComponent(ign)}/44`} 
+              alt=""
+              style={{ width: 44, height: 44, borderRadius: 8, imageRendering: 'pixelated' }}
+            />
+            <div>
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Target Minecraft Player</span>
+              <h4 style={{ color: '#fda4af', fontSize: '1.1rem', margin: 0 }}>{ign}</h4>
+            </div>
+          </div>
+
+          <div className="office-alert-pill error" style={{ margin: 0 }}>
+            <AlertCircle size={16} />
+            <span style={{ fontSize: '0.8rem' }}>
+              Warning: This will clear all 36 inventory slots and hotbar for <strong>{ign}</strong> using <code>/clear {ign}</code>. This action cannot be reversed.
+            </span>
+          </div>
+        </div>
+      </Sheet>
     </Sheet>
   );
 };

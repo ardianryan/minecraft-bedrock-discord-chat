@@ -7,6 +7,42 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.11.0] - 2026-08-18
+
+### 🎒 Live Player Inventory, Server Panels & Architecture Polish
+- **🎒 Live Player Inventory & HUD Inspector (`PlayerInventorySheet.tsx`)**:
+  - **Strict `Sheet` UI Standard**: Interactive slide-over sheet (Right on Desktop $\ge 768\text{px}$, Bottom drawer on Mobile) with zero centered dialog boxes.
+  - **Live Player HUD**: Displays real-time Hearts/Health bar (`<Heart />`), Level & XP progress (`<Zap />`), Dimension (`<Compass />`), XYZ Coordinates (`<Navigation />`), and Gamemode switcher (`<Sword />`).
+  - **Equipped Armor & Hands**: Displays Helmet, Chestplate, Leggings, Boots, Mainhand, and Offhand (Shield/Totem) items with stack counts.
+  - **Interactive 36-Slot Inventory Grid**: Authentic Minecraft inventory slots with item type IDs, stack badges, and 1-click slot item removal.
+  - **Admin Action Toolbox**: Added Give Item toolbox with quick-pick chips (Diamonds, Netherite, Elytra, G-Apple, etc.), stack slider (1–64), 1-click Instant Max Heal & Feed, and 1-click Wipe All Inventory tool with Sheet confirmation.
+  - **High-Frequency 3-Second Telemetry Sync**: Upgraded Behavior Pack telemetry cycle in `MGC_Bridge[BP]/scripts/main.js` from 20s to **3s (`60 ticks`)** with automatic instant push on admin actions.
+- **🖥️ Server Management Panel Integrations (Pterodactyl & Crafty Controller)**:
+  - **Universal Panel Adapter**: Built `src/services/panel.ts` supporting **Pterodactyl Panel** (Client API / Wings) and **Crafty Controller** (v4 REST API).
+  - **Live Hardware Resource Gauges**: Real-time CPU Utilization (%), Memory/RAM (MB/GB), Storage Disk, and Power state telemetry.
+  - **Server Power Controls**: 1-click Start (`<Play />`), Restart (`<RotateCw />`), Graceful Stop (`<Square />`), and Force Kill (`<Power />`) with animated Sheet confirmations.
+  - **Interactive BDS Server Console**: Real-time log terminal with direct command dispatch input bar (`/say`, `/time set`, etc.).
+  - **Interactive Setup Tutorial Guide**: Added `PanelSetupGuideSheet.tsx` providing step-by-step instructions to create API keys and configure Pterodactyl or Crafty Controller.
+- **📁 Dedicated Left Sidebar Navigation Layout for `/office`**:
+  - Re-architected `/office` from top tab buttons to a modern dedicated management layout with a collapsible left sidebar.
+  - Categorized management into 4 distinct portals: Users & Roles, Player Roster & Inventory, Server Controls & Panels, and System & SEO Settings.
+- **⚡ BDS Target Selector Command Execution Engine**:
+  - Re-engineered backend command builder (`src/routes/office.ts`) to use strict Bedrock selector syntax `@a[name="${ign}"]` for `/give`, `/clear`, `/effect`, `/gamemode`, `/tp`, preventing syntax parsing failures in BDS.
+  - Added multi-dimension execution fallback in `main.js` (`world.getDimension("overworld")` with player dimension fallback).
+- **🛡️ 100% Strict Slide-Over Sheet UI Standard (Zero Browser Dialogs)**:
+  - Eliminated all native browser dialogs (`window.confirm`) across server power controls in `ServerPanelTab.tsx` and player inventory wipes in `PlayerInventorySheet.tsx`.
+- **📐 Full-Width Responsive Form Input Expansion**:
+  - Expanded all search fields, webhook URLs, bot tokens, panel configuration inputs, and console command bars to **100% full width** with modern focus rings.
+  - Form action buttons on mobile screens automatically stretch full-width for effortless touch ergonomics.
+- **📱 Mobile Header & Navigation Layout Overhaul**:
+  - Resolved mobile header wrapping by organizing brand logo + user avatar into the top row and full-width segmented switcher tabs below.
+  - Removed duplicate username and avatar from the `/office` status bar.
+  - Condensed metric cards into a responsive 3-column compact grid on mobile screens.
+- **📦 Behavior Pack Release v2.11.0**:
+  - Bumped `MGC_Bridge[BP]` manifest version to `[2, 11, 0]` for direct in-game server updates.
+
+---
+
 ## [2.10.0] - 2026-08-18
 
 ### ✨ Added
@@ -22,22 +58,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added configurable `server_ip` (Hostname/Domain) and `server_port` (default `19132`) in `/office` Admin Settings.
   - **Web Live Chat & Landing Page**: Prominent glassmorphic **"Join Minecraft Server"** Card with 1-Click Launch button (`minecraft://?addExternalServer=...`) and 1-Click Copy IP button with instant clipboard checkmark animation.
   - **Discord Bot Interactive Integration**: Added `Server IP & Join` button in `!panel` / `!menu` and new text commands `!ip`, `!join`, `!server`, `!connect` with rich embed detailing server address, port, and 1-click connect URL.
-- **🎒 Live Player Inventory & HUD Inspector (`PlayerInventorySheet.tsx`)**:
-  - **Strict `Sheet` UI Standard**: Interactive slide-over sheet (Right on Desktop $\ge 768\text{px}$, Bottom drawer on Mobile) without centered dialog boxes.
-  - **Live Player HUD**: Displays real-time Hearts/Health bar (`<Heart />`), Level & XP progress (`<Zap />`), Dimension (`<Compass />`), XYZ Coordinates (`<Navigation />`), and Gamemode switcher (`<Sword />`).
-  - **Equipped Armor & Hands**: Displays Helmet, Chestplate, Leggings, Boots, Mainhand, and Offhand (Shield/Totem) items with stack counts.
-  - **Interactive 36-Slot Inventory Grid**: Authentic Minecraft inventory slots with item type IDs, stack badges, and 1-click slot item removal.
-  - **Admin Action Toolbox**: Added Give Item toolbox with quick-pick chips (Diamonds, Netherite, Elytra, G-Apple, etc.), stack slider (1–64), 1-click Instant Max Heal & Feed, and 1-click Wipe All Inventory tool.
-- **🖥️ Server Management Panel Integrations (Pterodactyl & Crafty Controller)**:
-  - **Universal Panel Adapter**: Built `src/services/panel.ts` supporting **Pterodactyl Panel** (Client API / Wings) and **Crafty Controller** (v4 REST API).
-  - **Live Hardware Resource Gauges**: Real-time CPU Utilization (%), Memory/RAM (MB/GB), Storage Disk, and Power state telemetry.
-  - **Server Power Controls**: 1-click Start (`<Play />`), Restart (`<RotateCw />`), Graceful Stop (`<Square />`), and Force Kill (`<Power />`).
-  - **Interactive BDS Server Console**: Real-time log terminal with direct command dispatch input bar (`/say`, `/time set`, etc.).
-  - **Interactive Setup Tutorial Guide**: Added `PanelSetupGuideSheet.tsx` providing step-by-step instructions to create API keys and configure Pterodactyl or Crafty Controller.
-- **📁 Dedicated Left Sidebar Navigation Layout for `/office`**:
-  - Re-architected `/office` from top tab buttons to a modern dedicated management layout with a collapsible left sidebar.
-  - Categorized management into 4 distinct portals: Users & Roles, Player Roster & Inventory, Server Controls & Panels, and System & SEO Settings.
-  - **100% Strict SVG Icon Standard (`lucide-react`)**: Enforced zero emojis across all frontend cards, buttons, badges, and modals.
 - **🔗 Real-Time Discord ↔ Web Account Link & Unlink Synchronization**:
   - **Discord Modal Submission Handler**: Implemented `interaction.isModalSubmit()` listener for `modal_link_ign` so players clicking the `Link Account` button in Discord can input their Minecraft IGN and immediately sync to PostgreSQL and the Web Live Chat.
   - **Discord Unlink Handler**: Fixed unlinking bug where nullish coalescing prevented clearing the IGN. Added explicit `unlinkUserByDiscordId` to cleanly detach Minecraft characters from Discord accounts.

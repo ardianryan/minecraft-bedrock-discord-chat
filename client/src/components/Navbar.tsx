@@ -55,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="brand-text">
           <div className="brand-title-row">
             <span className="brand-name">Magical Gaming Crew</span>
-            <span className="brand-pill-v2">v2.10</span>
+            <span className="brand-pill-v2">v2.11</span>
           </div>
           <span className="brand-caption">Minecraft Bedrock ↔ Discord ↔ Web</span>
         </div>

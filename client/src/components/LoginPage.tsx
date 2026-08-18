@@ -8,7 +8,8 @@ import {
   Copy, 
   Check,
   AlertCircle,
-  Radio
+  Radio,
+  Sparkles
 } from 'lucide-react';
 
 interface LoginPageProps {
@@ -218,10 +219,10 @@ export const LoginPage: React.FC<LoginPageProps> = ({
               <ShieldCheck size={14} color="#34d399" />
               <span>Official Discord OAuth2 Authentication • No password required</span>
             </div>
-          </div>
-
-          <div className="auth-footer-caption">
-            <span>{serverName} • Bedrock Bridge v2.10</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.78rem', color: '#64748b' }}>
+              <Sparkles size={14} color="#38bdf8" />
+              <span>{serverName} • Bedrock Bridge v2.11</span>
+            </div>
           </div>
         </div>
       </div>

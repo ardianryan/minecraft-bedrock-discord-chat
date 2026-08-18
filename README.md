@@ -2,13 +2,14 @@
 
 <img src="./assets/logo.png" alt="Magical Gaming Crew Logo" width="160" height="160" style="border-radius: 50%; box-shadow: 0 0 35px rgba(99, 102, 241, 0.4);" />
 
-# 🎮 Magical Gaming Crew — Bedrock Bridge
+# 🎮 Magical Gaming Crew — Bedrock Bridge `v2.11.0`
 
-**High-Performance Real-Time 3-Way Bridge & Console for Minecraft Bedrock, Discord, and Web Dashboard.**
+**High-Performance Real-Time 3-Way Bridge, Live Player HUD Inspector & Server Panel for Minecraft Bedrock, Discord, and Web Dashboard.**
 
+[![Version](https://img.shields.io/badge/Release-v2.11.0-38BDF8?style=for-the-badge&logo=git&logoColor=white)](./CHANGELOG.md)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3+-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Hono.js](https://img.shields.io/badge/Hono.js-4.0+-E36002?style=for-the-badge&logo=hono&logoColor=white)](https://hono.dev/)
-[![React](https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![React](https://img.shields.io/badge/React-19+-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Drizzle ORM](https://img.shields.io/badge/Drizzle_ORM-0.45+-C5F74F?style=for-the-badge&logo=drizzle&logoColor=black)](https://orm.drizzle.team/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15+-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Discord.js](https://img.shields.io/badge/Discord.js-v14-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.js.org/)
@@ -16,15 +17,15 @@
 [![KiwEssentials](https://img.shields.io/badge/KiwEssentials-33.x%20Compatible-10B981?style=for-the-badge&logo=minecraft&logoColor=white)](https://kiwstudio.com/)
 
 <p align="center">
-  <a href="#-overview">Overview</a> •
-  <a href="#-key-features">Key Features</a> •
-  <a href="#-kiwessentials-integration">KiwEssentials</a> •
-  <a href="#-quick-docker-deployment-1-command">Docker Deployment</a> •
-  <a href="#-complete-installation-guide">Manual Installation</a> •
-  <a href="#-behavior-pack-setup--usage">Behavior Pack</a> •
-  <a href="./CONTRIBUTING.md">Contributing</a> •
-  <a href="./SECURITY.md">Security</a> •
-  <a href="./CODE_OF_CONDUCT.md">Code of Conduct</a> •
+  <a href="#-1-overview--architecture">Overview & Architecture</a> •
+  <a href="#-2-key-features">Key Features</a> •
+  <a href="#-3-installation--deployment-tutorials">Installation Tutorials</a> •
+  <a href="#-4-minecraft-behavior-pack-setup-tutorial">Behavior Pack Setup</a> •
+  <a href="#-5-kiwessentials-addon-integration-tutorial">KiwEssentials Integration</a> •
+  <a href="#-6-discord-bot-commands--setup-guide">Discord Commands</a> •
+  <a href="#-7-admin-office-dashboard-guide--tutorials">Admin Office Guide</a> •
+  <a href="#-8-project-structure">Project Structure</a> •
+  <a href="#-9-security--access-control">Security</a> •
   <a href="./CHANGELOG.md">Changelog</a>
 </p>
 
@@ -32,26 +33,162 @@
 
 ---
 
-## 🟢 KiwEssentials Integration Guide
+## 📖 1. Overview & Architecture
 
-> [!NOTE]
-> **[KiwEssentials](https://kiwstudio.com/)** is a commercial server management addon for Minecraft Bedrock developed by KiwStudio. MGC Bridge is engineered to integrate seamlessly with KiwEssentials. **No proprietary KiwEssentials scripts or packs are redistributed in this repository.**
+**Magical Gaming Crew (MGC) Bedrock Bridge** is a full-stack, enterprise-grade integration suite engineered to unite **Minecraft Bedrock Edition Servers (BDS)**, **Discord Communities**, and **Web Management Portals** into one unified, real-time ecosystem.
 
-### Features Synchronized with KiwEssentials
-- **2-Way Live Chat Bridge**: KiwEssentials custom rank chat formats (`[OWNER]`, `[VIP]`, etc.) relay directly to Discord & Web Dashboard.
-- **Scoreboard Sync**: Reads `kill`, `death`, `money`, `coin`, and `playtime` every 3 minutes.
-- **Rich Join Embeds**: Player join embeds on Discord automatically display KiwEssentials stats (K/D, Balance, Playtime).
-- **Web Dashboard Leaderboard**: Multi-tab leaderboard sorted by Kills, Deaths, Money, Coins, or Playtime.
+Built with ultra-fast **Hono.js**, **React 19**, **PostgreSQL** via **Drizzle ORM**, and the native **Minecraft Bedrock Script API (`@minecraft/server` & `@minecraft/server-net`)**, MGC Bridge delivers sub-second bidirectional synchronization with zero TPS lag.
+
+```
+                     ┌──────────────────────────────────────┐
+                     │         Minecraft Bedrock BDS        │
+                     │  (MGC_Bridge[BP] / KiwEssentials)    │
+                     └──────────────────┬───────────────────┘
+                                        │  REST / HTTP (Bearer API Key)
+                                        ▼
+                     ┌──────────────────────────────────────┐
+                     │          Hono.js Full-Stack          │
+                     │         High-Performance Core        │
+                     │  ┌────────────────────────────────┐  │
+                     │  │   Drizzle ORM + PostgreSQL     │  │
+                     │  │   (Users, Chats, Banned, SEO)  │  │
+                     │  └────────────────────────────────┘  │
+                     └──────────┬────────────────┬──────────┘
+                                │                │
+      Discord Gateway WebSocket │                │ SSE / React 19 Client
+                                ▼                ▼
+         ┌────────────────────────────┐    ┌────────────────────────────┐
+         │     Discord Community      │    │    Web Live Chat Portal    │
+         │  (Webhooks, Slash & Text)  │    │ (HUD, Inventory & Office)  │
+         └────────────────────────────┘    └────────────────────────────┘
+```
 
 ---
 
-### 🛠️ How to Enable MGC Bridge in Your KiwEssentials Pack
+## ✨ 2. Key Features
 
-If your server uses KiwEssentials, follow these 2 simple configuration steps on your server's `KiwBP` folder:
+- 💬 **3-Way Real-Time Chat & Command Channel**: In-game chats, Discord channel messages, and Web Live Chat sync instantly with avatar head badges and verified role chips.
+- 🎒 **Live Player Inventory & Vitals HUD Inspector (`PlayerInventorySheet.tsx`)**:
+  - Slide-over `Sheet` (Right on desktop $\ge 768\text{px}$, Bottom drawer on mobile $< 768\text{px}$).
+  - Real-time Hearts / Health Bar ❤️, Level & XP progress ⚡, Dimension 🧭, and $(X, Y, Z)$ Coordinates 📍.
+  - 36-slot interactive inventory grid with item stack indicators and 1-click slot item removal.
+  - Admin Item Toolbox: Give Item (Diamond, Netherite, Elytra, G-Apple, etc.), Instant Max Heal & Feed, Gamemode switcher, and Wipe All Inventory with confirmation Sheet.
+  - High-frequency 3-second live telemetry cycle.
+- 🖥️ **Server Management Panel Integrations (`ServerPanelTab.tsx`)**:
+  - Universal REST adapter for **Pterodactyl Panel** and **Crafty Controller**.
+  - Live hardware telemetry gauges: CPU Utilization (%), RAM Usage (MB/GB), Storage Disk, and Power Status (`RUNNING`, `STARTING`, `OFFLINE`).
+  - Power controls: Start Server ▶️, Restart Server 🔄, Graceful Stop ⏹️, and Force Kill ⚡ with animated Sheet confirmations.
+  - Interactive BDS Server Console with real-time log stream and command dispatch bar.
+- 🏆 **Olympic Podium Leaderboards**: Real-time server rankings for Kills, Deaths, Money, Coins, and Playtime synchronized from KiwEssentials scoreboards.
+- 📁 **Dedicated Admin Office Portal (`/office`)**: Categorized left sidebar navigation (Users & Roles, Player Roster & Inventory, Server Controls, System & SEO).
+- 🌐 **Dynamic SEO, GEO, AEO & LLMs Knowledge Standard (`/llms.txt` & `/llms-full.txt`)**: Dynamic AI engine integration for ChatGPT, Perplexity, Gemini, and Claude with master indexing toggle.
+- 🔗 **Discord ↔ Minecraft Account Linking**: One-click link/unlink via Discord modal or web profile with Minecraft skin avatar synchronization.
 
-#### Step 1: Add `@minecraft/server-net` to `KiwBP/manifest.json`
+---
+
+## 🚀 3. Installation & Deployment Tutorials
+
+### Tutorial A: Quick 1-Command Docker Deployment (Recommended)
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ardianryan/minecraft-bedrock-discord-chat.git
+   cd minecraft-bedrock-discord-chat
+   ```
+
+2. Copy the example environment file:
+   ```bash
+   cp .env.example .env
+   ```
+
+3. Configure your `.env` variables:
+   ```ini
+   PORT=3000
+   DATABASE_URL=postgres://postgres:postgres@postgres:5432/discordmchat
+   DISCORD_CLIENT_ID=your_discord_client_id
+   DISCORD_CLIENT_SECRET=your_discord_client_secret
+   DISCORD_BOT_TOKEN=your_secret_bot_token
+   DISCORD_REDIRECT_URI=https://yourdomain.com/api/auth/discord/callback
+   API_KEY=your_super_secret_bridge_api_key
+   ```
+
+4. Launch with Docker Compose:
+   ```bash
+   docker compose up -d --build
+   ```
+
+5. Open `http://localhost:3000` in your browser.
+
+---
+
+### Tutorial B: Manual Node.js & PostgreSQL Installation
+
+1. Install dependencies:
+   ```bash
+   npm install
+   npm --prefix client install
+   ```
+
+2. Set up your PostgreSQL database and run Drizzle schema push:
+   ```bash
+   npm run db:push
+   ```
+
+3. Build production bundle:
+   ```bash
+   npm run build
+   ```
+
+4. Start the unified production server:
+   ```bash
+   npm start
+   ```
+
+---
+
+## 🎮 4. Minecraft Behavior Pack Setup Tutorial
+
+Follow these steps to install the `v2.11.0` Behavior Pack onto your Minecraft Bedrock Server:
+
+1. **Copy the Pack**: Copy the `MGC_Bridge[BP]` folder into your server's `behavior_packs/` directory:
+   ```text
+   bedrock_server/
+   └── behavior_packs/
+       └── MGC_Bridge[BP]/
+           ├── manifest.json
+           └── scripts/
+               └── main.js
+   ```
+
+2. **Configure Connection URL & API Key**:
+   Open `MGC_Bridge[BP]/scripts/main.js` and set your web server URL and API Key:
+   ```javascript
+   const HONO_BACKEND_URL = "https://yourdomain.com/api/game";
+   const API_KEY = "your_super_secret_bridge_api_key";
+   ```
+
+3. **Activate in `world_behavior_packs.json`**:
+   Open `bedrock_server/worlds/<world_name>/world_behavior_packs.json` and add:
+   ```json
+   [
+     {
+       "pack_id": "a5d8b724-4f51-4c31-89a3-5c218683f120",
+       "version": [2, 11, 0]
+     }
+   ]
+   ```
+
+4. **Enable Beta APIs & Script Execution**:
+   In `server.properties`, ensure custom scripting and beta APIs are enabled.
+
+---
+
+## 🟢 5. KiwEssentials Addon Integration Tutorial
+
+If your server uses **[KiwEssentials](https://kiwstudio.com/)** for ranks and economy, connect it to MGC Bridge in 2 steps:
+
+### Step 1: Add `@minecraft/server-net` to `KiwBP/manifest.json`
 Open your server's `KiwBP/manifest.json` and add `@minecraft/server-net` under `"dependencies"`:
-
 ```json
 {
   "dependencies": [
@@ -74,16 +211,14 @@ Open your server's `KiwBP/manifest.json` and add `@minecraft/server-net` under `
 }
 ```
 
-#### Step 2: Add Relay Function to `KiwBP/scripts/board/chat.js`
-Open `KiwBP/scripts/board/chat.js` on your server:
-
-**a. Add this bridge helper at the very top of `chat.js`:**
+### Step 2: Add Relay Function to `KiwBP/scripts/board/chat.js`
+Open `KiwBP/scripts/board/chat.js` and add this relay helper at the top:
 ```javascript
 // ── MGC DISCORD & WEB BRIDGE ──────────────────────────
 import { http, HttpRequest, HttpRequestMethod, HttpHeader } from "@minecraft/server-net";
 
-const MGC_BRIDGE_URL = "https://YOUR_DOMAIN_OR_IP/api/game/chat";
-const MGC_API_KEY = "YOUR_API_KEY"; // Configured in your backend .env (API_KEY)
+const MGC_BRIDGE_URL = "https://YOUR_DOMAIN/api/game/chat";
+const MGC_API_KEY = "YOUR_API_KEY";
 
 function relayChatToMGC(senderName, messageText) {
   if (!senderName || !messageText) return;
@@ -99,405 +234,133 @@ function relayChatToMGC(senderName, messageText) {
         ]);
         req.setBody(JSON.stringify({ sender: senderName, message: messageText }));
         await http.request(req);
-      } catch (err) {
-        console.warn("[MGC-Bridge] Failed to relay chat:", err);
-      }
+      } catch {}
     });
   } catch {}
 }
-// ──────────────────────────────────────────────────────
 ```
 
-**b. In the `world.beforeEvents.chatSend` event listener, call `relayChatToMGC`:**
-Around line 200, right after `world.sendMessage(...)`, add `relayChatToMGC(player.name, message);`:
+Inside the chat send handler, call:
 ```javascript
- const formattedMessage = formatChatMessage(player, message);
- if (formattedMessage) {
-   world.sendMessage(formattedMessage);
- } else {
-   world.sendMessage(`§7${player.name}: §f${message}`);
- }
-
- // Forward message to Discord & Web Dashboard
- relayChatToMGC(player.name, message);
-});
+relayChatToMGC(sender.name, message);
 ```
 
 ---
 
-### Pack Load Order (`world_behavior_packs.json`)
+## 🤖 6. Discord Bot Commands & Setup Guide
 
-```json
-[
-  {
-    "pack_id": "7a211304-6b66-4679-8e00-c4ca1529235a",
-    "version": [33, 1, 6]
-  },
-  {
-    "pack_id": "a5d8b724-4f51-4c31-89a3-5c218683f120",
-    "version": [1, 7, 0]
-  }
-]
-```
+### Slash Commands
+| Command | Description |
+| :--- | :--- |
+| `/panel` / `/menu` | Opens the interactive community control menu |
+| `/status` | Displays real-time server health and online player count |
+| `/top` | Displays the Olympic leaderboard for Kills, Money, Playtime |
+| `/me` / `/profile` | Displays your linked Minecraft character profile and avatar |
+| `/link <ign>` | Links your Discord account to your Minecraft Bedrock IGN |
+| `/unlink` | Unlinks your Minecraft character from your Discord account |
 
-> [!TIP]
-> If KiwEssentials is not installed, MGC Bridge functions completely independently using standard vanilla Bedrock chat and scoreboards.
-
----
-
-## ⚡ Quick Docker Deployment (1-Command)
-
-The fastest and easiest way to deploy **Bedrock Bridge** with a pre-configured PostgreSQL database:
-
-```bash
-# 1. Clone repository
-git clone https://github.com/ardianryan/discordmchat.git
-cd discordmchat
-
-# 2. Copy and configure your environment variables
-cp .env.example .env
-
-# 3. Launch full stack (App + PostgreSQL)
-docker compose up -d --build
-```
-
-That's it! Your entire stack is now running at **[http://localhost:3000](http://localhost:3000)**.
-
-To view logs:
-```bash
-docker compose logs -f app
-```
-
-To stop the services:
-```bash
-docker compose down
-```
+### Text Commands (Prefix: `!` or `.`)
+- `!ip` / `!join` / `!connect` — Displays Server IP, Port, and 1-Click Join URL.
+- `!link <IGN>` — Instant account linking.
+- `!unlink` — Unlink Minecraft character.
+- `!top` — Scoreboard leaderboard rankings.
 
 ---
 
-## 🌟 Overview
+## 📁 7. Admin Office Dashboard Guide & Tutorials
 
-**Magical Gaming Crew — Bedrock Bridge** is a complete, unified bridge system that connects a **Minecraft Bedrock Edition server** (v1.20, v1.21+, through v1.26+) with a **Discord Community Server** and a **Modern Web Management Dashboard**.
+Access the dedicated admin portal at `/office` (Admin role required). The portal features a left-sidebar navigation categorized into 4 sections:
 
-> [!IMPORTANT]
-> **👨‍💻 Intended for Developers & Self-Hosters:**
-> This repository is a **self-hosted open-source framework**, not a hosted public bot service. **A pre-hosted bot is NOT provided** for privacy, security, and full data autonomy. Each server administrator/developer sets up their own Discord Application and Bot in the [Discord Developer Portal](https://discord.com/developers/applications) with 100% control over their database and credentials.
+### 1. 👥 Users & Roles Management
+- Manage all registered Discord community members in one table.
+- Promote or demote users between `admin` and `user` roles.
+- Inspect and manually link/unlink Minecraft IGNs mapped to Discord IDs.
 
-Built on **Hono.js**, **React (Vite)**, **PostgreSQL**, and the **Minecraft Bedrock Script API (`@minecraft/server` & `@minecraft/server-net`)**, it delivers sub-second bidirectional message relay, in-game slash command execution, account linking, interactive Discord controls, and dedicated admin operations over a single, deployment-ready port (**Port 3000**).
+### 2. 📋 Player Roster & Live Inventory Inspector
+- View all online players with live status indicator and 14-day history.
+- **🎒 Inspect Live Inventory & HUD**:
+  - Click the **Inspect** button next to any player to open the slide-over `Sheet` (Right on desktop, Bottom drawer on mobile).
+  - View real-time **Hearts/Health bar** ❤️, **Level & XP** ⚡, **Dimension** 🧭, **Coordinates $(X, Y, Z)$** 📍, and equipped **Armor / Hands**.
+  - **Give Item Toolbox**: Enter any Minecraft item ID (e.g. `diamond`, `netherite_sword`, `golden_apple`), adjust stack count (1–64), and click **Give**.
+  - **Instant Heal & Feed**: Instantly gives max health and saturation buffs in 1 click.
+  - **Gamemode Switcher**: Instantly switch player between Survival, Creative, Adventure, and Spectator.
+  - **Wipe All Inventory**: Clear all items with an animated confirmation Sheet.
 
----
+### 3. 🖥️ Server Management Panel Setup Tutorial (Crafty Controller & Pterodactyl)
+Connect your game server panel for hardware telemetry and power operations:
 
-## ✨ Key Features
+#### A. Connecting Crafty Controller v4:
+1. Open your Crafty Controller Web UI (e.g. `https://mcserver.ppti.me`).
+2. Go to **Server Details** for your Bedrock server.
+3. Copy the **Server UUID** displayed at the top or in the URL (e.g. `56bf8304-d76f-428c-8c9b-6b87fe197330`).
+4. Go to **User Profile / API Keys** in Crafty and generate an API Token.
+5. In MGC Admin Office → **Server Controls** → **Panel Provider & API Configuration**:
+   - Provider: `Crafty Controller`
+   - Crafty Panel URL: `https://your-crafty-domain.com` (or IP:Port)
+   - Server ID: `56bf8304-d76f-428c-8c9b-6b87fe197330`
+   - API Token: `crafty_xxxxxxxxxxxxxxxxxxxx`
+6. Click **Test Connection** then **Save Panel Configuration**.
 
-### ⚡ 1. Real-Time 3-Way Communication
-- **Minecraft → Discord & Web**: Chat messages, player joins, player leaves, and server events are relayed instantly with rich embeds, player avatars, and linked Discord usernames.
-- **Discord → Minecraft & Web**: Messages typed inside the designated Discord channel are broadcasted live to in-game chat and the web console.
-- **Web → Minecraft & Discord**: Web console users can send chat messages or broadcast directly into the game.
+#### B. Connecting Pterodactyl Panel:
+1. Open your Pterodactyl Panel (e.g. `https://panel.yourdomain.com`).
+2. Go to **Account Settings** → **API Credentials** → Create API Key (Client Key starting with `ptlc_`).
+3. Copy the short Server UUID from your server URL (e.g. `c74fa092`).
+4. In MGC Admin Office → **Server Controls**:
+   - Provider: `Pterodactyl Panel`
+   - Base URL: `https://panel.yourdomain.com`
+   - Server ID: `c74fa092`
+   - API Key: `ptlc_xxxxxxxxxxxxxxxxxxxx`
+5. Click **Test Connection** then **Save Panel Configuration**.
 
-### 🎮 2. In-Game Slash Command Execution
-- Administrators can execute any native Minecraft command (e.g., `/time set day`, `/weather clear`, `/give`, `/tp`, `/gamemode`) directly from the **Web Dashboard** or **Discord Chat**.
-- Guarded by role-based authorization in PostgreSQL with automatic audit logging to Discord.
+#### C. Live Server Console & Power Controls:
+- **Telemetry Gauges**: Real-time CPU Utilization (%), RAM Usage (MB/GB), Storage Disk, and Power state.
+- **Power Operations**: Start ▶️, Restart 🔄, Graceful Stop ⏹️, Force Kill ⚡ (with confirmation Sheets).
+- **Interactive Console**: Real-time terminal log feed with instant command dispatch bar (`/say`, `/time set day`, `/weather clear`, etc.).
 
-### 🔗 3. Discord ↔ Minecraft Account Linking
-- Strict 1-to-1 mapping between Discord user profiles and Minecraft In-Game Names (IGN).
-- Link easily through the **Web Dashboard**, or interactively in Discord via popup modal dialogs.
-- Friendly in-game reminder messages for unlinked players without disrupting their gameplay.
-
-### 🤖 4. Interactive Discord Bot & UI Controls
-- **Interactive Buttons & Modals**: Type `!panel` or `!menu` to summon a Discord control panel with interactive buttons (`🔗 Link IGN`, `📊 Server Status`, `👤 My Profile`, `🔓 Unlink`).
-- Instant popup modal input form for linking Minecraft IGN directly inside Discord.
-
-### 👔 5. Dedicated Office Admin Dashboard (`/office`)
-- **Executive Metrics**: Total registered users, linked IGN percentage, active player count, and PostgreSQL connection health.
-- **User Management**: Searchable data table with inline IGN editing, role toggling (`👑 Administrator` ↔ `⚔️ Member`), and deletion.
-- **System Settings**: Live Webhook tester, Discord Bot token visibility toggle, dynamic Secret Bearer Token generator, and one-click script snippet copier.
-
-### 📦 6. Single-Port Unified Deployment (Port 3000)
-- Optimized for VPS and container environments. Both the React SPA frontend and Hono REST APIs run smoothly on **Port 3000** without requiring separate proxy services.
-
----
-
-## 🏛️ Architecture
-
-```
-+-------------------------------------------------------------------------------+
-|                            MAGICAL GAMING CREW                                |
-|                        Real-Time 3-Way Bridge System                          |
-+-------------------------------------------------------------------------------+
-|                                                                               |
-|   +-------------------+        +--------------------+        +-------------+  |
-|   | Minecraft Bedrock | <----> | Hono Backend (3000)| <----> | Discord Bot |  |
-|   | (Script API Net)  |  HTTP  |   & PostgreSQL DB  |  WS/API|  & Webhooks |  |
-|   +-------------------+        +--------------------+        +-------------+  |
-|                                          ^                                    |
-|                                          | HTTP / Static                      |
-|                                          v                                    |
-|                               +----------------------+                        |
-|                               | React Web Dashboard  |                        |
-|                               |  & Office (/office)  |                        |
-|                               +----------------------+                        |
-|                                                                               |
-+-------------------------------------------------------------------------------+
-```
+### 4. ⚙️ System, Webhooks & SEO / LLMs Configuration
+- **Discord Webhook URL**: Channel webhook URL for automated chat and event relays.
+- **Discord Bot Token**: Secret token from Discord Developer Portal enabling 2-way Discord → Game chat.
+- **Public Indexing Master Switch**: Enable public search indexing (`robots.txt`, `sitemap.xml`) or block all crawlers with 1 click.
+- **AEO / LLM Standards**: Dynamic `/llms.txt` and `/llms-full.txt` context generator for ChatGPT, Claude, and Perplexity.
 
 ---
 
-## 🚀 Complete Installation Guide
-
-Follow this step-by-step tutorial to get your full bridge up and running from scratch.
-
-### 📋 Prerequisites
-- **Node.js** (v18.0.0 or higher) & **npm**
-- **PostgreSQL** (v14 or higher) running locally or hosted
-- **Minecraft Bedrock Edition** (Client or Bedrock Dedicated Server)
-- **Discord Account** with permissions to create applications
-
----
-
-### Step 1: Clone and Install Dependencies
-
-```bash
-# 1. Clone repository
-git clone https://github.com/ardianryan/discordmchat.git
-cd discordmchat
-
-# 2. Install backend dependencies
-npm install
-
-# 3. Install frontend dependencies
-npm --prefix client install
-```
-
----
-
-### Step 2: Database Setup (PostgreSQL)
-
-Ensure PostgreSQL is running, then create the database:
-
-```sql
-CREATE DATABASE discordmchat;
-```
-
-*(Note: The server will automatically initialize all required tables — `users`, `link_codes`, and `system_settings` — on its first boot).*
-
----
-
-### Step 3: Discord Application & Bot Setup (Self-Hosted)
-
-Because this is a self-hosted developer bridge, you will create your own Discord Application & Bot instance:
-
-1. **Create Application**:
-   - Go to the [Discord Developer Portal](https://discord.com/developers/applications) and click **New Application**. Give it a name (e.g. `My Minecraft Bridge`).
-2. **OAuth2 Configuration (For Web Dashboard Login)**:
-   - Go to the **OAuth2** tab.
-   - Under **Redirects**, click **Add Redirect** and add:
-     ```text
-     http://localhost:3000/api/auth/discord/callback
-     ```
-     *(Or your production domain: `https://your-domain.com/api/auth/discord/callback`)*.
-   - Copy your **Client ID** and **Client Secret** (save for `.env`).
-3. **Create & Configure Bot (2-Way Listener)**:
-   - Go to the **Bot** tab on the left sidebar.
-   - Click **Reset Token** → Confirm → **Copy Token** *(This is your `DISCORD_BOT_TOKEN`)*.
-   - Scroll down to **Privileged Gateway Intents** and enable:
-     - ✅ **PRESENCE INTENT**
-     - ✅ **SERVER MEMBERS INTENT**
-     - ✅ **MESSAGE CONTENT INTENT** *(Mandatory: enables the bot to read in-game chat & commands)*.
-   - Click **Save Changes**.
-4. **Invite Bot to Your Discord Server**:
-   - Go to **OAuth2 → URL Generator** (or **Installation**).
-   - Scopes: Select `bot` and `applications.commands`.
-   - Permissions: Select `Send Messages`, `Embed Links`, `Read Message History`, `View Channels` (or `Administrator`).
-   - Open the generated invite URL in your browser and authorize the bot to join your Discord server.
-5. **Get Channel ID**:
-   - In Discord, enable **Developer Mode** (*User Settings → Advanced → Developer Mode*).
-   - Right-click your `#ingame-chat` channel → Click **Copy Channel ID**.
-
----
-
-### Step 4: Configure `.env` File
-
-Copy `.env.example` to `.env`:
-
-```bash
-cp .env.example .env
-```
-
-Fill in your configuration:
-
-```ini
-# Server Port
-PORT=3000
-
-# Security Key for Behavior Pack Authentication
-API_KEY=SECRET_BEARER_TOKEN
-JWT_SECRET=SUPER_SECRET_JWT_KEY_DISCORD_MCHAT_123
-
-# PostgreSQL Database Connection URL
-DATABASE_URL=postgresql://postgres:your_postgres_password@localhost:5432/discordmchat
-
-# Discord OAuth2 Application Credentials
-DISCORD_CLIENT_ID=YOUR_DISCORD_CLIENT_ID
-DISCORD_CLIENT_SECRET=YOUR_DISCORD_CLIENT_SECRET
-DISCORD_REDIRECT_URI=http://localhost:3000/api/auth/discord/callback
-
-# Initial Administrator (Your Discord User ID or Username)
-INITIAL_ADMIN_DISCORD_ID=YOUR_DISCORD_USER_ID
-
-# Discord Webhook, Bot Token & Channel (Can also be managed dynamically via /office)
-DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...
-DISCORD_BOT_TOKEN=YOUR_DISCORD_BOT_TOKEN
-DISCORD_CHANNEL_ID=YOUR_DISCORD_CHANNEL_ID
-DISCORD_INVITE_URL=https://discord.gg/your_invite_code
-
-# Public Frontend URL
-FRONTEND_URL=http://localhost:3000
-```
-
----
-
-### Step 5: Build and Run
-
-#### 🚀 Production / Single-Port Deployment (Recommended)
-```bash
-# Build React frontend & TypeScript backend
-npm run build
-
-# Start the unified server on Port 3000
-npm start
-```
-
-Open your browser and visit:
-* **Web Live Chat**: [http://localhost:3000](http://localhost:3000)
-* **Office Admin Dashboard**: [http://localhost:3000/office](http://localhost:3000/office)
-
-#### 💻 Development Mode (Hot-Reload)
-```bash
-npm run dev
-```
-
----
-
-## 🧩 Behavior Pack Setup & Usage Tutorial
-
-The Behavior Pack is located in the [`MGC_Bridge[BP]`](./MGC_Bridge[BP]) directory and is built to support Minecraft Bedrock **1.20, 1.21+, through 1.26+**.
-
-```
-MGC_Bridge[BP]/
-├── manifest.json       # Behavior Pack metadata & Script API dependencies
-├── pack_icon.png       # Official Magical Gaming Crew in-game icon
-└── scripts/
-    └── main.js         # HTTP network listener & command executor
-```
-
----
-
-### 📥 1. Installing the Pack into Minecraft
-
-#### Option A: Windows 10/11 (Local Client / Host)
-1. Press `Win + R`, paste the following path, and press Enter:
-   ```text
-   %localappdata%\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_behavior_packs
-   ```
-2. Copy the entire `MGC_Bridge[BP]` folder into this directory.
-
-#### Option B: Bedrock Dedicated Server (BDS / Linux / VPS)
-1. Copy the `MGC_Bridge[BP]` folder into your server's `behavior_packs/` directory:
-   ```text
-   /path/to/bedrock-server/behavior_packs/MGC_Bridge[BP]
-   ```
-2. Open `worlds/<world_name>/world_behavior_packs.json` and add the pack UUID:
-   ```json
-   [
-     {
-       "pack_id": "a5d8b724-4f51-4c31-89a3-5c218683f120",
-       "version": [1, 0, 0]
-     }
-   ]
-   ```
-
----
-
-### ⚙️ 2. Configuring Server URL & API Key in `scripts/main.js`
-
-Open [`MGC_Bridge[BP]/scripts/main.js`](./MGC_Bridge[BP]/scripts/main.js) and configure lines 7–8:
-
-```javascript
-/**
- * Configuration: Point to your running Hono backend
- */
-const HONO_BACKEND_URL = "http://YOUR_SERVER_IP_OR_DOMAIN:3000/api/game";
-const API_KEY = "YOUR_API_KEY_OR_SECRET_BEARER_TOKEN";
-```
-
-> 💡 **Tip:** You can generate a cryptographically secure token and click **"Copy Snippet"** directly from the **[http://localhost:3000/office](http://localhost:3000/office)** dashboard (*Tab: Settings*).
-
----
-
-### 🎮 3. Activating the Pack in Your World
-
-1. Launch Minecraft and open your World Settings (or server configuration).
-2. Go to **Behavior Packs** → Under *Available*, select **MGC Discord & Web Live Chat Bridge** → Click **Activate**.
-3. Go to **Experiments** → Toggle **ON** **Beta APIs** *(Required for `@minecraft/server-net` HTTP requests)*.
-4. Start your World / Server!
-
----
-
-### ✅ 4. Verifying In-Game Connection
-
-1. When joining the server, players will see a bridge welcome notification in their chat:
-   - **Linked Players:** `§a[Discord Bridge] Selamat datang, PlayerName! Akun Anda terhubung dengan Discord @Username.`
-   - **Unlinked Players:** `§6[Info Server] Halo PlayerName! Akun Anda belum terhubung Discord. Tautkan di Web: http://localhost:3000`
-2. Messages sent in Minecraft will appear immediately on the **Web Live Chat** and in the **Discord Channel**.
-3. Messages and commands sent from Discord or Web will execute in real-time inside Minecraft!
-
----
-
-## 🤖 Bot Controls & Commands
-
-You can interact with the bridge in your Discord channel using both **interactive UI buttons** and standard text commands:
-
-| Discord Command | Type | Description |
-| :--- | :--- | :--- |
-| **`!panel`** or **`!menu`** | `Interactive` | Summons the full interactive UI panel with clickable buttons and modals. |
-| **`!link <IGN>`** | `Text` | Manually links your Discord account to your Minecraft In-Game Name. |
-| **`!unlink`** | `Text` | Unlinks your Minecraft In-Game Name from your Discord account. |
-| **`!status`** or **`!players`** | `Text` | Displays live bridge status, online player count, and roster. |
-| **`!help`** | `Text` | Shows all available bridge commands. |
-| **`/command`** *(Admin Only)* | `In-Game` | Executes in-game Minecraft commands (e.g. `/time set day`, `/weather clear`, `/give`). |
-
----
-
-## 📁 Project Structure
+## 📁 8. Project Structure
 
 ```
 discordmchat/
 ├── assets/
 │   └── logo.png                   # Official Magical Gaming Crew Logo
-├── MGC_Bridge[BP]/                # Minecraft Bedrock Behavior Pack
+├── MGC_Bridge[BP]/                # Minecraft Bedrock Behavior Pack (v2.11.0)
 │   ├── manifest.json              # Pack manifest (1.21+ / 1.26+ Script API)
 │   ├── pack_icon.png              # Official in-game pack icon
 │   └── scripts/
-│       └── main.js                # @minecraft/server & server-net listener
-├── client/                        # React (Vite) Frontend Application
+│       └── main.js                # @minecraft/server & server-net listener (3s telemetry)
+├── client/                        # React 19 (Vite) Frontend Application
 │   ├── public/
 │   │   ├── logo.png               # Web Favicon & Brand Icon
 │   │   └── favicon.png
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── Navbar.tsx         # Modern Glassmorphic Navigation
+│   │   │   ├── Navbar.tsx         # Responsive Glassmorphic Navigation
 │   │   │   ├── ChatFeed.tsx       # Live 3-Way Chat & Command Timeline
 │   │   │   ├── PlayerList.tsx     # Active In-Game Player Roster
-│   │   │   ├── OfficeDashboard.tsx# Admin Management & Config Suite
+│   │   │   ├── OfficeDashboard.tsx# Dedicated Admin Sidebar Portal
+│   │   │   ├── PlayerInventorySheet.tsx # Live HUD & 36-Slot Inventory Inspector
+│   │   │   ├── ServerPanelTab.tsx # Hardware Telemetry, Power & Console
+│   │   │   ├── PanelSetupGuideSheet.tsx # Crafty & Pterodactyl Setup Guide
 │   │   │   ├── ProfileModal.tsx   # Minecraft IGN Account Linking Modal
-│   │   │   └── LoginPage.tsx      # Ambient Glassmorphism Hero Landing
+│   │   │   ├── Sheet.tsx          # Universal Slide-Over Sheet Component
+│   │   │   └── LoginPage.tsx      # 2-Column Split Hero Landing Portal
 │   │   ├── App.tsx                # Root Application Component
-│   │   └── index.css              # Custom Vanilla CSS Design System Tokens
+│   │   └── index.css              # Vanilla CSS Design System Tokens
 │   └── index.html
 ├── src/                           # Hono.js Backend Server
 │   ├── routes/
 │   │   ├── auth.ts                # Discord OAuth2 & User Profile API
-│   │   └── office.ts              # Office Admin & Settings Management
+│   │   └── office.ts              # Office Admin & Server Panel API
+│   ├── services/
+│   │   └── panel.ts               # Universal Pterodactyl & Crafty Client Adapter
 │   ├── db.ts                      # Drizzle ORM Database Query Layer
 │   ├── schema.ts                  # Type-Safe PostgreSQL Table Schemas
 │   └── index.ts                   # Main Server Entry & Discord.js 2-Way Bot
@@ -517,7 +380,7 @@ discordmchat/
 
 ---
 
-## 🛡️ Security & Access Control
+## 🛡️ 9. Security & Access Control
 
 - **JWT Session Tokens**: Stored securely in `HttpOnly` cookies.
 - **Role Verification**: Admin-exclusive endpoints (`/api/office/*`) and command triggers are strictly verified against PostgreSQL records.

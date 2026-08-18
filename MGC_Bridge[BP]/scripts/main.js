@@ -3,7 +3,7 @@ import { http, HttpRequest, HttpRequestMethod, HttpHeader } from "@minecraft/ser
 
 // ── Startup Diagnostic (visible in BDS console logs)
 system.run(() => {
-  console.warn("[MGC-BRIDGE] v1.6.0 loaded — checking event availability:");
+  console.warn("[MGC-BRIDGE] v2.11.0 loaded — checking event availability:");
   console.warn("[MGC-BRIDGE]  beforeEvents.chatSend:", !!world.beforeEvents?.chatSend);
   console.warn("[MGC-BRIDGE]  afterEvents.chatSend :", !!world.afterEvents?.chatSend);
   console.warn("[MGC-BRIDGE]  afterEvents.playerSpawn:", !!world.afterEvents?.playerSpawn);
@@ -93,19 +93,39 @@ system.runInterval(async () => {
 // ========================================================
 function extractSlotItem(itemStack, slotIndex) {
   if (!itemStack) return null;
-  return {
-    slot: slotIndex,
-    typeId: itemStack.typeId || "minecraft:air",
-    amount: itemStack.amount || 1,
-    nameTag: itemStack.nameTag || undefined,
-    damage: typeof itemStack.damage === "number" ? itemStack.damage : undefined,
-    maxDamage: typeof itemStack.maxDamage === "number" ? itemStack.maxDamage : undefined,
-  };
+  try {
+    return {
+      slot: slotIndex,
+      typeId: itemStack.typeId || "minecraft:air",
+      amount: itemStack.amount || 1,
+      nameTag: itemStack.nameTag || undefined,
+      damage: typeof itemStack.damage === "number" ? itemStack.damage : undefined,
+      maxDamage: typeof itemStack.maxDamage === "number" ? itemStack.maxDamage : undefined,
+    };
+  } catch {
+    return null;
+  }
+}
+
+function getEquippedItem(equipComp, slotName) {
+  if (!equipComp) return null;
+  try {
+    // Try both string slot names and capitalizations
+    let item = null;
+    if (typeof equipComp.getEquipment === "function") {
+      item = equipComp.getEquipment(slotName) || 
+             equipComp.getEquipment(slotName.toLowerCase()) || 
+             equipComp.getEquipment(slotName.charAt(0).toUpperCase() + slotName.slice(1).toLowerCase());
+    }
+    return item;
+  } catch {
+    return null;
+  }
 }
 
 function collectPlayerInventory(player) {
   try {
-    const healthComp = player.getComponent("minecraft:health");
+    const healthComp = player.getComponent("minecraft:health") || player.getComponent("health");
     const health = {
       current: healthComp ? Math.round(healthComp.currentValue * 10) / 10 : 20,
       max: healthComp ? Math.round(healthComp.defaultValue * 10) / 10 : 20,
@@ -120,25 +140,26 @@ function collectPlayerInventory(player) {
     };
 
     // Equippable (Armor & Hands)
-    const equipComp = player.getComponent("minecraft:equippable");
+    const equipComp = player.getComponent("minecraft:equippable") || player.getComponent("equippable");
     const armor = {
-      head: equipComp ? extractSlotItem(equipComp.getEquipment("Head"), 0) : null,
-      chest: equipComp ? extractSlotItem(equipComp.getEquipment("Chest"), 1) : null,
-      legs: equipComp ? extractSlotItem(equipComp.getEquipment("Legs"), 2) : null,
-      feet: equipComp ? extractSlotItem(equipComp.getEquipment("Feet"), 3) : null,
-      offhand: equipComp ? extractSlotItem(equipComp.getEquipment("Offhand"), 4) : null,
-      mainhand: equipComp ? extractSlotItem(equipComp.getEquipment("Mainhand"), 5) : null,
+      head: extractSlotItem(getEquippedItem(equipComp, "Head"), 0),
+      chest: extractSlotItem(getEquippedItem(equipComp, "Chest"), 1),
+      legs: extractSlotItem(getEquippedItem(equipComp, "Legs"), 2),
+      feet: extractSlotItem(getEquippedItem(equipComp, "Feet"), 3),
+      offhand: extractSlotItem(getEquippedItem(equipComp, "Offhand"), 4),
+      mainhand: extractSlotItem(getEquippedItem(equipComp, "Mainhand"), 5),
     };
 
     // 36 Main Inventory Slots
-    const invComp = player.getComponent("minecraft:inventory");
+    const invComp = player.getComponent("minecraft:inventory") || player.getComponent("inventory");
     const mainInventory = [];
     if (invComp && invComp.container) {
       const container = invComp.container;
       for (let i = 0; i < container.size; i++) {
         const item = container.getItem(i);
         if (item) {
-          mainInventory.push(extractSlotItem(item, i));
+          const extracted = extractSlotItem(item, i);
+          if (extracted) mainInventory.push(extracted);
         }
       }
     }
@@ -158,11 +179,8 @@ function collectPlayerInventory(player) {
   }
 }
 
-// Sync Player Inventories every 20s (400 ticks)
-let isSyncingInventories = false;
-system.runInterval(async () => {
-  if (isSyncingInventories) return;
-  isSyncingInventories = true;
+// Global helper for fast live inventory syncing
+async function syncAllInventories() {
   try {
     const list = [];
     for (const player of world.getPlayers()) {
@@ -172,10 +190,20 @@ system.runInterval(async () => {
     if (list.length > 0) {
       await sendRequest("/inventory-sync", HttpRequestMethod.Post, { inventories: list });
     }
+  } catch {}
+}
+
+// Sync Player Inventories every 3s (60 ticks) for near real-time live telemetry
+let isSyncingInventories = false;
+system.runInterval(async () => {
+  if (isSyncingInventories) return;
+  isSyncingInventories = true;
+  try {
+    await syncAllInventories();
   } catch {} finally {
     isSyncingInventories = false;
   }
-}, 400);
+}, 60);
 
 // ========================================================
 // 1. CHAT RELAY — KiwEssentials Compatible Queue Pattern
@@ -410,11 +438,35 @@ system.runInterval(async () => {
             // If message is an In-Game Slash Command
             if (msg.isCommand || (msg.message && msg.message.startsWith("/"))) {
               const cleanCommand = msg.message.startsWith("/") ? msg.message.substring(1) : msg.message;
+              let executed = false;
+              let errorReason = "";
+
               try {
+                const overworld = world.getDimension("overworld");
                 await overworld.runCommandAsync(cleanCommand);
-                world.sendMessage(`§6[Admin Command] §e${msg.sender}§f: §a/${cleanCommand}`);
+                executed = true;
               } catch (cmdErr) {
-                world.sendMessage(`§c[Command Error] §f/${cleanCommand} (Execution failed)`);
+                errorReason = cmdErr?.message || "Dimension execution failed";
+                // Fallback: try executing via any online player's dimension
+                for (const p of world.getPlayers()) {
+                  try {
+                    await p.dimension.runCommandAsync(cleanCommand);
+                    executed = true;
+                    break;
+                  } catch (pErr) {
+                    errorReason = pErr?.message || errorReason;
+                  }
+                }
+              }
+
+              if (executed) {
+                world.sendMessage(`§6[Admin Command] §e${msg.sender}§f: §a/${cleanCommand}`);
+                // Immediate inventory telemetry sync
+                system.runTimeout(() => {
+                  syncAllInventories();
+                }, 10);
+              } else {
+                world.sendMessage(`§c[Command Error] §f/${cleanCommand} (§7${errorReason}§c)`);
               }
             } else {
               // Display normal chat message in game
