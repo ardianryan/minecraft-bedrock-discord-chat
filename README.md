@@ -32,53 +32,116 @@
 
 ---
 
-## 🟢 KiwEssentials Integration
+## 🟢 KiwEssentials Integration Guide
 
-> [!IMPORTANT]
-> **MGC Bedrock Bridge is fully compatible with [KiwEssentials](https://kiwstudio.com/)** — the most popular all-in-one server management addon for Minecraft Bedrock. Both addons coexist seamlessly at the same time.
+> [!NOTE]
+> **[KiwEssentials](https://kiwstudio.com/)** is a commercial server management addon for Minecraft Bedrock developed by KiwStudio. MGC Bridge is engineered to integrate seamlessly with KiwEssentials. **No proprietary KiwEssentials scripts or packs are redistributed in this repository.**
 
-### What's Integrated
+### Features Synchronized with KiwEssentials
+- **2-Way Live Chat Bridge**: KiwEssentials custom rank chat formats (`[OWNER]`, `[VIP]`, etc.) relay directly to Discord & Web Dashboard.
+- **Scoreboard Sync**: Reads `kill`, `death`, `money`, `coin`, and `playtime` every 3 minutes.
+- **Rich Join Embeds**: Player join embeds on Discord automatically display KiwEssentials stats (K/D, Balance, Playtime).
+- **Web Dashboard Leaderboard**: Multi-tab leaderboard sorted by Kills, Deaths, Money, Coins, or Playtime.
 
-| Feature | Description |
-|---|---|
-| **Chat Compatibility** | MGC Bridge captures chat messages **before** KiwEssentials cancels them, using `beforeEvents.chatSend` + `system.run()` defer. No chat interference. |
-| **Kill / Death Tracking** | Reads KiwEssentials `kill` and `death` scoreboard objectives every 3 minutes and syncs to the Web Dashboard. |
-| **Money & Coin** | Reads `money` and `coin` objectives — displayed in the Leaderboard. |
-| **Playtime** | Reads `playtime` objective and displays it as hours/minutes on the scoreboard. |
-| **Discord Join Embeds** | When a player joins, Discord receives a rich embed with their **K/D, Money, Coins, and Playtime** from KiwEssentials. |
-| **Web Scoreboard** | Multi-tab leaderboard on the Web Dashboard: ⚔️ Kills · 💀 Deaths · 💰 Money · 🪙 Coins · ⏱️ Playtime |
+---
 
-### Scoreboard Sync Flow
+### 🛠️ How to Enable MGC Bridge in Your KiwEssentials Pack
 
+If your server uses KiwEssentials, follow these 2 simple configuration steps on your server's `KiwBP` folder:
+
+#### Step 1: Add `@minecraft/server-net` to `KiwBP/manifest.json`
+Open your server's `KiwBP/manifest.json` and add `@minecraft/server-net` under `"dependencies"`:
+
+```json
+{
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "beta"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "beta"
+    },
+    {
+      "module_name": "@minecraft/server-net",
+      "version": "1.0.0-beta"
+    }
+  ],
+  "capabilities": [
+    "script_eval"
+  ]
+}
 ```
-Minecraft Bedrock (KiwEssentials scoreboard)
-           │
-           │ [every 3 min via HTTP POST /api/game/scoreboard]
-           ▼
-     Hono.js Backend ──→ PostgreSQL (player_scores table)
-           │
-           ├──→ Discord Webhook (enriched embeds on join)
-           └──→ Web Dashboard (real-time leaderboard tabs)
+
+#### Step 2: Add Relay Function to `KiwBP/scripts/board/chat.js`
+Open `KiwBP/scripts/board/chat.js` on your server:
+
+**a. Add this bridge helper at the very top of `chat.js`:**
+```javascript
+// ── MGC DISCORD & WEB BRIDGE ──────────────────────────
+import { http, HttpRequest, HttpRequestMethod, HttpHeader } from "@minecraft/server-net";
+
+const MGC_BRIDGE_URL = "https://YOUR_DOMAIN_OR_IP/api/game/chat";
+const MGC_API_KEY = "YOUR_API_KEY"; // Configured in your backend .env (API_KEY)
+
+function relayChatToMGC(senderName, messageText) {
+  if (!senderName || !messageText) return;
+  if (messageText.startsWith("+") || messageText.startsWith("/")) return;
+  try {
+    system.run(async () => {
+      try {
+        const req = new HttpRequest(MGC_BRIDGE_URL);
+        req.setMethod(HttpRequestMethod.Post);
+        req.setHeaders([
+          new HttpHeader("Content-Type", "application/json"),
+          new HttpHeader("Authorization", "Bearer " + MGC_API_KEY)
+        ]);
+        req.setBody(JSON.stringify({ sender: senderName, message: messageText }));
+        await http.request(req);
+      } catch (err) {
+        console.warn("[MGC-Bridge] Failed to relay chat:", err);
+      }
+    });
+  } catch {}
+}
+// ──────────────────────────────────────────────────────
 ```
 
-### Required KiwEssentials Version
+**b. In the `world.beforeEvents.chatSend` event listener, call `relayChatToMGC`:**
+Around line 200, right after `world.sendMessage(...)`, add `relayChatToMGC(player.name, message);`:
+```javascript
+ const formattedMessage = formatChatMessage(player, message);
+ if (formattedMessage) {
+   world.sendMessage(formattedMessage);
+ } else {
+   world.sendMessage(`§7${player.name}: §f${message}`);
+ }
 
-- **Minimum:** KiwEssentials **33.x** or later
-- Download: [kiwstudio.com](https://kiwstudio.com/)
+ // Forward message to Discord & Web Dashboard
+ relayChatToMGC(player.name, message);
+});
+```
 
-### Pack Load Order
+---
 
-In your Bedrock server's `world_behavior_packs.json`, ensure **KiwEssentials** loads **before** MGC Bridge:
+### Pack Load Order (`world_behavior_packs.json`)
 
 ```json
 [
-  { "pack_id": "7a211304-6b66-4679-8e00-c4ca1529235a", "version": [33, 1, 6] },
-  { "pack_id": "a5d8b724-4f51-4c31-89a3-5c218683f120", "version": [1, 4, 0] }
+  {
+    "pack_id": "7a211304-6b66-4679-8e00-c4ca1529235a",
+    "version": [33, 1, 6]
+  },
+  {
+    "pack_id": "a5d8b724-4f51-4c31-89a3-5c218683f120",
+    "version": [1, 7, 0]
+  }
 ]
 ```
 
-> [!NOTE]
-> If KiwEssentials is not installed, MGC Bridge works fully independently — scoreboard features will simply show empty until data is present.
+> [!TIP]
+> If KiwEssentials is not installed, MGC Bridge functions completely independently using standard vanilla Bedrock chat and scoreboards.
 
 ---
 
