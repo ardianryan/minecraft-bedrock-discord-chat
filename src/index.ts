@@ -103,6 +103,37 @@ export function addChatMessage(msg: Omit<ChatMessage, 'id' | 'timestamp'>) {
   return newMsg;
 }
 
+export interface InventorySlotItem {
+  slot: number;
+  typeId: string;
+  amount: number;
+  nameTag?: string;
+  damage?: number;
+  maxDamage?: number;
+}
+
+export interface PlayerLiveTelemetry {
+  username: string;
+  health: { current: number; max: number };
+  hunger?: { current: number; max: number };
+  level: number;
+  xpProgress: number;
+  location: { x: number; y: number; z: number; dimension: string };
+  gameMode: string;
+  armor: {
+    head?: InventorySlotItem | null;
+    chest?: InventorySlotItem | null;
+    legs?: InventorySlotItem | null;
+    feet?: InventorySlotItem | null;
+    offhand?: InventorySlotItem | null;
+    mainhand?: InventorySlotItem | null;
+  };
+  mainInventory: InventorySlotItem[];
+  lastSynced: string;
+}
+
+export const activePlayerInventories = new Map<string, PlayerLiveTelemetry>();
+
 // Enable CORS for frontend web client
 app.use('*', cors({
   origin: ['http://localhost:5173', 'http://localhost:3000', 'http://127.0.0.1:5173'],
@@ -1199,6 +1230,33 @@ app.post('/api/game/scoreboard', bedrockAuthMiddleware, async (c) => {
     return c.json({ status: 'ok', synced: players.length });
   } catch (err) {
     return c.json({ error: 'Failed to sync scoreboard' }, 500);
+  }
+});
+
+// Player Inventory & Telemetry Sync (from Bedrock BP)
+app.post('/api/game/inventory-sync', bedrockAuthMiddleware, async (c) => {
+  try {
+    const body = await c.req.json();
+    const list: PlayerLiveTelemetry[] = Array.isArray(body.inventories) 
+      ? body.inventories 
+      : (body.username ? [body] : []);
+
+    const nowStr = new Date().toLocaleTimeString('id-ID', {
+      hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Jakarta', hour12: false
+    });
+
+    for (const item of list) {
+      if (item.username) {
+        activePlayerInventories.set(item.username, {
+          ...item,
+          lastSynced: nowStr,
+        });
+      }
+    }
+
+    return c.json({ status: 'ok', synced: list.length });
+  } catch (err) {
+    return c.json({ error: 'Failed to sync inventory telemetry' }, 500);
   }
 });
 

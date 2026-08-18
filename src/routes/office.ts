@@ -78,6 +78,12 @@ officeRouter.get('/settings', async (c) => {
     const seoGeoPlacename = await getSetting('seo_geo_placename', 'Jakarta, Indonesia');
     const seoGeoPosition = await getSetting('seo_geo_position', '-6.2088;106.8456');
 
+    // Server Management Panel settings (Pterodactyl / Crafty Controller)
+    const serverPanelProvider = await getSetting('server_panel_provider', 'none');
+    const panelUrl = await getSetting('panel_url', '');
+    const panelServerId = await getSetting('panel_server_id', '');
+    const panelApiKey = await getSetting('panel_api_key', '');
+
     return c.json({
       settings: {
         discord_webhook_url: webhookUrl,
@@ -95,6 +101,10 @@ officeRouter.get('/settings', async (c) => {
         seo_geo_region: seoGeoRegion,
         seo_geo_placename: seoGeoPlacename,
         seo_geo_position: seoGeoPosition,
+        server_panel_provider: serverPanelProvider,
+        panel_url: panelUrl,
+        panel_server_id: panelServerId,
+        panel_api_key: panelApiKey,
       },
     });
   } catch (err) {
@@ -120,7 +130,11 @@ officeRouter.post('/settings', async (c) => {
       seo_keywords,
       seo_geo_region,
       seo_geo_placename,
-      seo_geo_position
+      seo_geo_position,
+      server_panel_provider,
+      panel_url,
+      panel_server_id,
+      panel_api_key,
     } = await c.req.json();
 
     if (discord_webhook_url !== undefined) {
@@ -167,6 +181,18 @@ officeRouter.post('/settings', async (c) => {
     }
     if (seo_geo_position !== undefined) {
       await setSetting('seo_geo_position', String(seo_geo_position).trim());
+    }
+    if (server_panel_provider !== undefined) {
+      await setSetting('server_panel_provider', String(server_panel_provider).trim());
+    }
+    if (panel_url !== undefined) {
+      await setSetting('panel_url', String(panel_url).trim());
+    }
+    if (panel_server_id !== undefined) {
+      await setSetting('panel_server_id', String(panel_server_id).trim());
+    }
+    if (panel_api_key !== undefined) {
+      await setSetting('panel_api_key', String(panel_api_key).trim());
     }
 
     // Hot-reload / re-initialize Discord Bot if token was updated
@@ -392,6 +418,293 @@ officeRouter.get('/players/known', async (c) => {
     return c.json({ players: result });
   } catch (err: any) {
     return c.json({ error: 'Failed to fetch known players directory' }, 500);
+  }
+});
+
+// ==========================================
+// 11. SERVER MANAGEMENT PANEL APIS
+// ==========================================
+
+async function getActivePanelConfig() {
+  const provider = (await getSetting('server_panel_provider', 'none')) as 'none' | 'pterodactyl' | 'crafty';
+  const panelUrl = await getSetting('panel_url', '');
+  const serverId = await getSetting('panel_server_id', '');
+  const apiKey = await getSetting('panel_api_key', '');
+  return { provider, panelUrl, serverId, apiKey };
+}
+
+// 11a. Test Panel Connection
+officeRouter.post('/server/test-panel', async (c) => {
+  try {
+    const { provider, panelUrl, serverId, apiKey } = await c.req.json();
+    const { getLiveServerStats } = await import('../services/panel.js');
+
+    if (!provider || provider === 'none') {
+      return c.json({ error: 'Please select a panel provider (Pterodactyl or Crafty)' }, 400);
+    }
+    if (!panelUrl || !serverId || !apiKey) {
+      return c.json({ error: 'Panel URL, Server ID, and API Key are required' }, 400);
+    }
+
+    const stats = await getLiveServerStats({
+      provider,
+      panelUrl,
+      serverId,
+      apiKey,
+    });
+
+    return c.json({
+      status: 'success',
+      message: `✅ Successfully connected to ${provider.toUpperCase()}! Current server status: ${stats.status.toUpperCase()}`,
+      stats,
+    });
+  } catch (err: any) {
+    return c.json({ error: `Connection failed: ${err.message}` }, 400);
+  }
+});
+
+// 11b. Get Live Server Resource Stats (CPU, RAM, Disk, Status)
+officeRouter.get('/server/stats', async (c) => {
+  try {
+    const config = await getActivePanelConfig();
+    const { activePlayers } = await import('../index.js');
+    const serverName = await getSetting('server_name', 'Minecraft Bedrock Server');
+
+    if (config.provider === 'none' || !config.panelUrl || !config.serverId || !config.apiKey) {
+      return c.json({
+        configured: false,
+        provider: 'none',
+        serverName,
+        activePlayersCount: activePlayers.size,
+        stats: null,
+      });
+    }
+
+    const { getLiveServerStats } = await import('../services/panel.js');
+    const stats = await getLiveServerStats(config);
+
+    return c.json({
+      configured: true,
+      provider: config.provider,
+      serverName,
+      activePlayersCount: activePlayers.size,
+      stats,
+    });
+  } catch (err: any) {
+    return c.json({ error: err.message || 'Failed to fetch panel stats' }, 500);
+  }
+});
+
+// 11c. Send Power Action (start / stop / restart / kill)
+officeRouter.post('/server/power', async (c) => {
+  try {
+    const { signal } = await c.req.json();
+    if (!['start', 'stop', 'restart', 'kill'].includes(signal)) {
+      return c.json({ error: 'Invalid signal. Supported: start, stop, restart, kill' }, 400);
+    }
+
+    const config = await getActivePanelConfig();
+    if (config.provider === 'none') {
+      return c.json({ error: 'Server management panel is not configured' }, 400);
+    }
+
+    const { sendServerPower } = await import('../services/panel.js');
+    await sendServerPower(config, signal);
+
+    const { addChatMessage } = await import('../index.js');
+    addChatMessage({
+      source: 'System',
+      sender: 'Office Admin',
+      message: `⚡ Dispatched server power action: ${signal.toUpperCase()}`,
+    });
+
+    return c.json({ status: 'success', message: `Server power signal "${signal}" sent successfully.` });
+  } catch (err: any) {
+    return c.json({ error: err.message || 'Failed to send power action' }, 500);
+  }
+});
+
+// 11d. Dispatch Console Command
+officeRouter.post('/server/command', async (c) => {
+  try {
+    const { command } = await c.req.json();
+    if (!command || !String(command).trim()) {
+      return c.json({ error: 'Command cannot be empty' }, 400);
+    }
+
+    const cleanCommand = String(command).trim();
+    const config = await getActivePanelConfig();
+
+    if (config.provider !== 'none' && config.panelUrl && config.serverId && config.apiKey) {
+      const { sendServerConsoleCommand } = await import('../services/panel.js');
+      await sendServerConsoleCommand(config, cleanCommand);
+    } else {
+      // Fallback to Script API pending command
+      const { pendingGameMessages } = await import('../index.js');
+      pendingGameMessages.push({
+        source: 'Office-Console',
+        sender: 'Administrator',
+        message: cleanCommand.startsWith('/') ? cleanCommand : `/${cleanCommand}`,
+        isCommand: true,
+      });
+    }
+
+    const { addChatMessage } = await import('../index.js');
+    addChatMessage({
+      source: 'System',
+      sender: 'Server Console',
+      message: `⚡ Executed command: /${cleanCommand.replace(/^\//, '')}`,
+    });
+
+    return c.json({ status: 'success', message: `Command "/${cleanCommand.replace(/^\//, '')}" executed.` });
+  } catch (err: any) {
+    return c.json({ error: err.message || 'Failed to dispatch console command' }, 500);
+  }
+});
+
+// ==========================================
+// 12. PLAYER INVENTORY & TELEMETRY APIS
+// ==========================================
+
+// 12a. Get Player Live Inventory & HUD
+officeRouter.get('/players/:ign/inventory', async (c) => {
+  try {
+    const ign = c.req.param('ign');
+    if (!ign) return c.json({ error: 'IGN is required' }, 400);
+
+    const { activePlayers, activePlayerInventories } = await import('../index.js');
+    const isOnline = activePlayers.has(ign);
+    const cached = activePlayerInventories.get(ign);
+
+    if (cached) {
+      return c.json({
+        ign,
+        isOnline,
+        telemetry: cached,
+      });
+    }
+
+    // Default structure if not yet synced by BP
+    const fallbackTelemetry = {
+      username: ign,
+      health: { current: 20, max: 20 },
+      hunger: { current: 20, max: 20 },
+      level: 0,
+      xpProgress: 0,
+      location: { x: 0, y: 64, z: 0, dimension: 'overworld' },
+      gameMode: 'survival',
+      armor: {
+        head: null,
+        chest: null,
+        legs: null,
+        feet: null,
+        offhand: null,
+        mainhand: null,
+      },
+      mainInventory: [],
+      lastSynced: 'Pending in-game sync',
+    };
+
+    return c.json({
+      ign,
+      isOnline,
+      telemetry: fallbackTelemetry,
+    });
+  } catch (err: any) {
+    return c.json({ error: 'Failed to fetch player inventory' }, 500);
+  }
+});
+
+// 12b. Player Inventory Actions (Give Item, Clear Slot, Wipe All, Heal, Gamemode, Teleport)
+officeRouter.post('/players/:ign/action', async (c) => {
+  try {
+    const ign = c.req.param('ign');
+    const { action, itemId, amount = 1, gamemode, coords, message } = await c.req.json();
+    const { pendingGameMessages, addChatMessage } = await import('../index.js');
+
+    let commandToRun = '';
+    let actionDescription = '';
+
+    switch (action) {
+      case 'give': {
+        if (!itemId) return c.json({ error: 'Item ID is required' }, 400);
+        const cleanItem = String(itemId).trim().replace(/^minecraft:/, '');
+        const cleanAmount = Math.max(1, Math.min(Number(amount) || 1, 64));
+        commandToRun = `/give "${ign}" ${cleanItem} ${cleanAmount}`;
+        actionDescription = `Gave ${cleanAmount}x ${cleanItem} to ${ign}`;
+        break;
+      }
+      case 'clear_item': {
+        if (!itemId) return c.json({ error: 'Item ID is required' }, 400);
+        const cleanItem = String(itemId).trim().replace(/^minecraft:/, '');
+        const cleanAmount = amount ? Number(amount) : 0;
+        commandToRun = cleanAmount > 0 
+          ? `/clear "${ign}" ${cleanItem} 0 ${cleanAmount}` 
+          : `/clear "${ign}" ${cleanItem}`;
+        actionDescription = `Cleared ${cleanItem} from ${ign}`;
+        break;
+      }
+      case 'wipe_inventory': {
+        commandToRun = `/clear "${ign}"`;
+        actionDescription = `Wiped all inventory of ${ign}`;
+        break;
+      }
+      case 'heal': {
+        // Instant health & saturation
+        commandToRun = `/effect give "${ign}" instant_health 1 255 true`;
+        pendingGameMessages.push({
+          source: 'Office-Heal',
+          sender: 'Administrator',
+          message: `/effect give "${ign}" saturation 1 255 true`,
+          isCommand: true,
+        });
+        actionDescription = `Healed and fed ${ign} to max`;
+        break;
+      }
+      case 'gamemode': {
+        if (!gamemode) return c.json({ error: 'Gamemode is required' }, 400);
+        commandToRun = `/gamemode ${gamemode} "${ign}"`;
+        actionDescription = `Changed ${ign}'s gamemode to ${gamemode}`;
+        break;
+      }
+      case 'teleport': {
+        if (!coords || typeof coords.x !== 'number') return c.json({ error: 'Coordinates x, y, z are required' }, 400);
+        commandToRun = `/tp "${ign}" ${coords.x} ${coords.y} ${coords.z}`;
+        actionDescription = `Teleported ${ign} to (${coords.x}, ${coords.y}, ${coords.z})`;
+        break;
+      }
+      case 'message': {
+        if (!message) return c.json({ error: 'Message is required' }, 400);
+        commandToRun = `/tell "${ign}" §e[Admin PM] §f${message}`;
+        actionDescription = `Sent private message to ${ign}`;
+        break;
+      }
+      default:
+        return c.json({ error: `Unknown action: ${action}` }, 400);
+    }
+
+    if (commandToRun) {
+      pendingGameMessages.push({
+        source: 'Office-Action',
+        sender: 'Administrator',
+        message: commandToRun,
+        isCommand: true,
+      });
+
+      addChatMessage({
+        source: 'System',
+        sender: 'Administrator',
+        message: `⚡ ${actionDescription}`,
+      });
+    }
+
+    return c.json({
+      status: 'success',
+      message: actionDescription,
+      command: commandToRun,
+    });
+  } catch (err: any) {
+    return c.json({ error: err.message || 'Failed to execute player action' }, 500);
   }
 });
 

@@ -30,11 +30,19 @@ import {
   CheckCircle2,
   Globe,
   Compass,
-  FileText
+  FileText,
+  Server,
+  Gamepad2,
+  ArrowLeft,
+  Menu,
+  X,
+  Package
 } from 'lucide-react';
 import { AuthUser } from './Navbar.tsx';
 import { Sheet } from './Sheet.tsx';
 import { Tooltip } from './Tooltip.tsx';
+import { ServerPanelTab } from './ServerPanelTab.tsx';
+import { PlayerInventorySheet } from './PlayerInventorySheet.tsx';
 
 interface SystemSettings {
   discord_webhook_url: string;
@@ -52,6 +60,10 @@ interface SystemSettings {
   seo_geo_region?: string;
   seo_geo_placename?: string;
   seo_geo_position?: string;
+  server_panel_provider?: string;
+  panel_url?: string;
+  panel_server_id?: string;
+  panel_api_key?: string;
 }
 
 interface BannedPlayer {
@@ -74,7 +86,9 @@ interface OfficeDashboardProps {
 }
 
 export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser }) => {
-  const [activeTab, setActiveTab] = useState<'users' | 'moderation' | 'settings'>('users');
+  const [activeTab, setActiveTab] = useState<'users' | 'moderation' | 'server' | 'settings'>('users');
+  const [selectedPlayerForInv, setSelectedPlayerForInv] = useState<string | null>(null);
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState<boolean>(false);
   const [users, setUsers] = useState<AuthUser[]>([]);
   const [loadingUsers, setLoadingUsers] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -450,88 +464,159 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
   const linkedCount = users.filter((u) => u.minecraft_username).length;
 
   return (
-    <div className="office-page-layout">
-      {/* Office Header */}
-      <div className="office-header-glass">
-        <div className="office-header-text">
-          <div className="office-title-badge">
-            <ShieldAlert size={22} color="#f43f5e" />
-            <h2 className="office-title-text">Office Admin Dashboard</h2>
+    <div className="admin-shell-layout">
+      {/* 1. DEDICATED ADMIN SIDEBAR */}
+      <aside className={`admin-sidebar ${isMobileSidebarOpen ? 'mobile-open' : ''}`}>
+        <div className="admin-sidebar-header">
+          <ShieldAlert size={26} color="#f43f5e" />
+          <div>
+            <div className="admin-sidebar-title">{settings.server_name || 'Admin Office'}</div>
+            <span className="admin-sidebar-badge">Control Center</span>
           </div>
-          <p className="office-desc-text">
-            Centralized management for Discord users, Minecraft IGN mappings, Bot configurations, and Webhooks.
-          </p>
         </div>
 
-        {/* Tab Controls */}
-        <div className="office-tab-switcher">
+        <nav className="admin-nav-list">
           <button 
             type="button"
-            className={`office-switch-btn ${activeTab === 'users' ? 'active' : ''}`}
-            onClick={() => setActiveTab('users')}
+            className={`admin-nav-btn ${activeTab === 'users' ? 'active' : ''}`}
+            onClick={() => { setActiveTab('users'); setIsMobileSidebarOpen(false); }}
           >
-            <Users size={16} />
-            <span>User Management ({users.length})</span>
+            <div className="admin-nav-btn-inner">
+              <Users size={18} />
+              <span>Users & Roles</span>
+            </div>
+            <span className="admin-nav-counter">{users.length}</span>
           </button>
+
           <button 
             type="button"
-            className={`office-switch-btn ${activeTab === 'moderation' ? 'active' : ''}`}
-            onClick={() => setActiveTab('moderation')}
+            className={`admin-nav-btn ${activeTab === 'moderation' ? 'active' : ''}`}
+            onClick={() => { setActiveTab('moderation'); setIsMobileSidebarOpen(false); }}
           >
-            <ShieldBan size={16} />
-            <span>Player Moderation ({bannedPlayers.length})</span>
+            <div className="admin-nav-btn-inner">
+              <Gamepad2 size={18} />
+              <span>Players & Roster</span>
+            </div>
+            <span className="admin-nav-counter">{knownPlayers.length}</span>
           </button>
+
           <button 
             type="button"
-            className={`office-switch-btn ${activeTab === 'settings' ? 'active' : ''}`}
-            onClick={() => setActiveTab('settings')}
+            className={`admin-nav-btn ${activeTab === 'server' ? 'active' : ''}`}
+            onClick={() => { setActiveTab('server'); setIsMobileSidebarOpen(false); }}
           >
-            <Settings size={16} />
-            <span>Webhook & Bot Settings</span>
+            <div className="admin-nav-btn-inner">
+              <Server size={18} />
+              <span>Server Controls</span>
+            </div>
+            <span className="admin-nav-counter" style={{ background: 'rgba(56, 189, 248, 0.2)', color: '#38bdf8' }}>Panel</span>
           </button>
-        </div>
-      </div>
 
-      {/* Global Feedback Banner */}
-      {feedback && (
-        <div className={`office-alert-pill ${feedback.type}`}>
-          {feedback.type === 'success' ? <Check size={18} /> : <AlertTriangle size={18} />}
-          <span>{feedback.text}</span>
-        </div>
-      )}
+          <button 
+            type="button"
+            className={`admin-nav-btn ${activeTab === 'settings' ? 'active' : ''}`}
+            onClick={() => { setActiveTab('settings'); setIsMobileSidebarOpen(false); }}
+          >
+            <div className="admin-nav-btn-inner">
+              <Settings size={18} />
+              <span>System & SEO</span>
+            </div>
+          </button>
+        </nav>
 
-      {/* Metric Stats Cards */}
-      <div className="office-stats-row">
-        <div className="metric-stat-card">
-          <div className="metric-icon-wrap user-bg">
-            <Users size={22} />
+        <div className="admin-sidebar-footer">
+          <a href="/" className="admin-back-chat-link">
+            <ArrowLeft size={16} />
+            <span>Back to Live Chat</span>
+          </a>
+          <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 4px' }}>
+            <span>Version v2.10.0</span>
+            <span style={{ color: '#34d399', display: 'flex', alignItems: 'center', gap: 4 }}>
+              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#34d399' }} /> Active
+            </span>
           </div>
-          <div className="metric-details">
-            <span className="metric-label">Total Discord Users</span>
-            <span className="metric-number">{users.length} Users</span>
+        </div>
+      </aside>
+
+      {/* 2. MAIN ADMIN VIEWPORT */}
+      <div className="admin-main-viewport">
+        {/* Top Status & Breadcrumbs Bar */}
+        <div className="admin-top-statusbar">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <button 
+              type="button" 
+              className="admin-mobile-toggle"
+              onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
+            >
+              {isMobileSidebarOpen ? <X size={18} /> : <Menu size={18} />}
+              <span>Menu</span>
+            </button>
+            <div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                Office Admin Portal / <strong style={{ color: '#f8fafc' }}>
+                  {activeTab === 'users' && 'User Directory & Roles'}
+                  {activeTab === 'moderation' && 'Player Roster & Inventory'}
+                  {activeTab === 'server' && 'Hardware Control & Console'}
+                  {activeTab === 'settings' && 'Integration & SEO Settings'}
+                </strong>
+              </div>
+            </div>
           </div>
+
+          {currentUser && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <img 
+                src={currentUser.discord_avatar || 'https://cdn.discordapp.com/embed/avatars/0.png'} 
+                alt={currentUser.discord_username}
+                style={{ width: 28, height: 28, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.1)' }}
+              />
+              <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#f8fafc' }}>
+                {currentUser.discord_username}
+              </div>
+            </div>
+          )}
         </div>
 
-        <div className="metric-stat-card">
-          <div className="metric-icon-wrap ign-bg">
-            <UserCheck size={22} />
+        {/* Global Feedback Banner */}
+        {feedback && (
+          <div className={`office-alert-pill ${feedback.type}`}>
+            {feedback.type === 'success' ? <Check size={18} /> : <AlertTriangle size={18} />}
+            <span>{feedback.text}</span>
           </div>
-          <div className="metric-details">
-            <span className="metric-label">Linked Minecraft IGNs</span>
-            <span className="metric-number">{linkedCount} / {users.length} Linked</span>
-          </div>
-        </div>
+        )}
 
-        <div className="metric-stat-card">
-          <div className="metric-icon-wrap db-bg">
-            <Database size={22} />
+        {/* Metric Stats Cards */}
+        <div className="office-stats-row">
+          <div className="metric-stat-card">
+            <div className="metric-icon-wrap user-bg">
+              <Users size={22} />
+            </div>
+            <div className="metric-details">
+              <span className="metric-label">Total Discord Users</span>
+              <span className="metric-number">{users.length} Users</span>
+            </div>
           </div>
-          <div className="metric-details">
-            <span className="metric-label">Database Storage</span>
-            <span className="metric-number">PostgreSQL (Local)</span>
+
+          <div className="metric-stat-card">
+            <div className="metric-icon-wrap ign-bg">
+              <UserCheck size={22} />
+            </div>
+            <div className="metric-details">
+              <span className="metric-label">Linked Minecraft IGNs</span>
+              <span className="metric-number">{linkedCount} / {users.length} Linked</span>
+            </div>
+          </div>
+
+          <div className="metric-stat-card">
+            <div className="metric-icon-wrap db-bg">
+              <Database size={22} />
+            </div>
+            <div className="metric-details">
+              <span className="metric-label">Database Storage</span>
+              <span className="metric-number">PostgreSQL (Drizzle)</span>
+            </div>
           </div>
         </div>
-      </div>
 
       {/* TAB 1: USERS MANAGEMENT */}
       {activeTab === 'users' && (
@@ -828,6 +913,16 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
                         </td>
                         <td style={{ textAlign: 'center' }}>
                           <div style={{ display: 'inline-flex', gap: '6px' }}>
+                            <button
+                              type="button"
+                              className="btn-table-save"
+                              style={{ background: 'rgba(56, 189, 248, 0.15)', borderColor: 'rgba(56, 189, 248, 0.35)', color: '#38bdf8', padding: '4px 8px', fontSize: '0.75rem' }}
+                              onClick={() => setSelectedPlayerForInv(p.username)}
+                              title={`Inspect ${p.username}'s Live Inventory & Vitals`}
+                            >
+                              <Package size={12} />
+                              <span>Inspect</span>
+                            </button>
                             <button
                               type="button"
                               className="btn-table-save"
@@ -1451,6 +1546,22 @@ const API_KEY = "${settings.api_key || 'SECRET_BEARER_TOKEN'}";`}
           </form>
         </div>
       )}
+
+      {/* TAB 4: SERVER CONTROLS & PANELS */}
+      {activeTab === 'server' && (
+        <ServerPanelTab onRefreshAll={fetchSettings} />
+      )}
+
+      </div> {/* Closes admin-main-viewport */}
+
+      {/* ========================================================
+          PLAYER LIVE INVENTORY & HUD INSPECTOR SHEET
+          ======================================================== */}
+      <PlayerInventorySheet
+        ign={selectedPlayerForInv}
+        isOpen={!!selectedPlayerForInv}
+        onClose={() => setSelectedPlayerForInv(null)}
+      />
 
       {/* ========================================================
           1. DISCORD DEVELOPER SETUP TUTORIAL GUIDE SHEET

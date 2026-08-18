@@ -89,6 +89,95 @@ system.runInterval(async () => {
 }, 3600);
 
 // ========================================================
+// Helper: Collect Player Live Inventory, Health & Telemetry
+// ========================================================
+function extractSlotItem(itemStack, slotIndex) {
+  if (!itemStack) return null;
+  return {
+    slot: slotIndex,
+    typeId: itemStack.typeId || "minecraft:air",
+    amount: itemStack.amount || 1,
+    nameTag: itemStack.nameTag || undefined,
+    damage: typeof itemStack.damage === "number" ? itemStack.damage : undefined,
+    maxDamage: typeof itemStack.maxDamage === "number" ? itemStack.maxDamage : undefined,
+  };
+}
+
+function collectPlayerInventory(player) {
+  try {
+    const healthComp = player.getComponent("minecraft:health");
+    const health = {
+      current: healthComp ? Math.round(healthComp.currentValue * 10) / 10 : 20,
+      max: healthComp ? Math.round(healthComp.defaultValue * 10) / 10 : 20,
+    };
+
+    const loc = player.location || { x: 0, y: 0, z: 0 };
+    const location = {
+      x: Math.round(loc.x * 10) / 10,
+      y: Math.round(loc.y * 10) / 10,
+      z: Math.round(loc.z * 10) / 10,
+      dimension: player.dimension?.id?.replace("minecraft:", "") || "overworld",
+    };
+
+    // Equippable (Armor & Hands)
+    const equipComp = player.getComponent("minecraft:equippable");
+    const armor = {
+      head: equipComp ? extractSlotItem(equipComp.getEquipment("Head"), 0) : null,
+      chest: equipComp ? extractSlotItem(equipComp.getEquipment("Chest"), 1) : null,
+      legs: equipComp ? extractSlotItem(equipComp.getEquipment("Legs"), 2) : null,
+      feet: equipComp ? extractSlotItem(equipComp.getEquipment("Feet"), 3) : null,
+      offhand: equipComp ? extractSlotItem(equipComp.getEquipment("Offhand"), 4) : null,
+      mainhand: equipComp ? extractSlotItem(equipComp.getEquipment("Mainhand"), 5) : null,
+    };
+
+    // 36 Main Inventory Slots
+    const invComp = player.getComponent("minecraft:inventory");
+    const mainInventory = [];
+    if (invComp && invComp.container) {
+      const container = invComp.container;
+      for (let i = 0; i < container.size; i++) {
+        const item = container.getItem(i);
+        if (item) {
+          mainInventory.push(extractSlotItem(item, i));
+        }
+      }
+    }
+
+    return {
+      username: player.name,
+      health,
+      level: player.level || 0,
+      xpProgress: Math.round((player.xpEarnedAtCurrentLevel || 0) * 100) / 100,
+      location,
+      gameMode: (player.getGameMode && player.getGameMode()) ? String(player.getGameMode()).toLowerCase() : "survival",
+      armor,
+      mainInventory,
+    };
+  } catch (e) {
+    return null;
+  }
+}
+
+// Sync Player Inventories every 20s (400 ticks)
+let isSyncingInventories = false;
+system.runInterval(async () => {
+  if (isSyncingInventories) return;
+  isSyncingInventories = true;
+  try {
+    const list = [];
+    for (const player of world.getPlayers()) {
+      const inv = collectPlayerInventory(player);
+      if (inv) list.push(inv);
+    }
+    if (list.length > 0) {
+      await sendRequest("/inventory-sync", HttpRequestMethod.Post, { inventories: list });
+    }
+  } catch {} finally {
+    isSyncingInventories = false;
+  }
+}, 400);
+
+// ========================================================
 // 1. CHAT RELAY — KiwEssentials Compatible Queue Pattern
 //
 // WHY THIS PATTERN:
