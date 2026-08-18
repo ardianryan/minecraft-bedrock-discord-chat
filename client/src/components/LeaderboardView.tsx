@@ -127,7 +127,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
 
         {/* Podium */}
         {!sbLoading && scoreboard.length >= 2 && (
-          <div className="podium-row">
+          <div className="podium-grid">
             {top2 && (
               <div className="podium-card rank-2">
                 <div className="podium-rank-badge silver"><Medal size={16}/><span>#2</span></div>
@@ -281,7 +281,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
           </div>
         </div>
         {!dlLoading && filteredDl.length >= 2 && (
-          <div className="podium-row">
+          <div className="podium-grid">
             {[filteredDl[1], filteredDl[0], filteredDl[2]].map((entry, i) => {
               if (!entry) return null;
               const rn = i===0?2:i===1?1:3;
