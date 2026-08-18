@@ -358,32 +358,41 @@ export async function initDiscordBot() {
           const serverName = await getSetting('server_name', 'Minecraft Bedrock Server');
           const serverIp = await getSetting('server_ip', process.env.SERVER_IP || '');
           const serverPort = await getSetting('server_port', process.env.SERVER_PORT || '19132');
-
-          const connectUri = serverIp 
-            ? `minecraft://?addExternalServer=${encodeURIComponent(serverName)}|${serverIp}:${serverPort}`
-            : '';
+          const frontendUrl = (await getSetting('frontend_url', process.env.FRONTEND_URL || 'http://localhost:5173')).trim();
+          const joinUrl = `${frontendUrl}/join`;
 
           const joinEmbed = new EmbedBuilder()
             .setColor(0x10b981)
             .setTitle(`🎮 Join ${serverName}`)
-            .setDescription('Connect directly from Minecraft Bedrock on Mobile (Android/iOS), Windows 10/11, or Console!')
+            .setDescription('Connect directly to our Minecraft Bedrock server on Mobile (Android/iOS), Windows 10/11, or Console!')
             .addFields(
-              { name: '🌐 Server IP / Hostname', value: serverIp ? `\`${serverIp}\`` : '_Not configured in /office yet_', inline: true },
+              { name: '🌐 Server Address', value: serverIp ? `\`${serverIp}\`` : '_Not configured in /office_', inline: true },
               { name: '🔌 Port', value: `\`${serverPort}\``, inline: true },
               { name: '👥 Online Players', value: `**${activePlayers.size}** players online`, inline: true }
             );
 
-          if (connectUri) {
+          if (serverIp) {
             joinEmbed.addFields({
-              name: '🚀 1-Click Direct Join',
-              value: `[**▶️ Click Here to Launch Minecraft & Connect**](${connectUri})`,
+              name: '🚀 1-Click Direct Connect',
+              value: `Click the green **Launch Minecraft** button below or use [**▶️ This Direct Link**](${joinUrl}) to connect automatically!`,
               inline: false
             });
           }
 
-          joinEmbed.setFooter({ text: 'Magical Gaming Crew • Minecraft Bedrock Server' });
+          joinEmbed.setFooter({ text: 'Magical Gaming Crew • Bedrock Server' });
 
-          await interaction.reply({ embeds: [joinEmbed], ephemeral: true });
+          const joinRow = new ActionRowBuilder<ButtonBuilder>().addComponents(
+            new ButtonBuilder()
+              .setLabel('▶️ Launch Minecraft')
+              .setStyle(ButtonStyle.Link)
+              .setURL(joinUrl),
+            new ButtonBuilder()
+              .setLabel('🌐 Web Live Chat')
+              .setStyle(ButtonStyle.Link)
+              .setURL(frontendUrl)
+          );
+
+          await interaction.reply({ embeds: [joinEmbed], components: [joinRow], ephemeral: true });
           return;
         }
 
@@ -524,33 +533,40 @@ export async function initDiscordBot() {
       const serverIp = await getSetting('server_ip', process.env.SERVER_IP || '');
       const serverPort = await getSetting('server_port', process.env.SERVER_PORT || '19132');
       const frontendUrl = (await getSetting('frontend_url', process.env.FRONTEND_URL || 'http://localhost:5173')).trim();
-
-      const connectUri = serverIp 
-        ? `minecraft://?addExternalServer=${encodeURIComponent(serverName)}|${serverIp}:${serverPort}`
-        : '';
+      const joinUrl = `${frontendUrl}/join`;
 
       const joinEmbed = new EmbedBuilder()
         .setColor(0x10b981)
         .setTitle(`🎮 Join ${serverName}`)
-        .setDescription('Connect directly from Minecraft Bedrock on Mobile (Android/iOS), Windows 10/11, or Console!')
+        .setDescription('Connect directly to our Minecraft Bedrock server on Mobile (Android/iOS), Windows 10/11, or Console!')
         .addFields(
-          { name: '🌐 Server Address', value: serverIp ? `\`${serverIp}\`` : '_Configured in /office_', inline: true },
+          { name: '🌐 Server Address', value: serverIp ? `\`${serverIp}\`` : '_Not configured in /office_', inline: true },
           { name: '🔌 Port', value: `\`${serverPort}\``, inline: true },
           { name: '👥 Online Players', value: `**${activePlayers.size}** players online`, inline: true }
         );
 
-      if (connectUri) {
+      if (serverIp) {
         joinEmbed.addFields({
-          name: '🚀 1-Click Direct Join',
-          value: `[**▶️ Click Here to Launch Minecraft & Connect**](${connectUri})`,
+          name: '🚀 1-Click Direct Connect',
+          value: `Click the green **Launch Minecraft** button below or use [**▶️ This Direct Link**](${joinUrl}) to connect automatically!`,
           inline: false
         });
       }
 
-      joinEmbed.setFooter({ text: 'Magical Gaming Crew • Minecraft Bedrock Server' });
+      joinEmbed.setFooter({ text: 'Magical Gaming Crew • Bedrock Server' });
 
-      const components = createControlPanelComponents(frontendUrl);
-      msg.reply({ embeds: [joinEmbed], components }).catch(() => {});
+      const joinRow = new ActionRowBuilder<ButtonBuilder>().addComponents(
+        new ButtonBuilder()
+          .setLabel('▶️ Launch Minecraft')
+          .setStyle(ButtonStyle.Link)
+          .setURL(joinUrl),
+        new ButtonBuilder()
+          .setLabel('🌐 Web Live Chat')
+          .setStyle(ButtonStyle.Link)
+          .setURL(frontendUrl)
+      );
+
+      msg.reply({ embeds: [joinEmbed], components: [joinRow] }).catch(() => {});
       return;
     }
 
@@ -666,7 +682,7 @@ app.get('/api/status', async (c) => {
   return c.json({
     service: 'Minecraft Bedrock <-> Discord 2-Way <-> Office Bridge',
     status: 'online',
-    version: '2.9.0',
+    version: '2.10.0',
     serverName,
     serverIp,
     serverPort,
@@ -677,6 +693,123 @@ app.get('/api/status', async (c) => {
     registeredUsersCount: totalUsers,
   });
 });
+
+// 1-Click Minecraft Bedrock Web Launcher (/join & /connect)
+app.get('/join', async (c) => {
+  const serverName = await getSetting('server_name', 'Minecraft Bedrock Server');
+  const serverIp = await getSetting('server_ip', process.env.SERVER_IP || '');
+  const serverPort = await getSetting('server_port', process.env.SERVER_PORT || '19132');
+
+  const connectUri = serverIp 
+    ? `minecraft://?addExternalServer=${encodeURIComponent(serverName)}|${serverIp}:${serverPort}`
+    : '/';
+
+  return c.html(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Launching ${serverName}...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="0; url=${connectUri}">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+      color: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+    .launcher-card {
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      padding: 36px 28px;
+      max-width: 440px;
+      width: 100%;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(34, 197, 94, 0.15);
+    }
+    .icon-badge {
+      font-size: 3rem;
+      margin-bottom: 12px;
+      display: inline-block;
+      animation: float 2s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    h2 { font-size: 1.35rem; color: #4ade80; margin-bottom: 8px; font-weight: 800; }
+    p { color: #94a3b8; font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px; }
+    .server-info-pill {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+    }
+    .server-info-pill code { color: #4ade80; font-weight: 700; font-family: monospace; }
+    .btn-launch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+      transition: all 0.2s ease;
+    }
+    .btn-launch:hover {
+      background: linear-gradient(135deg, #16a34a, #15803d);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(34, 197, 94, 0.55);
+    }
+    .hint-text {
+      margin-top: 18px;
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+  </style>
+  <script>
+    setTimeout(function() {
+      window.location.href = "${connectUri}";
+    }, 100);
+  </script>
+</head>
+<body>
+  <div class="launcher-card">
+    <div class="icon-badge">🎮</div>
+    <h2>Launching Minecraft...</h2>
+    <p>Opening Minecraft Bedrock Edition to connect directly to <strong>${serverName}</strong>.</p>
+    
+    <div class="server-info-pill">
+      <span>Server Address</span>
+      <code>${serverIp || 'Not Set'}:${serverPort}</code>
+    </div>
+
+    <a href="${connectUri}" class="btn-launch">▶️ Click Here If Not Opening</a>
+    <div class="hint-text">Supported on Android, iOS, iPadOS, and Windows 10/11 Bedrock</div>
+  </div>
+</body>
+</html>`);
+});
+
+app.get('/connect', (c) => c.redirect('/join'));
 
 // ==========================================
 // MINECRAFT BEDROCK GAME ENDPOINTS
