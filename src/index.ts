@@ -154,27 +154,31 @@ let areBotListenersRegistered = false;
 export function createControlPanelComponents(frontendUrl: string) {
   const row1 = new ActionRowBuilder<ButtonBuilder>().addComponents(
     new ButtonBuilder()
-      .setCustomId('btn_link_account')
-      .setLabel('🔗 Link Minecraft IGN')
+      .setCustomId('btn_join_server')
+      .setLabel('🎮 Server IP & Join')
       .setStyle(ButtonStyle.Success),
     new ButtonBuilder()
-      .setCustomId('btn_check_status')
-      .setLabel('📊 Server Status')
+      .setCustomId('btn_link_account')
+      .setLabel('🔗 Link IGN')
       .setStyle(ButtonStyle.Primary),
+    new ButtonBuilder()
+      .setCustomId('btn_check_status')
+      .setLabel('📊 Status')
+      .setStyle(ButtonStyle.Secondary),
     new ButtonBuilder()
       .setCustomId('btn_leaderboard')
       .setLabel('🏆 Leaderboard')
-      .setStyle(ButtonStyle.Secondary),
-    new ButtonBuilder()
-      .setCustomId('btn_my_account')
-      .setLabel('👤 My Profile')
       .setStyle(ButtonStyle.Secondary)
   );
 
   const row2 = new ActionRowBuilder<ButtonBuilder>().addComponents(
     new ButtonBuilder()
+      .setCustomId('btn_my_account')
+      .setLabel('👤 My Profile')
+      .setStyle(ButtonStyle.Secondary),
+    new ButtonBuilder()
       .setCustomId('btn_unlink_account')
-      .setLabel('🔓 Unlink Account')
+      .setLabel('🔓 Unlink')
       .setStyle(ButtonStyle.Danger),
     new ButtonBuilder()
       .setLabel('🌐 Open Web Dashboard')
@@ -349,9 +353,45 @@ export async function initDiscordBot() {
           return;
         }
 
+        // Button: Join Server / IP
+        if (interaction.customId === 'btn_join_server') {
+          const serverName = await getSetting('server_name', 'Minecraft Bedrock Server');
+          const serverIp = await getSetting('server_ip', process.env.SERVER_IP || '');
+          const serverPort = await getSetting('server_port', process.env.SERVER_PORT || '19132');
+
+          const connectUri = serverIp 
+            ? `minecraft://?addExternalServer=${encodeURIComponent(serverName)}|${serverIp}:${serverPort}`
+            : '';
+
+          const joinEmbed = new EmbedBuilder()
+            .setColor(0x10b981)
+            .setTitle(`🎮 Join ${serverName}`)
+            .setDescription('Connect directly from Minecraft Bedrock on Mobile (Android/iOS), Windows 10/11, or Console!')
+            .addFields(
+              { name: '🌐 Server IP / Hostname', value: serverIp ? `\`${serverIp}\`` : '_Not configured in /office yet_', inline: true },
+              { name: '🔌 Port', value: `\`${serverPort}\``, inline: true },
+              { name: '👥 Online Players', value: `**${activePlayers.size}** players online`, inline: true }
+            );
+
+          if (connectUri) {
+            joinEmbed.addFields({
+              name: '🚀 1-Click Direct Join',
+              value: `[**▶️ Click Here to Launch Minecraft & Connect**](${connectUri})`,
+              inline: false
+            });
+          }
+
+          joinEmbed.setFooter({ text: 'Magical Gaming Crew • Minecraft Bedrock Server' });
+
+          await interaction.reply({ embeds: [joinEmbed], ephemeral: true });
+          return;
+        }
+
         // Button 2: Check Server Status & Online Players
         if (interaction.customId === 'btn_check_status') {
           const serverName = await getSetting('server_name', 'Minecraft Bedrock Server');
+          const serverIp = await getSetting('server_ip', process.env.SERVER_IP || '');
+          const serverPort = await getSetting('server_port', process.env.SERVER_PORT || '19132');
           const playerList = Array.from(activePlayers);
 
           const statusEmbed = new EmbedBuilder()
@@ -360,6 +400,7 @@ export async function initDiscordBot() {
             .addFields(
               { name: '🟢 Bridge Status', value: 'Online & Connected', inline: true },
               { name: '👥 Online Players', value: `${activePlayers.size} Players`, inline: true },
+              { name: '🌐 Server Address', value: serverIp ? `\`${serverIp}:${serverPort}\`` : '_Configured in /office_', inline: true },
               { 
                 name: '📋 Current Player Roster', 
                 value: playerList.length > 0 
@@ -477,6 +518,42 @@ export async function initDiscordBot() {
       return;
     }
 
+    // Server IP & Join Command: !ip, !join, !server
+    if (lowerContent === '!ip' || lowerContent === '!join' || lowerContent === '!server' || lowerContent === '!connect') {
+      const serverName = await getSetting('server_name', 'Minecraft Bedrock Server');
+      const serverIp = await getSetting('server_ip', process.env.SERVER_IP || '');
+      const serverPort = await getSetting('server_port', process.env.SERVER_PORT || '19132');
+      const frontendUrl = (await getSetting('frontend_url', process.env.FRONTEND_URL || 'http://localhost:5173')).trim();
+
+      const connectUri = serverIp 
+        ? `minecraft://?addExternalServer=${encodeURIComponent(serverName)}|${serverIp}:${serverPort}`
+        : '';
+
+      const joinEmbed = new EmbedBuilder()
+        .setColor(0x10b981)
+        .setTitle(`🎮 Join ${serverName}`)
+        .setDescription('Connect directly from Minecraft Bedrock on Mobile (Android/iOS), Windows 10/11, or Console!')
+        .addFields(
+          { name: '🌐 Server Address', value: serverIp ? `\`${serverIp}\`` : '_Configured in /office_', inline: true },
+          { name: '🔌 Port', value: `\`${serverPort}\``, inline: true },
+          { name: '👥 Online Players', value: `**${activePlayers.size}** players online`, inline: true }
+        );
+
+      if (connectUri) {
+        joinEmbed.addFields({
+          name: '🚀 1-Click Direct Join',
+          value: `[**▶️ Click Here to Launch Minecraft & Connect**](${connectUri})`,
+          inline: false
+        });
+      }
+
+      joinEmbed.setFooter({ text: 'Magical Gaming Crew • Minecraft Bedrock Server' });
+
+      const components = createControlPanelComponents(frontendUrl);
+      msg.reply({ embeds: [joinEmbed], components }).catch(() => {});
+      return;
+    }
+
     // Help Command: !help
     if (lowerContent === '!help' || lowerContent === '.help') {
       const frontendUrl = (await getSetting('frontend_url', process.env.FRONTEND_URL || 'http://localhost:5173')).trim();
@@ -485,6 +562,7 @@ export async function initDiscordBot() {
         .setTitle('📖 Minecraft Bridge Bot Commands & Menus')
         .setDescription('You can use the **Interactive Buttons** or text commands below:')
         .addFields(
+          { name: '`!join` or `!ip`', value: 'View Minecraft server IP, Port & 1-Click direct connect link.' },
           { name: '`!panel` or `!menu`', value: 'Summons the **Interactive Button Panel** (Link IGN, Check Status, etc).' },
           { name: '`!link <IGN>`', value: 'Manually link your Discord account to a Minecraft IGN.' },
           { name: '`!status`', value: 'View live server status & online player count.' },
@@ -582,12 +660,16 @@ app.get('/api/status', async (c) => {
   const totalUsers = (await getAllUsers()).length;
   const inviteUrl = await getSetting('discord_invite_url', process.env.DISCORD_INVITE_URL || '');
   const serverName = await getSetting('server_name', 'Minecraft Bedrock Server');
+  const serverIp = await getSetting('server_ip', process.env.SERVER_IP || '');
+  const serverPort = await getSetting('server_port', process.env.SERVER_PORT || '19132');
 
   return c.json({
     service: 'Minecraft Bedrock <-> Discord 2-Way <-> Office Bridge',
     status: 'online',
-    version: '2.3.0',
+    version: '2.9.0',
     serverName,
+    serverIp,
+    serverPort,
     discordInviteUrl: inviteUrl,
     database: isDbConnected ? 'PostgreSQL (Local)' : 'In-Memory Fallback',
     botOnline: isBotReady,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Gamepad2, 
   Bot, 
@@ -6,19 +6,46 @@ import {
   Terminal, 
   Sparkles,
   Database,
-  ArrowRight
+  ArrowRight,
+  Copy,
+  Check
 } from 'lucide-react';
 
 interface LoginPageProps {
   authError?: string | null;
+  onLoginSuccess?: () => void;
   onDirectLogin?: () => void;
   discordInviteUrl?: string;
+  serverIp?: string;
+  serverPort?: string;
+  serverName?: string;
 }
 
-export const LoginPage: React.FC<LoginPageProps> = ({ authError, discordInviteUrl }) => {
+export const LoginPage: React.FC<LoginPageProps> = ({ 
+  authError, 
+  discordInviteUrl,
+  serverIp,
+  serverPort = '19132',
+  serverName = 'Minecraft Bedrock Server'
+}) => {
+  const [copiedIp, setCopiedIp] = useState(false);
+
   const handleDiscordLogin = () => {
     window.location.href = '/api/auth/discord/login';
   };
+
+  const handleCopyServerIp = () => {
+    if (!serverIp) return;
+    const textToCopy = `${serverIp}:${serverPort || '19132'}`;
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      setCopiedIp(true);
+      setTimeout(() => setCopiedIp(false), 2000);
+    });
+  };
+
+  const directConnectUri = serverIp 
+    ? `minecraft://?addExternalServer=${encodeURIComponent(serverName)}|${serverIp}:${serverPort || '19132'}`
+    : '';
 
   const featureCards = [
     {
@@ -66,12 +93,45 @@ export const LoginPage: React.FC<LoginPageProps> = ({ authError, discordInviteUr
           </div>
 
           <h1 className="login-hero-title">
-            Magical Gaming Crew
+            {serverName}
           </h1>
 
           <p className="login-hero-subtitle">
             Interactive bridge platform connecting your Minecraft Bedrock server with your Discord community and Web Dashboard.
           </p>
+
+          {/* 🎮 Server IP & Direct Join Card on Landing Page */}
+          {serverIp && (
+            <div style={{ marginBottom: '20px', width: '100%', maxWidth: '380px', background: 'rgba(34, 197, 94, 0.08)', border: '1px solid rgba(34, 197, 94, 0.3)', borderRadius: '14px', padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Gamepad2 size={18} color="#4ade80" />
+                  <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f8fafc' }}>Minecraft Server</span>
+                </div>
+                <code style={{ fontSize: '0.78rem', color: '#4ade80', background: 'rgba(0,0,0,0.3)', padding: '2px 8px', borderRadius: '6px' }}>
+                  {serverIp}:{serverPort}
+                </code>
+              </div>
+
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <a 
+                  href={directConnectUri}
+                  style={{ flex: 1, textDecoration: 'none', background: 'linear-gradient(135deg, #22c55e, #16a34a)', color: '#fff', fontSize: '0.82rem', fontWeight: 700, padding: '8px 12px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', boxShadow: '0 2px 10px rgba(34, 197, 94, 0.3)' }}
+                >
+                  <Sparkles size={14} />
+                  <span>Join Server 🎮</span>
+                </a>
+                <button 
+                  type="button"
+                  onClick={handleCopyServerIp}
+                  style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', color: '#cbd5e1', fontSize: '0.8rem', padding: '8px 12px', borderRadius: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px' }}
+                >
+                  {copiedIp ? <Check size={14} color="#34d399" /> : <Copy size={14} />}
+                  <span>{copiedIp ? 'Copied' : 'Copy'}</span>
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Auth Error Banner */}
           {authError && (

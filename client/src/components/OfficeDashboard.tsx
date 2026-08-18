@@ -39,6 +39,8 @@ interface SystemSettings {
   discord_invite_url: string;
   api_key: string;
   server_name: string;
+  server_ip: string;
+  server_port: string;
 }
 
 interface BannedPlayer {
@@ -89,6 +91,8 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
     discord_invite_url: '',
     api_key: '',
     server_name: '',
+    server_ip: '',
+    server_port: '19132',
   });
   const [, setLoadingSettings] = useState<boolean>(false);
   const [savingSettings, setSavingSettings] = useState<boolean>(false);
@@ -139,7 +143,9 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
           discord_channel_id: '', 
           discord_invite_url: '',
           api_key: '', 
-          server_name: '' 
+          server_name: '',
+          server_ip: '',
+          server_port: '19132'
         });
       }
     } catch (err) {
@@ -1144,9 +1150,63 @@ const API_KEY = "${settings.api_key || 'SECRET_BEARER_TOKEN'}";`}
               <input 
                 type="text"
                 className="settings-text-field"
+                placeholder="e.g. Magical Gaming Crew"
                 value={settings.server_name}
                 onChange={(e) => setSettings({ ...settings, server_name: e.target.value })}
               />
+            </div>
+
+            {/* Server IP & Port (1-Click Direct Join Connect) */}
+            <div className="form-field-card" style={{ borderColor: 'rgba(34, 197, 94, 0.3)', background: 'rgba(34, 197, 94, 0.03)' }}>
+              <label className="field-label-group">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span className="field-title" style={{ color: '#4ade80' }}>🎮 Minecraft Server Connection (Join Server Button)</span>
+                  <Tooltip content="Server IP / Domain (e.g. mcserver.ppti.me) and Bedrock Port (default 19132). Powers the 1-Click 'Join Server' buttons on Web Live Chat and Discord." />
+                </div>
+                <span className="field-subtitle">Configure your server address and port so players can 1-click connect from Web Live Chat and Discord</span>
+              </label>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 140px', gap: '10px' }}>
+                <div>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '4px', display: 'block' }}>Server IP / Hostname (e.g. <code>mcserver.ppti.me</code>)</span>
+                  <input 
+                    type="text"
+                    className="settings-text-field"
+                    placeholder="e.g. mcserver.ppti.me or play.yourserver.com"
+                    value={settings.server_ip}
+                    onChange={(e) => setSettings({ ...settings, server_ip: e.target.value })}
+                  />
+                </div>
+                <div>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '4px', display: 'block' }}>Bedrock Port</span>
+                  <input 
+                    type="text"
+                    className="settings-text-field"
+                    placeholder="19132"
+                    value={settings.server_port}
+                    onChange={(e) => setSettings({ ...settings, server_port: e.target.value })}
+                  />
+                </div>
+              </div>
+
+              {/* 1-Click Join Preview */}
+              {settings.server_ip && (
+                <div style={{ marginTop: '12px', padding: '10px 14px', background: 'rgba(15, 23, 42, 0.6)', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ fontSize: '0.8rem', color: '#cbd5e1' }}>Direct Connect URI:</span>
+                    <code style={{ fontSize: '0.75rem', color: '#4ade80', background: 'rgba(34, 197, 94, 0.1)', padding: '2px 8px', borderRadius: '4px' }}>
+                      minecraft://?addExternalServer={encodeURIComponent(settings.server_name || 'Server')}|{settings.server_ip}:{settings.server_port || '19132'}
+                    </code>
+                  </div>
+                  <a 
+                    href={`minecraft://?addExternalServer=${encodeURIComponent(settings.server_name || 'Server')}|${settings.server_ip}:${settings.server_port || '19132'}`}
+                    className="btn-action-test"
+                    style={{ textDecoration: 'none', background: 'rgba(34, 197, 94, 0.2)', borderColor: 'rgba(34, 197, 94, 0.4)', color: '#4ade80', fontSize: '0.8rem', padding: '6px 12px' }}
+                  >
+                    ▶️ Test Launch
+                  </a>
+                </div>
+              )}
             </div>
 
             <div className="form-submit-row">

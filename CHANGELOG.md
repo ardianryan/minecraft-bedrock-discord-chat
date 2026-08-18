@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.10.0] - 2026-08-18
+
+### ✨ Added
+- **🎮 1-Click Join Minecraft Server & Direct Connect Integration**:
+  - Added configurable `server_ip` (Hostname/Domain) and `server_port` (default `19132`) in `/office` Admin Settings.
+  - **Web Live Chat & Landing Page**: Prominent glassmorphic **"🎮 Join Minecraft Server"** Card with 1-Click Launch button (`minecraft://?addExternalServer=...`) and 1-Click Copy IP button with instant clipboard checkmark animation.
+  - **Discord Bot Interactive Integration**: Added `🎮 Server IP & Join` button in `!panel` / `!menu` and new text commands `!ip`, `!join`, `!server`, `!connect` with rich embed detailing server address, port, and 1-click connect URL.
+- **🏆 Olympic Leaderboard Desktop & Mobile Split Refinement**:
+  - Restored 3-column Olympic podium on desktop ($\ge 768\text{px}$).
+  - Mobile split layout: #1 Champion on top with gold glow + #2 & #3 in a clean 2-column grid.
+
+---
+
 ## [2.9.0] - 2026-08-18
 
 ### 🕒 Timezone & Timestamps

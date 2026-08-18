@@ -9,7 +9,10 @@ import {
   UserCheck,
   UserX,
   Ban,
-  AlertTriangle
+  AlertTriangle,
+  Copy,
+  Check,
+  Sparkles
 } from 'lucide-react';
 import { AuthUser } from './Navbar.tsx';
 import { Sheet } from './Sheet.tsx';
@@ -20,6 +23,9 @@ interface PlayerListProps {
   onOpenProfile: () => void;
   botOnline?: boolean;
   discordInviteUrl?: string;
+  serverIp?: string;
+  serverPort?: string;
+  serverName?: string;
 }
 
 export const PlayerList: React.FC<PlayerListProps> = ({
@@ -27,10 +33,27 @@ export const PlayerList: React.FC<PlayerListProps> = ({
   user,
   onOpenProfile,
   discordInviteUrl,
+  serverIp,
+  serverPort = '19132',
+  serverName = 'Minecraft Bedrock Server',
 }) => {
   const [modTarget, setModTarget] = useState<{ username: string; action: 'kick' | 'ban' } | null>(null);
   const [modReason, setModReason] = useState<string>('');
   const [submitting, setSubmitting] = useState<boolean>(false);
+  const [copiedIp, setCopiedIp] = useState<boolean>(false);
+
+  const handleCopyServerIp = () => {
+    if (!serverIp) return;
+    const textToCopy = `${serverIp}:${serverPort || '19132'}`;
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      setCopiedIp(true);
+      setTimeout(() => setCopiedIp(false), 2000);
+    });
+  };
+
+  const directConnectUri = serverIp 
+    ? `minecraft://?addExternalServer=${encodeURIComponent(serverName)}|${serverIp}:${serverPort || '19132'}`
+    : '';
 
   const handleOpenModSheet = (username: string, action: 'kick' | 'ban') => {
     setModTarget({ username, action });
@@ -65,6 +88,43 @@ export const PlayerList: React.FC<PlayerListProps> = ({
 
   return (
     <div className="sidebar-roster-group">
+      {/* 🎮 Join Minecraft Server Direct Connect Card */}
+      {serverIp && (
+        <div className="server-connect-banner">
+          <div className="server-connect-header">
+            <div className="server-connect-icon">
+              <Gamepad2 size={20} color="#4ade80" />
+            </div>
+            <div className="server-connect-text">
+              <span className="server-connect-title">{serverName}</span>
+              <span className="server-connect-sub">
+                <code>{serverIp}</code> <span style={{opacity:0.6}}>:{serverPort}</span>
+              </span>
+            </div>
+          </div>
+
+          <div className="server-connect-actions">
+            <a 
+              href={directConnectUri}
+              className="btn-join-bedrock"
+              title="Launch Minecraft Bedrock and connect directly"
+            >
+              <Sparkles size={14} />
+              <span>Join Server 🎮</span>
+            </a>
+            <button 
+              type="button"
+              className={`btn-copy-ip${copiedIp ? ' copied' : ''}`}
+              onClick={handleCopyServerIp}
+              title="Copy IP and Port to Clipboard"
+            >
+              {copiedIp ? <Check size={14} color="#34d399" /> : <Copy size={14} />}
+              <span>{copiedIp ? 'Copied!' : 'Copy IP'}</span>
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Join Discord Channel Community Card */}
       {discordInviteUrl && (
         <a 

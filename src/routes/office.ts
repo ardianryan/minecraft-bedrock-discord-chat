@@ -66,6 +66,8 @@ officeRouter.get('/settings', async (c) => {
     const inviteUrl = await getSetting('discord_invite_url', process.env.DISCORD_INVITE_URL || '');
     const apiKey = await getSetting('api_key', process.env.API_KEY || 'SECRET_BEARER_TOKEN');
     const serverName = await getSetting('server_name', 'Minecraft Bedrock Server');
+    const serverIp = await getSetting('server_ip', process.env.SERVER_IP || '');
+    const serverPort = await getSetting('server_port', process.env.SERVER_PORT || '19132');
 
     return c.json({
       settings: {
@@ -75,6 +77,8 @@ officeRouter.get('/settings', async (c) => {
         discord_invite_url: inviteUrl,
         api_key: apiKey,
         server_name: serverName,
+        server_ip: serverIp,
+        server_port: serverPort,
       },
     });
   } catch (err) {
@@ -85,7 +89,16 @@ officeRouter.get('/settings', async (c) => {
 // 5. Update System Settings
 officeRouter.post('/settings', async (c) => {
   try {
-    const { discord_webhook_url, discord_bot_token, discord_channel_id, discord_invite_url, api_key, server_name } = await c.req.json();
+    const { 
+      discord_webhook_url, 
+      discord_bot_token, 
+      discord_channel_id, 
+      discord_invite_url, 
+      api_key, 
+      server_name,
+      server_ip,
+      server_port
+    } = await c.req.json();
 
     if (discord_webhook_url !== undefined) {
       await setSetting('discord_webhook_url', String(discord_webhook_url).trim());
@@ -104,6 +117,12 @@ officeRouter.post('/settings', async (c) => {
     }
     if (server_name !== undefined) {
       await setSetting('server_name', String(server_name).trim());
+    }
+    if (server_ip !== undefined) {
+      await setSetting('server_ip', String(server_ip).trim());
+    }
+    if (server_port !== undefined) {
+      await setSetting('server_port', String(server_port).trim());
     }
 
     // Hot-reload / re-initialize Discord Bot if token was updated

@@ -25,16 +25,20 @@ export default function App() {
   const [feedback, setFeedback] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
   const [backendOnline, setBackendOnline] = useState<boolean>(true);
   const [discordInviteUrl, setDiscordInviteUrl] = useState<string>('');
+  const [serverIp, setServerIp] = useState<string>('');
+  const [serverPort, setServerPort] = useState<string>('19132');
+  const [serverName, setServerName] = useState<string>('Minecraft Bedrock Server');
   const [isProfileOpen, setIsProfileOpen] = useState<boolean>(false);
 
-  // Fetch status info (including Discord invite URL)
+  // Fetch status info (including Discord invite URL and Server IP/Port)
   useEffect(() => {
     fetch('/api/status')
       .then(res => res.json())
       .then(data => {
-        if (data.discordInviteUrl) {
-          setDiscordInviteUrl(data.discordInviteUrl);
-        }
+        if (data.discordInviteUrl) setDiscordInviteUrl(data.discordInviteUrl);
+        if (data.serverIp) setServerIp(data.serverIp);
+        if (data.serverPort) setServerPort(data.serverPort);
+        if (data.serverName) setServerName(data.serverName);
       })
       .catch(() => {});
   }, []);
@@ -197,7 +201,16 @@ export default function App() {
 
   // Jika Belum Login -> Tampilkan LoginPage
   if (!user) {
-    return <LoginPage authError={authError} discordInviteUrl={discordInviteUrl} />;
+    return (
+      <LoginPage 
+        onLoginSuccess={checkAuth}
+        authError={authError}
+        discordInviteUrl={discordInviteUrl}
+        serverIp={serverIp}
+        serverPort={serverPort}
+        serverName={serverName}
+      />
+    );
   }
 
   return (
@@ -274,6 +287,9 @@ export default function App() {
                 onOpenProfile={() => setIsProfileOpen(true)}
                 botOnline={backendOnline}
                 discordInviteUrl={discordInviteUrl}
+                serverIp={serverIp}
+                serverPort={serverPort}
+                serverName={serverName}
               />
             </div>
           </div>
