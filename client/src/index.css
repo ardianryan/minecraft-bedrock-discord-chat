@@ -3347,3 +3347,282 @@ body {
 /* Spin animation for refresh icon */
 @keyframes spin { to { transform: rotate(360deg); } }
 .spin { animation: spin 1s linear infinite; }
+
+/* ================================================================
+   SMART SCROLL & MOBILE UX ENHANCEMENTS
+   ================================================================ */
+
+/* Floating Scroll to Bottom Button */
+.btn-scroll-bottom {
+  position: absolute;
+  bottom: 84px;
+  right: 20px;
+  z-index: 25;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.2);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  animation: floatBounce 2s ease-in-out infinite;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+}
+
+.btn-scroll-bottom:hover {
+  transform: translateY(-2px) scale(1.04);
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.65);
+}
+
+.btn-scroll-bottom:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.scroll-unread-chip {
+  background: #f43f5e;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(244, 63, 94, 0.4);
+}
+
+@keyframes floatBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Ensure Chat Container is Relative for Absolute Floating Buttons */
+.chat-card-container {
+  position: relative;
+}
+
+/* ================================================================
+   MOBILE-FIRST RESPONSIVE OVERHAUL (< 768px)
+   ================================================================ */
+@media (max-width: 768px) {
+  /* Layout Spacing */
+  .main-content-layout {
+    padding: 10px 12px 20px;
+  }
+
+  .header-glass {
+    padding: 10px 14px;
+    gap: 8px;
+  }
+
+  .brand-group {
+    gap: 8px;
+  }
+
+  .brand-logo-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand-name {
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+
+  .brand-caption {
+    display: none;
+  }
+
+  /* Segmented Nav Tabs on Mobile */
+  .nav-segmented {
+    padding: 3px;
+    gap: 2px;
+  }
+
+  .nav-seg-item {
+    padding: 6px 10px;
+    font-size: 0.78rem;
+  }
+
+  .status-pill-glass {
+    padding: 4px 8px;
+    font-size: 0.72rem;
+  }
+
+  .status-pill-glass .status-label {
+    display: none;
+  }
+
+  /* Chat Feed Container Fullscreen Friendly */
+  .chat-card-container {
+    height: calc(100dvh - 125px);
+    min-height: 480px;
+    border-radius: 14px;
+  }
+
+  .chat-card-header {
+    padding: 10px 14px;
+  }
+
+  .chat-title-text {
+    font-size: 0.9rem;
+  }
+
+  .chat-subtitle-text {
+    display: none;
+  }
+
+  .chat-badge-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .chat-messages-area {
+    padding: 12px 10px;
+    gap: 8px;
+  }
+
+  /* Compact Message Bubble for Mobile */
+  .msg-bubble-card {
+    padding: 8px 10px;
+    border-radius: 10px;
+    gap: 10px;
+  }
+
+  .msg-avatar-img, .msg-avatar-fallback {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+
+  .msg-meta-row {
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 0.75rem;
+    margin-bottom: 2px;
+  }
+
+  .msg-source-tag {
+    font-size: 0.68rem;
+    padding: 1px 6px;
+  }
+
+  .msg-sender-name {
+    font-size: 0.8rem;
+  }
+
+  .msg-discord-tag {
+    font-size: 0.72rem;
+  }
+
+  .msg-timestamp {
+    font-size: 0.68rem;
+    margin-left: auto;
+  }
+
+  .msg-body-text {
+    font-size: 0.86rem;
+    line-height: 1.4;
+  }
+
+  /* Quick Commands Bar - Horizontal Scrollable Carousel */
+  .quick-commands-bar {
+    padding: 6px 10px;
+    gap: 6px;
+  }
+
+  .quick-bar-title {
+    font-size: 0.72rem;
+  }
+
+  .quick-buttons-row {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 6px;
+    padding-bottom: 2px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .quick-buttons-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .quick-cmd-btn {
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    flex-shrink: 0;
+  }
+
+  /* Touch-Friendly Sticky Chat Input Bar */
+  .chat-input-container {
+    padding: 8px 10px;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+  }
+
+  .input-fields-group {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  /* Compact Sender IGN Pill */
+  .sender-ign-pill {
+    padding: 6px 8px;
+    max-width: 100px;
+    flex-shrink: 0;
+    font-size: 0.75rem;
+  }
+
+  .sender-ign-label {
+    font-size: 0.7rem;
+    display: none;
+  }
+
+  .sender-ign-input {
+    font-size: 0.78rem;
+    width: 65px;
+  }
+
+  /* Main Input and Send Button */
+  .main-input-wrapper {
+    flex: 1;
+    display: flex;
+    gap: 6px;
+  }
+
+  .chat-main-text-input {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    border-radius: 10px;
+  }
+
+  .chat-submit-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  .chat-submit-btn .send-btn-label {
+    display: none;
+  }
+
+  /* Floating Scroll to Bottom button on Mobile */
+  .btn-scroll-bottom {
+    bottom: 74px;
+    right: 12px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+}

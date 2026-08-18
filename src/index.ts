@@ -74,9 +74,15 @@ const MAX_HISTORY = 50;
 
 export function addChatMessage(msg: Omit<ChatMessage, 'id' | 'timestamp'>) {
   const newMsg: ChatMessage = {
-    id: `${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
     ...msg,
-    timestamp: new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
+    id: `msg_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+    timestamp: new Date().toLocaleTimeString('id-ID', { 
+      hour: '2-digit', 
+      minute: '2-digit', 
+      second: '2-digit',
+      timeZone: 'Asia/Jakarta',
+      hour12: false
+    }),
   };
   chatHistory.push(newMsg);
   if (chatHistory.length > MAX_HISTORY) {

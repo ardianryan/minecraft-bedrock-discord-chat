@@ -7,6 +7,59 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.9.0] - 2026-08-18
+
+### 🕒 Timezone & Timestamps
+- **Enforced Asia/Jakarta (WIB / UTC+7) Timezone**: Resolved timestamp discrepancy where chats and server events showed `01:xx` (UTC). Timezone is now explicitly set to `timeZone: 'Asia/Jakarta'` with 24-hour format (`hour12: false`) across both backend (`src/index.ts`, `src/db.ts`) and client-side parser (`formatTimeWIB`).
+
+### 📜 Smart Scroll & Standby Mode
+- **Intelligent Chat Auto-Scroll**: Eliminated the issue where chat forcefully scrolled to the bottom on every poll cycle. The chat feed now intelligently monitors user scroll position (`isNearBottom`).
+- **Scroll Standby**: Users can scroll up to read earlier chats undisturbed without being snapped back down.
+- **Floating "↓ Ke Bawah" Button**: Added an animated floating scroll-down pill with an unread message counter (`+N`) that appears when scrolled up and smoothly jumps to the latest message on click.
+
+### 📱 Mobile UI/UX Overhaul
+- **100dvh Dynamic Viewport Layout**: Optimized mobile layout (`< 768px`) for modern mobile browsers, preventing content clipping when the virtual keyboard opens.
+- **Touch-Optimized Sticky Chat Input**: Compact sender IGN badge, maximized message input width, and touch-friendly icon send button ($\ge 44\text{px}$).
+- **Horizontal Quick Commands Carousel**: Admin Quick Commands now use a smooth horizontal momentum-scroll carousel that does not clutter vertical screen space.
+- **Responsive Typography & Avatars**: Re-scaled avatars (32px), message source chips (`🎮 MC`, `💬 Discord`, `🌐 Web`), and timestamps for mobile readability.
+
+---
+
+## [2.8.0] - 2026-08-18
+
+### ✨ Added
+- **🚀 Cross-Pack ScriptEvent Chat Relay (`mgc:chat`)**: Added `system.afterEvents.scriptEventReceive` listener to MGC Bridge BP (v1.7.0). Allows native Bedrock cross-pack communication to bypass event cancellations (`data.cancel = true`) from 3rd-party addons.
+- **📖 Self-Hosted KiwEssentials Integration Guide in README**: Step-by-step instructions on configuring server-side KiwEssentials (`manifest.json` and `scripts/board/chat.js`) to relay rank-formatted chat directly to MGC Bridge without redistributing proprietary files.
+
+### 🛡️ License & Clean Repository
+- **Proprietary Cleansing**: Removed all 3rd-party commercial pack binaries from Git tracking and GitHub releases.
+- **Enhanced Ignore Rules**: Updated `.gitignore` and `.dockerignore` to ignore `KiwEssentials/`, `KiwBP/`, `KiwRP/`, `releases/`, and `*.mcpack`.
+
+---
+
+## [2.5.0] - 2026-08-16
+
+### ✨ Added
+- **🟢 KiwEssentials Scoreboard Integration**: Automatic reading and tracking of KiwEssentials objectives (`kill`, `death`, `money`, `coin`, and `playtime`).
+- **📊 Dedicated Player Scores Database Table**: Created `player_scores` table in PostgreSQL and added `kw_*` tracking columns to `users`.
+- **🏆 Multi-Tab Web Leaderboard (`LeaderboardView.tsx`)**:
+  - 5 interactive tabs: ⚔️ Kills, 💀 Deaths, 💰 Money, 🪙 Coins, ⏱️ Playtime.
+  - Top 3 Podium with player skin heads and real-time online indicator dots (🟢).
+  - Dynamic K/D ratio color indicator (🟢 $\ge 2.0$, 🟡 $\ge 1.0$, 🔴 $< 1.0$).
+  - Dual-mode toggle between KiwEssentials Scoreboard and Discord Activity modes.
+- **💬 Discord Rich Join Embeds**: Player join notifications sent to Discord now feature rich embeds displaying player K/D, Money, Coins, and Playtime.
+- **🔄 Automated Scoreboard Sync**: Ingests player stats every 3 minutes via `POST /api/game/scoreboard` and serves them via `GET /api/web/scoreboard`.
+
+---
+
+## [2.4.0] - 2026-08-16
+
+### 🔧 Fixed & Improved
+- **Bedrock Script API Compatibility**: Bumped `@minecraft/server` to `beta` to align with Bedrock Dedicated Server 1.26.x.
+- **Startup Diagnostics**: Added `[MGC-BRIDGE]` diagnostic logs on server startup to verify event subscriber availability.
+
+---
+
 ## [2.3.0] - 2026-08-16
 
 ### ✨ Added

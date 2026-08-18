@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { 
   Send, 
   Clock, 
@@ -9,7 +9,9 @@ import {
   CheckCircle2,
   AlertCircle,
   Volume2,
-  VolumeX
+  VolumeX,
+  ChevronDown,
+  User
 } from 'lucide-react';
 import { AuthUser } from './Navbar.tsx';
 
@@ -40,6 +42,31 @@ interface ChatFeedProps {
   onQuickCommand: (cmd: string) => void;
 }
 
+/**
+ * Format timestamp gracefully to Asia/Jakarta (WIB) 24h format: HH:mm:ss
+ */
+function formatTimeWIB(raw: string): string {
+  if (!raw) return '';
+  try {
+    // If it's already a clean HH:mm:ss or HH.mm.ss format
+    if (/^\d{2}[:.]\d{2}[:.]\d{2}$/.test(raw.trim())) {
+      return raw.trim().replace(/\./g, ':');
+    }
+    // If it's a date or ISO string
+    const d = new Date(raw);
+    if (!isNaN(d.getTime())) {
+      return d.toLocaleTimeString('id-ID', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZone: 'Asia/Jakarta',
+        hour12: false
+      }).replace(/\./g, ':');
+    }
+  } catch {}
+  return raw;
+}
+
 export const ChatFeed: React.FC<ChatFeedProps> = ({
   messages,
   user,
@@ -52,34 +79,98 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
   feedback,
   onQuickCommand,
 }) => {
-  const chatEndRef = useRef<HTMLDivElement>(null);
+  const chatAreaRef = useRef<HTMLDivElement>(null);
+  const isNearBottomRef = useRef<boolean>(true);
+  const [showScrollBottomBtn, setShowScrollBottomBtn] = useState<boolean>(false);
+  const [unreadCount, setUnreadCount] = useState<number>(0);
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const prevMsgCountRef = useRef<number>(messages.length);
+  const isInitialMount = useRef<boolean>(true);
 
-  // Play subtle Web Audio chime on new message
-  useEffect(() => {
-    if (messages.length > prevMsgCountRef.current && soundEnabled) {
-      try {
-        const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
-        if (AudioCtx) {
-          const ctx = new AudioCtx();
-          const osc = ctx.createOscillator();
-          const gain = ctx.createGain();
-          osc.type = 'sine';
-          osc.frequency.setValueAtTime(800, ctx.currentTime);
-          osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.08);
-          gain.gain.setValueAtTime(0.08, ctx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
-          osc.connect(gain);
-          gain.connect(ctx.destination);
-          osc.start();
-          osc.stop(ctx.currentTime + 0.15);
-        }
-      } catch {}
+  // Scroll to bottom helper
+  const scrollToBottom = useCallback((smooth = true) => {
+    if (!chatAreaRef.current) return;
+    chatAreaRef.current.scrollTo({
+      top: chatAreaRef.current.scrollHeight,
+      behavior: smooth ? 'smooth' : 'auto'
+    });
+    isNearBottomRef.current = true;
+    setShowScrollBottomBtn(false);
+    setUnreadCount(0);
+  }, []);
+
+  // Monitor scroll position to determine if user is near bottom
+  const handleScroll = useCallback(() => {
+    if (!chatAreaRef.current) return;
+    const { scrollTop, scrollHeight, clientHeight } = chatAreaRef.current;
+    // User is considered near bottom if within 90px of the bottom edge
+    const distanceToBottom = scrollHeight - (scrollTop + clientHeight);
+    const nearBottom = distanceToBottom <= 90;
+    
+    isNearBottomRef.current = nearBottom;
+    if (nearBottom) {
+      setShowScrollBottomBtn(false);
+      setUnreadCount(0);
+    } else {
+      setShowScrollBottomBtn(true);
     }
+  }, []);
+
+  // Smart Auto-Scroll on message updates
+  useEffect(() => {
+    // Initial mount: instant scroll to bottom
+    if (isInitialMount.current && messages.length > 0) {
+      isInitialMount.current = false;
+      prevMsgCountRef.current = messages.length;
+      setTimeout(() => scrollToBottom(false), 50);
+      return;
+    }
+
+    const hasNewMessages = messages.length > prevMsgCountRef.current;
+
+    if (hasNewMessages) {
+      // Play subtle chime on new message
+      if (soundEnabled) {
+        try {
+          const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+          if (AudioCtx) {
+            const ctx = new AudioCtx();
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(800, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.08);
+            gain.gain.setValueAtTime(0.08, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start();
+            osc.stop(ctx.currentTime + 0.15);
+          }
+        } catch {}
+      }
+
+      // Smart Scroll Decision:
+      // Only auto-scroll if user is ALREADY near the bottom.
+      // If user scrolled up to read earlier chats, DO NOT interrupt them!
+      if (isNearBottomRef.current) {
+        scrollToBottom(true);
+      } else {
+        // Increment unread count badge on the floating scroll button
+        const diff = messages.length - prevMsgCountRef.current;
+        setUnreadCount((prev) => prev + diff);
+      }
+    }
+
     prevMsgCountRef.current = messages.length;
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, soundEnabled]);
+  }, [messages, soundEnabled, scrollToBottom]);
+
+  // Handle form submission with forced scroll to bottom
+  const handleFormSubmit = (e: React.FormEvent) => {
+    onSendMessage(e);
+    // User just sent a message -> force scroll to bottom
+    setTimeout(() => scrollToBottom(true), 100);
+  };
 
   const quickCommands = [
     { label: '☀️ Daytime', cmd: '/time set day' },
@@ -115,7 +206,7 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
           </button>
 
           <div className="chat-header-meta">
-            <span className="messages-count-pill">
+            <span className="messages-count-pill" title="Total messages loaded">
               <Flame size={13} color="#f59e0b" />
               <span>{messages.length}</span>
             </span>
@@ -123,8 +214,12 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
         </div>
       </div>
 
-      {/* Messages Scroll Area */}
-      <div className="chat-messages-area">
+      {/* Messages Scroll Area with Smart Scroll Detection */}
+      <div 
+        className="chat-messages-area" 
+        ref={chatAreaRef}
+        onScroll={handleScroll}
+      >
         {messages.length === 0 ? (
           <div className="chat-empty-state">
             <div className="empty-icon-circle">
@@ -150,7 +245,7 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
                     <img src={msg.discordUser.avatar} alt="" className="msg-avatar-img" />
                   ) : msg.source === 'Game' ? (
                     <img 
-                      src={`https://mc-heads.net/avatar/${encodeURIComponent(msg.sender)}/28`} 
+                      src={`https://mc-heads.net/avatar/${encodeURIComponent(msg.sender)}/32`} 
                       alt={msg.sender}
                       className="msg-avatar-img mc-skin-head"
                       onError={(e) => {
@@ -159,7 +254,7 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
                     />
                   ) : (
                     <div className="msg-avatar-fallback web-avatar">
-                      {msg.sender.charAt(0).toUpperCase()}
+                      {msg.sender ? msg.sender.charAt(0).toUpperCase() : <User size={14} />}
                     </div>
                   )}
                 </div>
@@ -180,9 +275,9 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
                       )}
                     </span>
 
-                    <span className="msg-timestamp">
+                    <span className="msg-timestamp" title="Waktu Indonesia Barat (WIB)">
                       <Clock size={11} />
-                      {msg.timestamp}
+                      {formatTimeWIB(msg.timestamp)}
                     </span>
                   </div>
 
@@ -201,14 +296,29 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
             );
           })
         )}
-        <div ref={chatEndRef} />
       </div>
+
+      {/* Floating Scroll to Bottom Button */}
+      {showScrollBottomBtn && (
+        <button
+          type="button"
+          className="btn-scroll-bottom"
+          onClick={() => scrollToBottom(true)}
+          title="Scroll to latest messages"
+        >
+          <ChevronDown size={16} />
+          <span>Ke Bawah</span>
+          {unreadCount > 0 && (
+            <span className="scroll-unread-chip">+{unreadCount}</span>
+          )}
+        </button>
+      )}
 
       {/* Admin Quick Commands Bar */}
       {user.role === 'admin' && (
         <div className="quick-commands-bar">
           <div className="quick-bar-title">
-            <Terminal size={14} color="#f59e0b" />
+            <Terminal size={13} color="#f59e0b" />
             <span>Admin Quick Commands:</span>
           </div>
           <div className="quick-buttons-row">
@@ -228,17 +338,17 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
       )}
 
       {/* Input Bar Form */}
-      <form onSubmit={onSendMessage} className="chat-input-container">
+      <form onSubmit={handleFormSubmit} className="chat-input-container">
         <div className="input-fields-group">
           {/* Sender IGN Chip */}
-          <div className="sender-ign-pill" title="Sender Identity">
+          <div className="sender-ign-pill" title="Your In-Game Sender Identity">
             <span className="sender-ign-label">From:</span>
             <input 
               type="text"
               value={sender}
               onChange={(e) => setSender(e.target.value)}
               className="sender-ign-input"
-              placeholder="Your IGN"
+              placeholder="IGN"
               maxLength={20}
               required
             />
@@ -249,7 +359,7 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
             <input 
               type="text"
               className="chat-main-text-input"
-              placeholder={user.role === 'admin' ? "Type a chat message or Minecraft command (e.g. /time set day)..." : "Type a message to send to Minecraft & Discord..."}
+              placeholder={user.role === 'admin' ? "Type message or command (e.g. /time set day)..." : "Type a message to send to Minecraft & Discord..."}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               maxLength={200}
@@ -260,9 +370,10 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
               type="submit" 
               className="chat-submit-btn"
               disabled={sending || !message.trim()}
+              title="Send Message (Enter)"
             >
-              <Send size={16} />
-              <span>Send</span>
+              <Send size={15} />
+              <span className="send-btn-label">Send</span>
             </button>
           </div>
         </div>

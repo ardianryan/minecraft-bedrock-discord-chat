@@ -552,7 +552,13 @@ export async function getChatLogs(limit = 50) {
       source: row.source as 'Game' | 'Web' | 'Discord' | 'System',
       sender: row.sender,
       message: row.message,
-      timestamp: new Date(row.created_at).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
+      timestamp: new Date(row.created_at).toLocaleTimeString('id-ID', { 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit',
+        timeZone: 'Asia/Jakarta',
+        hour12: false
+      }),
       discordUser: typeof row.discord_user === 'string' ? JSON.parse(row.discord_user) : (row.discord_user || null),
     }));
   } catch (err: any) {
