@@ -8,4 +8,6 @@ scratch/
 KiwEssentials/
 KiwBP/
 KiwRP/
+releases/
 *.mcpack
+*.zip
