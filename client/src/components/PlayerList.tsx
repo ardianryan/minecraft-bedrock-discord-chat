@@ -11,8 +11,7 @@ import {
   Ban,
   AlertTriangle,
   Copy,
-  Check,
-  Sparkles
+  Check
 } from 'lucide-react';
 import { AuthUser } from './Navbar.tsx';
 import { Sheet } from './Sheet.tsx';
@@ -88,7 +87,7 @@ export const PlayerList: React.FC<PlayerListProps> = ({
 
   return (
     <div className="sidebar-roster-group">
-      {/* 🎮 Join Minecraft Server Direct Connect Card */}
+      {/* Join Minecraft Server Direct Connect Card */}
       {serverIp && (
         <div className="server-connect-banner">
           <div className="server-connect-header">
@@ -109,8 +108,8 @@ export const PlayerList: React.FC<PlayerListProps> = ({
               className="btn-join-bedrock"
               title="Launch Minecraft Bedrock and connect directly"
             >
-              <Sparkles size={14} />
-              <span>Join Server 🎮</span>
+              <Gamepad2 size={15} />
+              <span>Join Server</span>
             </a>
             <button 
               type="button"
@@ -143,7 +142,7 @@ export const PlayerList: React.FC<PlayerListProps> = ({
             <span className="discord-invite-title">Join Our Discord Server</span>
             <span className="discord-invite-sub">Join community channels & chat</span>
           </div>
-          <span className="discord-join-badge">Join ↗</span>
+          <span className="discord-join-badge">Join</span>
         </a>
       )}
 
@@ -179,27 +178,34 @@ export const PlayerList: React.FC<PlayerListProps> = ({
                     (e.target as HTMLElement).style.display = 'none';
                   }}
                 />
-                <span className="player-roster-name">{player}</span>
-                <span className="player-online-badge">ONLINE</span>
+                <div className="roster-player-info">
+                  <span className="roster-player-name">{player}</span>
+                  <span className="roster-status-online">
+                    <span className="tiny-online-dot" />
+                    Online
+                  </span>
+                </div>
 
                 {/* Admin Quick Kick / Ban Action Buttons */}
                 {user.role === 'admin' && (
-                  <div className="roster-admin-actions" style={{ display: 'flex', gap: '4px', marginLeft: 'auto' }}>
+                  <div className="roster-mod-actions">
                     <button
                       type="button"
-                      className="btn-roster-kick"
-                      title={`Kick ${player} from server`}
+                      className="btn-mod-kick"
+                      title={`Kick ${player}`}
                       onClick={() => handleOpenModSheet(player, 'kick')}
                     >
-                      👢
+                      <UserX size={13} />
+                      <span className="mod-label">Kick</span>
                     </button>
                     <button
                       type="button"
-                      className="btn-roster-ban"
-                      title={`Permanently BAN ${player}`}
+                      className="btn-mod-ban"
+                      title={`Ban ${player}`}
                       onClick={() => handleOpenModSheet(player, 'ban')}
                     >
-                      🚫
+                      <Ban size={13} />
+                      <span className="mod-label">Ban</span>
                     </button>
                   </div>
                 )}
@@ -209,7 +215,7 @@ export const PlayerList: React.FC<PlayerListProps> = ({
         </div>
       </div>
 
-      {/* Responsive Sheet for Moderation Actions */}
+      {/* Modern Confirmation Sheet for Kick & Ban */}
       <Sheet
         isOpen={!!modTarget}
         onClose={() => setModTarget(null)}
@@ -250,7 +256,7 @@ export const PlayerList: React.FC<PlayerListProps> = ({
               onClick={handleExecuteModeration}
               disabled={submitting || !modReason.trim()}
             >
-              {submitting ? 'Executing...' : modTarget?.action === 'kick' ? '👢 Confirm Kick' : '🚫 Confirm Permanent Ban'}
+              {submitting ? 'Executing...' : modTarget?.action === 'kick' ? 'Confirm Kick' : 'Confirm Permanent Ban'}
             </button>
           </div>
         }
@@ -368,8 +374,15 @@ export const PlayerList: React.FC<PlayerListProps> = ({
         <div className="link-ign-action-box">
           <div className="link-ign-info-text">
             <span className="link-ign-heading">Your Minecraft IGN:</span>
-            <span className="link-ign-value">
-              {user.minecraft_username ? `🎮 ${user.minecraft_username}` : '❌ Not Linked'}
+            <span className="link-ign-value" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+              {user.minecraft_username ? (
+                <>
+                  <Gamepad2 size={13} color="#4ade80" />
+                  <span>{user.minecraft_username}</span>
+                </>
+              ) : (
+                <span style={{ color: 'var(--text-muted)' }}>Not Linked</span>
+              )}
             </span>
           </div>
           <button 

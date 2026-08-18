@@ -21,6 +21,7 @@ import {
   UserCheck, 
   ShieldAlert,
   Ban,
+  ShieldCheck,
   UserX,
   ShieldBan,
   BookOpen,
@@ -385,9 +386,9 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
 
       const data = await res.json();
       if (res.ok) {
-        setFeedback({ text: '✅ ' + data.message, type: 'success' });
+        setFeedback({ text: data.message, type: 'success' });
       } else {
-        setFeedback({ text: '❌ ' + (data.error || 'Webhook test failed'), type: 'error' });
+        setFeedback({ text: data.error || 'Webhook test failed', type: 'error' });
       }
     } catch (err) {
       setFeedback({ text: 'Failed to connect to server for webhook test.', type: 'error' });
@@ -417,7 +418,7 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
       if (res.ok) {
         setFeedback({ text: data.message, type: 'success' });
       } else {
-        setFeedback({ text: '❌ ' + (data.error || 'Bot login failed'), type: 'error' });
+        setFeedback({ text: data.error || 'Bot login failed', type: 'error' });
       }
     } catch (err) {
       setFeedback({ text: 'Failed to verify bot token with backend.', type: 'error' });
@@ -605,7 +606,7 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
                               }}
                             />
                             {u.minecraft_username ? (
-                              <span className="ign-status-pill linked" title="Account Linked">✓ Linked</span>
+                              <span className="ign-status-pill linked" title="Account Linked">Linked</span>
                             ) : (
                               <span className="ign-status-pill unlinked" title="Not Linked">Not Linked</span>
                             )}
@@ -622,8 +623,8 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
                               });
                             }}
                           >
-                            <option value="user">⚔️ Member</option>
-                            <option value="admin">👑 Administrator</option>
+                            <option value="user">Member</option>
+                            <option value="admin">Administrator</option>
                           </select>
                         </td>
                         <td>
@@ -747,8 +748,9 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <Users size={18} color="#38bdf8" />
                 <h4 style={{ color: '#f8fafc', fontSize: '0.95rem', fontWeight: 700, margin: 0 }}>Server Player Directory</h4>
-                <span className="badge-role-admin" style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', borderColor: 'rgba(56, 189, 248, 0.3)' }}>
-                  🛡️ 14-Day Auto-Retention
+                <span className="badge-role-admin" style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', borderColor: 'rgba(56, 189, 248, 0.3)', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                  <ShieldCheck size={11} />
+                  14-Day Auto-Retention
                 </span>
               </div>
               <button 
@@ -939,7 +941,7 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
               onClick={() => setShowGuideSheet(true)}
             >
               <BookOpen size={16} color="#818cf8" />
-              <span>📖 Discord Setup Tutorial</span>
+              <span>Discord Setup Tutorial</span>
             </button>
           </div>
 
@@ -1160,7 +1162,7 @@ const API_KEY = "${settings.api_key || 'SECRET_BEARER_TOKEN'}";`}
             <div className="form-field-card" style={{ borderColor: 'rgba(34, 197, 94, 0.3)', background: 'rgba(34, 197, 94, 0.03)' }}>
               <label className="field-label-group">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <span className="field-title" style={{ color: '#4ade80' }}>🎮 Minecraft Server Connection (Join Server Button)</span>
+                  <span className="field-title" style={{ color: '#4ade80' }}>Minecraft Server Connection (Join Server Button)</span>
                   <Tooltip content="Server IP / Domain (e.g. mcserver.ppti.me) and Bedrock Port (default 19132). Powers the 1-Click 'Join Server' buttons on Web Live Chat and Discord." />
                 </div>
                 <span className="field-subtitle">Configure your server address and port so players can 1-click connect from Web Live Chat and Discord</span>
@@ -1203,7 +1205,7 @@ const API_KEY = "${settings.api_key || 'SECRET_BEARER_TOKEN'}";`}
                     className="btn-action-test"
                     style={{ textDecoration: 'none', background: 'rgba(34, 197, 94, 0.2)', borderColor: 'rgba(34, 197, 94, 0.4)', color: '#4ade80', fontSize: '0.8rem', padding: '6px 12px' }}
                   >
-                    ▶️ Test Launch
+                    Test Launch
                   </a>
                 </div>
               )}
@@ -1293,14 +1295,19 @@ const API_KEY = "${settings.api_key || 'SECRET_BEARER_TOKEN'}";`}
             <p className="guide-step-desc">
               Required so the Bot can listen to messages typed in Discord and forward them to Minecraft Bedrock & Web.
             </p>
-            <ol style={{ margin: 0, paddingLeft: '20px', fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              <li>Open <a href="https://discord.com/developers/applications" target="_blank" rel="noreferrer" style={{ color: '#818cf8', textDecoration: 'underline' }}>Discord Developer Portal</a> → select your Application.</li>
-              <li>Click menu <strong>Bot</strong> in the left sidebar.</li>
-              <li>Click <strong>Reset Token</strong> → <strong>Copy Token</strong> → Paste into <em>Discord Bot Token</em> field.</li>
-              <li><strong style={{ color: '#fbbf24' }}>Crucial:</strong> Scroll down to <em>Privileged Gateway Intents</em> and toggle <strong>ON</strong>:
-                <div style={{ marginTop: '4px', display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-                  <span className="guide-code-pill" style={{ padding: '2px 8px', fontSize: '0.72rem' }}>✅ MESSAGE CONTENT INTENT</span>
-                  <span className="guide-code-pill" style={{ padding: '2px 8px', fontSize: '0.72rem' }}>✅ SERVER MEMBERS INTENT</span>
+            <ol style={{ margin: 0, paddingLeft: '20px', fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              <li>Open <a href="https://discord.com/developers/applications" target="_blank" rel="noreferrer" style={{ color: '#818cf8', fontWeight: 600 }}>Discord Developer Portal</a>.</li>
+              <li>Select your Application → Go to <strong>Bot</strong> tab.</li>
+              <li>Under <strong>Privileged Gateway Intents</strong>, turn <strong>ON</strong>:
+                <div style={{ display: 'flex', gap: '6px', marginTop: '4px', flexWrap: 'wrap' }}>
+                  <span className="guide-code-pill" style={{ padding: '2px 8px', fontSize: '0.72rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                    <Check size={12} color="#34d399" />
+                    MESSAGE CONTENT INTENT
+                  </span>
+                  <span className="guide-code-pill" style={{ padding: '2px 8px', fontSize: '0.72rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                    <Check size={12} color="#34d399" />
+                    SERVER MEMBERS INTENT
+                  </span>
                 </div>
               </li>
               <li>Click <strong>Save Changes</strong>.</li>

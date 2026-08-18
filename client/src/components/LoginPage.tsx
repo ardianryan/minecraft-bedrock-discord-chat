@@ -8,7 +8,8 @@ import {
   Database,
   ArrowRight,
   Copy,
-  Check
+  Check,
+  AlertCircle
 } from 'lucide-react';
 
 interface LoginPageProps {
@@ -100,7 +101,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
             Interactive bridge platform connecting your Minecraft Bedrock server with your Discord community and Web Dashboard.
           </p>
 
-          {/* 🎮 Server IP & Direct Join Card on Landing Page */}
+          {/* Server IP & Direct Join Card on Landing Page */}
           {serverIp && (
             <div style={{ marginBottom: '20px', width: '100%', maxWidth: '380px', background: 'rgba(34, 197, 94, 0.08)', border: '1px solid rgba(34, 197, 94, 0.3)', borderRadius: '14px', padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -118,8 +119,8 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                   href={directConnectUri}
                   style={{ flex: 1, textDecoration: 'none', background: 'linear-gradient(135deg, #22c55e, #16a34a)', color: '#fff', fontSize: '0.82rem', fontWeight: 700, padding: '8px 12px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', boxShadow: '0 2px 10px rgba(34, 197, 94, 0.3)' }}
                 >
-                  <Sparkles size={14} />
-                  <span>Join Server 🎮</span>
+                  <Gamepad2 size={14} />
+                  <span>Join Server</span>
                 </a>
                 <button 
                   type="button"
@@ -136,7 +137,10 @@ export const LoginPage: React.FC<LoginPageProps> = ({
           {/* Auth Error Banner */}
           {authError && (
             <div className="login-error-pill">
-              <span>❌ {authError}</span>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                <AlertCircle size={14} />
+                {authError}
+              </span>
             </div>
           )}
 

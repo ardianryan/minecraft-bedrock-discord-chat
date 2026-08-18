@@ -11,7 +11,14 @@ import {
   Volume2,
   VolumeX,
   ChevronDown,
-  User
+  User,
+  Sun,
+  Moon,
+  CloudSun,
+  Gem,
+  Gamepad2,
+  Zap,
+  Globe
 } from 'lucide-react';
 import { AuthUser } from './Navbar.tsx';
 
@@ -173,10 +180,10 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
   };
 
   const quickCommands = [
-    { label: '☀️ Daytime', cmd: '/time set day' },
-    { label: '🌙 Nighttime', cmd: '/time set night' },
-    { label: '🌤️ Clear Weather', cmd: '/weather clear' },
-    { label: '💎 Give Diamonds', cmd: '/give @a diamond 10' },
+    { icon: <Sun size={12} />, label: 'Daytime', cmd: '/time set day' },
+    { icon: <Moon size={12} />, label: 'Nighttime', cmd: '/time set night' },
+    { icon: <CloudSun size={12} />, label: 'Clear Weather', cmd: '/weather clear' },
+    { icon: <Gem size={12} />, label: 'Give Diamonds', cmd: '/give @a diamond 10' },
   ];
 
   return (
@@ -232,7 +239,7 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
           </div>
         ) : (
           messages.map((msg) => {
-            const isCommand = msg.message.startsWith('⚡ Executing command') || msg.message.startsWith('⚡ Menjalankan command') || msg.message.startsWith('/');
+            const isCommand = msg.message.includes('Executing command') || msg.message.includes('Menjalankan command') || msg.message.startsWith('/');
 
             return (
               <div 
@@ -263,7 +270,27 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
                 <div className="msg-content-block">
                   <div className="msg-meta-row">
                     <span className={`msg-source-tag ${msg.source}`}>
-                      {msg.source === 'Game' ? '🎮 Minecraft' : msg.source === 'Discord' ? '💬 Discord' : msg.source === 'System' ? '⚡ System' : '🌐 Web'}
+                      {msg.source === 'Game' ? (
+                        <>
+                          <Gamepad2 size={11} style={{ display: 'inline', marginRight: '3px' }} />
+                          Minecraft
+                        </>
+                      ) : msg.source === 'Discord' ? (
+                        <>
+                          <MessageSquare size={11} style={{ display: 'inline', marginRight: '3px' }} />
+                          Discord
+                        </>
+                      ) : msg.source === 'System' ? (
+                        <>
+                          <Zap size={11} style={{ display: 'inline', marginRight: '3px' }} />
+                          System
+                        </>
+                      ) : (
+                        <>
+                          <Globe size={11} style={{ display: 'inline', marginRight: '3px' }} />
+                          Web
+                        </>
+                      )}
                     </span>
                     
                     <span className="msg-sender-name">
@@ -307,7 +334,7 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
           title="Scroll to latest messages"
         >
           <ChevronDown size={16} />
-          <span>Ke Bawah</span>
+          <span>Scroll Down</span>
           {unreadCount > 0 && (
             <span className="scroll-unread-chip">+{unreadCount}</span>
           )}
@@ -329,8 +356,10 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
                 className="quick-cmd-btn"
                 onClick={() => onQuickCommand(qc.cmd)}
                 title={`Send ${qc.cmd} directly to Minecraft`}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}
               >
-                {qc.label}
+                {qc.icon}
+                <span>{qc.label}</span>
               </button>
             ))}
           </div>

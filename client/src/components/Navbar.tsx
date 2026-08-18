@@ -55,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="brand-text">
           <div className="brand-title-row">
             <span className="brand-name">Magical Gaming Crew</span>
-            <span className="brand-pill-v2">v2.3</span>
+            <span className="brand-pill-v2">v2.10</span>
           </div>
           <span className="brand-caption">Minecraft Bedrock ↔ Discord ↔ Web</span>
         </div>
@@ -126,9 +126,15 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <div className="user-name-line">
                   <span className="user-name-text">{user.discord_username}</span>
                   {user.role === 'admin' ? (
-                    <span className="badge-role-admin">👑 Admin</span>
+                    <span className="badge-role-admin">
+                      <ShieldAlert size={11} style={{ display: 'inline', marginRight: '3px' }} />
+                      Admin
+                    </span>
                   ) : (
-                    <span className="badge-role-member">⚔️ Member</span>
+                    <span className="badge-role-member">
+                      <UserCheck size={11} style={{ display: 'inline', marginRight: '3px' }} />
+                      Member
+                    </span>
                   )}
                 </div>
                 <div className="user-ign-line">

@@ -164,7 +164,7 @@ export default function App() {
         setMessage('');
         fetchMessages();
         if (data.isCommand) {
-          setFeedback({ text: '⚡ Command berhasil dikirim & dieksekusi di Minecraft!', type: 'success' });
+          setFeedback({ text: 'Command berhasil dikirim & dieksekusi di Minecraft!', type: 'success' });
         }
       } else {
         setFeedback({ text: data.error || 'Gagal mengirim pesan.', type: 'error' });

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import {
   Trophy, Flame, Crown, Medal, Search, RefreshCw, Sparkles,
-  Sword, Skull, Coins, Timer, DollarSign, Activity, Zap
+  Sword, Skull, Coins, Timer, DollarSign, Activity, Zap, Shield, UserCheck
 } from 'lucide-react';
 import { AuthUser } from './Navbar.tsx';
 
@@ -40,11 +40,11 @@ const TAB_CONFIG: Array<{
   key: SortKey; label: string; icon: React.ReactNode; color: string;
   format: (e: ScoreboardEntry) => string;
 }> = [
-  { key: 'kills',    label: '⚔️ Kills',    icon: <Sword size={15}/>,       color: '#ef4444', format: e => `${e.kills}` },
-  { key: 'deaths',   label: '💀 Deaths',   icon: <Skull size={15}/>,       color: '#a855f7', format: e => `${e.deaths}` },
-  { key: 'money',    label: '💰 Money',    icon: <DollarSign size={15}/>,  color: '#f59e0b', format: e => fmtMoney(e.money) },
-  { key: 'coin',     label: '🪙 Coins',    icon: <Coins size={15}/>,       color: '#eab308', format: e => `${e.coin.toLocaleString()}` },
-  { key: 'playtime', label: '⏱️ Playtime', icon: <Timer size={15}/>,       color: '#22c55e', format: e => fmtPlaytime(e.playtime) },
+  { key: 'kills',    label: 'Kills',    icon: <Sword size={15}/>,       color: '#ef4444', format: e => `${e.kills}` },
+  { key: 'deaths',   label: 'Deaths',   icon: <Skull size={15}/>,       color: '#a855f7', format: e => `${e.deaths}` },
+  { key: 'money',    label: 'Money',    icon: <DollarSign size={15}/>,  color: '#f59e0b', format: e => fmtMoney(e.money) },
+  { key: 'coin',     label: 'Coins',    icon: <Coins size={15}/>,       color: '#eab308', format: e => `${e.coin.toLocaleString()}` },
+  { key: 'playtime', label: 'Playtime', icon: <Timer size={15}/>,       color: '#22c55e', format: e => fmtPlaytime(e.playtime) },
 ];
 
 export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser }) => {
@@ -145,7 +145,8 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
                   {tabCfg.icon}<span>{tabCfg.format(top2)}</span>
                 </div>
                 <div className="podium-mini-stats">
-                  <span>⚔️{top2.kills}</span><span>💀{top2.deaths}</span>
+                  <span style={{ display:'inline-flex', alignItems:'center', gap:3 }}><Sword size={11}/>{top2.kills}</span>
+                  <span style={{ display:'inline-flex', alignItems:'center', gap:3 }}><Skull size={11}/>{top2.deaths}</span>
                   <span>K/D {kdRatio(top2.kills,top2.deaths)}</span>
                 </div>
               </div>
@@ -168,9 +169,10 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
                   {tabCfg.icon}<span>{tabCfg.format(top1)}</span>
                 </div>
                 <div className="podium-mini-stats">
-                  <span>⚔️{top1.kills}</span><span>💀{top1.deaths}</span>
+                  <span style={{ display:'inline-flex', alignItems:'center', gap:3 }}><Sword size={11}/>{top1.kills}</span>
+                  <span style={{ display:'inline-flex', alignItems:'center', gap:3 }}><Skull size={11}/>{top1.deaths}</span>
                   <span>K/D {kdRatio(top1.kills,top1.deaths)}</span>
-                  <span>💰{fmtMoney(top1.money)}</span>
+                  <span style={{ display:'inline-flex', alignItems:'center', gap:3 }}><DollarSign size={11}/>{fmtMoney(top1.money)}</span>
                 </div>
               </div>
             )}
@@ -191,7 +193,8 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
                   {tabCfg.icon}<span>{tabCfg.format(top3)}</span>
                 </div>
                 <div className="podium-mini-stats">
-                  <span>⚔️{top3.kills}</span><span>💀{top3.deaths}</span>
+                  <span style={{ display:'inline-flex', alignItems:'center', gap:3 }}><Sword size={11}/>{top3.kills}</span>
+                  <span style={{ display:'inline-flex', alignItems:'center', gap:3 }}><Skull size={11}/>{top3.deaths}</span>
                   <span>K/D {kdRatio(top3.kills,top3.deaths)}</span>
                 </div>
               </div>
@@ -214,12 +217,12 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
                 <tr>
                   <th style={{width:'55px',textAlign:'center'}}>Rank</th>
                   <th>IGN</th>
-                  <th style={{textAlign:'right'}}>⚔️ Kills</th>
-                  <th style={{textAlign:'right'}}>💀 Deaths</th>
+                  <th style={{textAlign:'right'}}>Kills</th>
+                  <th style={{textAlign:'right'}}>Deaths</th>
                   <th style={{textAlign:'right'}}>K/D</th>
-                  <th style={{textAlign:'right'}}>💰 Money</th>
-                  <th style={{textAlign:'right'}}>🪙 Coin</th>
-                  <th style={{textAlign:'right'}}>⏱️ Playtime</th>
+                  <th style={{textAlign:'right'}}>Money</th>
+                  <th style={{textAlign:'right'}}>Coin</th>
+                  <th style={{textAlign:'right'}}>Playtime</th>
                   <th style={{textAlign:'center'}}>Status</th>
                 </tr>
               </thead>
@@ -236,7 +239,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
                     <tr key={entry.username}>
                       <td style={{textAlign:'center'}}>
                         <span className={`rank-number-badge ${rank===1?'gold':rank===2?'silver':rank===3?'bronze':''}`}>
-                          {rank===1?'🥇':rank===2?'🥈':rank===3?'🥉':`#${rank}`}
+                          {rank===1 ? '#1' : rank===2 ? '#2' : rank===3 ? '#3' : `#${rank}`}
                         </span>
                       </td>
                       <td>
@@ -258,8 +261,8 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
                       <td style={{textAlign:'right'}}><span className="sb-stat-badge" style={{color:'#22c55e'}}>{fmtPlaytime(entry.playtime)}</span></td>
                       <td style={{textAlign:'center'}}>
                         {entry.online===1
-                          ? <span className="online-badge">🟢 Online</span>
-                          : <span className="offline-badge">⚫ Offline</span>}
+                          ? <span className="online-badge">Online</span>
+                          : <span className="offline-badge">Offline</span>}
                       </td>
                     </tr>
                   );
@@ -337,7 +340,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
                     <tr key={entry.id} className={isCurrent?'current-user-row':''}>
                       <td style={{textAlign:'center'}}>
                         <span className={`rank-number-badge ${rank===1?'gold':rank===2?'silver':rank===3?'bronze':''}`}>
-                          {rank===1?'🥇 1':rank===2?'🥈 2':rank===3?'🥉 3':`#${rank}`}
+                          {rank===1 ? '#1' : rank===2 ? '#2' : rank===3 ? '#3' : `#${rank}`}
                         </span>
                       </td>
                       <td>
@@ -360,7 +363,19 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
                           <code className="ign-active" style={{fontSize:'0.85rem'}}>{entry.minecraft_username}</code>
                         </div>
                       ):(<span className="ign-missing">Not Linked</span>)}</td>
-                      <td>{entry.role==='admin'?<span className="badge-role-admin">👑 Admin</span>:<span className="badge-role-member">⚔️ Member</span>}</td>
+                      <td>
+                        {entry.role==='admin' ? (
+                          <span className="badge-role-admin">
+                            <Shield size={12} style={{display:'inline',marginRight:'3px'}} />
+                            Admin
+                          </span>
+                        ) : (
+                          <span className="badge-role-member">
+                            <UserCheck size={12} style={{display:'inline',marginRight:'3px'}} />
+                            Member
+                          </span>
+                        )}
+                      </td>
                       <td style={{textAlign:'right'}}>
                         <span className="leaderboard-score-badge"><Flame size={13} color="#f59e0b"/><strong>{entry.message_count||0}</strong></span>
                       </td>
