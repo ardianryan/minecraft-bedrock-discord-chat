@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { 
   Gamepad2, 
-  Bot, 
+  MessageSquare,
+  Trophy,
   ShieldCheck, 
-  Terminal, 
-  Sparkles,
-  Database,
-  ArrowRight,
-  Copy,
+  ArrowRight, 
+  Copy, 
   Check,
   AlertCircle
 } from 'lucide-react';
@@ -50,24 +48,24 @@ export const LoginPage: React.FC<LoginPageProps> = ({
 
   const featureCards = [
     {
+      icon: <MessageSquare size={20} color="#38bdf8" />,
+      title: 'Live In-Game Chat',
+      desc: 'Real-time 2-way chat synchronization between Minecraft Bedrock and our Discord community.',
+    },
+    {
       icon: <Gamepad2 size={20} color="#34d399" />,
-      title: 'Minecraft Bedrock Live',
-      desc: 'Native @minecraft/server-net Script API with sub-second real-time chat sync.',
+      title: '1-Click Server Join',
+      desc: 'Connect directly to our Bedrock world from Mobile (Android/iOS) and Windows 10/11.',
     },
     {
-      icon: <Bot size={20} color="#818cf8" />,
-      title: '2-Way Discord Bot & Webhooks',
-      desc: 'Send messages and execute in-game slash commands directly from Discord channels.',
+      icon: <Trophy size={20} color="#fbbf24" />,
+      title: 'Ranks & Leaderboard',
+      desc: 'Track top players, kills, deaths, coins, playtime, and Discord community activity.',
     },
     {
-      icon: <Database size={20} color="#38bdf8" />,
-      title: 'PostgreSQL Relational DB',
-      desc: 'Persistent relational storage for Discord account and Minecraft IGN mappings.',
-    },
-    {
-      icon: <Terminal size={20} color="#f59e0b" />,
-      title: 'Office Admin Dashboard',
-      desc: 'Complete control panel at /office to manage users, roles, and server tokens.',
+      icon: <ShieldCheck size={20} color="#a855f7" />,
+      title: 'Verified Gamer Profile',
+      desc: 'Link your Discord account to your Minecraft IGN for unified multiplayer identity.',
     },
   ];
 
@@ -81,16 +79,16 @@ export const LoginPage: React.FC<LoginPageProps> = ({
       <div className="login-content-wrapper">
         {/* Main Hero Card */}
         <div className="login-hero-card">
-          {/* Brand Icon */}
+          {/* Brand Logo */}
           <img 
             src="/logo.png" 
-            alt="Magical Gaming Crew" 
+            alt={serverName} 
             className="login-hero-logo-img"
           />
 
           <div className="login-badge-pill">
-            <Sparkles size={14} color="#f59e0b" />
-            <span>Minecraft Bedrock ↔ Discord ↔ Web</span>
+            <Gamepad2 size={13} color="#38bdf8" />
+            <span>Minecraft Bedrock Community Portal</span>
           </div>
 
           <h1 className="login-hero-title">
@@ -98,18 +96,18 @@ export const LoginPage: React.FC<LoginPageProps> = ({
           </h1>
 
           <p className="login-hero-subtitle">
-            Interactive bridge platform connecting your Minecraft Bedrock server with your Discord community and Web Dashboard.
+            Welcome to the official interactive gaming portal. Join the live chat, connect with players in real-time, and track server stats!
           </p>
 
           {/* Server IP & Direct Join Card on Landing Page */}
           {serverIp && (
-            <div style={{ marginBottom: '20px', width: '100%', maxWidth: '380px', background: 'rgba(34, 197, 94, 0.08)', border: '1px solid rgba(34, 197, 94, 0.3)', borderRadius: '14px', padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div style={{ marginBottom: '22px', width: '100%', maxWidth: '390px', background: 'rgba(34, 197, 94, 0.06)', border: '1px solid rgba(34, 197, 94, 0.25)', borderRadius: '14px', padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Gamepad2 size={18} color="#4ade80" />
-                  <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f8fafc' }}>Minecraft Server</span>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f8fafc' }}>Server Address</span>
                 </div>
-                <code style={{ fontSize: '0.78rem', color: '#4ade80', background: 'rgba(0,0,0,0.3)', padding: '2px 8px', borderRadius: '6px' }}>
+                <code style={{ fontSize: '0.78rem', color: '#4ade80', background: 'rgba(0,0,0,0.4)', padding: '2px 8px', borderRadius: '6px', fontFamily: 'monospace' }}>
                   {serverIp}:{serverPort}
                 </code>
               </div>
@@ -117,18 +115,18 @@ export const LoginPage: React.FC<LoginPageProps> = ({
               <div style={{ display: 'flex', gap: '8px' }}>
                 <a 
                   href={directConnectUri}
-                  style={{ flex: 1, textDecoration: 'none', background: 'linear-gradient(135deg, #22c55e, #16a34a)', color: '#fff', fontSize: '0.82rem', fontWeight: 700, padding: '8px 12px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', boxShadow: '0 2px 10px rgba(34, 197, 94, 0.3)' }}
+                  style={{ flex: 1, textDecoration: 'none', background: 'linear-gradient(135deg, #22c55e, #16a34a)', color: '#fff', fontSize: '0.82rem', fontWeight: 700, padding: '9px 14px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', boxShadow: '0 2px 10px rgba(34, 197, 94, 0.3)' }}
                 >
-                  <Gamepad2 size={14} />
+                  <Gamepad2 size={15} />
                   <span>Join Server</span>
                 </a>
                 <button 
                   type="button"
                   onClick={handleCopyServerIp}
-                  style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', color: '#cbd5e1', fontSize: '0.8rem', padding: '8px 12px', borderRadius: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px' }}
+                  style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', color: '#cbd5e1', fontSize: '0.8rem', padding: '9px 14px', borderRadius: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px', fontWeight: 600 }}
                 >
                   {copiedIp ? <Check size={14} color="#34d399" /> : <Copy size={14} />}
-                  <span>{copiedIp ? 'Copied' : 'Copy'}</span>
+                  <span>{copiedIp ? 'Copied' : 'Copy IP'}</span>
                 </button>
               </div>
             </div>
@@ -168,7 +166,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
               className="login-invite-link"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', color: '#a5b4fc', textDecoration: 'none', marginBottom: '14px', fontWeight: 600 }}
             >
-              <span>Not in our Discord server yet? Click here to join ↗</span>
+              <span>Not in our Discord server yet? Click here to join</span>
               <ArrowRight size={14} />
             </a>
           )}
@@ -179,7 +177,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
           </span>
         </div>
 
-        {/* Feature Grid */}
+        {/* Player Gaming Feature Grid */}
         <div className="login-feature-grid">
           {featureCards.map((f, idx) => (
             <div key={idx} className="feature-item-card">

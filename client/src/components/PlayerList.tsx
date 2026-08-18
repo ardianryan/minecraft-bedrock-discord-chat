@@ -322,79 +322,138 @@ export const PlayerList: React.FC<PlayerListProps> = ({
         )}
       </Sheet>
 
-      {/* System & Account Status Card */}
-      <div className="sidebar-card">
-        <div className="sidebar-card-header">
-          <div className="sidebar-header-left">
-            <div className="sidebar-icon-wrap indigo">
-              <Radio size={18} />
+      {/* Admin-Only: Integration & Architecture Status Card */}
+      {user.role === 'admin' ? (
+        <div className="sidebar-card">
+          <div className="sidebar-card-header">
+            <div className="sidebar-header-left">
+              <div className="sidebar-icon-wrap indigo">
+                <Radio size={18} />
+              </div>
+              <div>
+                <h4 className="sidebar-card-title">Integration Status</h4>
+                <span className="sidebar-card-caption">3-Way Architecture</span>
+              </div>
             </div>
-            <div>
-              <h4 className="sidebar-card-title">Integration Status</h4>
-              <span className="sidebar-card-caption">3-Way Architecture</span>
+            <span className="badge-role-admin" style={{ padding: '2px 8px', fontSize: '0.7rem' }}>Admin View</span>
+          </div>
+
+          <div className="system-status-list">
+            <div className="system-status-row">
+              <div className="system-status-left">
+                <Database size={15} color="#38bdf8" />
+                <span>Database</span>
+              </div>
+              <span className="status-code-chip pg">PostgreSQL (Local)</span>
             </div>
+
+            <div className="system-status-row">
+              <div className="system-status-left">
+                <Bot size={15} color="#818cf8" />
+                <span>Discord Bot</span>
+              </div>
+              <span className="status-code-chip bot">2-Way Active</span>
+            </div>
+
+            <div className="system-status-row">
+              <div className="system-status-left">
+                <Gamepad2 size={15} color="#34d399" />
+                <span>Script API</span>
+              </div>
+              <span className="status-code-chip bedrock">@minecraft/server-net</span>
+            </div>
+
+            <div className="system-status-row">
+              <div className="system-status-left">
+                <ShieldCheck size={15} color="#f59e0b" />
+                <span>Discord User</span>
+              </div>
+              <span className="status-code-chip user">@{user.discord_username}</span>
+            </div>
+          </div>
+
+          {/* Action Link IGN */}
+          <div className="link-ign-action-box">
+            <div className="link-ign-info-text">
+              <span className="link-ign-heading">Your Minecraft IGN:</span>
+              <span className="link-ign-value" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                {user.minecraft_username ? (
+                  <>
+                    <Gamepad2 size={13} color="#4ade80" />
+                    <span>{user.minecraft_username}</span>
+                  </>
+                ) : (
+                  <span style={{ color: 'var(--text-muted)' }}>Not Linked</span>
+                )}
+              </span>
+            </div>
+            <button 
+              type="button" 
+              className="btn-secondary-link"
+              onClick={onOpenProfile}
+            >
+              <UserCheck size={14} />
+              <span>{user.minecraft_username ? 'Change IGN' : 'Link IGN'}</span>
+            </button>
           </div>
         </div>
-
-        <div className="system-status-list">
-          <div className="system-status-row">
-            <div className="system-status-left">
-              <Database size={15} color="#38bdf8" />
-              <span>Database</span>
+      ) : (
+        /* Member: Clean Player Profile & IGN Box */
+        <div className="sidebar-card">
+          <div className="sidebar-card-header">
+            <div className="sidebar-header-left">
+              <div className="sidebar-icon-wrap indigo">
+                <UserCheck size={18} />
+              </div>
+              <div>
+                <h4 className="sidebar-card-title">Player Profile</h4>
+                <span className="sidebar-card-caption">Connected Discord Account</span>
+              </div>
             </div>
-            <span className="status-code-chip pg">PostgreSQL (Local)</span>
           </div>
 
-          <div className="system-status-row">
-            <div className="system-status-left">
-              <Bot size={15} color="#818cf8" />
-              <span>Discord Bot</span>
+          <div style={{ padding: '14px 16px', display: 'flex', alignItems: 'center', gap: '12px', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', margin: '0 0 12px 0', border: '1px solid var(--border-subtle)' }}>
+            <img 
+              src={user.discord_avatar || 'https://cdn.discordapp.com/embed/avatars/0.png'} 
+              alt={user.discord_username}
+              style={{ width: '40px', height: '40px', borderRadius: '10px', objectFit: 'cover' }}
+            />
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#f8fafc', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {user.discord_username}
+              </div>
+              <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+                Community Member
+              </span>
             </div>
-            <span className="status-code-chip bot">2-Way Active</span>
           </div>
 
-          <div className="system-status-row">
-            <div className="system-status-left">
-              <Gamepad2 size={15} color="#34d399" />
-              <span>Script API</span>
+          {/* Action Link IGN */}
+          <div className="link-ign-action-box" style={{ marginTop: 0 }}>
+            <div className="link-ign-info-text">
+              <span className="link-ign-heading">Your Minecraft IGN:</span>
+              <span className="link-ign-value" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                {user.minecraft_username ? (
+                  <>
+                    <Gamepad2 size={13} color="#4ade80" />
+                    <span style={{ color: '#4ade80', fontWeight: 700 }}>{user.minecraft_username}</span>
+                  </>
+                ) : (
+                  <span style={{ color: '#fda4af' }}>Not Linked</span>
+                )}
+              </span>
             </div>
-            <span className="status-code-chip bedrock">@minecraft/server-net</span>
-          </div>
-
-          <div className="system-status-row">
-            <div className="system-status-left">
-              <ShieldCheck size={15} color="#f59e0b" />
-              <span>Discord User</span>
-            </div>
-            <span className="status-code-chip user">@{user.discord_username}</span>
+            <button 
+              type="button" 
+              className="btn-secondary-link"
+              onClick={onOpenProfile}
+            >
+              <UserCheck size={14} />
+              <span>{user.minecraft_username ? 'Change IGN' : 'Link IGN'}</span>
+            </button>
           </div>
         </div>
-
-        {/* Action Link IGN */}
-        <div className="link-ign-action-box">
-          <div className="link-ign-info-text">
-            <span className="link-ign-heading">Your Minecraft IGN:</span>
-            <span className="link-ign-value" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
-              {user.minecraft_username ? (
-                <>
-                  <Gamepad2 size={13} color="#4ade80" />
-                  <span>{user.minecraft_username}</span>
-                </>
-              ) : (
-                <span style={{ color: 'var(--text-muted)' }}>Not Linked</span>
-              )}
-            </span>
-          </div>
-          <button 
-            type="button" 
-            className="btn-secondary-link"
-            onClick={onOpenProfile}
-          >
-            <UserCheck size={14} />
-            <span>{user.minecraft_username ? 'Change IGN' : 'Link IGN'}</span>
-          </button>
-        </div>
-      </div>
+      )}
     </div>
   );
 };
