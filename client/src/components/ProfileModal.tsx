@@ -51,6 +51,33 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
     }
   };
 
+  const handleUnlink = async () => {
+    setSaving(true);
+    setFeedback(null);
+
+    try {
+      const res = await fetch('/api/auth/profile/ign', {
+        method: 'DELETE',
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setIgn('');
+        setFeedback({ text: data.message || 'Minecraft IGN unlinked successfully!', type: 'success' });
+        setTimeout(() => {
+          onUpdated();
+          onClose();
+        }, 1000);
+      } else {
+        setFeedback({ text: data.error || 'Failed to unlink account.', type: 'error' });
+      }
+    } catch (err) {
+      setFeedback({ text: 'Connection to server failed.', type: 'error' });
+    } finally {
+      setSaving(false);
+    }
+  };
+
   return (
     <Sheet
       isOpen={isOpen}
@@ -63,18 +90,33 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
       }
       description="Connect your Minecraft Bedrock character with your Discord account for bridge identity."
       footer={
-        <div style={{ display: 'flex', gap: '10px', width: '100%', justifyContent: 'flex-end' }}>
-          <button type="button" className="btn-modal-cancel" onClick={onClose} disabled={saving}>
-            Cancel
-          </button>
-          <button 
-            type="button" 
-            className="btn-primary-save" 
-            onClick={handleSubmit}
-            disabled={saving || !ign.trim()}
-          >
-            <span>{saving ? 'Saving...' : 'Save IGN'}</span>
-          </button>
+        <div style={{ display: 'flex', gap: '10px', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            {user.minecraft_username && (
+              <button 
+                type="button" 
+                className="btn-danger-sm"
+                onClick={handleUnlink}
+                disabled={saving}
+                style={{ padding: '8px 12px', fontSize: '0.78rem' }}
+              >
+                Unlink IGN
+              </button>
+            )}
+          </div>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <button type="button" className="btn-modal-cancel" onClick={onClose} disabled={saving}>
+              Cancel
+            </button>
+            <button 
+              type="button" 
+              className="btn-primary-save" 
+              onClick={handleSubmit}
+              disabled={saving || !ign.trim()}
+            >
+              <span>{saving ? 'Saving...' : 'Save IGN'}</span>
+            </button>
+          </div>
         </div>
       }
     >

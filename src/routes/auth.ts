@@ -2,7 +2,7 @@ import { Hono } from 'hono';
 import { getCookie, setCookie, deleteCookie } from 'hono/cookie';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import { getUserByDiscordId, upsertUser, consumeLinkCode } from '../db.js';
+import { getUserByDiscordId, upsertUser, consumeLinkCode, unlinkUserByDiscordId } from '../db.js';
 
 dotenv.config();
 
@@ -198,7 +198,13 @@ authRouter.get('/me', async (c) => {
 authRouter.post('/profile/ign', authUserMiddleware, async (c: any) => {
   try {
     const user: any = c.get('user');
-    const { minecraft_username, code } = await c.req.json();
+    const { minecraft_username, code, unlink } = await c.req.json();
+
+    // If explicit unlink requested
+    if (unlink === true || minecraft_username === '') {
+      const unlinked = await unlinkUserByDiscordId(user.discord_id);
+      return c.json({ status: 'success', user: unlinked, message: 'Minecraft IGN successfully unlinked!' });
+    }
 
     // If user inputs 6-digit OTP code from game
     if (code && String(code).trim() !== '') {
@@ -227,7 +233,18 @@ authRouter.post('/profile/ign', authUserMiddleware, async (c: any) => {
   }
 });
 
-// 5. Logout
+// 5. Unlink Current User Minecraft IGN
+authRouter.delete('/profile/ign', authUserMiddleware, async (c: any) => {
+  try {
+    const user: any = c.get('user');
+    const unlinked = await unlinkUserByDiscordId(user.discord_id);
+    return c.json({ status: 'success', user: unlinked, message: 'Minecraft IGN successfully unlinked!' });
+  } catch (err: any) {
+    return c.json({ error: 'Failed to unlink account' }, 500);
+  }
+});
+
+// 6. Logout
 authRouter.post('/logout', (c) => {
   deleteCookie(c, 'auth_token', { path: '/' });
   return c.json({ status: 'logged_out' });

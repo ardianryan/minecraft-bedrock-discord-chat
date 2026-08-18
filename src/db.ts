@@ -344,6 +344,19 @@ export async function upsertUser(userData: {
     ? (userData.minecraft_username ? userData.minecraft_username.trim() : null)
     : (existing?.minecraft_username || null);
 
+  const setPayload: Record<string, any> = {
+    discord_username: userData.discord_username,
+    discord_avatar: userData.discord_avatar || sql`${users.discord_avatar}`,
+    role: existing ? sql`${users.role}` : role,
+    updated_at: sql`NOW()`,
+  };
+
+  if (userData.minecraft_username !== undefined) {
+    setPayload.minecraft_username = ign;
+  } else {
+    setPayload.minecraft_username = sql`${users.minecraft_username}`;
+  }
+
   const res = await db
     .insert(users)
     .values({
@@ -357,17 +370,23 @@ export async function upsertUser(userData: {
     })
     .onConflictDoUpdate({
       target: users.discord_id,
-      set: {
-        discord_username: userData.discord_username,
-        discord_avatar: userData.discord_avatar || sql`${users.discord_avatar}`,
-        minecraft_username: ign ?? sql`${users.minecraft_username}`,
-        role: existing ? sql`${users.role}` : role,
-        updated_at: sql`NOW()`,
-      },
+      set: setPayload,
     })
     .returning();
   
   return res[0];
+}
+
+export async function unlinkUserByDiscordId(discordId: string): Promise<User | null> {
+  const res = await db
+    .update(users)
+    .set({
+      minecraft_username: null,
+      updated_at: sql`NOW()`,
+    })
+    .where(eq(users.discord_id, discordId))
+    .returning();
+  return res[0] || null;
 }
 
 export async function updateUserByAdmin(id: number, data: { minecraft_username?: string | null; role?: string }) {

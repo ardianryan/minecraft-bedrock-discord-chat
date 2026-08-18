@@ -29,6 +29,7 @@ import {
   getUserByMinecraftUsername, 
   generateLinkCode,
   upsertUser,
+  unlinkUserByDiscordId,
   getAllUsers, 
   getLeaderboard,
   incrementUserMessageCount,
@@ -307,28 +308,72 @@ export async function initDiscordBot() {
 
         if (commandName === 'link') {
           const ign = interaction.options.getString('ign', true).trim();
-          await upsertUser({
-            discord_id: discordId,
-            discord_username: discordUsername,
-            discord_avatar: interaction.user.displayAvatarURL(),
-            minecraft_username: ign,
-          });
-          await interaction.reply({ content: `✅ Successfully linked your Discord account to Minecraft IGN: **${ign}**!`, ephemeral: true });
+          try {
+            const updated = await upsertUser({
+              discord_id: discordId,
+              discord_username: discordUsername,
+              discord_avatar: interaction.user.displayAvatarURL(),
+              minecraft_username: ign,
+            });
+            await interaction.reply({ 
+              content: `✅ Successfully linked your Discord account to Minecraft IGN: **${updated.minecraft_username}**! This will now sync across the Web Live Chat and in-game.`, 
+              ephemeral: true 
+            });
+          } catch (err: any) {
+            await interaction.reply({ content: `❌ Link Failed: ${err.message}`, ephemeral: true });
+          }
           return;
         }
 
         if (commandName === 'unlink') {
-          await upsertUser({
-            discord_id: discordId,
-            discord_username: discordUsername,
-            minecraft_username: '',
-          });
+          await unlinkUserByDiscordId(discordId);
           await interaction.reply({ content: '🔓 Your Minecraft IGN has been unlinked from this Discord account.', ephemeral: true });
           return;
         }
       }
 
-      // B. Handle Button Clicks
+      // B. Handle Modal Submissions (Popup Form from Link Account Button)
+      if (interaction.isModalSubmit()) {
+        const discordId = interaction.user.id;
+        const discordUsername = interaction.user.globalName || interaction.user.username;
+
+        if (interaction.customId === 'modal_link_ign') {
+          const ign = interaction.fields.getTextInputValue('input_minecraft_ign').trim();
+          if (!ign || ign.length < 3) {
+            await interaction.reply({ 
+              content: '❌ Invalid IGN: Minecraft In-Game Name must be at least 3 characters.', 
+              ephemeral: true 
+            });
+            return;
+          }
+
+          try {
+            const user = await upsertUser({
+              discord_id: discordId,
+              discord_username: discordUsername,
+              discord_avatar: interaction.user.displayAvatarURL(),
+              minecraft_username: ign,
+            });
+
+            const replyEmbed = new EmbedBuilder()
+              .setColor(0x10b981)
+              .setTitle('✅ Minecraft IGN Linked Successfully!')
+              .setDescription(`Your Discord account <@${discordId}> is now linked to **\`${user.minecraft_username}\`**.\n\nYour profile and chat messages will now sync in real-time between Discord, Web Live Chat, and Minecraft!`)
+              .setThumbnail(`https://mc-heads.net/avatar/${encodeURIComponent(user.minecraft_username || 'Steve')}/64`)
+              .setFooter({ text: 'Magical Gaming Crew • Discord & Web Sync' });
+
+            await interaction.reply({ embeds: [replyEmbed], ephemeral: true });
+          } catch (err: any) {
+            await interaction.reply({ 
+              content: `❌ Link Error: ${err.message}`, 
+              ephemeral: true 
+            });
+          }
+          return;
+        }
+      }
+
+      // C. Handle Button Clicks
       if (interaction.isButton()) {
         const discordId = interaction.user.id;
         const discordUsername = interaction.user.globalName || interaction.user.username;
@@ -360,7 +405,7 @@ export async function initDiscordBot() {
           const serverName = await getSetting('server_name', 'Minecraft Bedrock Server');
           const serverIp = await getSetting('server_ip', process.env.SERVER_IP || '');
           const serverPort = await getSetting('server_port', process.env.SERVER_PORT || '19132');
-          const frontendUrl = (await getSetting('frontend_url', process.env.FRONTEND_URL || 'http://localhost:5173')).trim();
+          const frontendUrl = (await getSetting('frontend_url', process.env.FRONTEND_URL || 'https://mgc.ppti.me')).trim();
           const joinUrl = `${frontendUrl}/join`;
 
           const joinEmbed = new EmbedBuilder()
@@ -469,18 +514,17 @@ export async function initDiscordBot() {
               }
             );
 
+          if (user?.minecraft_username) {
+            embed.setThumbnail(`https://mc-heads.net/avatar/${encodeURIComponent(user.minecraft_username)}/64`);
+          }
+
           await interaction.reply({ embeds: [embed], ephemeral: true });
           return;
         }
 
         // Button 4: Unlink Account
         if (interaction.customId === 'btn_unlink_account') {
-          await upsertUser({
-            discord_id: discordId,
-            discord_username: discordUsername,
-            minecraft_username: '',
-          });
-
+          await unlinkUserByDiscordId(discordId);
           await interaction.reply({
             content: '🔓 Your Minecraft IGN has been unlinked from this Discord account.',
             ephemeral: true,
@@ -589,6 +633,130 @@ export async function initDiscordBot() {
 
       const components = createControlPanelComponents(frontendUrl);
       msg.reply({ embeds: [helpEmbed], components }).catch(() => {});
+      return;
+    }
+
+    // Manual Link Command: !link <IGN> or .link <IGN>
+    if (lowerContent.startsWith('!link ') || lowerContent.startsWith('.link ')) {
+      const parts = rawContent.split(/\s+/);
+      const ign = parts[1]?.trim();
+
+      if (!ign || ign.length < 3) {
+        msg.reply('❌ **Format Salah:** Gunakan format `!link <YourMinecraftIGN>` (contoh: `!link Steve_99`)').catch(() => {});
+        return;
+      }
+
+      try {
+        const user = await upsertUser({
+          discord_id: discordId,
+          discord_username: discordUsername,
+          discord_avatar: msg.author.displayAvatarURL(),
+          minecraft_username: ign,
+        });
+
+        const linkEmbed = new EmbedBuilder()
+          .setColor(0x10b981)
+          .setTitle('✅ Minecraft Account Linked Successfully!')
+          .setDescription(`Akun Discord <@${discordId}> berhasil ditautkan dengan Minecraft IGN **\`${user.minecraft_username}\`**.\n\nIdentitas dan chat Anda sekarang tersinkronisasi otomatis di Web Live Chat, Leaderboard, dan In-Game!`)
+          .setThumbnail(`https://mc-heads.net/avatar/${encodeURIComponent(user.minecraft_username || 'Steve')}/64`)
+          .setFooter({ text: 'Magical Gaming Crew • Discord & Web Sync' });
+
+        msg.reply({ embeds: [linkEmbed] }).catch(() => {});
+      } catch (err: any) {
+        msg.reply(`❌ **Gagal Menautkan Akun:** ${err.message}`).catch(() => {});
+      }
+      return;
+    }
+
+    // Manual Unlink Command: !unlink or .unlink
+    if (lowerContent === '!unlink' || lowerContent === '.unlink') {
+      await unlinkUserByDiscordId(discordId);
+      const unlinkEmbed = new EmbedBuilder()
+        .setColor(0xf43f5e)
+        .setTitle('🔓 Minecraft Account Unlinked')
+        .setDescription(`Minecraft IGN Anda telah dilepas dari akun Discord <@${discordId}>.`)
+        .setFooter({ text: 'Gunakan !link <IGN> untuk menautkan kembali' });
+
+      msg.reply({ embeds: [unlinkEmbed] }).catch(() => {});
+      return;
+    }
+
+    // My Profile Command: !me, !profile, !akun
+    if (lowerContent === '!me' || lowerContent === '!profile' || lowerContent === '!akun') {
+      const user = await getUserByDiscordId(discordId);
+      const profileEmbed = new EmbedBuilder()
+        .setColor(user?.minecraft_username ? 0x10b981 : 0xf43f5e)
+        .setTitle('👤 Discord & Minecraft Profile')
+        .addFields(
+          { name: 'Discord User', value: `<@${discordId}> (${discordUsername})`, inline: true },
+          { name: 'Role', value: user?.role === 'admin' ? '🛡️ Administrator' : '⚔️ Member', inline: true },
+          { 
+            name: 'Minecraft IGN', 
+            value: user?.minecraft_username ? `**\`${user.minecraft_username}\`** (Connected)` : '❌ _Belum Ditautkan (Ketik !link <IGN>)_', 
+            inline: false 
+          },
+          {
+            name: 'Total Messages',
+            value: `🔥 **${user?.message_count || 0}** pesan terkirim`,
+            inline: true
+          }
+        );
+
+      if (user?.minecraft_username) {
+        profileEmbed.setThumbnail(`https://mc-heads.net/avatar/${encodeURIComponent(user.minecraft_username)}/64`);
+      }
+
+      msg.reply({ embeds: [profileEmbed] }).catch(() => {});
+      return;
+    }
+
+    // Status Command: !status or !online
+    if (lowerContent === '!status' || lowerContent === '!online') {
+      const serverName = await getSetting('server_name', 'Minecraft Bedrock Server');
+      const serverIp = await getSetting('server_ip', process.env.SERVER_IP || '');
+      const serverPort = await getSetting('server_port', process.env.SERVER_PORT || '19132');
+      const playerList = Array.from(activePlayers);
+
+      const statusEmbed = new EmbedBuilder()
+        .setColor(0x10b981)
+        .setTitle(`🎮 Server Status: ${serverName}`)
+        .addFields(
+          { name: '🟢 Bridge Status', value: 'Online & Connected', inline: true },
+          { name: '👥 Online Players', value: `${activePlayers.size} Players`, inline: true },
+          { name: '🌐 Server Address', value: serverIp ? `\`${serverIp}:${serverPort}\`` : '_Configured in /office_', inline: true },
+          { 
+            name: '📋 Current Player Roster', 
+            value: playerList.length > 0 
+              ? playerList.map(p => `• **${p}**`).join('\n') 
+              : '_No players online at the moment._',
+            inline: false 
+          }
+        )
+        .setFooter({ text: 'Real-time Minecraft Bedrock Bridge' });
+
+      msg.reply({ embeds: [statusEmbed] }).catch(() => {});
+      return;
+    }
+
+    // Leaderboard Command: !top or !leaderboard
+    if (lowerContent === '!top' || lowerContent === '!leaderboard') {
+      const topUsers = await getLeaderboard(5);
+      const leaderboardList = topUsers.length > 0
+        ? topUsers.map((u, i) => {
+            const medals = ['🥇', '🥈', '🥉', '4️⃣', '5️⃣'];
+            const badge = medals[i] || '🎖️';
+            const ign = u.minecraft_username ? `🎮 \`${u.minecraft_username}\`` : `💬 @${u.discord_username}`;
+            return `${badge} **${ign}** — **${u.message_count || 0}** messages`;
+          }).join('\n')
+        : '_Belum ada aktivitas chat terekam._';
+
+      const embed = new EmbedBuilder()
+        .setColor(0xf59e0b)
+        .setTitle('🏆 Top Active Community Leaderboard')
+        .setDescription(leaderboardList)
+        .setFooter({ text: 'Live Community Ranking • Magical Gaming Crew' });
+
+      msg.reply({ embeds: [embed] }).catch(() => {});
       return;
     }
 

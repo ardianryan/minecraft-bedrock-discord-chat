@@ -22,6 +22,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added configurable `server_ip` (Hostname/Domain) and `server_port` (default `19132`) in `/office` Admin Settings.
   - **Web Live Chat & Landing Page**: Prominent glassmorphic **"Join Minecraft Server"** Card with 1-Click Launch button (`minecraft://?addExternalServer=...`) and 1-Click Copy IP button with instant clipboard checkmark animation.
   - **Discord Bot Interactive Integration**: Added `Server IP & Join` button in `!panel` / `!menu` and new text commands `!ip`, `!join`, `!server`, `!connect` with rich embed detailing server address, port, and 1-click connect URL.
+- **🔗 Real-Time Discord ↔ Web Account Link & Unlink Synchronization**:
+  - **Discord Modal Submission Handler**: Implemented `interaction.isModalSubmit()` listener for `modal_link_ign` so players clicking the `Link Account` button in Discord can input their Minecraft IGN and immediately sync to PostgreSQL and the Web Live Chat.
+  - **Discord Unlink Handler**: Fixed unlinking bug where nullish coalescing prevented clearing the IGN. Added explicit `unlinkUserByDiscordId` to cleanly detach Minecraft characters from Discord accounts.
+  - **Discord Text Commands**: Added `!link <IGN>` (or `.link`), `!unlink` (or `.unlink`), and `!me`/`!profile`/`!akun` commands with Minecraft skin head avatar embeds.
+  - **Web Profile Modal Unlink Action**: Added `Unlink IGN` action in `ProfileModal.tsx` via `DELETE /api/auth/profile/ign` allowing players to unlink directly from the web interface.
 - **🔒 Privacy & Role-Based UI Sanitization**:
   - Cleaned all internal database/admin architecture mentions (`/office`, PostgreSQL, developer Script APIs) from the public login page.
   - Restricted internal "Integration Status" telemetry in the live chat sidebar strictly to Admins (`user.role === 'admin'`). Regular community members now see a clean Player Profile card with verified Minecraft IGN.
