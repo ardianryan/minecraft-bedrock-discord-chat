@@ -562,19 +562,6 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
               </div>
             </div>
           </div>
-
-          {currentUser && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <img 
-                src={currentUser.discord_avatar || 'https://cdn.discordapp.com/embed/avatars/0.png'} 
-                alt={currentUser.discord_username}
-                style={{ width: 28, height: 28, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.1)' }}
-              />
-              <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#f8fafc' }}>
-                {currentUser.discord_username}
-              </div>
-            </div>
-          )}
         </div>
 
         {/* Global Feedback Banner */}

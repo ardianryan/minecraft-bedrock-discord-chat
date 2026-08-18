@@ -54,42 +54,50 @@ export const ServerPanelTab: React.FC<ServerPanelTabProps> = () => {
   const [testingConnection, setTestingConnection] = useState<boolean>(false);
   const [feedback, setFeedback] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
 
-  // Tutorial Sheet
   const [isGuideOpen, setIsGuideOpen] = useState<boolean>(false);
 
-  const fetchPanelData = async () => {
+  // 1. Initial Load: Load saved settings from DB only ONCE on mount
+  useEffect(() => {
+    const loadSavedSettings = async () => {
+      try {
+        const setRes = await fetch('/api/office/settings');
+        const setData = await setRes.json();
+        if (setRes.ok && setData.settings) {
+          const savedProvider = setData.settings.server_panel_provider || 'none';
+          setProvider(savedProvider);
+          setPanelUrl(setData.settings.panel_url || '');
+          setPanelServerId(setData.settings.panel_server_id || '');
+          setPanelApiKey(setData.settings.panel_api_key || '');
+        }
+      } catch (e) {
+        console.error('Failed to load saved panel settings:', e);
+      }
+    };
+    loadSavedSettings();
+  }, []);
+
+  // 2. Periodic Live Stats Poller: Only updates telemetry gauges, NEVER overrides user form input
+  const fetchLiveStats = async () => {
     setLoading(true);
     try {
-      // 1. Fetch live stats
       const statsRes = await fetch('/api/office/server/stats');
       const statsData = await statsRes.json();
       if (statsRes.ok) {
         setConfigured(statsData.configured);
-        setProvider(statsData.provider);
         setStats(statsData.stats);
         setServerName(statsData.serverName || 'Minecraft Bedrock Server');
         setActivePlayersCount(statsData.activePlayersCount || 0);
       }
-
-      // 2. Fetch current panel settings
-      const setRes = await fetch('/api/office/settings');
-      const setData = await setRes.json();
-      if (setRes.ok && setData.settings) {
-        setProvider(setData.settings.server_panel_provider || 'none');
-        setPanelUrl(setData.settings.panel_url || '');
-        setPanelServerId(setData.settings.panel_server_id || '');
-        setPanelApiKey(setData.settings.panel_api_key || '');
-      }
     } catch (e) {
-      console.error('Failed to fetch server panel data:', e);
+      console.error('Failed to fetch server stats:', e);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchPanelData();
-    const interval = setInterval(fetchPanelData, 10000);
+    fetchLiveStats();
+    const interval = setInterval(fetchLiveStats, 10000);
     return () => clearInterval(interval);
   }, []);
 
@@ -113,7 +121,7 @@ export const ServerPanelTab: React.FC<ServerPanelTabProps> = () => {
       const data = await res.json();
       if (res.ok) {
         setFeedback({ text: 'Panel configuration saved to database successfully!', type: 'success' });
-        setTimeout(fetchPanelData, 1000);
+        setTimeout(fetchLiveStats, 1000);
       } else {
         setFeedback({ text: data.error || 'Failed to save settings', type: 'error' });
       }
@@ -178,7 +186,7 @@ export const ServerPanelTab: React.FC<ServerPanelTabProps> = () => {
           ...prev, 
           { text: `⚡ [POWER ACTION]: Dispatched ${signal.toUpperCase()}`, type: 'info', ts: new Date().toLocaleTimeString('id-ID') }
         ]);
-        setTimeout(fetchPanelData, 2000);
+        setTimeout(fetchLiveStats, 2000);
       } else {
         setFeedback({ text: data.error || 'Failed to dispatch power action', type: 'error' });
       }
@@ -272,7 +280,7 @@ export const ServerPanelTab: React.FC<ServerPanelTabProps> = () => {
           <button
             type="button"
             className="btn-modal-cancel"
-            onClick={fetchPanelData}
+            onClick={fetchLiveStats}
             disabled={loading}
             style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.8rem', padding: '8px 14px' }}
           >

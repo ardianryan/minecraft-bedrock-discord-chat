@@ -3855,10 +3855,16 @@ body {
   .header-glass {
     padding: 10px 14px;
     gap: 8px;
+    flex-wrap: wrap;
   }
 
   .brand-group {
     gap: 8px;
+    flex: 1;
+  }
+
+  .header-actions {
+    margin-left: auto;
   }
 
   .brand-logo-img {
@@ -3877,13 +3883,60 @@ body {
 
   /* Segmented Nav Tabs on Mobile */
   .nav-segmented {
+    width: 100%;
+    order: 3;
+    display: flex;
+    justify-content: space-around;
     padding: 3px;
-    gap: 2px;
+    gap: 4px;
+    margin-top: 2px;
   }
 
   .nav-seg-item {
-    padding: 6px 10px;
+    flex: 1;
+    justify-content: center;
+    padding: 7px 8px;
     font-size: 0.78rem;
+  }
+
+  /* Office Metric Stats Row on Mobile */
+  .office-stats-row {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .metric-stat-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 10px 10px !important;
+    gap: 6px !important;
+    border-radius: 10px !important;
+  }
+
+  .metric-icon-wrap {
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 6px !important;
+  }
+
+  .metric-icon-wrap svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  .metric-label {
+    font-size: 0.62rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .metric-number {
+    font-size: 0.85rem !important;
+    font-weight: 800 !important;
+  }
+
+  .admin-top-statusbar {
+    padding: 10px 12px;
+    border-radius: 10px;
   }
 
   .status-pill-glass {
