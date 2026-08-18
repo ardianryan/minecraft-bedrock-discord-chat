@@ -121,7 +121,6 @@ if (world.beforeEvents?.chatSend?.subscribe) {
 }
 
 // afterEvents fallback — fires ONLY when no addon sets cancel=true
-// Acts as secondary capture when KiwEssentials is NOT active
 if (world.afterEvents?.chatSend?.subscribe) {
   world.afterEvents.chatSend.subscribe((event) => {
     try {
@@ -129,7 +128,6 @@ if (world.afterEvents?.chatSend?.subscribe) {
       const messageText = event.message || "";
       if (!senderName || !messageText) return;
       if (messageText.startsWith("+") || messageText.startsWith("/")) return;
-      // Only push if beforeEvents didn't already capture this exact message
       const now = Date.now();
       const alreadyCaptured = chatQueue.some(
         q => q.sender === senderName && q.message === messageText && (now - q.ts) < 3000
@@ -139,6 +137,30 @@ if (world.afterEvents?.chatSend?.subscribe) {
       }
     } catch {}
   });
+}
+
+// 3. CROSS-PACK BRIDGE: ScriptEvent Receiver (mgc:chat)
+// Guarantees chat delivery even when KiwEssentials or other addons cancel native chat
+if (system.afterEvents?.scriptEventReceive?.subscribe) {
+  system.afterEvents.scriptEventReceive.subscribe((event) => {
+    try {
+      if (event.id === "mgc:chat") {
+        const payload = JSON.parse(event.message);
+        if (payload?.sender && payload?.message) {
+          const now = Date.now();
+          const alreadyCaptured = chatQueue.some(
+            q => q.sender === payload.sender && q.message === payload.message && (now - q.ts) < 3000
+          );
+          if (!alreadyCaptured) {
+            chatQueue.push({ sender: payload.sender, message: payload.message, ts: now });
+            console.warn(`[MGC-BRIDGE] Chat received via ScriptEvent: ${payload.sender}: ${payload.message}`);
+          }
+        }
+      }
+    } catch (err) {
+      console.warn(`[MGC-BRIDGE] Failed to parse scriptEvent payload:`, err);
+    }
+  }, { namespaces: ["mgc"] });
 }
 
 // Drain chat queue every 5 ticks (~250ms) — safe async context, always reliable
