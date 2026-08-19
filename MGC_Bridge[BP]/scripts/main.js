@@ -39,15 +39,35 @@ async function sendRequest(endpoint, method, payload = null) {
 
 // ========================================================
 // Helper: Read KiwEssentials Scoreboard Objective safely
-// Supports KiwEssentials 33.1.8+ objectives & aliases
-// Objectives: kill/kills, death/deaths, money/balance, coin/coins, playtime/online_time
+// Supports KiwEssentials 33.1.8+ dynamic properties & objectives
 // ========================================================
+function readMoney(player) {
+  try {
+    const prop = player.getDynamicProperty("money_balance_string");
+    if (prop !== undefined && prop !== null) {
+      const parsed = parseInt(String(prop), 10);
+      if (!isNaN(parsed) && parsed >= 0) return parsed;
+    }
+  } catch {}
+  return readScore(player, "money", "balance");
+}
+
 function readScore(player, ...objectives) {
   try {
     for (const objective of objectives) {
       const obj = world.scoreboard.getObjective(objective);
       if (obj) {
-        const score = obj.getScore(player.scoreboardIdentity);
+        let score = undefined;
+        try {
+          if (player.scoreboardIdentity) {
+            score = obj.getScore(player.scoreboardIdentity);
+          }
+        } catch {}
+        if (typeof score !== "number") {
+          try {
+            score = obj.getScore(player);
+          } catch {}
+        }
         if (typeof score === "number") return Math.max(0, score);
       }
     }
@@ -66,9 +86,9 @@ function collectAllPlayerScores() {
           username: player.name,
           kills:    readScore(player, "kill", "kills"),
           deaths:   readScore(player, "death", "deaths"),
-          money:    readScore(player, "money", "balance"),
+          money:    readMoney(player),
           coin:     readScore(player, "coin", "coins"),
-          playtime: readScore(player, "playtime", "online_time", "time"),
+          playtime: readScore(player, "online_time", "playtime", "time"),
           online:   true,
         });
       } catch {}
@@ -77,9 +97,9 @@ function collectAllPlayerScores() {
   return stats;
 }
 
-// Sync KiwEssentials stats to backend every 3 min (3600 ticks ≈ 180s)
+// Sync KiwEssentials stats to backend frequently (every 200 ticks ≈ 10s)
 let isSyncingScores = false;
-system.runInterval(async () => {
+async function pushScoresSync() {
   if (isSyncingScores) return;
   isSyncingScores = true;
   try {
@@ -90,7 +110,10 @@ system.runInterval(async () => {
   } catch {} finally {
     isSyncingScores = false;
   }
-}, 3600);
+}
+system.runInterval(pushScoresSync, 200);
+// Trigger immediate initial score sync
+system.runTimeout(pushScoresSync, 40);
 
 // ========================================================
 // Helper: Collect Player Live Inventory, Health & Telemetry
@@ -114,7 +137,6 @@ function extractSlotItem(itemStack, slotIndex) {
 function getEquippedItem(equipComp, slotName) {
   if (!equipComp) return null;
   try {
-    // Try both string slot names and capitalizations
     let item = null;
     if (typeof equipComp.getEquipment === "function") {
       item = equipComp.getEquipment(slotName) || 
@@ -177,6 +199,13 @@ function collectPlayerInventory(player) {
       gameMode: (player.getGameMode && player.getGameMode()) ? String(player.getGameMode()).toLowerCase() : "survival",
       armor,
       mainInventory,
+      scores: {
+        kills:    readScore(player, "kill", "kills"),
+        deaths:   readScore(player, "death", "deaths"),
+        money:    readMoney(player),
+        coin:     readScore(player, "coin", "coins"),
+        playtime: readScore(player, "online_time", "playtime", "time"),
+      },
     };
   } catch (e) {
     return null;

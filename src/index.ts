@@ -1243,7 +1243,7 @@ app.post('/api/game/scoreboard', bedrockAuthMiddleware, async (c) => {
 app.post('/api/game/inventory-sync', bedrockAuthMiddleware, async (c) => {
   try {
     const body = await c.req.json();
-    const list: PlayerLiveTelemetry[] = Array.isArray(body.inventories) 
+    const list: (PlayerLiveTelemetry & { scores?: Record<string, number> })[] = Array.isArray(body.inventories) 
       ? body.inventories 
       : (body.username ? [body] : []);
 
@@ -1251,16 +1251,37 @@ app.post('/api/game/inventory-sync', bedrockAuthMiddleware, async (c) => {
       hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Jakarta', hour12: false
     });
 
+    const statsList: PlayerStatPayload[] = [];
+    activePlayers.clear();
+
     for (const item of list) {
       if (item.username) {
+        activePlayers.add(item.username);
+        recordKnownPlayer(item.username);
         activePlayerInventories.set(item.username, {
           ...item,
           lastSynced: nowStr,
         });
+
+        if (item.scores) {
+          statsList.push({
+            username: item.username,
+            kills: item.scores.kills || 0,
+            deaths: item.scores.deaths || 0,
+            money: item.scores.money || 0,
+            coin: item.scores.coin || 0,
+            playtime: item.scores.playtime || 0,
+            online: true,
+          });
+        }
       }
     }
 
-    return c.json({ status: 'ok', synced: list.length });
+    if (statsList.length > 0) {
+      await upsertPlayerScores(statsList);
+    }
+
+    return c.json({ status: 'ok', synced: list.length, activeCount: activePlayers.size });
   } catch (err) {
     return c.json({ error: 'Failed to sync inventory telemetry' }, 500);
   }
