@@ -92,11 +92,18 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
     } catch {} finally { setDlLoading(false); }
   };
 
-  const handleManualRefresh = () => {
-    if (mode === 'scoreboard') {
-      fetchScoreboard(sbSort);
-    } else {
-      fetchLeaderboard();
+  const handleManualRefresh = async () => {
+    try {
+      if (mode === 'scoreboard') {
+        await fetchScoreboard(sbSort);
+      } else {
+        await fetchLeaderboard();
+      }
+      setFeedback({ text: 'Data leaderboard berhasil disinkronkan & diperbarui langsung dari server!', type: 'success' });
+    } catch {
+      setFeedback({ text: 'Gagal menyinkronkan data leaderboard.', type: 'error' });
+    } finally {
+      setTimeout(() => setFeedback(null), 3500);
     }
   };
 
@@ -155,28 +162,28 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
           <Flame size={15}/> Discord Activity
         </button>
 
-        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
           {lastFetched && (
-            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <Activity size={12} color="#34d399" />
+            <div className="leaderboard-sync-badge">
+              <Activity size={13} color="#34d399" />
               <span>Sinkron: {lastFetched}</span>
-            </span>
+            </div>
           )}
 
           {currentUser?.role === 'admin' && mode === 'scoreboard' && (
             <button 
               type="button" 
-              className="leaderboard-refresh-btn" 
-              style={{ color: '#f43f5e', borderColor: 'rgba(244, 63, 94, 0.3)' }}
+              className="leaderboard-reset-btn" 
               onClick={() => setShowResetSheet(true)}
               title="Reset data scoreboard jika server baru atau baru di-wipe"
             >
-              <Trash2 size={13} />
+              <Trash2 size={14} />
               <span>Reset Data</span>
             </button>
           )}
 
           <button 
+            type="button"
             onClick={handleManualRefresh}
             className="leaderboard-refresh-btn"
             disabled={isLoading}
@@ -496,8 +503,8 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
             </button>
             <button 
               type="button" 
-              className="btn-primary-save"
-              style={{ background: '#e11d48', borderColor: '#be123c' }}
+              className="leaderboard-reset-btn"
+              style={{ padding: '9px 20px', fontSize: '0.85rem' }}
               onClick={handleResetScoreboard}
               disabled={resetLoading}
             >
