@@ -3,7 +3,7 @@ import { http, HttpRequest, HttpRequestMethod, HttpHeader } from "@minecraft/ser
 
 // ── Startup Diagnostic (visible in BDS console logs)
 system.run(() => {
-  console.warn("[MGC-BRIDGE] v2.11.0 loaded — checking event availability:");
+  console.warn("[MGC-BRIDGE] v2.11.1 loaded (KiwEssentials 33.1.8+ Enhanced) — checking event availability:");
   console.warn("[MGC-BRIDGE]  beforeEvents.chatSend:", !!world.beforeEvents?.chatSend);
   console.warn("[MGC-BRIDGE]  afterEvents.chatSend :", !!world.afterEvents?.chatSend);
   console.warn("[MGC-BRIDGE]  afterEvents.playerSpawn:", !!world.afterEvents?.playerSpawn);
@@ -39,15 +39,19 @@ async function sendRequest(endpoint, method, payload = null) {
 
 // ========================================================
 // Helper: Read KiwEssentials Scoreboard Objective safely
-// Returns 0 if objective doesn't exist (safe no-crash fallback)
-// KiwEssentials objectives: kill, death, money, coin, playtime
+// Supports KiwEssentials 33.1.8+ objectives & aliases
+// Objectives: kill/kills, death/deaths, money/balance, coin/coins, playtime/online_time
 // ========================================================
-function readScore(player, objective) {
+function readScore(player, ...objectives) {
   try {
-    const obj = world.scoreboard.getObjective(objective);
-    if (!obj) return 0;
-    const score = obj.getScore(player.scoreboardIdentity);
-    return typeof score === "number" ? Math.max(0, score) : 0;
+    for (const objective of objectives) {
+      const obj = world.scoreboard.getObjective(objective);
+      if (obj) {
+        const score = obj.getScore(player.scoreboardIdentity);
+        if (typeof score === "number") return Math.max(0, score);
+      }
+    }
+    return 0;
   } catch {
     return 0;
   }
@@ -60,11 +64,11 @@ function collectAllPlayerScores() {
       try {
         stats.push({
           username: player.name,
-          kills:    readScore(player, "kill"),
-          deaths:   readScore(player, "death"),
-          money:    readScore(player, "money"),
-          coin:     readScore(player, "coin"),
-          playtime: readScore(player, "playtime"),
+          kills:    readScore(player, "kill", "kills"),
+          deaths:   readScore(player, "death", "deaths"),
+          money:    readScore(player, "money", "balance"),
+          coin:     readScore(player, "coin", "coins"),
+          playtime: readScore(player, "playtime", "online_time", "time"),
           online:   true,
         });
       } catch {}

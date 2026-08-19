@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.11.1] - 2026-08-19
+
+### 🟢 KiwEssentials 33.1.8+ Compatibility & Script API Polish
+- **🟢 KiwEssentials 33.1.8+ Multi-Objective Telemetry Sync**:
+  - Enhanced scoreboard objective reader in `MGC_Bridge[BP]/scripts/main.js` to automatically support KiwEssentials 33.1.8+ objectives and naming aliases (`kill`/`kills`, `death`/`deaths`, `money`/`balance`, `coin`/`coins`, `playtime`/`online_time`).
+  - Added robust fallback returning 0 when custom scoreboard objectives have not been initialized by KiwEssentials.
+- **⚡ Native Script API `ItemStack` Direct Injection**:
+  - Integrated direct `new ItemStack(itemIdentifier, amount)` and `inv.container.addItem(itemStack)` handling in the Behavior Pack loop, enabling 100% reliable instant item delivery to players without BDS slash command syntax limitations.
+  - Implemented direct `health.setCurrentValue(health.defaultValue)` for instant heal and `inv.container.clearAll()` for wipe inventory operations.
+- **🔧 Multi-Version `player.runCommandAsync` Execution Fallback**:
+  - Corrected Script API command execution fallback from `player.dimension.runCommandAsync` to `player.runCommandAsync`, resolving `(not a function)` exceptions across Bedrock engine versions.
+  - Attached structured `actionPayload` to pending game action queue in `office.ts`.
+- **📦 Behavior Pack Release v2.11.1**:
+  - Bumped `MGC_Bridge[BP]` manifest version to `[2, 11, 1]` for direct in-game server updates.
+
+---
+
 ## [2.11.0] - 2026-08-18
 
 ### 🎒 Live Player Inventory, Server Panels & Architecture Polish
