@@ -716,4 +716,15 @@ officeRouter.post('/players/:ign/action', async (c) => {
   }
 });
 
+// 13. Reset / Clear Stored KiwEssentials Scoreboard Data (for server wipes or new servers)
+officeRouter.post('/scoreboard/reset', async (c) => {
+  try {
+    const { clearAllPlayerScores } = await import('../db.js');
+    await clearAllPlayerScores();
+    return c.json({ status: 'success', message: 'Scoreboard data has been successfully reset.' });
+  } catch (err: any) {
+    return c.json({ error: 'Failed to reset scoreboard data' }, 500);
+  }
+});
+
 

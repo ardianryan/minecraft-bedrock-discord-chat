@@ -118,9 +118,10 @@ describe('🏢 OSI Layer Model Security Audit Tests', () => {
       const token = invalidHeader.replace('Bearer ', '');
       expect(token === VALID_API_KEY).toBe(false);
 
-      const emptyHeader: string | undefined = undefined;
-      const hasAuth = typeof emptyHeader === 'string' && emptyHeader.startsWith('Bearer ');
-      expect(hasAuth).toBe(false);
+      const checkAuth = (header?: string) => typeof header === 'string' && header.startsWith('Bearer ');
+      expect(checkAuth(undefined)).toBe(false);
+      expect(checkAuth('Basic 12345')).toBe(false);
+      expect(checkAuth(`Bearer ${VALID_API_KEY}`)).toBe(true);
     });
   });
 });

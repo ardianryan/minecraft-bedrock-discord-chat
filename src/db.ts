@@ -758,3 +758,15 @@ export async function getSinglePlayerScore(username: string): Promise<PlayerScor
     return null;
   }
 }
+
+/**
+ * Clear all stored KiwEssentials scoreboard data (for server wipes or resets)
+ */
+export async function clearAllPlayerScores(): Promise<void> {
+  if (!db) return;
+  try {
+    await db.delete(playerScores);
+  } catch (err: any) {
+    console.error('Failed to clear player scores:', err.message);
+  }
+}

@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import {
   Trophy, Flame, Crown, Medal, Search, RefreshCw, Sparkles,
-  Sword, Skull, Coins, Timer, DollarSign, Activity, Zap, Shield, UserCheck
+  Sword, Skull, Coins, Timer, DollarSign, Activity, Zap, Shield, UserCheck,
+  Trash2, AlertCircle, Check
 } from 'lucide-react';
 import { AuthUser } from './Navbar.tsx';
+import { Sheet } from './Sheet.tsx';
 
 export interface LeaderboardEntry {
   id: number; discord_id: string; discord_username: string;
@@ -55,21 +57,70 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
   const [dlLoading, setDlLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
+  const [lastFetched, setLastFetched] = useState<string>('');
+  const [showResetSheet, setShowResetSheet] = useState<boolean>(false);
+  const [resetLoading, setResetLoading] = useState<boolean>(false);
+  const [feedback, setFeedback] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
+
+  const getWibTime = () => {
+    return new Date().toLocaleTimeString('id-ID', {
+      hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Jakarta', hour12: false
+    }) + ' WIB';
+  };
 
   const fetchScoreboard = useCallback(async (sort: SortKey) => {
     setSbLoading(true);
     try {
-      const res = await fetch(`/api/web/scoreboard?sort=${sort}`);
-      if (res.ok) { const d = await res.json(); setScoreboard(d.scoreboard || []); }
+      const res = await fetch(`/api/web/scoreboard?sort=${sort}&t=${Date.now()}`);
+      if (res.ok) { 
+        const d = await res.json(); 
+        setScoreboard(d.scoreboard || []); 
+        setLastFetched(getWibTime());
+      }
     } catch {} finally { setSbLoading(false); }
   }, []);
 
   const fetchLeaderboard = async () => {
     setDlLoading(true);
     try {
-      const res = await fetch('/api/leaderboard');
-      if (res.ok) { const d = await res.json(); setLeaderboard(d.leaderboard || []); }
+      const res = await fetch(`/api/leaderboard?t=${Date.now()}`);
+      if (res.ok) { 
+        const d = await res.json(); 
+        setLeaderboard(d.leaderboard || []); 
+        setLastFetched(getWibTime());
+      }
     } catch {} finally { setDlLoading(false); }
+  };
+
+  const handleManualRefresh = () => {
+    if (mode === 'scoreboard') {
+      fetchScoreboard(sbSort);
+    } else {
+      fetchLeaderboard();
+    }
+  };
+
+  const handleResetScoreboard = async () => {
+    setResetLoading(true);
+    try {
+      const res = await fetch('/api/office/scoreboard/reset', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      });
+      if (res.ok) {
+        setScoreboard([]);
+        setFeedback({ text: 'Data scoreboard berhasil direset/dikosongkan.', type: 'success' });
+        setShowResetSheet(false);
+        fetchScoreboard(sbSort);
+      } else {
+        setFeedback({ text: 'Gagal mereset scoreboard.', type: 'error' });
+      }
+    } catch {
+      setFeedback({ text: 'Terjadi kesalahan jaringan.', type: 'error' });
+    } finally {
+      setResetLoading(false);
+      setTimeout(() => setFeedback(null), 4000);
+    }
   };
 
   useEffect(() => {
@@ -95,7 +146,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
   return (
     <div className="leaderboard-container">
 
-      {/* Mode Switcher */}
+      {/* Mode Switcher & Controls */}
       <div style={{ display:'flex', gap:'10px', marginBottom:'20px', flexWrap:'wrap', alignItems:'center' }}>
         <button className={`lb-mode-btn${mode==='scoreboard'?' active':''}`} onClick={() => setMode('scoreboard')}>
           <Zap size={15}/> KiwEssentials Scoreboard
@@ -103,12 +154,46 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
         <button className={`lb-mode-btn${mode==='discord'?' active':''}`} onClick={() => setMode('discord')}>
           <Flame size={15}/> Discord Activity
         </button>
-        <button onClick={() => mode==='scoreboard' ? fetchScoreboard(sbSort) : fetchLeaderboard()}
-          className="leaderboard-refresh-btn" style={{ marginLeft:'auto' }}>
-          <RefreshCw size={14} className={isLoading ? 'spin' : ''}/>
-          Refresh
-        </button>
+
+        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+          {lastFetched && (
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <Activity size={12} color="#34d399" />
+              <span>Sinkron: {lastFetched}</span>
+            </span>
+          )}
+
+          {currentUser?.role === 'admin' && mode === 'scoreboard' && (
+            <button 
+              type="button" 
+              className="leaderboard-refresh-btn" 
+              style={{ color: '#f43f5e', borderColor: 'rgba(244, 63, 94, 0.3)' }}
+              onClick={() => setShowResetSheet(true)}
+              title="Reset data scoreboard jika server baru atau baru di-wipe"
+            >
+              <Trash2 size={13} />
+              <span>Reset Data</span>
+            </button>
+          )}
+
+          <button 
+            onClick={handleManualRefresh}
+            className="leaderboard-refresh-btn"
+            disabled={isLoading}
+            title="Fetch ulang data leaderboard secara langsung"
+          >
+            <RefreshCw size={14} className={isLoading ? 'spin' : ''}/>
+            <span>{isLoading ? 'Menyinkronkan...' : 'Fetch Ulang'}</span>
+          </button>
+        </div>
       </div>
+
+      {feedback && (
+        <div className={`office-alert-pill ${feedback.type}`} style={{ marginBottom: '16px' }}>
+          {feedback.type === 'success' ? <Check size={16} /> : <AlertCircle size={16} />}
+          <span>{feedback.text}</span>
+        </div>
+      )}
 
       {/* ── KIWESSENTIALS SCOREBOARD ── */}
       {mode === 'scoreboard' && (<>
@@ -387,6 +472,49 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
           </div>
         </div>
       </>)}
+
+      {/* Admin Reset Scoreboard Confirmation Sheet */}
+      <Sheet
+        isOpen={showResetSheet}
+        onClose={() => setShowResetSheet(false)}
+        title={
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Trash2 size={20} color="#f43f5e" />
+            <span>Reset Data Scoreboard</span>
+          </div>
+        }
+        description="Kosongkan seluruh data scoreboard KiwEssentials yang tersimpan di database."
+        footer={
+          <div style={{ display: 'flex', gap: 10, width: '100%', justifyContent: 'flex-end' }}>
+            <button 
+              type="button" 
+              className="btn-modal-cancel" 
+              onClick={() => setShowResetSheet(false)}
+              disabled={resetLoading}
+            >
+              Batal
+            </button>
+            <button 
+              type="button" 
+              className="btn-primary-save"
+              style={{ background: '#e11d48', borderColor: '#be123c' }}
+              onClick={handleResetScoreboard}
+              disabled={resetLoading}
+            >
+              {resetLoading ? 'Mereset...' : 'Konfirmasi Reset Data'}
+            </button>
+          </div>
+        }
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <div className="office-alert-pill error" style={{ margin: 0 }}>
+            <AlertCircle size={16} />
+            <span style={{ fontSize: '0.8rem' }}>
+              <strong>Peringatan:</strong> Seluruh catatan kills, deaths, balance money, coins, dan playtime yang tersimpan akan dikosongkan. Gunakan fitur ini jika Anda baru saja melakukan wipe server atau menghubungkan ke server Minecraft baru. Data akan kembali terisi otomatis saat pemain bermain di server.
+            </span>
+          </div>
+        </div>
+      </Sheet>
     </div>
   );
 };
