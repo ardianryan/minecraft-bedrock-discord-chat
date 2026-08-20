@@ -2,11 +2,11 @@
 
 <img src="./assets/logo.png" alt="Magical Gaming Crew Logo" width="160" height="160" style="border-radius: 50%; box-shadow: 0 0 35px rgba(99, 102, 241, 0.4);" />
 
-# 🎮 Magical Gaming Crew — Bedrock Bridge `v2.11.1`
+# 🎮 Magical Gaming Crew — Bedrock Bridge `v2.11.2`
 
 **High-Performance Real-Time 3-Way Bridge, Live Player HUD Inspector & Server Panel for Minecraft Bedrock, Discord, and Web Dashboard.**
 
-[![Version](https://img.shields.io/badge/Release-v2.11.1-38BDF8?style=for-the-badge&logo=git&logoColor=white)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Release-v2.11.2-38BDF8?style=for-the-badge&logo=git&logoColor=white)](./CHANGELOG.md)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3+-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Hono.js](https://img.shields.io/badge/Hono.js-4.0+-E36002?style=for-the-badge&logo=hono&logoColor=white)](https://hono.dev/)
 [![React](https://img.shields.io/badge/React-19+-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
@@ -331,7 +331,7 @@ Connect your game server panel for hardware telemetry and power operations:
 discordmchat/
 ├── assets/
 │   └── logo.png                   # Official Magical Gaming Crew Logo
-├── MGC_Bridge[BP]/                # Minecraft Bedrock Behavior Pack (v2.11.1)
+├── MGC_Bridge[BP]/                # Minecraft Bedrock Behavior Pack (v2.11.2)
 │   ├── manifest.json              # Pack manifest (1.21+ / 1.26+ Script API)
 │   ├── pack_icon.png              # Official in-game pack icon
 │   └── scripts/

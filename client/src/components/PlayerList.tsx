@@ -170,32 +170,45 @@ export const PlayerList: React.FC<PlayerListProps> = ({
           ) : (
             players.map((player, idx) => (
               <div key={idx} className="player-roster-item">
-                <img 
-                  src={`https://mc-heads.net/avatar/${encodeURIComponent(player)}/28`} 
-                  alt={player}
-                  className="player-skin-head"
-                  onError={(e) => {
-                    (e.target as HTMLElement).style.display = 'none';
-                  }}
-                />
-                <div className="roster-player-info">
-                  <span className="roster-player-name">{player}</span>
-                  <span className="roster-status-online">
-                    <span className="tiny-online-dot" />
-                    Online
-                  </span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0, flex: 1 }}>
+                  <div style={{ position: 'relative', width: '32px', height: '32px', flexShrink: 0 }}>
+                    <img 
+                      src={`https://mc-heads.net/avatar/${encodeURIComponent(player)}/32`} 
+                      alt={player}
+                      className="player-skin-head"
+                      onError={(e) => {
+                        (e.target as HTMLElement).style.display = 'none';
+                      }}
+                    />
+                    <span 
+                      style={{
+                        position: 'absolute', bottom: -2, right: -2, width: '9px', height: '9px',
+                        borderRadius: '50%', background: '#10b981', border: '2px solid #0f172a',
+                        boxShadow: '0 0 6px #10b981'
+                      }}
+                    />
+                  </div>
+                  <div className="roster-player-info" style={{ display: 'flex', flexDirection: 'column', minWidth: 0, gap: '2px' }}>
+                    <span className="roster-player-name" style={{ fontSize: '0.86rem', fontWeight: 700, color: '#f8fafc', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                      {player}
+                    </span>
+                    <span className="roster-status-online" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '0.72rem', fontWeight: 600, color: '#34d399' }}>
+                      <span className="tiny-online-dot" />
+                      <span>Online</span>
+                    </span>
+                  </div>
                 </div>
 
                 {/* Admin Quick Kick / Ban Action Buttons */}
                 {user.role === 'admin' && (
-                  <div className="roster-mod-actions">
+                  <div className="roster-mod-actions" style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
                     <button
                       type="button"
                       className="btn-mod-kick"
                       title={`Kick ${player}`}
                       onClick={() => handleOpenModSheet(player, 'kick')}
                     >
-                      <UserX size={13} />
+                      <UserX size={12} />
                       <span className="mod-label">Kick</span>
                     </button>
                     <button
@@ -204,7 +217,7 @@ export const PlayerList: React.FC<PlayerListProps> = ({
                       title={`Ban ${player}`}
                       onClick={() => handleOpenModSheet(player, 'ban')}
                     >
-                      <Ban size={13} />
+                      <Ban size={12} />
                       <span className="mod-label">Ban</span>
                     </button>
                   </div>

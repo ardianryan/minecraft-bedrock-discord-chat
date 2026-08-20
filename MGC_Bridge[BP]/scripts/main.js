@@ -3,7 +3,7 @@ import { http, HttpRequest, HttpRequestMethod, HttpHeader } from "@minecraft/ser
 
 // ── Startup Diagnostic (visible in BDS console logs)
 system.run(() => {
-  console.warn("[MGC-BRIDGE] v2.11.1 loaded (KiwEssentials 33.1.8+ Enhanced) — checking event availability:");
+  console.warn("[MGC-BRIDGE] v2.11.2 loaded (KiwEssentials 33.1.9+ Enhanced) — checking event availability:");
   console.warn("[MGC-BRIDGE]  beforeEvents.chatSend:", !!world.beforeEvents?.chatSend);
   console.warn("[MGC-BRIDGE]  afterEvents.chatSend :", !!world.afterEvents?.chatSend);
   console.warn("[MGC-BRIDGE]  afterEvents.playerSpawn:", !!world.afterEvents?.playerSpawn);
@@ -39,11 +39,11 @@ async function sendRequest(endpoint, method, payload = null) {
 
 // ========================================================
 // Helper: Read KiwEssentials Scoreboard Objective safely
-// Supports KiwEssentials 33.1.8+ dynamic properties & objectives
+// Supports KiwEssentials 33.1.9+ dynamic properties & objectives
 // ========================================================
 function readMoney(player) {
   try {
-    const prop = player.getDynamicProperty("money_balance_string");
+    const prop = player.getDynamicProperty("money_balance_string") ?? player.getDynamicProperty("money");
     if (prop !== undefined && prop !== null) {
       const parsed = parseInt(String(prop), 10);
       if (!isNaN(parsed) && parsed >= 0) return parsed;
@@ -52,23 +52,46 @@ function readMoney(player) {
   return readScore(player, "money", "balance");
 }
 
+function readPlaytime(player) {
+  try {
+    const prop = player.getDynamicProperty("online_time") ?? player.getDynamicProperty("playtime");
+    if (prop !== undefined && prop !== null) {
+      const parsed = parseInt(String(prop), 10);
+      if (!isNaN(parsed) && parsed >= 0) return parsed;
+    }
+  } catch {}
+  return readScore(player, "playtime", "online_time", "time", "online_hours", "play_time");
+}
+
 function readScore(player, ...objectives) {
   try {
     for (const objective of objectives) {
       const obj = world.scoreboard.getObjective(objective);
       if (obj) {
-        let score = undefined;
+        // 1. Try scoreboardIdentity
         try {
           if (player.scoreboardIdentity) {
-            score = obj.getScore(player.scoreboardIdentity);
+            const score = obj.getScore(player.scoreboardIdentity);
+            if (typeof score === "number") return Math.max(0, score);
           }
         } catch {}
-        if (typeof score !== "number") {
-          try {
-            score = obj.getScore(player);
-          } catch {}
-        }
-        if (typeof score === "number") return Math.max(0, score);
+
+        // 2. Try direct player entity
+        try {
+          const score = obj.getScore(player);
+          if (typeof score === "number") return Math.max(0, score);
+        } catch {}
+
+        // 3. Search participants by name/displayName
+        try {
+          const participants = obj.getParticipants();
+          for (const part of participants) {
+            if (part.displayName && part.displayName.toLowerCase() === player.name.toLowerCase()) {
+              const score = obj.getScore(part);
+              if (typeof score === "number") return Math.max(0, score);
+            }
+          }
+        } catch {}
       }
     }
     return 0;
@@ -88,7 +111,7 @@ function collectAllPlayerScores() {
           deaths:   readScore(player, "death", "deaths"),
           money:    readMoney(player),
           coin:     readScore(player, "coin", "coins"),
-          playtime: readScore(player, "online_time", "playtime", "time"),
+          playtime: readPlaytime(player),
           online:   true,
         });
       } catch {}
@@ -358,100 +381,110 @@ system.runInterval(async () => {
   }
 }, 5); // every 5 game ticks ≈ 250ms
 
-
-
 // 2. EVENT: Player Spawn / Join & Account Status Check
 // ========================================================
 if (world.afterEvents?.playerSpawn?.subscribe) {
-  world.afterEvents.playerSpawn.subscribe(async (event) => {
+  world.afterEvents.playerSpawn.subscribe((event) => {
     try {
       if (event.initialSpawn) {
         const player = event.player;
         const username = player.name;
 
-        // Send KiwEssentials stats alongside join event
-        const joinStats = {
-          username: username,
-          kills:    readScore(player, "kill"),
-          deaths:   readScore(player, "death"),
-          money:    readScore(player, "money"),
-          coin:     readScore(player, "coin"),
-          playtime: readScore(player, "playtime"),
-        };
-        const res = await sendRequest("/join", HttpRequestMethod.Post, joinStats);
+        // Delay 20 ticks (1s) so KiwEssentials has registered objectives
+        system.runTimeout(async () => {
+          try {
+            const joinStats = {
+              username: username,
+              kills:    readScore(player, "kill", "kills"),
+              deaths:   readScore(player, "death", "deaths"),
+              money:    readMoney(player),
+              coin:     readScore(player, "coin", "coins"),
+              playtime: readPlaytime(player),
+            };
+            const res = await sendRequest("/join", HttpRequestMethod.Post, joinStats);
 
-        if (res) {
-          if (res.status === 403) {
-            // Player is banned
-            system.run(async () => {
-              try {
-                const overworld = world.getDimension("overworld");
-                await overworld.runCommandAsync(`kick "${username}" You are banned from this server.`);
-              } catch {}
-            });
-            return;
-          }
+            if (res) {
+              if (res.status === 403) {
+                // Player is banned
+                system.run(async () => {
+                  try {
+                    const overworld = world.getDimension("overworld");
+                    await overworld.runCommandAsync(`kick "${username}" You are banned from this server.`);
+                  } catch {}
+                });
+                return;
+              }
 
-          if (res.status === 200) {
-            try {
-              const data = JSON.parse(res.body);
-              system.run(() => {
-                if (data.isLinked && data.discordUser) {
-                  player.sendMessage(
-                    `§a[Discord Bridge] §fWelcome, §b${username}§f! Linked with Discord §e@${data.discordUser.username}§f.`
-                  );
-                } else {
-                  player.sendMessage(
-                    `§6[Server Info] §fHello §e${username}§f! Your account is not linked to Discord. Link at: §bhttp://localhost:3000`
-                  );
-                }
-              });
-            } catch {}
-          }
-        }
+              if (res.status === 200) {
+                try {
+                  const data = JSON.parse(res.body);
+                  system.run(() => {
+                    if (data.isLinked && data.discordUser) {
+                      player.sendMessage(
+                        `§a[Discord Bridge] §fWelcome, §b${username}§f! Linked with Discord §e@${data.discordUser.username}§f.`
+                      );
+                    } else {
+                      player.sendMessage(
+                        `§6[Server Info] §fHello §e${username}§f! Your account is not linked to Discord. Link at: §bhttp://localhost:3000`
+                      );
+                    }
+                  });
+                } catch {}
+              }
+            }
+          } catch (joinErr) {}
+        }, 20);
       }
     } catch (e) {}
   });
 }
 
 // ========================================================
-// 3. EVENT: Player Leave
+// 3. EVENT: Player Leave Tracking
 // ========================================================
 if (world.afterEvents?.playerLeave?.subscribe) {
-  world.afterEvents.playerLeave.subscribe((event) => {
+  world.afterEvents.playerLeave.subscribe(async (event) => {
     try {
-      sendRequest("/leave", HttpRequestMethod.Post, {
-        username: event.playerName
-      });
-    } catch (e) {}
-  });
-}
-
-// ========================================================
-// 3.1. EVENT: Player Death (In-Game Death Notification)
-// ========================================================
-if (world.afterEvents?.entityDie?.subscribe) {
-  world.afterEvents.entityDie.subscribe((event) => {
-    try {
-      const deadEntity = event.deadEntity;
-      if (deadEntity && deadEntity.typeId === "minecraft:player") {
-        const playerName = deadEntity.name || "Player";
-        const killer = event.damageSource?.damagingEntity?.name || event.damageSource?.damagingEntity?.typeId?.replace("minecraft:", "") || null;
-        const cause = event.damageSource?.cause || "died";
-
-        sendRequest("/death", HttpRequestMethod.Post, {
-          player: playerName,
-          killer: killer,
-          cause: cause
-        });
+      const username = event.playerName;
+      if (username) {
+        await sendRequest("/leave", HttpRequestMethod.Post, { username });
       }
     } catch (err) {}
   });
 }
 
 // ========================================================
-// 4. INTERVAL: Poll Pending Messages & Execute Commands
-// Non-blocking async with concurrency guard (zero TPS lag)
+// 4. EVENT: Entity / Player Death
+// ========================================================
+if (world.afterEvents?.entityDie?.subscribe) {
+  world.afterEvents.entityDie.subscribe(async (event) => {
+    try {
+      const deadEntity = event.deadEntity;
+      if (deadEntity && deadEntity.typeId === "minecraft:player") {
+        const playerName = deadEntity.nameTag || deadEntity.name || "Player";
+        const damageSource = event.damageSource;
+        const cause = damageSource?.cause || "died";
+        const damagingEntity = damageSource?.damagingEntity;
+        const killerName = damagingEntity?.nameTag || damagingEntity?.name || null;
+
+        await sendRequest("/death", HttpRequestMethod.Post, {
+          player: playerName,
+          killer: killerName,
+          cause: cause,
+        });
+
+        // Trigger immediate inventory telemetry sync on death
+        system.runTimeout(() => {
+          syncAllInventories();
+        }, 20);
+      }
+    } catch (err) {}
+  });
+}
+
+// ========================================================
+// 5. POLL PENDING WEB & DISCORD COMMANDS & CHAT
+// Drains outgoing web/Discord queue every 20 ticks (1s)
 // ========================================================
 let isPolling = false;
 
@@ -468,9 +501,9 @@ system.runInterval(async () => {
           const overworld = world.getDimension("overworld");
 
           for (const msg of messages) {
-            // 1. Direct Script API Action Dispatch (Give, Heal, Clear, Wipe)
+            // 1. Direct Script API Action Dispatch (Give, Heal, Clear, Wipe, Gamemode, Teleport)
             if (msg.actionPayload) {
-              const { action, itemId, amount = 1, target } = msg.actionPayload;
+              const { action, itemId, amount = 1, target, gamemode, coords } = msg.actionPayload;
               const targetPlayer = world.getPlayers().find(
                 p => p.name.toLowerCase() === String(target).toLowerCase()
               );
@@ -488,9 +521,7 @@ system.runInterval(async () => {
                       system.runTimeout(() => { syncAllInventories(); }, 10);
                       continue;
                     }
-                  } catch (itemErr) {
-                    // Fallback to command execution below
-                  }
+                  } catch (itemErr) {}
                 } else if (action === 'wipe_inventory') {
                   try {
                     const inv = targetPlayer.getComponent("minecraft:inventory") || targetPlayer.getComponent("inventory");
@@ -511,13 +542,32 @@ system.runInterval(async () => {
                       continue;
                     }
                   } catch (e) {}
+                } else if (action === 'gamemode' && gamemode) {
+                  try {
+                    if (typeof targetPlayer.setGameMode === 'function') {
+                      targetPlayer.setGameMode(gamemode);
+                    }
+                    world.sendMessage(`§6[Admin Action] §eSet gamemode of §a${targetPlayer.name} §eto §b${gamemode}`);
+                    system.runTimeout(() => { syncAllInventories(); }, 10);
+                    continue;
+                  } catch (e) {}
+                } else if (action === 'teleport' && coords) {
+                  try {
+                    targetPlayer.teleport({ x: coords.x, y: coords.y, z: coords.z });
+                    world.sendMessage(`§6[Admin Action] §eTeleported §a${targetPlayer.name} §eto §b(${coords.x}, ${coords.y}, ${coords.z})`);
+                    system.runTimeout(() => { syncAllInventories(); }, 10);
+                    continue;
+                  } catch (e) {}
                 }
               }
             }
 
             // 2. Standard In-Game Slash Command Execution
-            if (msg.isCommand || (msg.message && msg.message.startsWith("/"))) {
-              const cleanCommand = msg.message.startsWith("/") ? msg.message.substring(1) : msg.message;
+            const rawText = String(msg.message || "").trim();
+            const isCmd = msg.isCommand || rawText.startsWith("/");
+            if (isCmd) {
+              const cleanCommand = rawText.replace(/^\/+/, "").trim();
+              if (!cleanCommand) continue;
               let executed = false;
               let errorReason = "";
 
@@ -526,7 +576,7 @@ system.runInterval(async () => {
                 await overworld.runCommandAsync(cleanCommand);
                 executed = true;
               } catch (cmdErr) {
-                errorReason = cmdErr?.message || "Command execution failed";
+                errorReason = cmdErr?.message || "Command failed";
                 // Fallback: execute via player entity itself (player.runCommandAsync)
                 for (const p of world.getPlayers()) {
                   try {
@@ -541,12 +591,11 @@ system.runInterval(async () => {
 
               if (executed) {
                 world.sendMessage(`§6[Admin Command] §e${msg.sender}§f: §a/${cleanCommand}`);
-                // Immediate inventory telemetry sync
                 system.runTimeout(() => {
                   syncAllInventories();
                 }, 10);
               } else {
-                world.sendMessage(`§c[Command Error] §f/${cleanCommand} (§7${errorReason}§c)`);
+                world.sendMessage(`§c[Command Error] §f/${cleanCommand} §7(${errorReason})`);
               }
             } else {
               // Display normal chat message in game
@@ -557,7 +606,6 @@ system.runInterval(async () => {
       } catch (parseErr) {}
     }
   } catch (err) {
-    // Network or fetch error silently caught
   } finally {
     isPolling = false;
   }

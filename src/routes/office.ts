@@ -631,7 +631,7 @@ officeRouter.post('/players/:ign/action', async (c) => {
         if (!itemId) return c.json({ error: 'Item ID is required' }, 400);
         const cleanItem = String(itemId).trim().replace(/^minecraft:/, '');
         const cleanAmount = Math.max(1, Math.min(Number(amount) || 1, 64));
-        commandToRun = `/give @a[name="${ign}"] ${cleanItem} ${cleanAmount} 0`;
+        commandToRun = `/give @a[name="${ign}"] ${cleanItem} ${cleanAmount}`;
         actionDescription = `Gave ${cleanAmount}x ${cleanItem} to ${ign}`;
         actionPayload = { action: 'give', itemId: cleanItem, amount: cleanAmount, target: ign };
         break;

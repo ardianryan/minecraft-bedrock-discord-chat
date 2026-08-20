@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.11.2] - 2026-08-20
+
+### 🟢 KiwEssentials 33.1.9+ Compatibility, Addon Shop & Real-Time Sync
+- **🌾🍰 KiwEssentials 33.1.9+ & Addon Shop Integration (1,743 Items)**:
+  - Added full support for **KiwEssentials 33.1.9** (`[33, 1, 9]`).
+  - Extracted and categorized **1,743 custom items** from **Cakes & Bakes 1.0** and **Crops & Farms 1.21** into 10 modular shop categories (`cf_farm_vehicles`, `cb_bakers_machinery`, `cf_farm_tools`, `cb_kitchen_utensils`, `cb_cakes_pastries`, `cf_fresh_crops`, `cf_seeds_spores`, `cb_baking_ingredients`, `cb_drinks_desserts`, `cf_farm_products`).
+  - Applied balanced economic pricing (expensive tractors & industrial bakeries, accessible crop seeds & fresh produce).
+  - Created standalone external database `mcaddon/addon-items/` with automated injection script `inject_to_kiw.mjs` for future KiwEssentials version upgrades.
+- **⚡ Fixed Admin Command Dispatch from Web**:
+  - Cleaned slash command syntax builder in `src/routes/office.ts` to adhere to modern Bedrock 1.21+ formats (removed legacy data value `0` from `/give`).
+  - Added clean leading slash trimming in `MGC_Bridge[BP]/scripts/main.js` to ensure commands pass Bedrock's `runCommandAsync` without syntax rejections.
+  - Implemented direct Script API native actions for `ItemStack` give, `setGameMode`, `teleport`, `clearAll`, and `setCurrentValue`.
+- **⏱️ Real-Time Playtime & Scoreboard Sync (`readPlaytime`)**:
+  - Enhanced score readers to read KiwEssentials 33.1.9 dynamic properties (`online_time`, `money_balance_string`) and scoreboard participant display names.
+  - Added a 1-second delay (20 ticks) on `playerSpawn` join events so KiwEssentials has registered objectives before transmitting data to the backend.
+- **🎨 Glassmorphic Online Player Roster Card & Action Buttons**:
+  - Refined `PlayerList.tsx` layout with structured vertical player names and status badges.
+  - Styled `btn-mod-kick` (Amber Gold Glass) and `btn-mod-ban` (Rose Red Glass) with smooth interactive glow and inline style fallbacks.
+
+---
+
 ## [2.11.1] - 2026-08-19
 
 ### 🟢 KiwEssentials 33.1.8+ Compatibility & Script API Polish
