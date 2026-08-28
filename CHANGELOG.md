@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.11.3] - 2026-08-28
+
+### 🩹 Hotfix & Performance Improvements
+- **⏱️ Accurate Cumulative Playtime Synchronization**:
+  - Fixed a critical bug in `MGC_Bridge[BP]/scripts/main.js` where the 3-second live telemetry loop (`collectPlayerInventory`) read the temporary boolean objective `online_time` (value `1`) instead of the true cumulative seconds objective `playtime`.
+  - Refactored `readPlaytime(player)` to prioritize the native `playtime` scoreboard objective and dynamic property storage over session markers, preventing the web leaderboard from incorrectly resetting active players to `0m`.
+- **🛠️ Server Stability & Particle Physics Fixes**:
+  - Cleaned up duplicate legacy addon folders on server deployment to eliminate module UUID conflicts.
+  - Fixed extreme gravity and instant expiration bugs on Crops & Farms water sprinkler and watering can particles (`sprinkler_action.particle.json` and `water_splash_instant.particle.json`), restoring fluid water splashing visuals.
+  - In-memory cache optimizations for shop databases to eliminate dynamic property disk warnings.
+- **🗺️ System Architecture & Roadmap**:
+  - Added comprehensive [`ROADMAP.md`](./ROADMAP.md) specifying multi-server inventory synchronization, anti-duplication protocols, and technical architecture adhering to modern engineering standards.
+
+---
+
 ## [2.11.2] - 2026-08-20
 
 ### 🟢 KiwEssentials 33.1.9+ Compatibility, Addon Shop & Real-Time Sync

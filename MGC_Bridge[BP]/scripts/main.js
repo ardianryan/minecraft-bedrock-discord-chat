@@ -3,7 +3,7 @@ import { http, HttpRequest, HttpRequestMethod, HttpHeader } from "@minecraft/ser
 
 // ── Startup Diagnostic (visible in BDS console logs)
 system.run(() => {
-  console.warn("[MGC-BRIDGE] v2.11.2 loaded (KiwEssentials 33.1.9+ Enhanced) — checking event availability:");
+  console.warn("[MGC-BRIDGE] v2.11.3 loaded (KiwEssentials 33.1.9+ Enhanced) — checking event availability:");
   console.warn("[MGC-BRIDGE]  beforeEvents.chatSend:", !!world.beforeEvents?.chatSend);
   console.warn("[MGC-BRIDGE]  afterEvents.chatSend :", !!world.afterEvents?.chatSend);
   console.warn("[MGC-BRIDGE]  afterEvents.playerSpawn:", !!world.afterEvents?.playerSpawn);
@@ -54,13 +54,13 @@ function readMoney(player) {
 
 function readPlaytime(player) {
   try {
-    const prop = player.getDynamicProperty("online_time") ?? player.getDynamicProperty("playtime");
+    const prop = player.getDynamicProperty("playtime") ?? player.getDynamicProperty("online_time");
     if (prop !== undefined && prop !== null) {
       const parsed = parseInt(String(prop), 10);
-      if (!isNaN(parsed) && parsed >= 0) return parsed;
+      if (!isNaN(parsed) && parsed > 0) return parsed;
     }
   } catch {}
-  return readScore(player, "playtime", "online_time", "time", "online_hours", "play_time");
+  return readScore(player, "playtime", "time", "online_hours", "play_time");
 }
 
 function readScore(player, ...objectives) {
@@ -227,7 +227,7 @@ function collectPlayerInventory(player) {
         deaths:   readScore(player, "death", "deaths"),
         money:    readMoney(player),
         coin:     readScore(player, "coin", "coins"),
-        playtime: readScore(player, "online_time", "playtime", "time"),
+        playtime: readPlaytime(player),
       },
     };
   } catch (e) {
