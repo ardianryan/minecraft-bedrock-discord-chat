@@ -185,9 +185,25 @@ Follow these steps to install the `v2.11.0` Behavior Pack onto your Minecraft Be
 
 ## 🟢 5. KiwEssentials Addon Integration Tutorial
 
-If your server uses **[KiwEssentials](https://kiwstudio.com/)** for ranks and economy, connect it to MGC Bridge in 2 steps:
+If your server uses **[KiwEssentials](https://kiwstudio.com/)** for ranks, economy, and chat formatting, connect it to MGC Bridge in 3 simple steps:
 
-### Step 1: Add `@minecraft/server-net` to `KiwBP/manifest.json`
+### Step 1: Ensure `@minecraft/server-net` in BDS `permissions.json`
+In your Bedrock Dedicated Server root (`config/default/permissions.json` or `worlds/CloudCPE/permissions.json`), ensure `@minecraft/server-net` is listed:
+```json
+{
+  "allowed_modules": [
+    "@minecraft/server-gametest",
+    "@minecraft/server",
+    "@minecraft/server-ui",
+    "@minecraft/server-admin",
+    "@minecraft/server-editor",
+    "@minecraft/debug-utilities",
+    "@minecraft/server-net"
+  ]
+}
+```
+
+### Step 2: Add `@minecraft/server-net` to `KiwBP/manifest.json`
 Open your server's `KiwBP/manifest.json` and add `@minecraft/server-net` under `"dependencies"`:
 ```json
 {
@@ -211,39 +227,29 @@ Open your server's `KiwBP/manifest.json` and add `@minecraft/server-net` under `
 }
 ```
 
-### Step 2: Add Relay Function to `KiwBP/scripts/board/chat.js`
-Open `KiwBP/scripts/board/chat.js` and add this relay helper at the top:
+### Step 3: Add Relay Helper to `KiwBP/scripts/board/chat.js`
+Open `KiwBP/scripts/board/chat.js` and add this clean ScriptEvent relay at the top:
 ```javascript
-// ── MGC DISCORD & WEB BRIDGE ──────────────────────────
-import { http, HttpRequest, HttpRequestMethod, HttpHeader } from "@minecraft/server-net";
-
-const MGC_BRIDGE_URL = "https://YOUR_DOMAIN/api/game/chat";
-const MGC_API_KEY = "YOUR_API_KEY";
-
+// ── MGC Discord & Web Live Chat Bridge Relay ──
 function relayChatToMGC(senderName, messageText) {
-  if (!senderName || !messageText) return;
-  if (messageText.startsWith("+") || messageText.startsWith("/")) return;
   try {
-    system.run(async () => {
-      try {
-        const req = new HttpRequest(MGC_BRIDGE_URL);
-        req.setMethod(HttpRequestMethod.Post);
-        req.setHeaders([
-          new HttpHeader("Content-Type", "application/json"),
-          new HttpHeader("Authorization", "Bearer " + MGC_API_KEY)
-        ]);
-        req.setBody(JSON.stringify({ sender: senderName, message: messageText }));
-        await http.request(req);
-      } catch {}
-    });
+    const rawMsg = String(messageText || "").trim();
+    if (!rawMsg || rawMsg.startsWith("!") || rawMsg.startsWith("/") || rawMsg.startsWith("+")) return;
+    system.sendScriptEvent("mgc:chat", JSON.stringify({
+      sender: senderName || "Player",
+      message: rawMsg
+    }));
   } catch {}
 }
 ```
 
-Inside the chat send handler, call:
+Inside the chat send handler (right after `ensurePlayerHasRank(player);`), call:
 ```javascript
-relayChatToMGC(sender.name, message);
+relayChatToMGC(player.name, message);
 ```
+
+> [!TIP]
+> `MGC_Bridge[BP]` captures the `mgc:chat` ScriptEvent, performs deduplication, and securely posts it to the backend via `@minecraft/server-net`.
 
 ---
 
@@ -358,24 +364,23 @@ discordmchat/
 ├── src/                           # Hono.js Backend Server
 │   ├── routes/
 │   │   ├── auth.ts                # Discord OAuth2 & User Profile API
-│   │   └── office.ts              # Office Admin & Server Panel API
-│   ├── services/
-│   │   └── panel.ts               # Universal Pterodactyl & Crafty Client Adapter
-│   ├── db.ts                      # Drizzle ORM Database Query Layer
-│   ├── schema.ts                  # Type-Safe PostgreSQL Table Schemas
-│   └── index.ts                   # Main Server Entry & Discord.js 2-Way Bot
-├── drizzle.config.ts              # Drizzle Kit Migration Configuration
-├── drizzle/                       # Generated SQL Schema Migrations
-├── package.json
-├── tsconfig.json
-├── docker-compose.yml             # Full Stack Docker Compose Orchestration
-├── Dockerfile                     # Multi-Stage Lightweight Production Image
-├── .env.example
+│   │   ├── office.ts              # Admin Dashboard & Command Dispatch API
+│   │   └── leaderboard.ts         # Top Player Leaderboard API
+│   ├── db.ts                      # PostgreSQL connection pool
+│   ├── schema.ts                  # Drizzle ORM database schema
+│   └── index.ts                   # REST API, WebSocket/SSE, Game Endpoints & Bot
+├── releases/                      # 📦 Official Release Archives (.zip & .mcpack)
+├── permissions.json               # BDS Module Permissions template
+├── PRD.md                         # Product Requirements Document
+├── Guide-for-ide.md               # Developer & IDE Master Guide
+├── ROADMAP.md                     # Engineering Tech Tree & Future Milestones
+├── CHANGELOG.md                   # Chronological version history
 ├── CONTRIBUTING.md                # Conventional Commits & Development Guide
 ├── SECURITY.md                    # Threat Model & Vulnerability Policy
 ├── CODE_OF_CONDUCT.md             # Contributor Covenant v2.1
-├── CHANGELOG.md                   # Chronological Semantic Releases
-└── README.md
+├── Dockerfile                     # Multi-Stage Lightweight Production Image
+├── docker-compose.yml             # Full Stack Docker Compose Orchestration
+└── README.md                      # Community landing page & setup tutorial
 ```
 
 ---
