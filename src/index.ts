@@ -1023,11 +1023,26 @@ app.get('/connect', (c) => c.redirect('/join'));
 // ==========================================
 
 // Chat from Game -> Forward to Discord Webhook & Web History
+const recentGameChats = new Map<string, number>();
+
 app.post('/api/game/chat', bedrockAuthMiddleware, async (c) => {
   try {
     const { sender, message } = await c.req.json();
     if (!sender || !message) {
       return c.json({ error: 'Invalid payload: sender and message are required' }, 400);
+    }
+
+    // Server-side deduplication (1.5s window)
+    const chatKey = `${String(sender).toLowerCase()}:${String(message).trim()}`;
+    const now = Date.now();
+    if (recentGameChats.has(chatKey) && (now - recentGameChats.get(chatKey)!) < 1500) {
+      return c.json({ status: 'ignored_duplicate', sender });
+    }
+    recentGameChats.set(chatKey, now);
+    if (recentGameChats.size > 500) {
+      for (const [k, t] of recentGameChats.entries()) {
+        if (now - t > 10000) recentGameChats.delete(k);
+      }
     }
 
     // Lookup discord user from PostgreSQL by Minecraft IGN
