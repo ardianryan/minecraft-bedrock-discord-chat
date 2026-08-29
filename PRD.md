@@ -104,6 +104,6 @@ graph TD
 
 ## 📊 6. Release Management & Versioning
 
-- All production builds and distribution packages must reside in [`releases/`](file:///Users/ardianryan/discordmchat/releases/).
+- All production builds and distribution packages must reside in [`releases/`](./releases).
 - Releases follow Semantic Versioning (`vMAJOR.MINOR.PATCH`).
 - Current Stable Engine Target: **Minecraft Bedrock 1.26.45.1+** / **KiwEssentials 33.2.1+**.

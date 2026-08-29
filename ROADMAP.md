@@ -129,23 +129,18 @@ sequenceDiagram
 
 ### 📦 Phase 1: Foundation & Cloud Persistence
 - [ ] **DB-01**: Initialize PostgreSQL schema via Drizzle ORM (`player_cloud_inventories`, `inventory_sync_logs`).
-- [ ] **DB-02**: Implement atomic helper methods `savePlayerCloudInventory` and `getPlayerCloudInventory` in [`src/db.ts`](file:///Users/ardianryan/discordmchat/src/db.ts).
-- [ ] **API-01**: Build REST endpoint `POST /api/bridge/inventory/save` with server bearer token authorization.
-- [ ] **API-02**: Build REST endpoint `GET /api/bridge/inventory/load` with username and xuid query parameter validation.
-- [ ] **API-03**: Create automated Vitest test suite for cloud inventory serialization and persistence endpoints.
+- [ ] **DB-02**: Implement atomic helper methods `savePlayerCloudInventory` and `getPlayerCloudInventory` in [`src/db.ts`](./src/db.ts).
+- [ ] **DB-03**: Create REST endpoints `/api/game/inventory/save` and `/api/game/inventory/load` with strict Bearer token authentication in [`src/index.ts`](./src/index.ts).
+- [ ] **DB-04**: Add unit tests for serialization, hashing, and concurrent transaction locking in `tests/inventory_sync.test.ts`.
 
----
-
-### 🎒 Phase 2: Addon Serialization Engine & Item Reconstruction
-- [x] **AD-01**: Configure `@minecraft/server` and `@minecraft/server-net` module dependencies in addon manifest.
-- [ ] **AD-02**: Develop [`serializer.js`](file:///Users/ardianryan/discordmchat/MGC_Bridge%5BBP%5D/scripts/inventory/serializer.js):
-  - 36 main inventory slot extraction.
-  - 4 armor/equipment slot extraction (Head, Chest/Colytra/Armored Elytra, Legs, Feet).
-  - 1 offhand slot extraction (Custom Shields, Totems).
-  - 27 Ender Chest slot extraction.
-  - Component metadata preservation: Durability, custom enchantments, nameTag, lore, and dynamic properties.
-- [ ] **AD-03**: Develop `backpack_parser.js` to serialize nested contents inside wearable backpacks (*Improved Backpacks*).
-- [ ] **AD-04**: Develop [`deserializer.js`](file:///Users/ardianryan/discordmchat/MGC_Bridge%5BBP%5D/scripts/inventory/deserializer.js) to accurately reconstruct `ItemStack` instances with matching type IDs, quantities, lore, and enchantments.
+### 2.2 In-Game Addon Architecture (`MGC_Bridge[BP]`)
+- [ ] **AD-01**: Create dedicated sub-package `MGC_Bridge[BP]/scripts/inventory/`.
+- [ ] **AD-02**: Develop [`serializer.js`](./MGC_Bridge[BP]/scripts/inventory/serializer.js):
+  - Iterate over 36 main inventory slots, 4 armor slots, and 1 offhand slot.
+  - Extract `typeId`, `amount`, `data`, `nameTag`, `lore`, and enchantment map.
+  - Calculate CRC32 / SHA-256 payload checksum before dispatch.
+- [ ] **AD-03**: Implement debounce queue (5-second idle trigger + on-demand save on player disconnect / teleport).
+- [ ] **AD-04**: Develop [`deserializer.js`](./MGC_Bridge[BP]/scripts/inventory/deserializer.js) to accurately reconstruct `ItemStack` instances with matching type IDs, quantities, lore, and enchantments.
 
 ---
 
