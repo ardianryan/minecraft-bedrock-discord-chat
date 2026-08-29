@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.12.0] - 2026-08-29
+
+### 🚀 Minecraft Bedrock 1.26.45.1 Engine & KiwEssentials 33.2.1 Major Update
+- **⚡ Minecraft Bedrock 1.26.45.1 Engine Compatibility**:
+  - Updated behavior pack manifests across all addons to `min_engine_version: [1, 26, 0]`.
+  - Added official BDS server script network configuration template [`permissions.json`](./permissions.json) (`@minecraft/server-net`, `@minecraft/server-admin`) to permanently resolve network privilege rejections on Bedrock Dedicated Server.
+- **🌾 KiwEssentials 33.2.1 Full Auto-Integration**:
+  - Integrated 1,950 custom addon items across 16 categories into KiwEssentials 33.2.1 (`KiwBP_33.2.1_MGC_Integrated.mcpack`).
+  - Embedded MGC Live Chat Relay directly into `board/chat.js` for instant bidirectional Discord/Web communication.
+  - Zero-disk-write LevelDB protection with 5-minute RAM caching to prevent 45MB–59MB server startup log warnings.
+- **⏱️ Playtime & Scoreboard Telemetry Fix**:
+  - Fixed cumulative playtime tracking by prioritizing the native `playtime` objective over session markers.
+- **🛠️ Server Bundle & Particle Physics Overhaul**:
+  - Eliminated all shadow `__MACOSX` folders and duplicate manifests to prevent `Multiple manifests found` startup errors.
+  - Fixed instant expiration and extreme gravity on Crops & Farms water sprinkler and watering can particles.
+
+---
+
 ## [2.11.3] - 2026-08-28
 
 ### 🩹 Hotfix & Performance Improvements

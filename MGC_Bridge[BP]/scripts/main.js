@@ -3,7 +3,7 @@ import { http, HttpRequest, HttpRequestMethod, HttpHeader } from "@minecraft/ser
 
 // ── Startup Diagnostic (visible in BDS console logs)
 system.run(() => {
-  console.warn("[MGC-BRIDGE] v2.11.3 loaded (KiwEssentials 33.1.9+ Enhanced) — checking event availability:");
+  console.warn("[MGC-BRIDGE] v2.12.0 loaded (KiwEssentials 33.2.x & Bedrock 1.26.45.1+) — checking event availability:");
   console.warn("[MGC-BRIDGE]  beforeEvents.chatSend:", !!world.beforeEvents?.chatSend);
   console.warn("[MGC-BRIDGE]  afterEvents.chatSend :", !!world.afterEvents?.chatSend);
   console.warn("[MGC-BRIDGE]  afterEvents.playerSpawn:", !!world.afterEvents?.playerSpawn);

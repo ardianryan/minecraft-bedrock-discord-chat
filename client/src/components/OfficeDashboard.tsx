@@ -530,7 +530,7 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
             <span>Back to Live Chat</span>
           </a>
           <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 4px' }}>
-            <span>Version v2.11.3</span>
+            <span>Version v2.12.0</span>
             <span style={{ color: '#34d399', display: 'flex', alignItems: 'center', gap: 4 }}>
               <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#34d399' }} /> Active
             </span>
