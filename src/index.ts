@@ -915,101 +915,198 @@ app.get('/join', async (c) => {
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Launching ${serverName}...</title>
+  <title>Launching ${serverName} • Bedrock Direct Join</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/logo.png">
   <meta http-equiv="refresh" content="0; url=${connectUri}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Silkscreen:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0a0c13;
       color: #f8fafc;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
       padding: 20px;
       text-align: center;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(34, 197, 94, 0.15) 0px, transparent 55%),
+        radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.12) 0px, transparent 55%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+      background-attachment: fixed;
     }
     .launcher-card {
-      background: rgba(30, 41, 59, 0.85);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 24px;
-      padding: 36px 28px;
-      max-width: 440px;
+      background: #121622;
+      border: 2px solid #2e3748;
+      box-shadow: inset 1px 1px 0px #4a5568, inset -1px -1px 0px #0f131a, 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(34, 197, 94, 0.2);
+      border-radius: 12px;
+      padding: 40px 32px;
+      max-width: 460px;
       width: 100%;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(34, 197, 94, 0.15);
+      position: relative;
     }
-    .icon-badge {
-      font-size: 3rem;
-      margin-bottom: 12px;
-      display: inline-block;
-      animation: float 2s ease-in-out infinite;
+    .icon-badge-wrap {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 16px;
+      background: #182030;
+      border: 2px solid #38bdf8;
+      box-shadow: inset 2px 2px 0px #090b10, 0 0 20px rgba(56, 189, 248, 0.35);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: float 2.5s ease-in-out infinite alternate;
+    }
+    .icon-badge-wrap img {
+      width: 44px;
+      height: 44px;
+      image-rendering: pixelated;
     }
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-6px); }
     }
-    h2 { font-size: 1.35rem; color: #4ade80; margin-bottom: 8px; font-weight: 800; }
-    p { color: #94a3b8; font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px; }
-    .server-info-pill {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 10px 14px;
+    h2 {
+      font-family: 'Silkscreen', monospace;
+      font-size: 1.35rem;
+      background: linear-gradient(to right, #ffffff, #86efac);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+      text-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+    }
+    p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .server-info-box {
+      background: #0d1017;
+      border: 1px solid #1e2638;
+      box-shadow: inset 2px 2px 0px #07080d, inset -1px -1px 0px #2a3346;
+      border-radius: 8px;
+      padding: 12px 16px;
       margin-bottom: 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 0.85rem;
+      text-align: left;
     }
-    .server-info-pill code { color: #4ade80; font-weight: 700; font-family: monospace; }
-    .btn-launch {
-      display: inline-flex;
+    .server-info-label {
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.68rem;
+      color: #64748b;
+      text-transform: uppercase;
+    }
+    .server-info-val {
+      font-family: 'JetBrains Mono', monospace;
+      color: #86efac;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-shadow: 0 0 8px rgba(34, 197, 94, 0.35);
+    }
+    .btn-launch-mc {
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       width: 100%;
       padding: 14px 20px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #22c55e 0%, #15803d 100%);
+      border-top: 2px solid #86efac;
+      border-left: 2px solid #86efac;
+      border-right: 2px solid #14532d;
+      border-bottom: 3px solid #052e16;
       color: #ffffff;
+      font-family: 'Silkscreen', monospace;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.95rem;
       text-decoration: none;
-      box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
-      transition: all 0.2s ease;
+      text-shadow: 1px 1px 0px #000;
+      box-shadow: 0 4px 16px rgba(34, 197, 94, 0.35);
+      cursor: pointer;
+      transition: all 0.15s ease;
     }
-    .btn-launch:hover {
-      background: linear-gradient(135deg, #16a34a, #15803d);
+    .btn-launch-mc:hover {
+      background: linear-gradient(180deg, #16a34a 0%, #14532d 100%);
       transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(34, 197, 94, 0.55);
+      box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
+    }
+    .btn-launch-mc:active {
+      transform: translateY(2px);
+      border-bottom-width: 1px;
+    }
+    .btn-launch-mc img {
+      width: 18px;
+      height: 18px;
+      image-rendering: pixelated;
+    }
+    .action-links-row {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .action-link {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .action-link:hover {
+      color: #38bdf8;
+      text-decoration: underline;
     }
     .hint-text {
-      margin-top: 18px;
-      font-size: 0.75rem;
+      margin-top: 20px;
+      font-size: 0.72rem;
       color: #64748b;
     }
   </style>
   <script>
     setTimeout(function() {
       window.location.href = "${connectUri}";
-    }, 100);
+    }, 120);
   </script>
 </head>
 <body>
   <div class="launcher-card">
-    <div class="icon-badge">🎮</div>
+    <div class="icon-badge-wrap">
+      <img src="/mc-icons/command_block.png" alt="Bedrock Launcher">
+    </div>
     <h2>Launching Minecraft...</h2>
-    <p>Opening Minecraft Bedrock Edition to connect directly to <strong>${serverName}</strong>.</p>
+    <p>Opening Minecraft Bedrock Edition to connect directly to <strong style="color:#f8fafc;">${serverName}</strong>.</p>
     
-    <div class="server-info-pill">
-      <span>Server Address</span>
-      <code>${serverIp || 'Not Set'}:${serverPort}</code>
+    <div class="server-info-box">
+      <div>
+        <div class="server-info-label">Bedrock Server Address</div>
+        <div class="server-info-val">${serverIp || 'mcserver.ppti.me'}:${serverPort}</div>
+      </div>
+      <img src="/mc-icons/diamond_sword.png" alt="Sword" style="width:24px;height:24px;image-rendering:pixelated;">
     </div>
 
-    <a href="${connectUri}" class="btn-launch">▶️ Click Here If Not Opening</a>
+    <a href="${connectUri}" class="btn-launch-mc">
+      <img src="/mc-icons/diamond_sword.png" alt="Launch">
+      <span>1-Click Join Server</span>
+    </a>
+
+    <div class="action-links-row">
+      <a href="/" class="action-link">← Back to Live Chat</a>
+      <a href="/leaderboard" class="action-link">Leaderboard →</a>
+    </div>
+
     <div class="hint-text">Supported on Android, iOS, iPadOS, and Windows 10/11 Bedrock</div>
   </div>
 </body>
@@ -1650,10 +1747,26 @@ ${topPlayers.length > 0 ? topPlayers.map((p, i) => `${i + 1}. **${p.username}** 
 `);
 });
 
-// Serve Static Frontend Assets (Vite React Build)
-app.use('/assets/*', serveStatic({ root: './client/dist' }));
-app.use('/logo.png', serveStatic({ path: './client/dist/logo.png' }));
-app.use('/favicon.ico', serveStatic({ path: './client/dist/favicon.ico' }));
+// Serve Static Frontend Assets with 1-Year Immutable Browser Cache
+app.use('/assets/*', async (c, next) => {
+  await next();
+  c.header('Cache-Control', 'public, max-age=31536000, immutable');
+}, serveStatic({ root: './client/dist' }));
+
+app.use('/mc-icons/*', async (c, next) => {
+  await next();
+  c.header('Cache-Control', 'public, max-age=31536000, immutable');
+}, serveStatic({ root: './client/dist' }));
+
+app.use('/logo.png', async (c, next) => {
+  await next();
+  c.header('Cache-Control', 'public, max-age=86400');
+}, serveStatic({ path: './client/dist/logo.png' }));
+
+app.use('/favicon.ico', async (c, next) => {
+  await next();
+  c.header('Cache-Control', 'public, max-age=86400');
+}, serveStatic({ path: './client/dist/favicon.ico' }));
 
 // Dynamic HTML & SEO/AEO/GEO Meta Tag Injection for Root SPA routes
 app.get('*', async (c) => {

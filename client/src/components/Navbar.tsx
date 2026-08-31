@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { 
-  Gamepad2, 
   ShieldAlert, 
   LogIn, 
   LogOut, 
   UserCheck, 
-  Layers,
-  Trophy
+  Layers
 } from 'lucide-react';
 
 export interface AuthUser {
@@ -69,7 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => onNavigate('/')}
             title="Live Chat"
           >
-            <Gamepad2 size={16} />
+            <img src="/mc-icons/book.png" alt="Chat" style={{ width: 18, height: 18, imageRendering: 'pixelated' }} />
             <span className="nav-label-desktop">Live Chat</span>
             <span className="nav-label-mobile">Chat</span>
             {activePlayersCount > 0 && (
@@ -82,7 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => onNavigate('/leaderboard')}
             title="Leaderboard"
           >
-            <Trophy size={16} />
+            <img src="/mc-icons/gold_ingot.png" alt="Leaderboard" style={{ width: 18, height: 18, imageRendering: 'pixelated' }} />
             <span className="nav-label-desktop">Leaderboard</span>
             <span className="nav-label-mobile">Ranks</span>
           </button>
@@ -93,7 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => onNavigate('/office')}
               title="Admin Office"
             >
-              <ShieldAlert size={16} />
+              <img src="/mc-icons/command_block.png" alt="Admin Office" style={{ width: 18, height: 18, imageRendering: 'pixelated' }} />
               <span className="nav-label-desktop">Admin Office</span>
               <span className="nav-label-mobile">Office</span>
               <span className="admin-chip-mini hide-on-mobile">Admin</span>

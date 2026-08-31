@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import { 
-  Gamepad2, 
-  MessageSquare,
-  Trophy,
   ShieldCheck, 
   ArrowRight, 
   Copy, 
   Check,
   AlertCircle,
-  Radio,
   Sparkles
 } from 'lucide-react';
 
@@ -50,22 +46,22 @@ export const LoginPage: React.FC<LoginPageProps> = ({
 
   const featureCards = [
     {
-      icon: <MessageSquare size={18} color="#38bdf8" />,
+      icon: <img src="/mc-icons/book.png" alt="Live Chat" style={{ width: 22, height: 22, imageRendering: 'pixelated' }} />,
       title: 'Live In-Game Chat',
       desc: 'Real-time 2-way chat synchronization between Bedrock in-game and Discord community.',
     },
     {
-      icon: <Gamepad2 size={18} color="#34d399" />,
+      icon: <img src="/mc-icons/compass.png" alt="Direct Connect" style={{ width: 22, height: 22, imageRendering: 'pixelated' }} />,
       title: '1-Click Server Connect',
       desc: 'Instant direct connection to our Bedrock world on Android, iOS, and Windows 10/11.',
     },
     {
-      icon: <Trophy size={18} color="#fbbf24" />,
+      icon: <img src="/mc-icons/gold_ingot.png" alt="Leaderboard" style={{ width: 22, height: 22, imageRendering: 'pixelated' }} />,
       title: 'Ranks & Leaderboard',
       desc: 'Compete in top kills, playtime, coins, and Discord community message activity.',
     },
     {
-      icon: <ShieldCheck size={18} color="#a855f7" />,
+      icon: <img src="/mc-icons/diamond_helmet.png" alt="Verified Gamer" style={{ width: 22, height: 22, imageRendering: 'pixelated' }} />,
       title: 'Verified Gamer Profile',
       desc: 'Link your Discord identity to your Minecraft IGN for unified player verification.',
     },
@@ -94,9 +90,9 @@ export const LoginPage: React.FC<LoginPageProps> = ({
             <div>
               <div className="showcase-badge-pill">
                 <span className="live-pulse-dot" />
-                <span>Bedrock Community Portal</span>
+                <span style={{ fontFamily: 'var(--font-mc)', fontSize: '0.68rem' }}>Bedrock Community Portal</span>
               </div>
-              <h1 className="showcase-title">{serverName}</h1>
+              <h1 className="showcase-title" style={{ fontFamily: 'var(--font-mc)' }}>{serverName}</h1>
               <p className="showcase-tagline">
                 Interactive real-time bridge connecting Minecraft Bedrock players with our Discord community.
               </p>
@@ -108,10 +104,10 @@ export const LoginPage: React.FC<LoginPageProps> = ({
             <div className="showcase-connect-card">
               <div className="showcase-connect-info">
                 <div className="connect-info-icon">
-                  <Gamepad2 size={20} color="#4ade80" />
+                  <img src="/mc-icons/command_block.png" alt="Bedrock Server" style={{ width: 24, height: 24, imageRendering: 'pixelated' }} />
                 </div>
                 <div className="connect-info-text">
-                  <span className="connect-label">Bedrock Server Address</span>
+                  <span className="connect-label" style={{ fontFamily: 'var(--font-mc)', fontSize: '0.68rem' }}>Bedrock Server Address</span>
                   <div className="connect-ip-row">
                     <code className="connect-ip-code">{serverIp}</code>
                     <span className="connect-port-chip">:{serverPort}</span>
@@ -125,7 +121,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                   className="btn-showcase-launch"
                   title="Launch Minecraft Bedrock and connect directly"
                 >
-                  <Gamepad2 size={15} />
+                  <img src="/mc-icons/diamond_sword.png" alt="Launch" style={{ width: 16, height: 16, imageRendering: 'pixelated' }} />
                   <span>1-Click Launch</span>
                 </a>
                 <button 
@@ -164,9 +160,9 @@ export const LoginPage: React.FC<LoginPageProps> = ({
           <div className="login-auth-card">
             <div className="auth-card-header">
               <div className="auth-icon-circle">
-                <Radio size={22} color="#818cf8" />
+                <img src="/mc-icons/totem.png" alt="Sign In" style={{ width: 28, height: 28, imageRendering: 'pixelated' }} />
               </div>
-              <h2 className="auth-card-title">Sign In to Live Chat</h2>
+              <h2 className="auth-card-title" style={{ fontFamily: 'var(--font-mc)' }}>Sign In to Live Chat</h2>
               <p className="auth-card-desc">
                 Log in with your Discord account to chat with in-game players, link your Minecraft IGN, and view leaderboards.
               </p>

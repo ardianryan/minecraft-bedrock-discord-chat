@@ -4,21 +4,16 @@ import {
   Clock, 
   Sparkles, 
   Terminal, 
-  MessageSquare,
-  Flame,
-  CheckCircle2,
-  AlertCircle,
-  Volume2,
-  VolumeX,
-  ChevronDown,
-  User,
-  Sun,
-  Moon,
-  CloudSun,
-  Gem,
-  Gamepad2,
-  Zap,
-  Globe
+  Flame, 
+  CheckCircle2, 
+  AlertCircle, 
+  Volume2, 
+  VolumeX, 
+  ChevronDown, 
+  User, 
+  CloudSun, 
+  Zap, 
+  Globe 
 } from 'lucide-react';
 import { AuthUser } from './Navbar.tsx';
 
@@ -180,10 +175,10 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
   };
 
   const quickCommands = [
-    { icon: <Sun size={12} />, label: 'Daytime', cmd: '/time set day' },
-    { icon: <Moon size={12} />, label: 'Nighttime', cmd: '/time set night' },
+    { icon: <img src="/mc-icons/clock.png" alt="Day" style={{ width: 14, height: 14, imageRendering: 'pixelated' }} />, label: 'Daytime', cmd: '/time set day' },
+    { icon: <img src="/mc-icons/clock.png" alt="Night" style={{ width: 14, height: 14, imageRendering: 'pixelated' }} />, label: 'Nighttime', cmd: '/time set night' },
     { icon: <CloudSun size={12} />, label: 'Clear Weather', cmd: '/weather clear' },
-    { icon: <Gem size={12} />, label: 'Give Diamonds', cmd: '/give @a diamond 10' },
+    { icon: <img src="/mc-icons/diamond.png" alt="Diamonds" style={{ width: 14, height: 14, imageRendering: 'pixelated' }} />, label: 'Give Diamonds', cmd: '/give @a diamond 10' },
   ];
 
   return (
@@ -192,7 +187,7 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
       <div className="chat-card-header">
         <div className="chat-header-title">
           <div className="chat-badge-icon">
-            <MessageSquare size={18} />
+            <img src="/mc-icons/book.png" alt="Chat" style={{ width: 20, height: 20, imageRendering: 'pixelated' }} />
           </div>
           <div className="chat-title-group">
             <h3 className="chat-title-text">Live Chat</h3>
@@ -272,12 +267,12 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
                     <span className={`msg-source-tag ${msg.source}`}>
                       {msg.source === 'Game' ? (
                         <>
-                          <Gamepad2 size={11} style={{ display: 'inline', marginRight: '3px' }} />
+                          <img src="/mc-icons/diamond_helmet.png" alt="Minecraft" style={{ width: 12, height: 12, display: 'inline', marginRight: '4px', verticalAlign: 'middle', imageRendering: 'pixelated' }} />
                           Minecraft
                         </>
                       ) : msg.source === 'Discord' ? (
                         <>
-                          <MessageSquare size={11} style={{ display: 'inline', marginRight: '3px' }} />
+                          <Globe size={11} style={{ display: 'inline', marginRight: '3px' }} />
                           Discord
                         </>
                       ) : msg.source === 'System' ? (

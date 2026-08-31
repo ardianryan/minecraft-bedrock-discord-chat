@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import {
   Trophy, Flame, Crown, Medal, Search, RefreshCw, Sparkles,
-  Sword, Skull, Coins, Timer, DollarSign, Activity, Zap, Shield, UserCheck,
+  Activity, Zap, Shield, UserCheck,
   Trash2, AlertCircle, Check
 } from 'lucide-react';
 import { AuthUser } from './Navbar.tsx';
@@ -42,11 +42,11 @@ const TAB_CONFIG: Array<{
   key: SortKey; label: string; icon: React.ReactNode; color: string;
   format: (e: ScoreboardEntry) => string;
 }> = [
-  { key: 'kills',    label: 'Kills',    icon: <Sword size={15}/>,       color: '#ef4444', format: e => `${e.kills}` },
-  { key: 'deaths',   label: 'Deaths',   icon: <Skull size={15}/>,       color: '#a855f7', format: e => `${e.deaths}` },
-  { key: 'money',    label: 'Money',    icon: <DollarSign size={15}/>,  color: '#f59e0b', format: e => fmtMoney(e.money) },
-  { key: 'coin',     label: 'Coins',    icon: <Coins size={15}/>,       color: '#eab308', format: e => `${e.coin.toLocaleString()}` },
-  { key: 'playtime', label: 'Playtime', icon: <Timer size={15}/>,       color: '#22c55e', format: e => fmtPlaytime(e.playtime) },
+  { key: 'kills',    label: 'Kills',    icon: <img src="/mc-icons/diamond_sword.png" alt="Kills" style={{ width: 16, height: 16, imageRendering: 'pixelated' }} />, color: '#ef4444', format: e => `${e.kills}` },
+  { key: 'deaths',   label: 'Deaths',   icon: <img src="/mc-icons/totem.png" alt="Deaths" style={{ width: 16, height: 16, imageRendering: 'pixelated' }} />, color: '#a855f7', format: e => `${e.deaths}` },
+  { key: 'money',    label: 'Money',    icon: <img src="/mc-icons/emerald.png" alt="Money" style={{ width: 16, height: 16, imageRendering: 'pixelated' }} />, color: '#22c55e', format: e => fmtMoney(e.money) },
+  { key: 'coin',     label: 'Coins',    icon: <img src="/mc-icons/gold_ingot.png" alt="Coins" style={{ width: 16, height: 16, imageRendering: 'pixelated' }} />, color: '#f59e0b', format: e => `${e.coin.toLocaleString()}` },
+  { key: 'playtime', label: 'Playtime', icon: <img src="/mc-icons/clock.png" alt="Playtime" style={{ width: 16, height: 16, imageRendering: 'pixelated' }} />, color: '#38bdf8', format: e => fmtPlaytime(e.playtime) },
 ];
 
 export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser }) => {
@@ -237,8 +237,8 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
                   {tabCfg.icon}<span>{tabCfg.format(top2)}</span>
                 </div>
                 <div className="podium-mini-stats">
-                  <span style={{ display:'inline-flex', alignItems:'center', gap:3 }}><Sword size={11}/>{top2.kills}</span>
-                  <span style={{ display:'inline-flex', alignItems:'center', gap:3 }}><Skull size={11}/>{top2.deaths}</span>
+                  <span style={{ display:'inline-flex', alignItems:'center', gap:4 }}><img src="/mc-icons/diamond_sword.png" alt="K" style={{ width: 12, height: 12, imageRendering: 'pixelated' }} />{top2.kills}</span>
+                  <span style={{ display:'inline-flex', alignItems:'center', gap:4 }}><img src="/mc-icons/totem.png" alt="D" style={{ width: 12, height: 12, imageRendering: 'pixelated' }} />{top2.deaths}</span>
                   <span>K/D {kdRatio(top2.kills,top2.deaths)}</span>
                 </div>
               </div>
@@ -246,7 +246,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
             {top1 && (
               <div className="podium-card rank-1 champion">
                 <div className="champion-crown-wrap"><Crown size={28} color="#fbbf24" className="crown-glow"/></div>
-                <div className="podium-rank-badge gold"><Trophy size={16}/><span>#1 Champion</span></div>
+                <div className="podium-rank-badge gold" style={{ fontFamily: 'var(--font-mc)' }}><Trophy size={16}/><span>#1 Champion</span></div>
                 <div className="podium-avatar-wrapper gold-ring">
                   <img src={`https://mc-heads.net/avatar/${encodeURIComponent(top1.username)}/80`}
                     alt={top1.username} className="podium-avatar-img large"
@@ -254,23 +254,23 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
                   {top1.online===1 && <span className="online-dot"/>}
                 </div>
                 <div className="podium-name-block">
-                  <h4 className="podium-player-name champion-text">{top1.username}</h4>
+                  <h4 className="podium-player-name champion-text" style={{ fontFamily: 'var(--font-mc)' }}>{top1.username}</h4>
                   {top1.discord_username && <span className="podium-discord-tag">@{top1.discord_username}</span>}
                 </div>
                 <div className="podium-score-pill gold-pill" style={{'--pill-color':tabCfg.color} as React.CSSProperties}>
                   {tabCfg.icon}<span>{tabCfg.format(top1)}</span>
                 </div>
                 <div className="podium-mini-stats">
-                  <span style={{ display:'inline-flex', alignItems:'center', gap:3 }}><Sword size={11}/>{top1.kills}</span>
-                  <span style={{ display:'inline-flex', alignItems:'center', gap:3 }}><Skull size={11}/>{top1.deaths}</span>
+                  <span style={{ display:'inline-flex', alignItems:'center', gap:4 }}><img src="/mc-icons/diamond_sword.png" alt="K" style={{ width: 12, height: 12, imageRendering: 'pixelated' }} />{top1.kills}</span>
+                  <span style={{ display:'inline-flex', alignItems:'center', gap:4 }}><img src="/mc-icons/totem.png" alt="D" style={{ width: 12, height: 12, imageRendering: 'pixelated' }} />{top1.deaths}</span>
                   <span>K/D {kdRatio(top1.kills,top1.deaths)}</span>
-                  <span style={{ display:'inline-flex', alignItems:'center', gap:3 }}><DollarSign size={11}/>{fmtMoney(top1.money)}</span>
+                  <span style={{ display:'inline-flex', alignItems:'center', gap:4 }}><img src="/mc-icons/emerald.png" alt="$" style={{ width: 12, height: 12, imageRendering: 'pixelated' }} />{fmtMoney(top1.money)}</span>
                 </div>
               </div>
             )}
             {top3 && (
               <div className="podium-card rank-3">
-                <div className="podium-rank-badge bronze"><Medal size={16}/><span>#3</span></div>
+                <div className="podium-rank-badge bronze" style={{ fontFamily: 'var(--font-mc)' }}><Medal size={16}/><span>#3</span></div>
                 <div className="podium-avatar-wrapper">
                   <img src={`https://mc-heads.net/avatar/${encodeURIComponent(top3.username)}/64`}
                     alt={top3.username} className="podium-avatar-img"
@@ -285,8 +285,8 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({ currentUser })
                   {tabCfg.icon}<span>{tabCfg.format(top3)}</span>
                 </div>
                 <div className="podium-mini-stats">
-                  <span style={{ display:'inline-flex', alignItems:'center', gap:3 }}><Sword size={11}/>{top3.kills}</span>
-                  <span style={{ display:'inline-flex', alignItems:'center', gap:3 }}><Skull size={11}/>{top3.deaths}</span>
+                  <span style={{ display:'inline-flex', alignItems:'center', gap:4 }}><img src="/mc-icons/diamond_sword.png" alt="K" style={{ width: 12, height: 12, imageRendering: 'pixelated' }} />{top3.kills}</span>
+                  <span style={{ display:'inline-flex', alignItems:'center', gap:4 }}><img src="/mc-icons/totem.png" alt="D" style={{ width: 12, height: 12, imageRendering: 'pixelated' }} />{top3.deaths}</span>
                   <span>K/D {kdRatio(top3.kills,top3.deaths)}</span>
                 </div>
               </div>

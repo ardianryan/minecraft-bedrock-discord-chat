@@ -6,7 +6,6 @@ import {
   Trash2, 
   Check, 
   Save, 
-  Database, 
   RefreshCw, 
   AlertTriangle, 
   Search, 
@@ -18,8 +17,6 @@ import {
   FileCode, 
   Eye, 
   EyeOff, 
-  UserCheck, 
-  ShieldAlert,
   Ban,
   ShieldCheck,
   UserX,
@@ -31,8 +28,6 @@ import {
   Globe,
   Compass,
   FileText,
-  Server,
-  Gamepad2,
   ArrowLeft,
   Menu,
   X,
@@ -468,10 +463,10 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
       {/* 1. DEDICATED ADMIN SIDEBAR */}
       <aside className={`admin-sidebar ${isMobileSidebarOpen ? 'mobile-open' : ''}`}>
         <div className="admin-sidebar-header">
-          <ShieldAlert size={26} color="#f43f5e" />
+          <img src="/mc-icons/command_block.png" alt="Office" style={{ width: 28, height: 28, imageRendering: 'pixelated' }} />
           <div>
-            <div className="admin-sidebar-title">{settings.server_name || 'Admin Office'}</div>
-            <span className="admin-sidebar-badge">Control Center</span>
+            <div className="admin-sidebar-title" style={{ fontFamily: 'var(--font-mc)' }}>{settings.server_name || 'Admin Office'}</div>
+            <span className="admin-sidebar-badge" style={{ fontFamily: 'var(--font-mc)', fontSize: '0.62rem' }}>Control Center</span>
           </div>
         </div>
 
@@ -482,7 +477,7 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
             onClick={() => { setActiveTab('users'); setIsMobileSidebarOpen(false); }}
           >
             <div className="admin-nav-btn-inner">
-              <Users size={18} />
+              <img src="/mc-icons/book.png" alt="Users" style={{ width: 18, height: 18, imageRendering: 'pixelated' }} />
               <span>Users & Roles</span>
             </div>
             <span className="admin-nav-counter">{users.length}</span>
@@ -494,7 +489,7 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
             onClick={() => { setActiveTab('moderation'); setIsMobileSidebarOpen(false); }}
           >
             <div className="admin-nav-btn-inner">
-              <Gamepad2 size={18} />
+              <img src="/mc-icons/diamond_helmet.png" alt="Players" style={{ width: 18, height: 18, imageRendering: 'pixelated' }} />
               <span>Players & Roster</span>
             </div>
             <span className="admin-nav-counter">{knownPlayers.length}</span>
@@ -506,7 +501,7 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
             onClick={() => { setActiveTab('server'); setIsMobileSidebarOpen(false); }}
           >
             <div className="admin-nav-btn-inner">
-              <Server size={18} />
+              <img src="/mc-icons/command_block.png" alt="Server" style={{ width: 18, height: 18, imageRendering: 'pixelated' }} />
               <span>Server Controls</span>
             </div>
             <span className="admin-nav-counter" style={{ background: 'rgba(56, 189, 248, 0.2)', color: '#38bdf8' }}>Panel</span>
@@ -518,7 +513,7 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
             onClick={() => { setActiveTab('settings'); setIsMobileSidebarOpen(false); }}
           >
             <div className="admin-nav-btn-inner">
-              <Settings size={18} />
+              <img src="/mc-icons/compass.png" alt="Settings" style={{ width: 18, height: 18, imageRendering: 'pixelated' }} />
               <span>System & SEO</span>
             </div>
           </button>
@@ -576,7 +571,7 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
         <div className="office-stats-row">
           <div className="metric-stat-card">
             <div className="metric-icon-wrap user-bg">
-              <Users size={22} />
+              <img src="/mc-icons/book.png" alt="Users" style={{ width: 22, height: 22, imageRendering: 'pixelated' }} />
             </div>
             <div className="metric-details">
               <span className="metric-label">Total Discord Users</span>
@@ -586,7 +581,7 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
 
           <div className="metric-stat-card">
             <div className="metric-icon-wrap ign-bg">
-              <UserCheck size={22} />
+              <img src="/mc-icons/diamond_helmet.png" alt="Linked" style={{ width: 22, height: 22, imageRendering: 'pixelated' }} />
             </div>
             <div className="metric-details">
               <span className="metric-label">Linked Minecraft IGNs</span>
@@ -596,7 +591,7 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
 
           <div className="metric-stat-card">
             <div className="metric-icon-wrap db-bg">
-              <Database size={22} />
+              <img src="/mc-icons/chest.png" alt="Database" style={{ width: 22, height: 22, imageRendering: 'pixelated' }} />
             </div>
             <div className="metric-details">
               <span className="metric-label">Database Storage</span>

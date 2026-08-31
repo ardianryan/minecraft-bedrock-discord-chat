@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { 
-  Users, 
   Radio, 
   Gamepad2, 
   ShieldCheck, 
@@ -151,7 +150,7 @@ export const PlayerList: React.FC<PlayerListProps> = ({
         <div className="sidebar-card-header">
           <div className="sidebar-header-left">
             <div className="sidebar-icon-wrap emerald">
-              <Users size={18} />
+              <img src="/mc-icons/diamond_helmet.png" alt="Players" style={{ width: 20, height: 20, imageRendering: 'pixelated' }} />
             </div>
             <div>
               <h4 className="sidebar-card-title">Online In-Game</h4>

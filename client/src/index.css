@@ -1,49 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Silkscreen:wght@400;700&family=Press+Start+2P&display=swap');
 
 /* =========================================================
-   DESIGN SYSTEM TOKENS
+   MINECRAFT AUTHENTIC DESIGN SYSTEM TOKENS (IMPECCABLE)
    ========================================================= */
 :root {
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-mc: 'Silkscreen', 'Press Start 2P', monospace;
+  --font-pixel: 'Press Start 2P', monospace;
 
-  /* Background Colors */
-  --bg-main: #090d16;
-  --bg-card: rgba(15, 23, 42, 0.75);
-  --bg-card-solid: #0f172a;
-  --bg-card-hover: rgba(30, 41, 59, 0.85);
-  --bg-input: rgba(15, 23, 42, 0.9);
+  /* Minecraft Canvas & Block Surface Colors */
+  --bg-main: #0a0c13;
+  --bg-card: rgba(18, 22, 34, 0.82);
+  --bg-card-solid: #121622;
+  --bg-card-hover: rgba(26, 32, 48, 0.92);
+  --bg-input: rgba(14, 18, 28, 0.95);
 
-  /* Border Colors */
+  /* Minecraft Block Borders & 3D Bevels */
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-highlight: rgba(99, 102, 241, 0.35);
-  --border-glow: rgba(99, 102, 241, 0.6);
+  --border-mc-stone: #2e3748;
+  --border-mc-light: #4a5568;
+  --border-mc-dark: #0f131a;
+  --border-highlight: rgba(34, 197, 94, 0.4);
+  --border-glow: rgba(34, 197, 94, 0.65);
 
   /* Text Colors */
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
-  --text-inverse: #090d16;
+  --text-inverse: #0a0c13;
 
-  /* Accents */
-  --accent-primary: #6366f1;
-  --accent-primary-hover: #4f46e5;
-  --accent-emerald: #10b981;
-  --accent-emerald-glow: rgba(16, 185, 129, 0.25);
+  /* Minecraft Vibrant Mineral & Item Accents */
+  --accent-primary: #22c55e;        /* Emerald / XP Green */
+  --accent-primary-hover: #16a34a;
+  --accent-emerald: #22c55e;
+  --accent-emerald-glow: rgba(34, 197, 94, 0.35);
+  --accent-diamond: #38bdf8;        /* Diamond / Voxel Cyan */
+  --accent-diamond-glow: rgba(56, 189, 248, 0.35);
+  --accent-gold: #f59e0b;           /* Gold Ingot / Crown */
   --accent-amber: #f59e0b;
+  --accent-redstone: #ef4444;       /* Redstone / Critical */
   --accent-rose: #f43f5e;
-  --accent-sky: #0ea5e9;
+  --accent-amethyst: #c084fc;       /* Enchantment / Nether */
+  --accent-sky: #38bdf8;
   --accent-discord: #5865F2;
   --accent-discord-hover: #4752C4;
 
-  /* Shadow / Elevation */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
-  --shadow-glow: 0 0 35px rgba(99, 102, 241, 0.22);
+  /* Minecraft Recessed Slots & 3D Lighting */
+  --slot-bg: #161922;
+  --slot-border-dark: #0d0f14;
+  --slot-border-light: #2d3344;
+  --shadow-mc-slot: inset 2px 2px 0px var(--slot-border-dark), inset -2px -2px 0px var(--slot-border-light);
+  --shadow-mc-btn: inset 2px 2px 0px rgba(255, 255, 255, 0.18), inset -2px -2px 0px rgba(0, 0, 0, 0.45), 0 4px 12px rgba(0, 0, 0, 0.4);
+
+  /* Elevation Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 28px rgba(34, 197, 94, 0.25);
+  --shadow-diamond-glow: 0 0 28px rgba(56, 189, 248, 0.25);
 }
 
 /* =========================================================
-   BASE RESET & TYPOGRAPHY
+   BASE RESET & ATMOSPHERIC MINECRAFT CANVAS
    ========================================================= */
 * {
   box-sizing: border-box;
@@ -61,8 +79,12 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background-image: 
-    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.08) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(34, 197, 94, 0.12) 0px, transparent 55%),
+    radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.1) 0px, transparent 55%),
+    radial-gradient(circle at 50% 30%, rgba(192, 132, 252, 0.05) 0px, transparent 65%),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px, 32px 32px;
   background-attachment: fixed;
 }
 
@@ -183,28 +205,33 @@ body {
 }
 
 .brand-name {
-  font-size: 1.15rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  background: linear-gradient(to right, #ffffff, #cbd5e1);
+  font-family: var(--font-mc);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  background: linear-gradient(to right, #ffffff, #86efac);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
 }
 
 .brand-pill-v2 {
+  font-family: var(--font-mc);
   font-size: 0.65rem;
   font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 6px;
-  background: rgba(99, 102, 241, 0.2);
-  color: #a5b4fc;
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(34, 197, 94, 0.15);
+  color: #86efac;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.25);
 }
 
 .brand-caption {
   font-size: 0.72rem;
   color: var(--text-muted);
+  font-family: var(--font-sans);
 }
 
 /* Nav Label Responsive Switch */
@@ -218,10 +245,11 @@ body {
 /* Nav Segmented Switcher */
 .nav-segmented {
   display: flex;
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid var(--border-subtle);
+  background: #121622;
+  border: 2px solid var(--border-mc-stone);
+  box-shadow: inset 1px 1px 0px #090b10, inset -1px -1px 0px #2a3346;
   padding: 4px;
-  border-radius: 10px;
+  border-radius: 8px;
   gap: 4px;
   max-width: 100%;
 }
@@ -231,44 +259,54 @@ body {
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-secondary);
   background: transparent;
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .nav-seg-item:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .nav-seg-item.active {
   color: #fff;
-  background: rgba(99, 102, 241, 0.25);
-  border: 1px solid rgba(99, 102, 241, 0.4);
-  box-shadow: 0 2px 10px rgba(99, 102, 241, 0.15);
+  font-family: var(--font-mc);
+  font-size: 0.8rem;
+  background: linear-gradient(180deg, #22c55e 0%, #15803d 100%);
+  border-top: 2px solid #86efac;
+  border-left: 2px solid #86efac;
+  border-right: 2px solid #14532d;
+  border-bottom: 2px solid #052e16;
+  box-shadow: 0 2px 10px rgba(34, 197, 94, 0.35);
+  text-shadow: 1px 1px 0px #000;
 }
 
 .admin-chip-mini {
-  font-size: 0.65rem;
-  padding: 1px 5px;
+  font-family: var(--font-mc);
+  font-size: 0.6rem;
+  padding: 2px 6px;
   border-radius: 4px;
-  background: rgba(244, 63, 94, 0.2);
-  color: #fda4af;
-  border: 1px solid rgba(244, 63, 94, 0.4);
+  background: rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.5);
 }
 
 .online-counter-dot {
-  font-size: 0.7rem;
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
   font-weight: 700;
-  padding: 1px 6px;
-  border-radius: 999px;
-  background: #10b981;
-  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #22c55e;
+  color: #052e16;
+  border: 1px solid #86efac;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
 }
 
 /* Header Actions */
@@ -3159,19 +3197,18 @@ body {
   position: absolute;
   z-index: 1050;
   padding: 8px 12px;
-  background: #0f172a;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(99, 102, 241, 0.4);
-  border-radius: 8px;
+  background: linear-gradient(180deg, #100010 0%, #17001b 100%);
+  border: 2px solid #28007F;
+  border-radius: 4px;
   color: #e2e8f0;
-  font-size: 0.76rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
   line-height: 1.45;
   font-weight: 500;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 0 1px #150042, 0 10px 28px rgba(0, 0, 0, 0.85);
   white-space: normal;
   text-align: left;
-  animation: tooltipFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: tooltipFadeIn 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   pointer-events: none;
   width: max-content;
 }
