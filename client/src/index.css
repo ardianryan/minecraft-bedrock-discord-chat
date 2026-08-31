@@ -3163,7 +3163,172 @@ body {
   align-items: center;
   justify-content: flex-end;
   gap: 12px;
-  background: rgba(15, 23, 42, 0.95);
+  background: #121622;
+}
+
+/* =========================================================
+   MINECRAFT 3D BEVELED BUTTONS (IMPECCABLE)
+   ========================================================= */
+.mc-btn-primary, .btn-primary-save {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: linear-gradient(180deg, #22c55e 0%, #15803d 100%);
+  border-top: 2px solid #86efac;
+  border-left: 2px solid #86efac;
+  border-right: 2px solid #14532d;
+  border-bottom: 3px solid #052e16;
+  border-radius: 4px;
+  color: #ffffff !important;
+  font-family: var(--font-mc);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 0px #000;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+  cursor: pointer;
+  transition: all 0.1s ease;
+  user-select: none;
+  text-decoration: none;
+}
+.mc-btn-primary:hover, .btn-primary-save:hover {
+  background: linear-gradient(180deg, #16a34a 0%, #14532d 100%);
+}
+.mc-btn-primary:active, .btn-primary-save:active {
+  transform: translateY(2px);
+  border-bottom-width: 1px;
+}
+
+.mc-btn-secondary, .btn-modal-cancel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: linear-gradient(180deg, #374151 0%, #1f2937 100%);
+  border-top: 2px solid #6b7280;
+  border-left: 2px solid #6b7280;
+  border-right: 2px solid #111827;
+  border-bottom: 3px solid #030712;
+  border-radius: 4px;
+  color: #f3f4f6 !important;
+  font-family: var(--font-mc);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 0px #000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.1s ease;
+  user-select: none;
+  text-decoration: none;
+}
+.mc-btn-secondary:hover, .btn-modal-cancel:hover {
+  background: linear-gradient(180deg, #4b5563 0%, #374151 100%);
+}
+.mc-btn-secondary:active, .btn-modal-cancel:active {
+  transform: translateY(2px);
+  border-bottom-width: 1px;
+}
+
+.mc-btn-danger, .btn-danger-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: linear-gradient(180deg, #ef4444 0%, #991b1b 100%);
+  border-top: 2px solid #fca5a5;
+  border-left: 2px solid #fca5a5;
+  border-right: 2px solid #7f1d1d;
+  border-bottom: 3px solid #450a0a;
+  border-radius: 4px;
+  color: #ffffff !important;
+  font-family: var(--font-mc);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 0px #000;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
+  cursor: pointer;
+  transition: all 0.1s ease;
+  user-select: none;
+  text-decoration: none;
+}
+.mc-btn-danger:hover, .btn-danger-sm:hover {
+  background: linear-gradient(180deg, #dc2626 0%, #7f1d1d 100%);
+}
+.mc-btn-danger:active, .btn-danger-sm:active {
+  transform: translateY(2px);
+  border-bottom-width: 1px;
+}
+
+/* =========================================================
+   ITEM SLOT & ICON RENDERING (IMPECCABLE)
+   ========================================================= */
+.mc-slot-item-img {
+  width: 28px;
+  height: 28px;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  transition: transform 0.12s ease;
+}
+.mc-slot-item-img:hover {
+  transform: scale(1.15);
+}
+
+.mc-slot-stack-count {
+  position: absolute;
+  bottom: 2px;
+  right: 4px;
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #fbbf24;
+  text-shadow: 1px 1px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000;
+  pointer-events: none;
+}
+
+.mc-item-fallback-name {
+  font-family: var(--font-mc);
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  text-align: center;
+  line-height: 1.1;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.mc-quick-chip {
+  background: #121622;
+  border: 1px solid var(--border-mc-stone);
+  box-shadow: inset 1px 1px 0px #090b10, inset -1px -1px 0px #2a3346;
+  color: #cbd5e1;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 0.72rem;
+  font-family: var(--font-mc);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.12s ease;
+  user-select: none;
+}
+.mc-quick-chip:hover {
+  background: #1a2234;
+  border-color: #38bdf8;
+  color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+}
+.mc-quick-chip.active {
+  background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%);
+  border-top: 2px solid #7dd3fc;
+  border-left: 2px solid #7dd3fc;
+  border-right: 2px solid #075985;
+  border-bottom: 2px solid #082f49;
+  color: #fff;
+  text-shadow: 1px 1px 0px #000;
 }
 
 /* ========================================================

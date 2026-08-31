@@ -63,6 +63,35 @@ const QUICK_ITEMS = [
   { id: 'gold_ingot', name: 'Gold Ingot', iconImg: '/mc-icons/gold_ingot.png' },
 ];
 
+// Slot Icon with dynamic addon/vanilla texture loading and graceful text fallback
+const SlotIcon: React.FC<{ item?: SlotItem | null }> = ({ item }) => {
+  const [imgFailed, setImgFailed] = useState(false);
+
+  if (!item) return <span style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.15)' }}>—</span>;
+
+  const rawClean = item.typeId.replace(/^minecraft:/, '');
+  const iconUrl = `/api/textures/items/${encodeURIComponent(item.typeId)}`;
+
+  if (imgFailed) {
+    const displayName = item.nameTag || rawClean.replace(/_/g, ' ');
+    return (
+      <span className="mc-item-fallback-name" title={item.typeId}>
+        {displayName.substring(0, 8)}
+      </span>
+    );
+  }
+
+  return (
+    <img 
+      src={iconUrl} 
+      alt={item.typeId}
+      className="mc-slot-item-img"
+      onError={() => setImgFailed(true)}
+      title={`${item.nameTag ? `"${item.nameTag}"\n` : ''}${item.typeId}${item.amount > 1 ? ` (x${item.amount})` : ''}`}
+    />
+  );
+};
+
 export const PlayerInventorySheet: React.FC<PlayerInventorySheetProps> = ({
   ign,
   isOpen,
@@ -94,7 +123,7 @@ export const PlayerInventorySheet: React.FC<PlayerInventorySheetProps> = ({
         }
       }
     } catch (err) {
-      console.error('Failed to fetch inventory:', err);
+      console.error('Failed to fetch player inventory:', err);
     } finally {
       setLoading(false);
     }
@@ -106,57 +135,131 @@ export const PlayerInventorySheet: React.FC<PlayerInventorySheetProps> = ({
     }
   }, [isOpen, ign]);
 
-  const executeAction = async (action: string, payload: Record<string, any> = {}) => {
-    if (!ign) return;
+  const handleGiveItem = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!ign || !giveItemId.trim()) return;
+
     setActionLoading(true);
-    setFeedback(null);
     try {
-      const res = await fetch(`/api/office/players/${encodeURIComponent(ign)}/action`, {
+      const res = await fetch(`/api/office/players/${encodeURIComponent(ign)}/give`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action, ...payload }),
+        body: JSON.stringify({
+          item: giveItemId.trim(),
+          amount: giveAmount,
+        }),
       });
       const data = await res.json();
       if (res.ok) {
-        setFeedback({ text: data.message || `Action dispatched for ${ign}!`, type: 'success' });
-        setTimeout(fetchInventory, 1000);
+        setFeedback({ text: data.message || `Gave ${giveAmount}x ${giveItemId} to ${ign}`, type: 'success' });
+        setTimeout(() => fetchInventory(), 500);
       } else {
-        setFeedback({ text: data.error || 'Failed to dispatch action', type: 'error' });
+        setFeedback({ text: data.error || 'Failed to give item', type: 'error' });
       }
     } catch (err) {
-      setFeedback({ text: 'Network connection failed', type: 'error' });
+      setFeedback({ text: 'Network error while giving item', type: 'error' });
     } finally {
       setActionLoading(false);
-      setTimeout(() => setFeedback(null), 4000);
+      setTimeout(() => setFeedback(null), 3500);
     }
   };
 
-  const handleGiveItem = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!giveItemId.trim()) return;
-    executeAction('give', { itemId: giveItemId.trim(), amount: giveAmount });
+  const handleClearSlot = async (slotItem: SlotItem) => {
+    if (!ign) return;
+    setActionLoading(true);
+    try {
+      const res = await fetch(`/api/office/players/${encodeURIComponent(ign)}/clear-item`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ item: slotItem.typeId }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setFeedback({ text: data.message || `Cleared ${slotItem.typeId} from ${ign}`, type: 'success' });
+        setTimeout(() => fetchInventory(), 500);
+      } else {
+        setFeedback({ text: data.error || 'Failed to clear item', type: 'error' });
+      }
+    } catch (err) {
+      setFeedback({ text: 'Network error while clearing slot', type: 'error' });
+    } finally {
+      setActionLoading(false);
+      setTimeout(() => setFeedback(null), 3500);
+    }
   };
 
-  const handleClearSlot = (item: SlotItem) => {
-    executeAction('clear_item', { itemId: item.typeId, amount: item.amount });
+  const handleHeal = async () => {
+    if (!ign) return;
+    setActionLoading(true);
+    try {
+      const res = await fetch(`/api/office/players/${encodeURIComponent(ign)}/heal`, {
+        method: 'POST',
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setFeedback({ text: data.message || `Healed ${ign}!`, type: 'success' });
+        setTimeout(() => fetchInventory(), 500);
+      } else {
+        setFeedback({ text: data.error || 'Failed to heal player', type: 'error' });
+      }
+    } catch (err) {
+      setFeedback({ text: 'Network error while healing player', type: 'error' });
+    } finally {
+      setActionLoading(false);
+      setTimeout(() => setFeedback(null), 3500);
+    }
+  };
+
+  const handleGamemodeChange = async (newGamemode: string) => {
+    if (!ign) return;
+    setSelectedGamemode(newGamemode);
+    setActionLoading(true);
+    try {
+      const res = await fetch(`/api/office/players/${encodeURIComponent(ign)}/gamemode`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ gamemode: newGamemode }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setFeedback({ text: data.message || `Gamemode set to ${newGamemode} for ${ign}`, type: 'success' });
+        setTimeout(() => fetchInventory(), 500);
+      } else {
+        setFeedback({ text: data.error || 'Failed to set gamemode', type: 'error' });
+      }
+    } catch (err) {
+      setFeedback({ text: 'Network error while changing gamemode', type: 'error' });
+    } finally {
+      setActionLoading(false);
+      setTimeout(() => setFeedback(null), 3500);
+    }
   };
 
   const handleWipeInventory = () => {
     setShowWipeConfirm(true);
   };
 
-  const executeWipeInventory = () => {
-    executeAction('wipe_inventory');
-    setShowWipeConfirm(false);
-  };
-
-  const handleHeal = () => {
-    executeAction('heal');
-  };
-
-  const handleGamemodeChange = (mode: string) => {
-    setSelectedGamemode(mode);
-    executeAction('gamemode', { gamemode: mode });
+  const executeWipeInventory = async () => {
+    if (!ign) return;
+    setActionLoading(true);
+    try {
+      const res = await fetch(`/api/office/players/${encodeURIComponent(ign)}/wipe-inventory`, {
+        method: 'POST',
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setFeedback({ text: data.message || `Successfully wiped inventory for ${ign}!`, type: 'success' });
+        setShowWipeConfirm(false);
+        setTimeout(() => fetchInventory(), 500);
+      } else {
+        setFeedback({ text: data.error || 'Failed to wipe inventory', type: 'error' });
+      }
+    } catch (err) {
+      setFeedback({ text: 'Network error while wiping inventory', type: 'error' });
+    } finally {
+      setActionLoading(false);
+      setTimeout(() => setFeedback(null), 4000);
+    }
   };
 
   if (!ign) return null;
@@ -180,14 +283,14 @@ export const PlayerInventorySheet: React.FC<PlayerInventorySheetProps> = ({
       title={
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <img 
-            src={`https://mc-heads.net/avatar/${encodeURIComponent(ign)}/32`} 
-            alt={ign}
-            style={{ width: 28, height: 28, borderRadius: 6, border: '1px solid rgba(255,255,255,0.1)' }}
+            src={`https://mc-heads.net/avatar/${encodeURIComponent(ign || '')}/32`} 
+            alt={ign || ''}
+            style={{ width: 28, height: 28, borderRadius: 4, border: '2px solid var(--border-mc-stone)', imageRendering: 'pixelated' }}
           />
           <div>
-            <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#f8fafc', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ fontSize: '1.05rem', fontFamily: 'var(--font-mc)', fontWeight: 700, color: '#f8fafc', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span>{ign}</span>
-              <span className={`status-pill ${isOnline ? 'online' : 'offline'}`} style={{ fontSize: '0.7rem', padding: '2px 8px' }}>
+              <span className={`status-pill ${isOnline ? 'online' : 'offline'}`} style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mc)', padding: '2px 8px' }}>
                 {isOnline ? 'Online' : 'Offline'}
               </span>
             </div>
@@ -199,26 +302,24 @@ export const PlayerInventorySheet: React.FC<PlayerInventorySheetProps> = ({
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
           <button 
             type="button" 
-            className="btn-danger-sm" 
+            className="mc-btn-danger" 
             onClick={handleWipeInventory}
             disabled={actionLoading}
-            style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
           >
-            <Trash2 size={14} />
+            <Trash2 size={15} />
             <span>Wipe All Inventory</span>
           </button>
-          <div style={{ display: 'flex', gap: '8px' }}>
+          <div style={{ display: 'flex', gap: '10px' }}>
             <button 
               type="button" 
-              className="btn-modal-cancel" 
+              className="mc-btn-secondary" 
               onClick={fetchInventory} 
               disabled={loading}
-              style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
             >
-              <RefreshCw size={14} className={loading ? 'spin' : ''} />
+              <RefreshCw size={15} className={loading ? 'spin' : ''} />
               <span>Refresh</span>
             </button>
-            <button type="button" className="btn-primary-save" onClick={onClose}>
+            <button type="button" className="mc-btn-primary" onClick={onClose}>
               Close
             </button>
           </div>
@@ -377,7 +478,7 @@ export const PlayerInventorySheet: React.FC<PlayerInventorySheetProps> = ({
                   borderRadius: 6, 
                   padding: '8px 4px', 
                   textAlign: 'center',
-                  minHeight: 68,
+                  minHeight: 74,
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
@@ -386,17 +487,9 @@ export const PlayerInventorySheet: React.FC<PlayerInventorySheetProps> = ({
                 }}
               >
                 <span style={{ fontSize: '0.62rem', fontFamily: 'var(--font-mc)', color: 'var(--text-muted)', marginBottom: 4 }}>{label}</span>
-                {item ? (
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#38bdf8' }} title={item.typeId}>
-                      {item.typeId.replace(/^minecraft:/, '').replace(/_/g, ' ')}
-                    </span>
-                    {item.amount > 1 && (
-                      <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-pixel)', color: '#fbbf24', textShadow: '1px 1px 0px #000' }}>×{item.amount}</span>
-                    )}
-                  </div>
-                ) : (
-                  <span style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.15)' }}>—</span>
+                <SlotIcon item={item} />
+                {item && item.amount > 1 && (
+                  <span className="mc-slot-stack-count">×{item.amount}</span>
                 )}
               </div>
             ))}
@@ -444,19 +537,15 @@ export const PlayerInventorySheet: React.FC<PlayerInventorySheetProps> = ({
                     position: 'relative',
                     cursor: item ? 'pointer' : 'default',
                     userSelect: 'none',
-                    padding: 2
+                    padding: 4
                   }}
-                  title={item ? `${item.typeId} (Click to clear)` : `Slot ${slotIdx}`}
+                  title={item ? `${item.typeId}${item.amount > 1 ? ` (x${item.amount})` : ''} - Click to clear` : `Slot ${slotIdx}`}
                 >
                   {item ? (
                     <>
-                      <span style={{ fontSize: '0.6rem', fontWeight: 700, color: '#f8fafc', textAlign: 'center', lineHeight: 1.1, wordBreak: 'break-word', maxWidth: '100%' }}>
-                        {item.typeId.replace(/^minecraft:/, '').substring(0, 7)}
-                      </span>
+                      <SlotIcon item={item} />
                       {item.amount > 1 && (
-                        <span style={{ position: 'absolute', bottom: 1, right: 3, fontSize: '0.65rem', fontFamily: 'var(--font-pixel)', color: '#fbbf24', textShadow: '1px 1px 0px #000' }}>
-                          {item.amount}
-                        </span>
+                        <span className="mc-slot-stack-count">{item.amount}</span>
                       )}
                     </>
                   ) : (
@@ -470,31 +559,19 @@ export const PlayerInventorySheet: React.FC<PlayerInventorySheetProps> = ({
 
         {/* 4. Give / Add Item Tool */}
         <div style={{ background: 'rgba(15, 23, 42, 0.65)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: 12, padding: 16 }}>
-          <div style={{ fontSize: '0.82rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-muted)', marginBottom: 10, display: 'flex', alignItems: 'center', gap: 6 }}>
+          <div style={{ fontSize: '0.82rem', fontFamily: 'var(--font-mc)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-muted)', marginBottom: 10, display: 'flex', alignItems: 'center', gap: 6 }}>
             <Plus size={14} color="#34d399" />
             <span>Give Item to {ign}</span>
           </div>
 
           {/* Quick Pick Chips */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 12 }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 14 }}>
             {QUICK_ITEMS.map((q) => (
               <button
                 key={q.id}
                 type="button"
+                className={`mc-quick-chip ${giveItemId === q.id ? 'active' : ''}`}
                 onClick={() => setGiveItemId(q.id)}
-                style={{
-                  background: giveItemId === q.id ? 'rgba(56, 189, 248, 0.25)' : 'rgba(255,255,255,0.04)',
-                  border: giveItemId === q.id ? '1px solid #38bdf8' : '1px solid rgba(255,255,255,0.08)',
-                  color: giveItemId === q.id ? '#38bdf8' : '#cbd5e1',
-                  borderRadius: 6,
-                  padding: '4px 8px',
-                  fontSize: '0.72rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 6
-                }}
               >
                 <img src={q.iconImg} alt={q.name} style={{ width: 16, height: 16, imageRendering: 'pixelated' }} />
                 <span>{q.name}</span>
@@ -524,7 +601,7 @@ export const PlayerInventorySheet: React.FC<PlayerInventorySheetProps> = ({
             />
             <button 
               type="submit" 
-              className="btn-primary-save" 
+              className="mc-btn-primary" 
               disabled={actionLoading || !giveItemId.trim()}
               style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '9px 16px' }}
             >

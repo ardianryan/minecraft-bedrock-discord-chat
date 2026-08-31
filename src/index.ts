@@ -1116,6 +1116,130 @@ app.get('/join', async (c) => {
 app.get('/connect', (c) => c.redirect('/join'));
 
 // ==========================================
+// DYNAMIC MINECRAFT & ADDON TEXTURE RESOLVER
+// ==========================================
+const rpCache = new Map<string, string>();
+const textureDiskCacheDir = path.resolve('scratch/texture_cache');
+if (!fs.existsSync(textureDiskCacheDir)) {
+  try { fs.mkdirSync(textureDiskCacheDir, { recursive: true }); } catch {}
+}
+
+function findAddonTexture(query: string): string | null {
+  if (rpCache.has(query)) return rpCache.get(query) || null;
+  const rpDir = path.resolve('scratch/current_server_rp');
+  if (!fs.existsSync(rpDir)) return null;
+
+  const clean = query.replace(/^minecraft:/, '').toLowerCase();
+  const parts = clean.split(':');
+  const ns = parts.length > 1 ? parts[0] : '';
+  const name = parts.length > 1 ? parts[1] : parts[0];
+
+  try {
+    const rps = fs.readdirSync(rpDir);
+    for (const rp of rps) {
+      const p = path.join(rpDir, rp);
+      if (!fs.statSync(p).isDirectory()) continue;
+
+      // 1. Check item_texture.json
+      const itPath = path.join(p, 'textures/item_texture.json');
+      if (fs.existsSync(itPath)) {
+        try {
+          const it = JSON.parse(fs.readFileSync(itPath, 'utf-8'));
+          const data = it.texture_data || {};
+          const key = data[query] || data[clean] || data[name] || data[`${ns}_${name}`] || data[`${ns}:${name}`];
+          if (key && key.textures) {
+            const tex = Array.isArray(key.textures) ? key.textures[0] : key.textures;
+            const texPath = path.join(p, tex.endsWith('.png') ? tex : tex + '.png');
+            if (fs.existsSync(texPath)) {
+              rpCache.set(query, texPath);
+              return texPath;
+            }
+          }
+        } catch {}
+      }
+
+      // 2. Direct candidate file paths
+      const candidates = [
+        path.join(p, 'textures/items', ns, `${name}.png`),
+        path.join(p, 'textures/items', `${name}.png`),
+        path.join(p, 'textures/items', `${ns}_${name}.png`),
+        path.join(p, 'textures/items', `${clean.replace(/:/g, '_')}.png`),
+        path.join(p, 'textures/blocks', `${name}.png`),
+        path.join(p, 'textures/blocks', `${ns}_${name}.png`),
+      ];
+      for (const c of candidates) {
+        if (fs.existsSync(c)) {
+          rpCache.set(query, c);
+          return c;
+        }
+      }
+    }
+  } catch {}
+
+  rpCache.set(query, '');
+  return null;
+}
+
+app.get('/api/textures/items/:id', async (c) => {
+  const id = c.req.param('id');
+  if (!id) return c.text('Not found', 404);
+
+  const clean = id.replace(/^minecraft:/, '').toLowerCase();
+
+  // 1. Check local public icons first (e.g. diamond, emerald, etc.)
+  const publicIcon = path.resolve(`./client/public/mc-icons/${clean}.png`);
+  if (fs.existsSync(publicIcon)) {
+    c.header('Content-Type', 'image/png');
+    c.header('Cache-Control', 'public, max-age=31536000, immutable');
+    return c.body(fs.readFileSync(publicIcon));
+  }
+
+  // 2. Check local disk cache
+  const cachedFile = path.join(textureDiskCacheDir, `${clean.replace(/[:\/]/g, '_')}.png`);
+  if (fs.existsSync(cachedFile)) {
+    c.header('Content-Type', 'image/png');
+    c.header('Cache-Control', 'public, max-age=31536000, immutable');
+    return c.body(fs.readFileSync(cachedFile));
+  }
+
+  // 3. Search local addon resource packs
+  const addonFile = findAddonTexture(id);
+  if (addonFile && fs.existsSync(addonFile)) {
+    c.header('Content-Type', 'image/png');
+    c.header('Cache-Control', 'public, max-age=31536000, immutable');
+    return c.body(fs.readFileSync(addonFile));
+  }
+
+  // 4. Fallback: Attempt fetch from official Mojang Bedrock Samples repository
+  const nameOnly = clean.includes(':') ? clean.split(':')[1] : clean;
+  const urlsToTry = [
+    `https://raw.githubusercontent.com/mojang/bedrock-samples/main/resource_pack/textures/items/${nameOnly}.png`,
+    `https://raw.githubusercontent.com/mojang/bedrock-samples/main/resource_pack/textures/blocks/${nameOnly}.png`,
+    `https://raw.githubusercontent.com/mojang/bedrock-samples/main/resource_pack/textures/blocks/${nameOnly}_top.png`,
+    `https://raw.githubusercontent.com/mojang/bedrock-samples/main/resource_pack/textures/blocks/${nameOnly}_front.png`,
+    `https://raw.githubusercontent.com/mojang/bedrock-samples/main/resource_pack/textures/items/${nameOnly}_item.png`,
+    `https://raw.githubusercontent.com/mojang/bedrock-samples/main/resource_pack/textures/items/bucket_${nameOnly}.png`,
+  ];
+
+  for (const u of urlsToTry) {
+    try {
+      const res = await fetch(u);
+      if (res.ok) {
+        const buf = Buffer.from(await res.arrayBuffer());
+        if (buf.length > 50) {
+          fs.writeFileSync(cachedFile, buf);
+          c.header('Content-Type', 'image/png');
+          c.header('Cache-Control', 'public, max-age=31536000, immutable');
+          return c.body(buf);
+        }
+      }
+    } catch {}
+  }
+
+  return c.text('Texture not found', 404);
+});
+
+// ==========================================
 // MINECRAFT BEDROCK GAME ENDPOINTS
 // ==========================================
 
