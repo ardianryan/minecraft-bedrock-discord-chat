@@ -1,6 +1,6 @@
 {
   "name": "discordmchat",
-  "version": "2.12.0",
+  "version": "2.12.1",
   "description": "Real-time Minecraft Bedrock, Discord, and Web Dashboard integration using Hono.js and React",
   "scripts": {
     "test": "vitest run tests/",

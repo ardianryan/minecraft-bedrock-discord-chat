@@ -38,6 +38,7 @@ import { Sheet } from './Sheet.tsx';
 import { Tooltip } from './Tooltip.tsx';
 import { ServerPanelTab } from './ServerPanelTab.tsx';
 import { PlayerInventorySheet } from './PlayerInventorySheet.tsx';
+import { WorldMaintenancePanel } from './WorldMaintenancePanel.tsx';
 
 interface SystemSettings {
   discord_webhook_url: string;
@@ -81,7 +82,7 @@ interface OfficeDashboardProps {
 }
 
 export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser }) => {
-  const [activeTab, setActiveTab] = useState<'users' | 'moderation' | 'server' | 'settings'>('users');
+  const [activeTab, setActiveTab] = useState<'users' | 'moderation' | 'server' | 'world' | 'settings'>('users');
   const [selectedPlayerForInv, setSelectedPlayerForInv] = useState<string | null>(null);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState<boolean>(false);
   const [users, setUsers] = useState<AuthUser[]>([]);
@@ -509,6 +510,18 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
 
           <button 
             type="button"
+            className={`admin-nav-btn ${activeTab === 'world' ? 'active' : ''}`}
+            onClick={() => { setActiveTab('world'); setIsMobileSidebarOpen(false); }}
+          >
+            <div className="admin-nav-btn-inner">
+              <img src="/mc-icons/grass_block.png" alt="World" style={{ width: 18, height: 18, imageRendering: 'pixelated' }} />
+              <span>World & Chunks</span>
+            </div>
+            <span className="admin-nav-counter" style={{ background: 'rgba(52, 211, 153, 0.2)', color: '#34d399' }}>Smart</span>
+          </button>
+
+          <button 
+            type="button"
             className={`admin-nav-btn ${activeTab === 'settings' ? 'active' : ''}`}
             onClick={() => { setActiveTab('settings'); setIsMobileSidebarOpen(false); }}
           >
@@ -525,7 +538,7 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
             <span>Back to Live Chat</span>
           </a>
           <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 4px' }}>
-            <span>Version v2.12.0</span>
+            <span>Version v2.12.1</span>
             <span style={{ color: '#34d399', display: 'flex', alignItems: 'center', gap: 4 }}>
               <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#34d399' }} /> Active
             </span>
@@ -552,6 +565,7 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
                   {activeTab === 'users' && 'User Directory & Roles'}
                   {activeTab === 'moderation' && 'Player Roster & Inventory'}
                   {activeTab === 'server' && 'Hardware Control & Console'}
+                  {activeTab === 'world' && 'World & Smart Chunk Manager'}
                   {activeTab === 'settings' && 'Integration & SEO Settings'}
                 </strong>
               </div>
@@ -1532,6 +1546,11 @@ const API_KEY = "${settings.api_key || 'SECRET_BEARER_TOKEN'}";`}
       {/* TAB 4: SERVER CONTROLS & PANELS */}
       {activeTab === 'server' && (
         <ServerPanelTab onRefreshAll={fetchSettings} />
+      )}
+
+      {/* TAB 5: WORLD & CHUNK MAINTENANCE */}
+      {activeTab === 'world' && (
+        <WorldMaintenancePanel />
       )}
 
       </div> {/* Closes admin-main-viewport */}

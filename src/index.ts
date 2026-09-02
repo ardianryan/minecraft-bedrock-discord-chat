@@ -49,6 +49,7 @@ import {
 } from './db.js';
 import { authRouter } from './routes/auth.js';
 import { officeRouter } from './routes/office.js';
+import { worldMaintenanceRouter } from './routes/worldMaintenance.js';
 
 dotenv.config();
 
@@ -867,6 +868,7 @@ export async function initDiscordBot() {
 // Sub-routers
 app.route('/api/auth', authRouter);
 app.route('/api/office', officeRouter);
+app.route('/api/game/world', worldMaintenanceRouter);
 
 // Leaderboard API Check
 app.get('/api/leaderboard', async (c) => {

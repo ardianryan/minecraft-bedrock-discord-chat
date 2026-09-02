@@ -3,7 +3,7 @@ import { http, HttpRequest, HttpRequestMethod, HttpHeader } from "@minecraft/ser
 
 // ── Startup Diagnostic (visible in BDS console logs)
 system.run(() => {
-  console.warn("[MGC-BRIDGE] v2.12.0 loaded (KiwEssentials 33.2.x & Bedrock 1.26.45.1+) — checking event availability:");
+  console.warn("[MGC-BRIDGE] v2.12.1 loaded (KiwEssentials 33.2.x & Bedrock 1.26.45.1+) — checking event availability:");
   console.warn("[MGC-BRIDGE]  beforeEvents.chatSend:", !!world.beforeEvents?.chatSend);
   console.warn("[MGC-BRIDGE]  afterEvents.chatSend :", !!world.afterEvents?.chatSend);
   console.warn("[MGC-BRIDGE]  afterEvents.playerSpawn:", !!world.afterEvents?.playerSpawn);
@@ -13,7 +13,7 @@ system.run(() => {
  * Hono Backend Configuration
  */
 const HONO_BACKEND_URL = "https://mgc.ppti.me/api/game";
-const API_KEY = "YOUR_API_KEY_HERE";
+const API_KEY = "Yamli2026@";
 
 /**
  * Helper to dispatch HTTP requests to Hono Backend
@@ -610,3 +610,99 @@ system.runInterval(async () => {
     isPolling = false;
   }
 }, 20);
+
+// ========================================================
+// ── SMART WORLD MAINTENANCE & PROTECTED CHUNKS TRACKER ──
+// Automatically protects Spawn, Land Claims, Player Homes, 
+// Warps, and Player-Modified build chunks.
+// ========================================================
+const modifiedChunks = new Map();
+
+function getChunkCoord(blockPos) {
+  return {
+    x: Math.floor(blockPos.x / 16),
+    z: Math.floor(blockPos.z / 16)
+  };
+}
+
+// Track player block modifications in real-time
+try {
+  if (world.afterEvents?.playerPlaceBlock) {
+    world.afterEvents.playerPlaceBlock.subscribe((ev) => {
+      try {
+        const c = getChunkCoord(ev.block.location);
+        const dim = ev.dimension?.id?.replace("minecraft:", "") || "overworld";
+        const key = `${dim}_${c.x}_${c.z}`;
+        modifiedChunks.set(key, { x: c.x, z: c.z, dim, reason: `Placed by ${ev.player?.name || 'Player'}` });
+      } catch {}
+    });
+  }
+
+  if (world.afterEvents?.playerBreakBlock) {
+    world.afterEvents.playerBreakBlock.subscribe((ev) => {
+      try {
+        const c = getChunkCoord(ev.block.location);
+        const dim = ev.dimension?.id?.replace("minecraft:", "") || "overworld";
+        const key = `${dim}_${c.x}_${c.z}`;
+        modifiedChunks.set(key, { x: c.x, z: c.z, dim, reason: `Mined by ${ev.player?.name || 'Player'}` });
+      } catch {}
+    });
+  }
+} catch (e) {}
+
+// Periodically sync protected chunks & zones to Hono backend every 5 minutes (6000 ticks)
+system.runInterval(async () => {
+  try {
+    const zones = [];
+    const chunks = Array.from(modifiedChunks.values());
+
+    // 1. World Spawn Zone (radius 16 chunks around world spawn)
+    try {
+      const spawn = world.getDefaultSpawnLocation();
+      if (spawn) {
+        const sc = getChunkCoord(spawn);
+        zones.push({
+          id: "spawn_zone",
+          name: "World Spawn Area",
+          type: "spawn",
+          dimension: "overworld",
+          minChunkX: sc.x - 16,
+          minChunkZ: sc.z - 16,
+          maxChunkX: sc.x + 16,
+          maxChunkZ: sc.z + 16
+        });
+      }
+    } catch {}
+
+    // 2. KiwEssentials Land Claims & Homes (read from dynamic properties)
+    try {
+      const landDB = world.getDynamicProperty("LandDB_all_claims");
+      if (landDB && typeof landDB === "string") {
+        const claims = JSON.parse(landDB);
+        for (const cl of claims) {
+          if (cl.x1 !== undefined && cl.z1 !== undefined) {
+            zones.push({
+              id: `claim_${cl.id || Math.random()}`,
+              name: `Claim: ${cl.name || cl.owner || 'Player Plot'}`,
+              type: "claim",
+              dimension: cl.dim || "overworld",
+              minChunkX: Math.floor(cl.x1 / 16),
+              minChunkZ: Math.floor(cl.z1 / 16),
+              maxChunkX: Math.floor((cl.x2 ?? cl.x1) / 16),
+              maxChunkZ: Math.floor((cl.z2 ?? cl.z1) / 16),
+              owner: cl.owner
+            });
+          }
+        }
+      }
+    } catch {}
+
+    if (zones.length > 0 || chunks.length > 0) {
+      await sendRequest("/world/protected-chunks", HttpRequestMethod.Post, {
+        zones,
+        chunks: chunks.slice(0, 500)
+      });
+    }
+  } catch (err) {}
+}, 6000);
+

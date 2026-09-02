@@ -217,7 +217,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.78rem', color: '#64748b' }}>
               <Sparkles size={14} color="#38bdf8" />
-              <span>{serverName} • Bedrock Bridge v2.12.0</span>
+              <span>{serverName} • Bedrock Bridge v2.12.1</span>
             </div>
           </div>
         </div>
