@@ -5,11 +5,14 @@ dist/
 client/node_modules/
 client/dist/
 scratch/
-mcaddon/*
-!mcaddon/addon-items/
-!mcaddon/addon-items/**
+mcaddon/KiwEssentials/
+mcaddon/*.mcpack
+mcaddon/*.zip
+mcaddon/*.mcaddon
+KiwEssentials/
 KiwBP/
 KiwRP/
 releases/
 *.mcpack
 *.zip
+*.mcaddon
