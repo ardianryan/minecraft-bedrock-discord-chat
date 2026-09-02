@@ -27,6 +27,8 @@ interface WorldStats {
   estimatedSpaceSavingsFormatted: string;
   lastPruneTimestamp: string | null;
   serverRunning: boolean;
+  panelConnected?: boolean;
+  panelProvider?: string;
 }
 
 interface ProtectedZone {
