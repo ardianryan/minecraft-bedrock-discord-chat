@@ -23,7 +23,16 @@ worldMaintenanceRouter.get('/stats', async (c) => {
 worldMaintenanceRouter.get('/protected-zones', (c) => {
   try {
     const zones = getProtectedZones();
-    return c.json({ success: true, zones });
+    const counts = {
+      total: zones.length,
+      spawn: zones.filter(z => z.type === 'spawn').length,
+      claim: zones.filter(z => z.type === 'claim').length,
+      warp: zones.filter(z => z.type === 'warp').length,
+      pwarp: zones.filter(z => z.type === 'pwarp').length,
+      lobby: zones.filter(z => z.type === 'lobby').length,
+      build: zones.filter(z => z.type === 'build').length,
+    };
+    return c.json({ success: true, zones, counts });
   } catch (err: any) {
     return c.json({ success: false, error: err.message }, 500);
   }

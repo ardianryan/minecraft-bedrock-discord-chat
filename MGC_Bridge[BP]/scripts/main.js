@@ -650,48 +650,206 @@ try {
   }
 } catch (e) {}
 
-// Periodically sync protected chunks & zones to Hono backend every 5 minutes (6000 ticks)
+// Periodically sync protected chunks & zones (Spawns, Warps, PWarps, Claims, Lobby) every 2 minutes (2400 ticks)
 system.runInterval(async () => {
   try {
     const zones = [];
     const chunks = Array.from(modifiedChunks.values());
 
-    // 1. World Spawn Zone (radius 16 chunks around world spawn)
+    // 1. World Spawn Area
     try {
       const spawn = world.getDefaultSpawnLocation();
       if (spawn) {
         const sc = getChunkCoord(spawn);
         zones.push({
           id: "spawn_zone",
-          name: "World Spawn Area",
+          name: "World Spawn Protection Area",
           type: "spawn",
           dimension: "overworld",
           minChunkX: sc.x - 16,
           minChunkZ: sc.z - 16,
           maxChunkX: sc.x + 16,
-          maxChunkZ: sc.z + 16
+          maxChunkZ: sc.z + 16,
+          blockX: Math.round(spawn.x),
+          blockY: Math.round(spawn.y),
+          blockZ: Math.round(spawn.z),
+          description: "Main World Spawn Point & Protection"
         });
       }
     } catch {}
 
-    // 2. KiwEssentials Land Claims & Homes (read from dynamic properties)
+    // 2. Server Warps (KiwEssentials)
     try {
-      const landDB = world.getDynamicProperty("LandDB_all_claims");
-      if (landDB && typeof landDB === "string") {
-        const claims = JSON.parse(landDB);
-        for (const cl of claims) {
-          if (cl.x1 !== undefined && cl.z1 !== undefined) {
-            zones.push({
-              id: `claim_${cl.id || Math.random()}`,
-              name: `Claim: ${cl.name || cl.owner || 'Player Plot'}`,
-              type: "claim",
-              dimension: cl.dim || "overworld",
-              minChunkX: Math.floor(cl.x1 / 16),
-              minChunkZ: Math.floor(cl.z1 / 16),
-              maxChunkX: Math.floor((cl.x2 ?? cl.x1) / 16),
-              maxChunkZ: Math.floor((cl.z2 ?? cl.z1) / 16),
-              owner: cl.owner
-            });
+      const warpList = [];
+      const rawWarps = world.getDynamicProperty("warps");
+      if (rawWarps) {
+        try {
+          const parsed = JSON.parse(rawWarps);
+          if (Array.isArray(parsed)) warpList.push(...parsed);
+          else if (typeof parsed === "object") warpList.push(...Object.values(parsed));
+        } catch {}
+      }
+      const rawMeta = world.getDynamicProperty("warps_meta");
+      if (rawMeta) {
+        try {
+          const meta = JSON.parse(rawMeta);
+          const totalChunks = meta.totalChunks || 0;
+          for (let i = 0; i < totalChunks; i++) {
+            const chunkStr = world.getDynamicProperty("warps_chunk_" + i);
+            if (chunkStr) {
+              const chunkWarps = JSON.parse(chunkStr);
+              if (Array.isArray(chunkWarps)) warpList.push(...chunkWarps);
+            }
+          }
+        } catch {}
+      }
+
+      for (const w of warpList) {
+        if (!w || !w.name) continue;
+        const loc = w.location || w.pos || w;
+        if (loc.x !== undefined && loc.z !== undefined) {
+          const cx = Math.floor(loc.x / 16);
+          const cz = Math.floor(loc.z / 16);
+          zones.push({
+            id: `warp_${w.name}`,
+            name: `Warp: ${w.name}`,
+            type: "warp",
+            dimension: w.dimension || "overworld",
+            minChunkX: cx - 2,
+            minChunkZ: cz - 2,
+            maxChunkX: cx + 2,
+            maxChunkZ: cz + 2,
+            blockX: Math.round(loc.x),
+            blockY: Math.round(loc.y ?? 64),
+            blockZ: Math.round(loc.z),
+            description: w.description || "Server Fast Travel Warp",
+            owner: w.createdBy || "Server Admin"
+          });
+        }
+      }
+    } catch {}
+
+    // 3. Player Warps (PWarp)
+    try {
+      const pwarpNamesRaw = world.getDynamicProperty("pwarp_index");
+      if (pwarpNamesRaw) {
+        const pwarpNames = JSON.parse(pwarpNamesRaw);
+        if (Array.isArray(pwarpNames)) {
+          for (const name of pwarpNames) {
+            const raw = world.getDynamicProperty(`pwarp_${name}`);
+            if (raw) {
+              const pw = JSON.parse(raw);
+              if (pw && pw.location) {
+                const cx = Math.floor(pw.location.x / 16);
+                const cz = Math.floor(pw.location.z / 16);
+                zones.push({
+                  id: `pwarp_${pw.name || name}`,
+                  name: `PWarp: ${pw.name || name}`,
+                  type: "pwarp",
+                  dimension: pw.dimension || "overworld",
+                  minChunkX: cx - 2,
+                  minChunkZ: cz - 2,
+                  maxChunkX: cx + 2,
+                  maxChunkZ: cz + 2,
+                  blockX: Math.round(pw.location.x),
+                  blockY: Math.round(pw.location.y ?? 64),
+                  blockZ: Math.round(pw.location.z),
+                  owner: pw.ownerName || pw.owner || "Player",
+                  ownerName: pw.ownerName || pw.owner,
+                  description: pw.description || (pw.isPublic ? "Public Player Warp" : "Private Player Warp"),
+                  isPublic: pw.isPublic ?? true
+                });
+              }
+            }
+          }
+        }
+      }
+    } catch {}
+
+    // 4. Player Land Claims (KiwEssentials Land System)
+    try {
+      let playerNamesMap = {};
+      const rawNames = world.getDynamicProperty("land_player_names");
+      if (rawNames) {
+        try { playerNamesMap = JSON.parse(rawNames) || {}; } catch {}
+      }
+
+      const claimList = [];
+      if (typeof world.getDynamicPropertyIds === "function") {
+        const allIds = world.getDynamicPropertyIds();
+        for (const pid of allIds) {
+          if (pid.startsWith("land_claims_safe_") || (pid.startsWith("land_claims_") && !pid.includes("revision") && !pid.includes("counter") && !pid.includes("corrupt"))) {
+            try {
+              const raw = world.getDynamicProperty(pid);
+              if (raw) {
+                const parsed = JSON.parse(raw);
+                if (Array.isArray(parsed)) claimList.push(...parsed);
+                else if (parsed && typeof parsed === "object") claimList.push(parsed);
+              }
+            } catch {}
+          }
+        }
+      }
+
+      for (const cl of claimList) {
+        if (!cl) continue;
+        const p1 = cl.pos1 || { x: cl.x1, y: cl.y1, z: cl.z1 };
+        const p2 = cl.pos2 || { x: cl.x2, y: cl.y2, z: cl.z2 };
+        if (p1?.x !== undefined && p1?.z !== undefined) {
+          const x1 = Math.min(p1.x, p2?.x ?? p1.x);
+          const z1 = Math.min(p1.z, p2?.z ?? p1.z);
+          const x2 = Math.max(p1.x, p2?.x ?? p1.x);
+          const z2 = Math.max(p1.z, p2?.z ?? p1.z);
+          const ownerDisplay = playerNamesMap[cl.owner] || cl.ownerName || cl.owner || "Unknown Player";
+          zones.push({
+            id: `claim_${cl.id || cl.claimId || `${x1}_${z1}`}`,
+            name: `Land: ${cl.name || ownerDisplay + "'s Claim"}`,
+            type: "claim",
+            dimension: cl.dimension || cl.dim || "overworld",
+            minChunkX: Math.floor(x1 / 16),
+            minChunkZ: Math.floor(z1 / 16),
+            maxChunkX: Math.floor(x2 / 16),
+            maxChunkZ: Math.floor(z2 / 16),
+            blockX: Math.round(x1),
+            blockY: Math.round(p1.y ?? 64),
+            blockZ: Math.round(z1),
+            owner: ownerDisplay,
+            ownerName: ownerDisplay,
+            description: cl.description || `Size: ${Math.abs(x2 - x1) + 1}x${Math.abs(z2 - z1) + 1} blocks`,
+            membersCount: Array.isArray(cl.members) ? cl.members.length : 0
+          });
+        }
+      }
+    } catch {}
+
+    // 5. Lobby & Admin Protected Regions
+    try {
+      const rawRegions = world.getDynamicProperty("protectedRegions") || world.getDynamicProperty("lobby_protected_regions");
+      if (rawRegions) {
+        const regions = JSON.parse(rawRegions);
+        if (Array.isArray(regions)) {
+          for (const reg of regions) {
+            if (reg.pos1 && reg.pos2) {
+              const x1 = Math.min(reg.pos1.x, reg.pos2.x);
+              const z1 = Math.min(reg.pos1.z, reg.pos2.z);
+              const x2 = Math.max(reg.pos1.x, reg.pos2.x);
+              const z2 = Math.max(reg.pos1.z, reg.pos2.z);
+              zones.push({
+                id: `lobby_${reg.id || reg.name}`,
+                name: `Lobby: ${reg.name}`,
+                type: "lobby",
+                dimension: "overworld",
+                minChunkX: Math.floor(x1 / 16),
+                minChunkZ: Math.floor(z1 / 16),
+                maxChunkX: Math.floor(x2 / 16),
+                maxChunkZ: Math.floor(z2 / 16),
+                blockX: Math.round(x1),
+                blockY: Math.round(reg.pos1.y ?? 64),
+                blockZ: Math.round(z1),
+                owner: reg.createdBy || "Admin",
+                description: `Mode: ${reg.mode || "Protected Lobby"}`
+              });
+            }
           }
         }
       }
@@ -704,5 +862,5 @@ system.runInterval(async () => {
       });
     }
   } catch (err) {}
-}, 6000);
+}, 2400);
 

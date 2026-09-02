@@ -6,13 +6,20 @@ import { getLiveServerStats, sendServerConsoleCommand, PanelConfig } from './pan
 export interface ProtectedZone {
   id: string;
   name: string;
-  type: 'spawn' | 'claim' | 'home' | 'warp' | 'build';
+  type: 'spawn' | 'claim' | 'home' | 'warp' | 'pwarp' | 'lobby' | 'build';
   dimension: 'overworld' | 'nether' | 'the_end';
   minChunkX: number;
   minChunkZ: number;
   maxChunkX: number;
   maxChunkZ: number;
+  blockX?: number;
+  blockY?: number;
+  blockZ?: number;
   owner?: string;
+  ownerName?: string;
+  description?: string;
+  isPublic?: boolean;
+  membersCount?: number;
   updatedAt: string;
 }
 
