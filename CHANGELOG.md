@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.12.1] - 2026-09-02
+
+### 🌟 Smart World Maintenance & Zero World Border System
+- **🗺️ Smart Chunk Pruning & LevelDB Compaction**:
+  - Implemented the automated **Smart Chunk Pruning System** allowing players to explore without restrictive world borders.
+  - Automatically identifies and prunes empty transient exploration chunks while preserving 100% of Spawn, Land Claims, Player Homes, Warps, and Player-built block chunks.
+  - Automatic safety snapshot backups (`db_backup_<timestamp>`) created before maintenance execution.
+- **🖥️ Web Dashboard World & Chunks Portal**:
+  - Added dedicated **World & Chunks** management tab in Office Admin Portal with real-time storage metrics, whitelisted zone breakdowns, and 1-click smart pruning.
+- **🛍️ KiwEssentials Shop Deep Audit & 5 New Addons**:
+  - Integrated 5 new Nico Addons: *Nico's Magic Spells (v1.3.4)*, *Nico's Cave Expansion (v1.9.5)*, *Nico's Item Expansion (v1.14.4)*, *Nico's Mobs (v1.14.0)*, and *Nico's More Dungeon (v1.7.5)*.
+  - Added *Fast Craft* QoL resource pack for instant bulk crafting and trading.
+  - Filtered out 117 raw / intermediate / technical dummy blocks from the shop, ensuring only 2,117 pure finished and playable items are listed.
+- **🌐 100% English Localization**:
+  - All admin dashboard interfaces, modals, and system alerts are localized to clean, modern English.
+
+---
+
 ## [2.12.0] - 2026-08-29
 
 ### 🚀 Minecraft Bedrock 1.26.45.1 Engine & KiwEssentials 33.2.1 Major Update
