@@ -514,7 +514,7 @@ export const OfficeDashboard: React.FC<OfficeDashboardProps> = ({ currentUser })
             onClick={() => { setActiveTab('world'); setIsMobileSidebarOpen(false); }}
           >
             <div className="admin-nav-btn-inner">
-              <img src="/mc-icons/grass_block.png" alt="World" style={{ width: 18, height: 18, imageRendering: 'pixelated' }} />
+              <img src="/mc-icons/ender_pearl.png" alt="World" style={{ width: 18, height: 18, imageRendering: 'pixelated' }} />
               <span>World & Chunks</span>
             </div>
             <span className="admin-nav-counter" style={{ background: 'rgba(52, 211, 153, 0.2)', color: '#34d399' }}>Smart</span>
