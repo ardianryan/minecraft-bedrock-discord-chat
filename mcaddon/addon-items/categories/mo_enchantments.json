@@ -1,0 +1,531 @@
+{
+  "id": "mo_enchantments",
+  "name": "§l§0(§5§lSPECIAL ENCHANTMENTS§l§0)",
+  "icon": "textures/items/book_raiyon",
+  "description": "Special enchanted books, boomshot, sweeping and soul enchantments",
+  "itemCount": 58,
+  "items": [
+    {
+      "textures": "textures/blocks/reinforced_table",
+      "name": "Reinforced Enchantment Table",
+      "cost": 180000,
+      "sell": 36000,
+      "data": 0,
+      "item": "raiyon:reinforced_enchantment_table",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Boomshot I Applicable to: Bow",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:boomshot_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Boomshot II Applicable to: Bow",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "book:boomshot_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Bounce I Applicable to: Shield",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:bounce_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Bounce II Applicable to: Shield",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "book:bounce_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Burning Thorns I Applicable to: Armor",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:burning_thorns_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Burning Thorns II Applicable to: Armor",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "book:burning_thorns_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Cowardice I Applicable to: Leggings",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:cowardice_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Cowardice II Applicable to: Leggings",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "book:cowardice_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Deep Breaker Applicable to: Pickaxe",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:deep_breaker",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Double Jump I Applicable to: Boots",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:double_jump_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Double Jump II Applicable to: Boots",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "book:double_jump_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Enraged I Applicable to: Spear",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:enraged_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Enraged II Applicable to: Spear",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "book:enraged_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Fire Charge Applicable to: Crossbow",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:fire_charge",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Glowing Aura I Applicable to: Helmet",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:glowing_aura_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Glowing Aura II Applicable to: Helmet",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "book:glowing_aura_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Iron Wings I Applicable to: Elytra",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:iron_wings_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Iron Wings II Applicable to: Elytra",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "book:iron_wings_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Lava Walker I Applicable to: Boots",
+      "cost": 85000,
+      "sell": 17000,
+      "data": 0,
+      "item": "book:lava_walker_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Lava Walker II Applicable to: Boots",
+      "cost": 85000,
+      "sell": 17000,
+      "data": 0,
+      "item": "book:lava_walker_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Leeching I Applicable to: Sword, Axe, Mace, Spear & Trident",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:leeching_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Leeching II Applicable to: Sword, Axe, Mace, Spear & Trident",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "book:leeching_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Meteor Smash Applicable to: Mace",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:meteor_smash",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Multi Arrow Applicable to: Bow",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:multi_arrow",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Poison Puff I Applicable to: Trident & Spear",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:poison_puff_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Poison Puff II Applicable to: Trident & Spear",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "book:poison_puff_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Reckless I Applicable to: Chestplate & Elytra",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:reckless_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Reckless II Applicable to: Chestplate & Elytra",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "book:reckless_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Reckless III Applicable to: Chestplate & Elytra",
+      "cost": 85000,
+      "sell": 17000,
+      "data": 0,
+      "item": "book:reckless_iii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Spikes I Applicable to: Shield",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:spikes_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Spikes II Applicable to: Shield",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "book:spikes_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Smelting I Applicable to: Pickaxe & Shovel",
+      "cost": 85000,
+      "sell": 17000,
+      "data": 0,
+      "item": "book:smelting_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Smelting II Applicable to: Pickaxe & Shovel",
+      "cost": 85000,
+      "sell": 17000,
+      "data": 0,
+      "item": "book:smelting_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Sonic Charge I Applicable to: Crossbow",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:sonic_charge_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Sonic Charge II Applicable to: Crossbow",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "book:sonic_charge_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Soul Fire I Applicable to: Sword & Spear",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:soul_fire_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Soul Fire II Applicable to: Sword & Spear",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "book:soul_fire_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Sweeping Edge I Applicable to: Sword",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:sweeping_edge_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Sweeping Edge II Applicable to: Sword",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "book:sweeping_edge_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Sweeping Edge III Applicable to: Sword",
+      "cost": 85000,
+      "sell": 17000,
+      "data": 0,
+      "item": "book:sweeping_edge_iii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Vitality I Applicable to: Chestplate & Elytra",
+      "cost": 85000,
+      "sell": 17000,
+      "data": 0,
+      "item": "book:vitality_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Vitality II Applicable to: Chestplate & Elytra",
+      "cost": 85000,
+      "sell": 17000,
+      "data": 0,
+      "item": "book:vitality_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Vitality III Applicable to: Chestplate & Elytra",
+      "cost": 85000,
+      "sell": 17000,
+      "data": 0,
+      "item": "book:vitality_iii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Vitality IV Applicable to: Chestplate & Elytra",
+      "cost": 85000,
+      "sell": 17000,
+      "data": 0,
+      "item": "book:vitality_iv",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Vitality V Applicable to: Chestplate & Elytra",
+      "cost": 85000,
+      "sell": 17000,
+      "data": 0,
+      "item": "book:vitality_v",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Wind Charge I Applicable to: Elytra",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "book:wind_charge_i",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Enchanted book Wind Charge II Applicable to: Elytra",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "book:wind_charge_ii",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Magma 0",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "raiyon:magma_0",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Magma 1",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "raiyon:magma_1",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Magma 2",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "raiyon:magma_2",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Magma 3",
+      "cost": 85000,
+      "sell": 17000,
+      "data": 0,
+      "item": "raiyon:magma_3",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Magma 4",
+      "cost": 85000,
+      "sell": 17000,
+      "data": 0,
+      "item": "raiyon:magma_4",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Magma 5",
+      "cost": 85000,
+      "sell": 17000,
+      "data": 0,
+      "item": "raiyon:magma_5",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Magma 6",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "raiyon:magma_6",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Magma 7",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "raiyon:magma_7",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Magma 8",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "raiyon:magma_8",
+      "addon": "Mo' Enchantments"
+    },
+    {
+      "textures": "textures/items/book_raiyon",
+      "name": "Magma 9",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "raiyon:magma_9",
+      "addon": "Mo' Enchantments"
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "id": "armored_elytras",
+  "name": "§l§0(§d§lARMORED ELYTRAS§l§0)",
+  "icon": "textures/items/elytra",
+  "description": "Upgraded reinforced combat and armored elytras",
+  "itemCount": 18,
+  "items": [
+    {
+      "textures": "textures/items/elytra/colytra/chainmail_chestplate",
+      "name": "Chainmail Colytra",
+      "cost": 120000,
+      "sell": 25000,
+      "data": 0,
+      "item": "rme:chain_chestplate",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra/colytra/copper_chestplate",
+      "name": "Copper Colytra",
+      "cost": 120000,
+      "sell": 25000,
+      "data": 0,
+      "item": "rme:copper_chestplate",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra/colytra/diamond_chestplate",
+      "name": "Diamond Colytra",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "rme:diamond_chestplate",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra",
+      "name": "金製Colytra",
+      "cost": 150000,
+      "sell": 30000,
+      "data": 0,
+      "item": "rme:gold_chestplate",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra/colytra/iron_chestplate",
+      "name": "Iron Colytra",
+      "cost": 120000,
+      "sell": 25000,
+      "data": 0,
+      "item": "rme:iron_chestplate",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra/colytra/netherite_chestplate",
+      "name": "Netherite Colytra",
+      "cost": 350000,
+      "sell": 70000,
+      "data": 0,
+      "item": "rme:netherite_chestplate",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra",
+      "name": "鎖鏈Colytra",
+      "cost": 150000,
+      "sell": 30000,
+      "data": 0,
+      "item": "rme:chain_chestplate_b",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra",
+      "name": "銅製Colytra",
+      "cost": 150000,
+      "sell": 30000,
+      "data": 0,
+      "item": "rme:copper_chestplate_b",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra",
+      "name": "鑽石Colytra",
+      "cost": 150000,
+      "sell": 30000,
+      "data": 0,
+      "item": "rme:diamond_chestplate_b",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra",
+      "name": "金製Colytra",
+      "cost": 150000,
+      "sell": 30000,
+      "data": 0,
+      "item": "rme:gold_chestplate_b",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra",
+      "name": "鐵製Colytra",
+      "cost": 150000,
+      "sell": 30000,
+      "data": 0,
+      "item": "rme:iron_chestplate_b",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra",
+      "name": "獄髓Colytra",
+      "cost": 150000,
+      "sell": 30000,
+      "data": 0,
+      "item": "rme:netherite_chestplate_b",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra",
+      "name": "%item.rms_chain_chestplate.name %slot.armor.chest.when_equipped +5 %attribute.name.generic.armor",
+      "cost": 120000,
+      "sell": 25000,
+      "data": 0,
+      "item": "rme:chain_chestplate_p",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra",
+      "name": "%item.rms_copper_chestplate.name %slot.armor.chest.when_equipped +4 %attribute.name.generic.armor",
+      "cost": 120000,
+      "sell": 25000,
+      "data": 0,
+      "item": "rme:copper_chestplate_p",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra",
+      "name": "%item.rms_diamond_chestplate.name %slot.armor.chest.when_equipped +8 %attribute.name.generic.armor +2 %attribute.name.generic.armorToughness",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "rme:diamond_chestplate_p",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra",
+      "name": "%item.rms_gold_chestplate.name %slot.armor.chest.when_equipped +5 %attribute.name.generic.armor",
+      "cost": 160000,
+      "sell": 32000,
+      "data": 0,
+      "item": "rme:gold_chestplate_p",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra",
+      "name": "%item.rms_iron_chestplate.name %slot.armor.chest.when_equipped +6 %attribute.name.generic.armor",
+      "cost": 120000,
+      "sell": 25000,
+      "data": 0,
+      "item": "rme:iron_chestplate_p",
+      "addon": "Armored Elytras"
+    },
+    {
+      "textures": "textures/items/elytra",
+      "name": "%item.rms_netherite_chestplate.name %slot.armor.chest.when_equipped +8 %attribute.name.generic.armor +3 %attribute.name.generic.armorToughness +1 %attribute.name.generic.knockbackResistance",
+      "cost": 350000,
+      "sell": 70000,
+      "data": 0,
+      "item": "rme:netherite_chestplate_p",
+      "addon": "Armored Elytras"
+    }
+  ]
+}

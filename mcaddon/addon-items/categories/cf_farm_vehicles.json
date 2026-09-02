@@ -1,0 +1,18 @@
+{
+  "id": "cf_farm_vehicles",
+  "name": "§l§0(§2§lFARM VEHICLES & TRACTORS§l§0)",
+  "icon": "textures/items/minecart_normal",
+  "description": "Heavy tractors and harvesters",
+  "itemCount": 1,
+  "items": [
+    {
+      "textures": "textures/sgs/farm/items/entities/item_tractor",
+      "name": "Tractor",
+      "cost": 150000,
+      "sell": 30000,
+      "data": 0,
+      "item": "sgs_farm:tractor",
+      "addon": "Crops & Farms 1.21"
+    }
+  ]
+}

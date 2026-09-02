@@ -1,0 +1,936 @@
+{
+  "id": "nico_food_potions",
+  "name": "§l§0(§a§lEXPANSION FOOD & POTIONS§l§0)",
+  "icon": "textures/items/apple",
+  "description": "Custom pies, juices, mob dishes and potions",
+  "items": [
+    {
+      "textures": "textures/items/moss_berries",
+      "name": "Moss Berries",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:moss_berries",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/moss_berry_cookie",
+      "name": "Moss Berry Cookie",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:moss_berry_cookie",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/moss_berry_pie",
+      "name": "Moss Berry Pie",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:moss_berry_pie",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/mosshroom_stew",
+      "name": "Mosshroom Stew",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:mosshroom_stew",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/amethyst_apple",
+      "name": "Amethyst Apple",
+      "cost": 35000,
+      "sell": 6000,
+      "data": 0,
+      "item": "ntk:amethyst_apple",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/apple_pie",
+      "name": "Apple Pie",
+      "cost": 35000,
+      "sell": 6000,
+      "data": 0,
+      "item": "ntk:apple_pie",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/bamboo_cup_with_chocolate",
+      "name": "Bamboo Cup With Chocolate",
+      "cost": 6000,
+      "sell": 1200,
+      "data": 0,
+      "item": "ntk:bamboo_cup_with_chocolate",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/bamboo_cup_with_glow_berry_juice",
+      "name": "Bamboo Cup With Glow Berry Juice",
+      "cost": 6000,
+      "sell": 1200,
+      "data": 0,
+      "item": "ntk:bamboo_cup_with_glow_berry_juice",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/bamboo_cup_with_milk",
+      "name": "Bamboo Cup With Milk",
+      "cost": 6000,
+      "sell": 1200,
+      "data": 0,
+      "item": "ntk:bamboo_cup_with_milk",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/bamboo_cup_with_sweet_berry_juice",
+      "name": "Bamboo Cup With Sweet Berry Juice",
+      "cost": 6000,
+      "sell": 1200,
+      "data": 0,
+      "item": "ntk:bamboo_cup_with_sweet_berry_juice",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/bamboo_cup_with_water",
+      "name": "Bamboo Cup With Water",
+      "cost": 6000,
+      "sell": 1200,
+      "data": 0,
+      "item": "ntk:bamboo_cup_with_water",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/beetroot_pie",
+      "name": "Beetroot Pie",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:beetroot_pie",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/blazing_apple",
+      "name": "Blazing Apple",
+      "cost": 35000,
+      "sell": 6000,
+      "data": 0,
+      "item": "ntk:blazing_apple",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/cactus_stew",
+      "name": "Cactus Stew",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:cactus_stew",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/carrot_soup",
+      "name": "Carrot Soup",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:carrot_soup",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/cheese",
+      "name": "Cheese",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:cheese",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/cheese_bread",
+      "name": "Cheese Bread",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:cheese_bread",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/chocolate_bar",
+      "name": "Chocolate Bar",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:chocolate_bar",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/chorus_stew",
+      "name": "Chorus Stew",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:chorus_stew",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/cooked_pufferfish",
+      "name": "Cooked Pufferfish",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:cooked_pufferfish",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/cooked_tropical_fish",
+      "name": "Cooked Tropical Fish",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:cooked_tropical_fish",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/copper_apple",
+      "name": "Copper Apple",
+      "cost": 35000,
+      "sell": 6000,
+      "data": 0,
+      "item": "ntk:copper_apple",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/crimson_stew",
+      "name": "Crimson Stew",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:crimson_stew",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/diamond_apple",
+      "name": "Diamond Apple",
+      "cost": 35000,
+      "sell": 6000,
+      "data": 0,
+      "item": "ntk:diamond_apple",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/egg_sandwich",
+      "name": "Egg Sandwich",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:egg_sandwich",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/emerald_apple",
+      "name": "Emerald Apple",
+      "cost": 35000,
+      "sell": 6000,
+      "data": 0,
+      "item": "ntk:emerald_apple",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/empty_bamboo_cup",
+      "name": "Empty Bamboo Cup",
+      "cost": 6000,
+      "sell": 1200,
+      "data": 0,
+      "item": "ntk:empty_bamboo_cup",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/fried_egg",
+      "name": "Fried Egg",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:fried_egg",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/glow_berry_cookie",
+      "name": "Glow Berry Cookie",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:glow_berry_cookie",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/glow_berry_pie",
+      "name": "Glow Berry Pie",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:glow_berry_pie",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/glow_lichen_stew",
+      "name": "Glow Lichen Stew",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:glow_lichen_stew",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/iron_apple",
+      "name": "Iron Apple",
+      "cost": 35000,
+      "sell": 6000,
+      "data": 0,
+      "item": "ntk:iron_apple",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/jar_of_chocolate_full",
+      "name": "Jar Of Chocolate Full",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:jar_of_chocolate_full",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/jar_of_chocolate_half",
+      "name": "Jar Of Chocolate Half",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:jar_of_chocolate_half",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/jar_of_glow_berry_juice_full",
+      "name": "Jar Of Glow Berry Juice Full",
+      "cost": 6000,
+      "sell": 1200,
+      "data": 0,
+      "item": "ntk:jar_of_glow_berry_juice_full",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/jar_of_glow_berry_juice_half",
+      "name": "Jar Of Glow Berry Juice Half",
+      "cost": 6000,
+      "sell": 1200,
+      "data": 0,
+      "item": "ntk:jar_of_glow_berry_juice_half",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/jar_of_honey_full",
+      "name": "Jar Of Honey Full",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:jar_of_honey_full",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/jar_of_honey_half",
+      "name": "Jar Of Honey Half",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:jar_of_honey_half",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/jar_of_milk_full",
+      "name": "Jar Of Milk Full",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:jar_of_milk_full",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/jar_of_milk_half",
+      "name": "Jar Of Milk Half",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:jar_of_milk_half",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/jar_of_sweet_berry_juice_full",
+      "name": "Jar Of Sweet Berry Juice Full",
+      "cost": 6000,
+      "sell": 1200,
+      "data": 0,
+      "item": "ntk:jar_of_sweet_berry_juice_full",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/jar_of_sweet_berry_juice_half",
+      "name": "Jar Of Sweet Berry Juice Half",
+      "cost": 6000,
+      "sell": 1200,
+      "data": 0,
+      "item": "ntk:jar_of_sweet_berry_juice_half",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/jar_of_water_full",
+      "name": "Jar Of Water Full",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:jar_of_water_full",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/jar_of_water_half",
+      "name": "Jar Of Water Half",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:jar_of_water_half",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/lapis_lazuli_apple",
+      "name": "Lapis Lazuli Apple",
+      "cost": 35000,
+      "sell": 6000,
+      "data": 0,
+      "item": "ntk:lapis_lazuli_apple",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/netherite_apple",
+      "name": "Netherite Apple",
+      "cost": 35000,
+      "sell": 6000,
+      "data": 0,
+      "item": "ntk:netherite_apple",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/pea_stew",
+      "name": "Pea Stew",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:pea_stew",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/potato_soup",
+      "name": "Potato Soup",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:potato_soup",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/pumpkin_slice",
+      "name": "Pumpkin Slice",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:pumpkin_slice",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/pumpkin_stew",
+      "name": "Pumpkin Stew",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:pumpkin_stew",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/roasted_melon_seeds",
+      "name": "Roasted Melon Seeds",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:roasted_melon_seeds",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/roasted_pumpkin_seeds",
+      "name": "Roasted Pumpkin Seeds",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:roasted_pumpkin_seeds",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/seagrass_stew",
+      "name": "Seagrass Stew",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:seagrass_stew",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/soup",
+      "name": "Soup",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:soup",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/sweet_berry_cookie",
+      "name": "Sweet Berry Cookie",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:sweet_berry_cookie",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/sweet_berry_pie",
+      "name": "Sweet Berry Pie",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:sweet_berry_pie",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/warped_stew",
+      "name": "Warped Stew",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:warped_stew",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/black_jellyfish_polyp",
+      "name": "Black Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:black_jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/black_jellyfish_slime",
+      "name": "Black Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:black_jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/blue_jellyfish_polyp",
+      "name": "Blue Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:blue_jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/blue_jellyfish_slime",
+      "name": "Blue Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:blue_jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/bottle_of_plankton",
+      "name": "Bottle Of Plankton",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:bottle_of_plankton",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/brown_jellyfish_polyp",
+      "name": "Brown Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:brown_jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/brown_jellyfish_slime",
+      "name": "Brown Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:brown_jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/bucket_of_jellyfish",
+      "name": "Bucket Of Jellyfish",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:bucket_of_jellyfish",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/chorus_jelly",
+      "name": "Chorus Jelly",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:chorus_jelly",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/cooked_arthropod_meat",
+      "name": "Cooked Arthropod Meat",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:cooked_arthropod_meat",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/cooked_clurve_meat",
+      "name": "Cooked Clurve Meat",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:cooked_clurve_meat",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/cooked_lurknash_meat",
+      "name": "Cooked Lurknash Meat",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:cooked_lurknash_meat",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/cooked_moa",
+      "name": "Cooked Moa",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:cooked_moa",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/cooked_squirrel",
+      "name": "Cooked Squirrel",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:cooked_squirrel",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/cyan_jellyfish_polyp",
+      "name": "Cyan Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:cyan_jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/cyan_jellyfish_slime",
+      "name": "Cyan Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:cyan_jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/gray_jellyfish_polyp",
+      "name": "Gray Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:gray_jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/gray_jellyfish_slime",
+      "name": "Gray Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:gray_jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/green_jellyfish_polyp",
+      "name": "Green Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:green_jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/green_jellyfish_slime",
+      "name": "Green Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:green_jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/jellyfish_polyp",
+      "name": "Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/jellyfish_slime",
+      "name": "Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/large_fried_egg",
+      "name": "Large Fried Egg",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:large_fried_egg",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/light_blue_jellyfish_polyp",
+      "name": "Light Blue Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:light_blue_jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/light_blue_jellyfish_slime",
+      "name": "Light Blue Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:light_blue_jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/light_gray_jellyfish_polyp",
+      "name": "Light Gray Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:light_gray_jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/light_gray_jellyfish_slime",
+      "name": "Light Gray Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:light_gray_jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/lime_jellyfish_polyp",
+      "name": "Lime Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:lime_jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/lime_jellyfish_slime",
+      "name": "Lime Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:lime_jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/magenta_jellyfish_polyp",
+      "name": "Magenta Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:magenta_jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/magenta_jellyfish_slime",
+      "name": "Magenta Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:magenta_jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/orange_jellyfish_polyp",
+      "name": "Orange Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:orange_jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/orange_jellyfish_slime",
+      "name": "Orange Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:orange_jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/pink_jellyfish_polyp",
+      "name": "Pink Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:pink_jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/pink_jellyfish_slime",
+      "name": "Pink Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:pink_jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/purple_jellyfish_polyp",
+      "name": "Purple Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:purple_jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/purple_jellyfish_slime",
+      "name": "Purple Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:purple_jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/red_jellyfish_polyp",
+      "name": "Red Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:red_jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/red_jellyfish_slime",
+      "name": "Red Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:red_jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/white_jellyfish_polyp",
+      "name": "White Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:white_jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/white_jellyfish_slime",
+      "name": "White Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:white_jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/yellow_jellyfish_polyp",
+      "name": "Yellow Jellyfish Polyp",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:yellow_jellyfish_polyp",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/yellow_jellyfish_slime",
+      "name": "Yellow Jellyfish Slime",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:yellow_jellyfish_slime",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/cooked_rat",
+      "name": "Cooked Rat",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:cooked_rat",
+      "addon": "Nicos More Dungeon"
+    },
+    {
+      "textures": "textures/items/potion_of_brute",
+      "name": "Potion Of Brute",
+      "cost": 35000,
+      "sell": 6000,
+      "data": 0,
+      "item": "ntk:potion_of_brute",
+      "addon": "Nicos More Dungeon"
+    },
+    {
+      "textures": "textures/items/rotten_brute_flesh",
+      "name": "Rotten Brute Flesh",
+      "cost": 4000,
+      "sell": 800,
+      "data": 0,
+      "item": "ntk:rotten_brute_flesh",
+      "addon": "Nicos More Dungeon"
+    }
+  ],
+  "itemCount": 103
+}

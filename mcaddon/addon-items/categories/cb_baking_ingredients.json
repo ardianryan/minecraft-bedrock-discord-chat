@@ -1,0 +1,513 @@
+{
+  "id": "cb_baking_ingredients",
+  "name": "§l§0(§d§lBAKING INGREDIENTS§l§0)",
+  "icon": "textures/items/sugar",
+  "description": "Flour, butter, cocoa and dough",
+  "itemCount": 56,
+  "items": [
+    {
+      "textures": "textures/sgs/cake/items/food/item_ice_cream_cake",
+      "name": "Cake Icecream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:ice_cream_cake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_nut_butter_filled_danish",
+      "name": "Danish Nut",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:nut_butter_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_nut_butter_milkshake",
+      "name": "Milkshake Nut",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:nut_butter_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_nut_butter_filled_tart",
+      "name": "Tart Nut",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:nut_butter_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/misc/butter_churn",
+      "name": "Butter Churn",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:butter_churn",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/misc/icecream_churn",
+      "name": "Ice Cream Churn",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:icecream_churn",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_filling",
+      "name": "Apple Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:apple_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_ice_cream",
+      "name": "Apple Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:apple_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_filling",
+      "name": "Banana Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:banana_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_ice_cream",
+      "name": "Banana Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:banana_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_filling",
+      "name": "Blueberry Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:blueberry_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_ice_cream",
+      "name": "Blueberry Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:blueberry_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_butter",
+      "name": "Butter",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:butter",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_cocoa_butter",
+      "name": "Cocoa Butter",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:cocoa_butter",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_coffee_filling",
+      "name": "Coffee Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:coffee_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_coffee_ice_cream",
+      "name": "Coffee Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:coffee_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_cream_bottle",
+      "name": "Cream Bottle",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:cream_bottle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dark_chocolate_bar",
+      "name": "Dark Chocolate Bar",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:dark_chocolate_bar",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dark_chocolate_filling",
+      "name": "Dark Chocolate Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:dark_chocolate_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dark_chocolate_ice_cream",
+      "name": "Dark Chocolate Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:dark_chocolate_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_filling",
+      "name": "Fruit Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:fruit_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_ice_cream",
+      "name": "Fruit Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:fruit_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_filling",
+      "name": "Mango Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:mango_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_ice_cream",
+      "name": "Mango Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:mango_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_matcha_filling",
+      "name": "Matcha Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:matcha_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_matcha_ice_cream",
+      "name": "Matcha Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:matcha_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_milk_chocolate_bar",
+      "name": "Milk Chocolate Bar",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:milk_chocolate_bar",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_milk_chocolate_filling",
+      "name": "Milk Chocolate Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:milk_chocolate_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_milk_chocolate_ice_cream",
+      "name": "Milk Chocolate Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:milk_chocolate_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_molten_sugar",
+      "name": "Molten Sugar",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:molten_sugar",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_nut_butter",
+      "name": "Nut Butter",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:nut_butter",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_nut_butter_candy",
+      "name": "Nut Butter Candy",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:nut_butter_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_nut_butter_filling",
+      "name": "Nut Butter Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:nut_butter_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_nut_butter_glaze",
+      "name": "Nut Butter Glaze",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:nut_butter_glaze",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_nut_butter_glazed_donut",
+      "name": "Nut Butter Glazed Donut",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:nut_butter_glazed_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_nut_butter_ice_cream",
+      "name": "Nut Butter Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:nut_butter_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_nut_butter_lollypop",
+      "name": "Nut Butter Lollypop",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:nut_butter_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_nut_butter_macaron",
+      "name": "Nut Butter Macaron",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:nut_butter_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_nut_butter_macaron_half",
+      "name": "Nut Butter Macaron Half",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:nut_butter_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_nut_butter_popsicle",
+      "name": "Nut Butter Popsicle",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:nut_butter_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_filling",
+      "name": "Plum Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:plum_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_ice_cream",
+      "name": "Plum Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:plum_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pumpkin_spice_filling",
+      "name": "Pumpkin Spice Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:pumpkin_spice_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pumpkin_spice_ice_cream",
+      "name": "Pumpkin Spice Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:pumpkin_spice_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberries_and_cream",
+      "name": "Strawberries And Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:strawberries_and_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_filling",
+      "name": "Strawberry Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:strawberry_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_ice_cream",
+      "name": "Strawberry Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:strawberry_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweet_berry_filling",
+      "name": "Sweet Berry Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweet_berry_ice_cream",
+      "name": "Sweet Berry Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_toffee_filling",
+      "name": "Toffee Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:toffee_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_toffee_ice_cream",
+      "name": "Toffee Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:toffee_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_vanilla_filling",
+      "name": "Vanilla Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:vanilla_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_vanilla_ice_cream",
+      "name": "Vanilla Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:vanilla_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_white_chocolate_bar",
+      "name": "White Chocolate Bar",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:white_chocolate_bar",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_white_chocolate_filling",
+      "name": "White Chocolate Filling",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:white_chocolate_filling",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_white_chocolate_ice_cream",
+      "name": "White Chocolate Ice Cream",
+      "cost": 120,
+      "sell": 25,
+      "data": 0,
+      "item": "sgs_cake:white_chocolate_ice_cream",
+      "addon": "Cakes & Bakes 1.0"
+    }
+  ]
+}

@@ -1,0 +1,945 @@
+{
+  "id": "nico_magic_spells",
+  "name": "§l§0(§d§lMAGIC SPELLS & TOMES§l§0)",
+  "icon": "textures/items/book_enchanted",
+  "description": "Wands, spell scrolls, and magic tomes",
+  "items": [
+    {
+      "textures": "textures/items/arcane_staff",
+      "name": "Arcane Staff",
+      "cost": 180000,
+      "sell": 30000,
+      "data": 0,
+      "item": "ntk:arcane_staff",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/blazing_staff",
+      "name": "Blazing Staff",
+      "cost": 180000,
+      "sell": 30000,
+      "data": 0,
+      "item": "ntk:blazing_staff",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/book_of_biomes",
+      "name": "Book Of Biomes",
+      "cost": 75000,
+      "sell": 12000,
+      "data": 0,
+      "item": "ntk:book_of_biomes",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/levitation_staff",
+      "name": "Levitation Staff",
+      "cost": 180000,
+      "sell": 30000,
+      "data": 0,
+      "item": "ntk:levitation_staff",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/staff_of_the_sea",
+      "name": "Staff Of The Sea",
+      "cost": 180000,
+      "sell": 30000,
+      "data": 0,
+      "item": "ntk:staff_of_the_sea",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/teleportation_staff",
+      "name": "Teleportation Staff",
+      "cost": 180000,
+      "sell": 30000,
+      "data": 0,
+      "item": "ntk:teleportation_staff",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/sealing_bookmark",
+      "name": "Sealing Bookmark",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:sealing_bookmark",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/amethyst_spellweaver_wand",
+      "name": "Amethyst Spellweaver Wand",
+      "cost": 120000,
+      "sell": 20000,
+      "data": 0,
+      "item": "ntk:amethyst_spellweaver_wand",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/amethyst_wand",
+      "name": "Amethyst Wand",
+      "cost": 120000,
+      "sell": 20000,
+      "data": 0,
+      "item": "ntk:amethyst_wand",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/diamond_spellweaver_wand",
+      "name": "Diamond Spellweaver Wand",
+      "cost": 120000,
+      "sell": 20000,
+      "data": 0,
+      "item": "ntk:diamond_spellweaver_wand",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/diamond_wand",
+      "name": "Diamond Wand",
+      "cost": 120000,
+      "sell": 20000,
+      "data": 0,
+      "item": "ntk:diamond_wand",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/empty_scroll",
+      "name": "Empty Scroll",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:empty_scroll",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/golden_spellweaver_wand",
+      "name": "Golden Spellweaver Wand",
+      "cost": 120000,
+      "sell": 20000,
+      "data": 0,
+      "item": "ntk:golden_spellweaver_wand",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/golden_wand",
+      "name": "Golden Wand",
+      "cost": 120000,
+      "sell": 20000,
+      "data": 0,
+      "item": "ntk:golden_wand",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/learning_book_of_book_keeping",
+      "name": "Learning Book Of Book Keeping",
+      "cost": 75000,
+      "sell": 12000,
+      "data": 0,
+      "item": "ntk:learning_book_of_book_keeping",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/learning_book_of_scrollwright",
+      "name": "Learning Book Of Scrollwright",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:learning_book_of_scrollwright",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/quartz_spellweaver_wand",
+      "name": "Quartz Spellweaver Wand",
+      "cost": 120000,
+      "sell": 20000,
+      "data": 0,
+      "item": "ntk:quartz_spellweaver_wand",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/quartz_wand",
+      "name": "Quartz Wand",
+      "cost": 120000,
+      "sell": 20000,
+      "data": 0,
+      "item": "ntk:quartz_wand",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_acceleration_1",
+      "name": "Scroll Of Acceleration 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_acceleration_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_acceleration_2",
+      "name": "Scroll Of Acceleration 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_acceleration_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_acceleration_3",
+      "name": "Scroll Of Acceleration 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_acceleration_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_berserk_1",
+      "name": "Scroll Of Berserk 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_berserk_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_berserk_2",
+      "name": "Scroll Of Berserk 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_berserk_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_berserk_3",
+      "name": "Scroll Of Berserk 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_berserk_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_cleansing_1",
+      "name": "Scroll Of Cleansing 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_cleansing_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_cleansing_2",
+      "name": "Scroll Of Cleansing 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_cleansing_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_cleansing_3",
+      "name": "Scroll Of Cleansing 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_cleansing_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_clear_sky",
+      "name": "Scroll Of Clear Sky",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_clear_sky",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_converging_1",
+      "name": "Scroll Of Converging 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_converging_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_converging_2",
+      "name": "Scroll Of Converging 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_converging_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_converging_3",
+      "name": "Scroll Of Converging 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_converging_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_displacement_1",
+      "name": "Scroll Of Displacement 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_displacement_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_displacement_2",
+      "name": "Scroll Of Displacement 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_displacement_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_displacement_3",
+      "name": "Scroll Of Displacement 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_displacement_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_earthquake_1",
+      "name": "Scroll Of Earthquake 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_earthquake_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_earthquake_2",
+      "name": "Scroll Of Earthquake 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_earthquake_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_earthquake_3",
+      "name": "Scroll Of Earthquake 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_earthquake_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_field_levitation_1",
+      "name": "Scroll Of Field Levitation 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_field_levitation_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_field_levitation_2",
+      "name": "Scroll Of Field Levitation 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_field_levitation_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_field_levitation_3",
+      "name": "Scroll Of Field Levitation 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_field_levitation_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_fire_blast_1",
+      "name": "Scroll Of Fire Blast 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_fire_blast_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_fire_blast_2",
+      "name": "Scroll Of Fire Blast 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_fire_blast_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_fire_blast_3",
+      "name": "Scroll Of Fire Blast 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_fire_blast_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_fire_protection_1",
+      "name": "Scroll Of Fire Protection 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_fire_protection_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_fire_protection_2",
+      "name": "Scroll Of Fire Protection 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_fire_protection_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_fire_protection_3",
+      "name": "Scroll Of Fire Protection 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_fire_protection_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_flame_burst_1",
+      "name": "Scroll Of Flame Burst 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_flame_burst_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_flame_burst_2",
+      "name": "Scroll Of Flame Burst 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_flame_burst_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_flame_burst_3",
+      "name": "Scroll Of Flame Burst 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_flame_burst_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_hoarding_1",
+      "name": "Scroll Of Hoarding 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_hoarding_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_hoarding_2",
+      "name": "Scroll Of Hoarding 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_hoarding_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_hoarding_3",
+      "name": "Scroll Of Hoarding 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_hoarding_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_homeward_bound",
+      "name": "Scroll Of Homeward Bound",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_homeward_bound",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_invisibility_1",
+      "name": "Scroll Of Invisibility 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_invisibility_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_invisibility_2",
+      "name": "Scroll Of Invisibility 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_invisibility_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_invisibility_3",
+      "name": "Scroll Of Invisibility 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_invisibility_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_lethargy_1",
+      "name": "Scroll Of Lethargy 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_lethargy_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_lethargy_2",
+      "name": "Scroll Of Lethargy 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_lethargy_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_lethargy_3",
+      "name": "Scroll Of Lethargy 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_lethargy_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_lightning_bolt_1",
+      "name": "Scroll Of Lightning Bolt 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_lightning_bolt_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_lightning_bolt_2",
+      "name": "Scroll Of Lightning Bolt 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_lightning_bolt_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_lightning_bolt_3",
+      "name": "Scroll Of Lightning Bolt 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_lightning_bolt_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_poison_cloud_1",
+      "name": "Scroll Of Poison Cloud 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_poison_cloud_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_poison_cloud_2",
+      "name": "Scroll Of Poison Cloud 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_poison_cloud_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_poison_cloud_3",
+      "name": "Scroll Of Poison Cloud 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_poison_cloud_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_protection_1",
+      "name": "Scroll Of Protection 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_protection_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_protection_2",
+      "name": "Scroll Of Protection 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_protection_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_protection_3",
+      "name": "Scroll Of Protection 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_protection_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_purification_1",
+      "name": "Scroll Of Purification 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_purification_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_purification_2",
+      "name": "Scroll Of Purification 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_purification_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_purification_3",
+      "name": "Scroll Of Purification 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_purification_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_rain",
+      "name": "Scroll Of Rain",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_rain",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_regeneration_1",
+      "name": "Scroll Of Regeneration 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_regeneration_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_regeneration_2",
+      "name": "Scroll Of Regeneration 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_regeneration_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_regeneration_3",
+      "name": "Scroll Of Regeneration 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_regeneration_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_resurgence_1",
+      "name": "Scroll Of Resurgence 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_resurgence_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_resurgence_2",
+      "name": "Scroll Of Resurgence 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_resurgence_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_resurgence_3",
+      "name": "Scroll Of Resurgence 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_resurgence_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_slowness_1",
+      "name": "Scroll Of Slowness 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_slowness_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_slowness_2",
+      "name": "Scroll Of Slowness 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_slowness_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_slowness_3",
+      "name": "Scroll Of Slowness 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_slowness_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_strength_1",
+      "name": "Scroll Of Strength 1",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_strength_1",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_strength_2",
+      "name": "Scroll Of Strength 2",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_strength_2",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_strength_3",
+      "name": "Scroll Of Strength 3",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_strength_3",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_thunderstorm",
+      "name": "Scroll Of Thunderstorm",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_thunderstorm",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/scroll_of_weaving_webs",
+      "name": "Scroll Of Weaving Webs",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:scroll_of_weaving_webs",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/sealed_virtuous_flying_book",
+      "name": "Sealed Virtuous Flying Book",
+      "cost": 75000,
+      "sell": 12000,
+      "data": 0,
+      "item": "ntk:sealed_virtuous_flying_book",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/summoning_scroll_of_bogged",
+      "name": "Summoning Scroll Of Bogged",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:summoning_scroll_of_bogged",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/summoning_scroll_of_iron_golem",
+      "name": "Summoning Scroll Of Iron Golem",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:summoning_scroll_of_iron_golem",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/summoning_scroll_of_magma_cube",
+      "name": "Summoning Scroll Of Magma Cube",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:summoning_scroll_of_magma_cube",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/summoning_scroll_of_parched",
+      "name": "Summoning Scroll Of Parched",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:summoning_scroll_of_parched",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/summoning_scroll_of_skeleton",
+      "name": "Summoning Scroll Of Skeleton",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:summoning_scroll_of_skeleton",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/summoning_scroll_of_slime",
+      "name": "Summoning Scroll Of Slime",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:summoning_scroll_of_slime",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/summoning_scroll_of_snow_golem",
+      "name": "Summoning Scroll Of Snow Golem",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:summoning_scroll_of_snow_golem",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/summoning_scroll_of_stray",
+      "name": "Summoning Scroll Of Stray",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:summoning_scroll_of_stray",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/summoning_scroll_of_sulfur_cube",
+      "name": "Summoning Scroll Of Sulfur Cube",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:summoning_scroll_of_sulfur_cube",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/summoning_scroll_of_wither_skeleton",
+      "name": "Summoning Scroll Of Wither Skeleton",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:summoning_scroll_of_wither_skeleton",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/unknown_scroll",
+      "name": "Unknown Scroll",
+      "cost": 30000,
+      "sell": 5000,
+      "data": 0,
+      "item": "ntk:unknown_scroll",
+      "addon": "Nicos Magic Spells"
+    },
+    {
+      "textures": "textures/items/book_of_curses",
+      "name": "Book Of Curses",
+      "cost": 75000,
+      "sell": 12000,
+      "data": 0,
+      "item": "ntk:book_of_curses",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/sealed_cursed_flying_book",
+      "name": "Sealed Cursed Flying Book",
+      "cost": 75000,
+      "sell": 12000,
+      "data": 0,
+      "item": "ntk:sealed_cursed_flying_book",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/sealed_enchanted_flying_book",
+      "name": "Sealed Enchanted Flying Book",
+      "cost": 75000,
+      "sell": 12000,
+      "data": 0,
+      "item": "ntk:sealed_enchanted_flying_book",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/sealed_flying_book",
+      "name": "Sealed Flying Book",
+      "cost": 75000,
+      "sell": 12000,
+      "data": 0,
+      "item": "ntk:sealed_flying_book",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/curserer_staff",
+      "name": "Curserer Staff",
+      "cost": 180000,
+      "sell": 30000,
+      "data": 0,
+      "item": "ntk:curserer_staff",
+      "addon": "Nicos More Dungeon"
+    },
+    {
+      "textures": "textures/items/piglin_fire_staff",
+      "name": "Piglin Fire Staff",
+      "cost": 180000,
+      "sell": 30000,
+      "data": 0,
+      "item": "ntk:piglin_fire_staff",
+      "addon": "Nicos More Dungeon"
+    }
+  ],
+  "itemCount": 104
+}

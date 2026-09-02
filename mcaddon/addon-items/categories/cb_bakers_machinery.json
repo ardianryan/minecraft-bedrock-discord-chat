@@ -1,0 +1,1557 @@
+{
+  "id": "cb_bakers_machinery",
+  "name": "§l§0(§6§lBAKER'S MACHINERY§l§0)",
+  "icon": "textures/blocks/furnace_front_off",
+  "description": "Ovens, mixers and bakery counters",
+  "itemCount": 172,
+  "items": [
+    {
+      "textures": "textures/sgs/cake/items/icons/item_baker_hat",
+      "name": "Baker's Hat",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "sgs_cake:baker_hat",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/misc/item_blender",
+      "name": "Blender",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:blender",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oven Brick",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "sgs_cake:oven_brick",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/misc/prep_table",
+      "name": "Baker's Prep Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:prep_table",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/misc/trader_station_baker",
+      "name": "Baker's Market Stall",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "sgs_cake:trader_station_baker",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/apple",
+      "name": "Van Baker",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "sgs_cake:van_baker",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/apple",
+      "name": "Villager Baker",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "sgs_cake:villager_baker",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/apple",
+      "name": "Villager Baker Stand",
+      "cost": 35000,
+      "sell": 7000,
+      "data": 0,
+      "item": "sgs_cake:villager_baker_stand",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia Café Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_cafe_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia Wooden Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_wood_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo Café Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_cafe_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo Wooden Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_wood_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch Café Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_cafe_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch Wooden Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_wood_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Café Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_cafe_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Wooden Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_wood_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak Café Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_cafe_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak Wooden Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_wood_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle Café Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_cafe_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle Wooden Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_wood_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove Café Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_cafe_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove Wooden Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_wood_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak Café Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_cafe_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak Wooden Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_wood_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak Café Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_cafe_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak Wooden Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_wood_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce Café Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_cafe_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce Wooden Table",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:table_wood_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia Cabinet Base",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_base_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia Open Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia Open Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_basket_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia Shelf Rack",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia Shelf Rack & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_basket_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Acacia Cabinet & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_basket_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia Cabinet with Door",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_door_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Acacia Cabinet",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_open_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_basket_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cloth Covered Acacia Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_cloth_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tall Acacia Cake Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tall_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tiered Acacia Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tier_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo Cabinet Base",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_base_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo Open Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo Open Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_basket_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo Shelf Rack",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo Shelf Rack & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_basket_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Bamboo Cabinet & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_basket_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo Cabinet with Door",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_door_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Bamboo Cabinet",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_open_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_basket_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cloth Covered Bamboo Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_cloth_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tall Bamboo Cake Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tall_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tiered Bamboo Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tier_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch Cabinet Base",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_base_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch Open Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_basket_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch Open Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch Shelf Rack & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_basket_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch Shelf Rack",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Birch Cabinet & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_basket_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch Cabinet with Door",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_door_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Birch Cabinet",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_open_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_basket_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cloth Covered Birch Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_cloth_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tall Birch Cake Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tall_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tiered Birch Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tier_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Cabinet Base",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_base_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Open Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_basket_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Open Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Shelf Rack & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_basket_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Shelf Rack",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Cherry Cabinet & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_basket_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Cabinet with Door",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_door_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Cherry Cabinet",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_open_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_basket_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cloth Covered Cherry Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_cloth_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tall Cherry Cake Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tall_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tiered Cherry Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tier_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak Cabinet Base",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_base_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak Open Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_basket_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak Open Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak Shelf Rack & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_basket_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak Shelf Rack",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Dark Oak Cabinet & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_basket_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak Cabinet with Door",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_door_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Dark Oak Cabinet",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_open_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_basket_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cloth Covered Dark Oak Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_cloth_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tall Dark Oak Cake Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tall_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tiered Dark Oak Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tier_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tall Iron Cake Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tall_iron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tiered Iron Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tier_iron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle Cabinet Base",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_base_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle Open Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_basket_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle Open Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle Shelf Rack & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_basket_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle Shelf Rack",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Jungle Cabinet & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_basket_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle Cabinet with Door",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_door_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Jungle Cabinet",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_open_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_basket_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cloth Covered Jungle Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_cloth_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tall Jungle Cake Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tall_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tiered Jungle Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tier_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove Cabinet Base",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_base_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove Open Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_basket_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove Open Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove Shelf Rack & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_basket_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove Shelf Rack",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Mangrove Cabinet & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_basket_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove Cabinet with Door",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_door_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Mangrove Cabinet",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_open_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_basket_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cloth Covered Mangrove Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_cloth_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tall Mangrove Cake Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tall_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tiered Mangrove Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tier_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak Cabinet Base",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_base_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak Open Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_basket_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak Open Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak Shelf Rack & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_basket_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak Shelf Rack",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Oak Cabinet & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_basket_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak Cabinet with Door",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_door_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Oak Cabinet",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_open_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_basket_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cloth Covered Oak Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_cloth_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tall Oak Cake Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tall_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tiered Oak Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tier_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak Cabinet Base",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_base_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak Open Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_basket_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak Open Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak Shelf Rack & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_basket_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak Shelf Rack",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Pale Oak Cabinet & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_basket_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak Cabinet with Door",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_door_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Pale Oak Cabinet",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_open_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_basket_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cloth Covered Pale Oak Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_cloth_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tall Pale Oak Cake Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tall_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tiered Pale Oak Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tier_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tall Quartz Cake Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tall_quartz",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tiered Quartz Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tier_quartz",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce Cabinet Base",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_base_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce Open Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_basket_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce Open Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_open_shelf_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce Shelf Rack & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_basket_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce Shelf Rack",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_rack_shelf_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Spruce Cabinet & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_basket_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce Cabinet with Door",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_door_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Open Spruce Cabinet",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_open_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce Cabinet Shelf & Basket",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_basket_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce Cabinet Shelf",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:cabinet_top_shelf_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cloth Covered Spruce Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_cloth_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce Baker's Counter",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:counter_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tall Spruce Cake Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tall_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tiered Spruce Stand",
+      "cost": 18000,
+      "sell": 3500,
+      "data": 0,
+      "item": "sgs_cake:display_stand_tier_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    }
+  ]
+}

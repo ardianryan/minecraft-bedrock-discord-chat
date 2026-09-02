@@ -1,0 +1,45 @@
+{
+  "id": "ib_backpacks",
+  "name": "§l§0(§6§lBACKPACKS§l§0)",
+  "icon": "textures/bp/backpack_xl",
+  "description": "Small, medium, big and extra large backpacks",
+  "itemCount": 4,
+  "items": [
+    {
+      "textures": "textures/bp/backpack",
+      "name": "Backpack [Small]",
+      "cost": 50000,
+      "sell": 10000,
+      "data": 0,
+      "item": "bps:backpack",
+      "addon": "Improved Backpacks V4.3"
+    },
+    {
+      "textures": "textures/bp/backpack_medium",
+      "name": "Backpack [Medium]",
+      "cost": 120000,
+      "sell": 25000,
+      "data": 0,
+      "item": "bps:backpack_medium",
+      "addon": "Improved Backpacks V4.3"
+    },
+    {
+      "textures": "textures/bp/backpack_big",
+      "name": "Backpack [Big]",
+      "cost": 250000,
+      "sell": 50000,
+      "data": 0,
+      "item": "bps:backpack_big",
+      "addon": "Improved Backpacks V4.3"
+    },
+    {
+      "textures": "textures/bp/backpack_xl",
+      "name": "Backpack [Xtra Big]",
+      "cost": 500000,
+      "sell": 100000,
+      "data": 0,
+      "item": "bps:backpack_xl",
+      "addon": "Improved Backpacks V4.3"
+    }
+  ]
+}

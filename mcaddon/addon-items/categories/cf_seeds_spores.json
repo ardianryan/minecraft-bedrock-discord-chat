@@ -1,0 +1,864 @@
+{
+  "id": "cf_seeds_spores",
+  "name": "§l§0(§3§lCROP SEEDS & SAPLINGS§l§0)",
+  "icon": "textures/items/seeds_wheat",
+  "description": "Vegetable, fruit and tree seeds",
+  "itemCount": 95,
+  "items": [
+    {
+      "textures": "textures/items/seeds_wheat",
+      "name": "Region Seed",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:region_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/entities/item_spawn_egg_seed_sheep",
+      "name": "Seed Sheep",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:seed_sheep",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/sapling_fruit_apple_green",
+      "name": "Green Apple Sapling Block",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:sapling_apple_green",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/sapling_fruit_apple_pink",
+      "name": "Pink Apple Sapling Block",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:sapling_apple_pink",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/sapling_fruit_avocado",
+      "name": "Avocado Sapling Block",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:sapling_avocado",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/sapling_fruit_cherry",
+      "name": "Cherry Sapling Block",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:sapling_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/sapling_fruit_chestnut",
+      "name": "Chestnut Sapling Block",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:sapling_chestnut",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/sapling_fruit_hazelnut",
+      "name": "Hazelnut Sapling Block",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:sapling_hazelnut",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/sapling_fruit_lemon",
+      "name": "Lemon Sapling Block",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:sapling_lemon",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/sapling_fruit_lime",
+      "name": "Lime Sapling Block",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:sapling_lime",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/sapling_fruit_olive",
+      "name": "Olive Sapling Block",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:sapling_olive",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/sapling_fruit_orange",
+      "name": "Orange Sapling Block",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:sapling_orange",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/sapling_fruit_peach",
+      "name": "Peach Sapling Block",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:sapling_peach",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/sapling_fruit_pear",
+      "name": "Pear Sapling Block",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:sapling_pear",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/items/seeds_wheat",
+      "name": "Seed Processor",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:fun_seed_processor",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/items/seeds_wheat",
+      "name": "Seed Recycler",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:fun_seed_recycler",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Ground Pipe",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:fun_pipe",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_artichoke",
+      "name": "Artichoke Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:artichoke_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_asparagus",
+      "name": "Asparagus Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:asparagus_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_beans_green",
+      "name": "Green Bean Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:beans_green_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_blackberries",
+      "name": "Blackberry Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:blackberries_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_blackcurrants",
+      "name": "Blackcurrant Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:blackcurrants_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_blueberries",
+      "name": "Blueberry Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:blueberries_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_broccoli",
+      "name": "Broccoli Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:broccoli_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_butternut_squash",
+      "name": "Butternut Squash Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:butternut_squash_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_cabbage_green",
+      "name": "Green Cabbage Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:cabbage_green_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_cabbage_red",
+      "name": "Red Cabbage Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:cabbage_red_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_cress",
+      "name": "Cress Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:cress_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_cucumber",
+      "name": "Cucumber Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:cucumber_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_eggplant",
+      "name": "Eggplant Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:eggplant_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_fennel",
+      "name": "Fennel Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:fennel_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/sapling_fruit_apple_green",
+      "name": "Green Apple Sapling",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:fruit_apple_green_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/sapling_fruit_apple_pink",
+      "name": "Pink Apple Sapling",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:fruit_apple_pink_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/sapling_fruit_avocado",
+      "name": "Avocado Sapling",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:fruit_avocado_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/sapling_fruit_cherry",
+      "name": "Cherry Sapling",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:fruit_cherry_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/sapling_fruit_chestnut",
+      "name": "Chestnut Sapling",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:fruit_chestnut_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/sapling_fruit_hazelnut",
+      "name": "Hazelnut Sapling",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:fruit_hazelnut_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/sapling_fruit_lemon",
+      "name": "Lemon Sapling",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:fruit_lemon_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/sapling_fruit_lime",
+      "name": "Lime Sapling",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:fruit_lime_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/sapling_fruit_olive",
+      "name": "Olive Sapling",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:fruit_olive_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/sapling_fruit_orange",
+      "name": "Orange Sapling",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:fruit_orange_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/sapling_fruit_peach",
+      "name": "Peach Sapling",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:fruit_peach_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/sapling_fruit_pear",
+      "name": "Pear Sapling",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:fruit_pear_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_garlic",
+      "name": "Garlic Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:garlic_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_ginger",
+      "name": "Ginger Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:ginger_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_gooseberry",
+      "name": "Gooseberry Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:gooseberry_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_grape_green",
+      "name": "Green Grape Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:grape_green_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_grape_red",
+      "name": "Red Grape Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:grape_red_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_leeks",
+      "name": "Leek Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:leeks_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_lettuce",
+      "name": "Lettuce Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:lettuce_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_maize",
+      "name": "Maize Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:maize_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_onions_red",
+      "name": "Red Onion Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:onions_red_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_onions_spring",
+      "name": "Spring Onion Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:onions_spring_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_onions_white",
+      "name": "White Onion Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:onions_white_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_pak_choi",
+      "name": "Pak Choi Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:pak_choi_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_parsnip",
+      "name": "Parsnip Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:parsnip_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_passionfruit",
+      "name": "Passionfruit Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:passionfruit_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_peanuts",
+      "name": "Peanut Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:peanuts_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_peas_garden",
+      "name": "Pea Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:peas_garden_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_peppers_bell",
+      "name": "Bellpepper Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:peppers_bell_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_peppers_chili",
+      "name": "Chili Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:peppers_chili_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_pineapple",
+      "name": "Pineapple Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:pineapple_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_radish",
+      "name": "Radish Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:radish_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_raspberries",
+      "name": "Raspberry Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:raspberries_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_redcurrants",
+      "name": "Redcurrant Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:redcurrants_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_rhubarb",
+      "name": "Rhubarb Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:rhubarb_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_rice",
+      "name": "Rice Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:rice_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_rye",
+      "name": "Rye Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:rye_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_spinach",
+      "name": "Spinach Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:spinach_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_strawberries",
+      "name": "Strawberry Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:strawberries_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_summer_squash",
+      "name": "Summer Squash Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:summer_squash_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_swede",
+      "name": "Swede Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:swede_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_sweetcorn",
+      "name": "Sweetcorn Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:sweetcorn_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_tomato_beef",
+      "name": "Beef Tomato Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:tomato_beef_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_tomato_cherry",
+      "name": "Cherry Tomato Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:tomato_cherry_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_turnip",
+      "name": "Turnip Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:turnip_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_wasabi",
+      "name": "Wasabi Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:wasabi_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_watercress",
+      "name": "Watercress Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:watercress_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_yam",
+      "name": "Yam Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:yam_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_zucchini",
+      "name": "Zuccini Seeds",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:zucchini_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_basil",
+      "name": "Basil Seed",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:basil_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_cilantro",
+      "name": "Cilantro Seed",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:cilantro_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_lavender",
+      "name": "Lavender Seed",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:lavender_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_mint",
+      "name": "Mint Seed",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:mint_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_rosemary",
+      "name": "Rosemary Seed",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:rosemary_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_thyme",
+      "name": "Thyme Seed",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:thyme_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/entities/item_cart_seed",
+      "name": "Cart: Planter",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:cart_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/item_wild_seed",
+      "name": "Wild Seed",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:wild_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/entities/item_mach_seed",
+      "name": "Machine: Planter",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:mach_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/r/item_wild_seed_forest",
+      "name": "Wild Seed Forest",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:wild_seed_forest",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/r/item_wild_seed_jungle",
+      "name": "Wild Seed Jungle",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:wild_seed_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/r/item_wild_seed_mangrove",
+      "name": "Wild Seed Swamp",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:wild_seed_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/r/item_wild_seed_plains",
+      "name": "Wild Seed Plains",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:wild_seed_plains",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/r/item_wild_seed_savanna",
+      "name": "Wild Seed Savanna",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:wild_seed_savanna",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/r/item_wild_seed_taiga",
+      "name": "Wild Seed Taiga",
+      "cost": 80,
+      "sell": 15,
+      "data": 0,
+      "item": "sgs_farm:wild_seed_taiga",
+      "addon": "Crops & Farms 1.21"
+    }
+  ]
+}

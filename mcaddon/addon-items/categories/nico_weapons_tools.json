@@ -1,0 +1,333 @@
+{
+  "id": "nico_weapons_tools",
+  "name": "§l§0(§6§lEXPANSION WEAPONS & TOOLS§l§0)",
+  "icon": "textures/items/diamond_sword",
+  "description": "Brass, platinum, daggers, hammers and spears",
+  "items": [
+    {
+      "textures": "textures/items/brass_axe",
+      "name": "Brass Axe",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:brass_axe",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/brass_hoe",
+      "name": "Brass Hoe",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:brass_hoe",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/brass_pickaxe",
+      "name": "Brass Pickaxe",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:brass_pickaxe",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/brass_shovel",
+      "name": "Brass Shovel",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:brass_shovel",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/brass_spear",
+      "name": "Brass Spear",
+      "cost": 120000,
+      "sell": 20000,
+      "data": 0,
+      "item": "ntk:brass_spear",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/brass_sword",
+      "name": "Brass Sword",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:brass_sword",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/bronze_axe",
+      "name": "Bronze Axe",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:bronze_axe",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/bronze_hoe",
+      "name": "Bronze Hoe",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:bronze_hoe",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/bronze_pickaxe",
+      "name": "Bronze Pickaxe",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:bronze_pickaxe",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/bronze_shovel",
+      "name": "Bronze Shovel",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:bronze_shovel",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/bronze_spear",
+      "name": "Bronze Spear",
+      "cost": 120000,
+      "sell": 20000,
+      "data": 0,
+      "item": "ntk:bronze_spear",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/bronze_sword",
+      "name": "Bronze Sword",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:bronze_sword",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/olivine_axe",
+      "name": "Olivine Axe",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:olivine_axe",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/olivine_hoe",
+      "name": "Olivine Hoe",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:olivine_hoe",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/olivine_pickaxe",
+      "name": "Olivine Pickaxe",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:olivine_pickaxe",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/olivine_shovel",
+      "name": "Olivine Shovel",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:olivine_shovel",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/olivine_spear",
+      "name": "Olivine Spear",
+      "cost": 120000,
+      "sell": 20000,
+      "data": 0,
+      "item": "ntk:olivine_spear",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/olivine_sword",
+      "name": "Olivine Sword",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:olivine_sword",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/tin_axe",
+      "name": "Tin Axe",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:tin_axe",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/tin_hoe",
+      "name": "Tin Hoe",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:tin_hoe",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/tin_pickaxe",
+      "name": "Tin Pickaxe",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:tin_pickaxe",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/tin_shovel",
+      "name": "Tin Shovel",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:tin_shovel",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/tin_spear",
+      "name": "Tin Spear",
+      "cost": 120000,
+      "sell": 20000,
+      "data": 0,
+      "item": "ntk:tin_spear",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/tin_sword",
+      "name": "Tin Sword",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:tin_sword",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/zinc_axe",
+      "name": "Zinc Axe",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:zinc_axe",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/zinc_hoe",
+      "name": "Zinc Hoe",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:zinc_hoe",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/zinc_pickaxe",
+      "name": "Zinc Pickaxe",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:zinc_pickaxe",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/zinc_shovel",
+      "name": "Zinc Shovel",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:zinc_shovel",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/zinc_spear",
+      "name": "Zinc Spear",
+      "cost": 120000,
+      "sell": 20000,
+      "data": 0,
+      "item": "ntk:zinc_spear",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/zinc_sword",
+      "name": "Zinc Sword",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:zinc_sword",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/dripstone_club",
+      "name": "Dripstone Club",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:dripstone_club",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/jar_opener",
+      "name": "Jar Opener",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:jar_opener",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/magma_club",
+      "name": "Magma Club",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:magma_club",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/wooden_club",
+      "name": "Wooden Club",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:wooden_club",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/bone_dagger",
+      "name": "Bone Dagger",
+      "cost": 40000,
+      "sell": 7000,
+      "data": 0,
+      "item": "ntk:bone_dagger",
+      "addon": "Nicos Mobs"
+    },
+    {
+      "textures": "textures/items/piglin_war_hammer",
+      "name": "Piglin War Hammer",
+      "cost": 120000,
+      "sell": 20000,
+      "data": 0,
+      "item": "ntk:piglin_war_hammer",
+      "addon": "Nicos More Dungeon"
+    }
+  ],
+  "itemCount": 36
+}

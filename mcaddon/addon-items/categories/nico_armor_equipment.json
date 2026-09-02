@@ -1,0 +1,252 @@
+{
+  "id": "nico_armor_equipment",
+  "name": "§l§0(§b§lEXPANSION ARMOR & SHIELDS§l§0)",
+  "icon": "textures/items/diamond_chestplate",
+  "description": "Brass & platinum armor, custom shields",
+  "items": [
+    {
+      "textures": "textures/items/brass_boots",
+      "name": "Brass Boots",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:brass_boots",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/brass_chestplate",
+      "name": "Brass Chestplate",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:brass_chestplate",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/brass_helmet",
+      "name": "Brass Helmet",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:brass_helmet",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/brass_leggings",
+      "name": "Brass Leggings",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:brass_leggings",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/bronze_boots",
+      "name": "Bronze Boots",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:bronze_boots",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/bronze_chestplate",
+      "name": "Bronze Chestplate",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:bronze_chestplate",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/bronze_helmet",
+      "name": "Bronze Helmet",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:bronze_helmet",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/bronze_leggings",
+      "name": "Bronze Leggings",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:bronze_leggings",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/olivine_boots",
+      "name": "Olivine Boots",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:olivine_boots",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/olivine_chestplate",
+      "name": "Olivine Chestplate",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:olivine_chestplate",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/olivine_helmet",
+      "name": "Olivine Helmet",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:olivine_helmet",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/olivine_leggings",
+      "name": "Olivine Leggings",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:olivine_leggings",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/tin_boots",
+      "name": "Tin Boots",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:tin_boots",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/tin_chestplate",
+      "name": "Tin Chestplate",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:tin_chestplate",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/tin_helmet",
+      "name": "Tin Helmet",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:tin_helmet",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/tin_leggings",
+      "name": "Tin Leggings",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:tin_leggings",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/zinc_boots",
+      "name": "Zinc Boots",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:zinc_boots",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/zinc_chestplate",
+      "name": "Zinc Chestplate",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:zinc_chestplate",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/zinc_helmet",
+      "name": "Zinc Helmet",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:zinc_helmet",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/zinc_leggings",
+      "name": "Zinc Leggings",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:zinc_leggings",
+      "addon": "Nicos Cave Expansion"
+    },
+    {
+      "textures": "textures/items/farmer_hat",
+      "name": "Farmer Hat",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:farmer_hat",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/fisherman_hat",
+      "name": "Fisherman Hat",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:fisherman_hat",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/fletcher_hat",
+      "name": "Fletcher Hat",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:fletcher_hat",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/librarian_hat",
+      "name": "Librarian Hat",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:librarian_hat",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/shepherd_hat",
+      "name": "Shepherd Hat",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:shepherd_hat",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/totem_of_health_seer",
+      "name": "Totem Of Health Seer",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:totem_of_health_seer",
+      "addon": "Nicos Item Expansion"
+    },
+    {
+      "textures": "textures/items/witch_hat",
+      "name": "Witch Hat",
+      "cost": 45000,
+      "sell": 7500,
+      "data": 0,
+      "item": "ntk:witch_hat",
+      "addon": "Nicos Item Expansion"
+    }
+  ],
+  "itemCount": 27
+}

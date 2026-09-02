@@ -1,0 +1,576 @@
+{
+  "id": "cb_kitchen_utensils",
+  "name": "§l§0(§e§lKITCHEN & UTENSILS§l§0)",
+  "icon": "textures/items/iron_sword",
+  "description": "Baking trays, whisks and molds",
+  "itemCount": 63,
+  "items": [
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_glazed_cupcake",
+      "name": "Cupcake Apple",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:apple_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_glazed_cupcake",
+      "name": "Cupcake Banana",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:banana_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_glazed_cupcake",
+      "name": "Cupcake Blueberry",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:blueberry_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dark_chocolate_glazed_cupcake",
+      "name": "Cupcake Choc Dark",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:dark_chocolate_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_milk_chocolate_glazed_cupcake",
+      "name": "Cupcake Choc Milk",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:milk_chocolate_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_white_chocolate_glazed_cupcake",
+      "name": "Cupcake Choc White",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:white_chocolate_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_coffee_glazed_cupcake",
+      "name": "Cupcake Coffee",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:coffee_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_glazed_cupcake",
+      "name": "Cupcake Mango",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:mango_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_matcha_glazed_cupcake",
+      "name": "Cupcake Matcha",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:matcha_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_nut_butter_glazed_cupcake",
+      "name": "Cupcake Nut",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:nut_butter_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_glazed_cupcake",
+      "name": "Cupcake Plum",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:plum_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pumpkin_spice_glazed_cupcake",
+      "name": "Cupcake Pumpkin",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:pumpkin_spice_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_glazed_cupcake",
+      "name": "Cupcake Strawberry",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:strawberry_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweet_berry_glazed_cupcake",
+      "name": "Cupcake Sweet Berry",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_toffee_glazed_cupcake",
+      "name": "Cupcake Toffee",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:toffee_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_vanilla_glazed_cupcake",
+      "name": "Cupcake Vanilla",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:vanilla_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/cropbox/cropbox_almond",
+      "name": "Almond Cropbox",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:cropbox_almond",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/cropbox/cropbox_banana",
+      "name": "Banana Cropbox",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:cropbox_banana",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/cropbox/cropbox_blueberry",
+      "name": "Blueberry Cropbox",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:cropbox_blueberry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/cropbox/cropbox_coffee",
+      "name": "Coffee Cropbox",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:cropbox_coffee",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/cropbox/cropbox_empty",
+      "name": "Empty Cropbox",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:cropbox_empty",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/cropbox/cropbox_mango",
+      "name": "Mango Cropbox",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:cropbox_mango",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/cropbox/cropbox_plum",
+      "name": "Plum Cropbox",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:cropbox_plum",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/cropbox/cropbox_strawberry",
+      "name": "Strawberry Cropbox",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:cropbox_strawberry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/cropbox/cropbox_tea",
+      "name": "Tea Cropbox",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:cropbox_tea",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/cropbox/cropbox_vanilla",
+      "name": "Vanilla Cropbox",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:cropbox_vanilla",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/cropbox/cropbox_walnut",
+      "name": "Walnut Cropbox",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:cropbox_walnut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Display Plate",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:display_plate",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jar Shelf",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:jar_rack",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/misc/item_bowl_mix_ceramic",
+      "name": "Ceramic Mixing Bowl",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:bowl_mix_ceramic",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/misc/item_bowl_mix_glass",
+      "name": "Glass Mixing Bowl",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:bowl_mix_glass",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/misc/item_bowl_mix_iron",
+      "name": "Iron Mixing Bowl",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:bowl_mix_iron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/misc/item_pan",
+      "name": "Pan",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:pan",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_bunting_pink",
+      "name": "Pink Bunting",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:bunting_pink",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_umbrella_pink",
+      "name": "Pink Café Umbrella",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:umbrella_pink",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_cup_of_coffee",
+      "name": "Cup Of Coffee",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:cup_of_coffee",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_cup_of_tea",
+      "name": "Cup Of Tea",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:cup_of_tea",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_cupcake_pan_liner",
+      "name": "Cupcake Pan Liner",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:cupcake_pan_liner",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_glazed_cupcake",
+      "name": "Fruit Glazed Cupcake",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:fruit_glazed_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_marzipan",
+      "name": "Marzipan",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:marzipan",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pancake",
+      "name": "Pancake",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:pancake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pancake_stack",
+      "name": "Pancake Stack",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:pancake_stack",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plain_cupcake",
+      "name": "Plain Cupcake",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:plain_cupcake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_ceramic_cup",
+      "name": "Ceramic Cup",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:ceramic_cup",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pink Awning",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:awning_pink",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pink Awning Top",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:awning_top_pink",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pink Picnic Blanket Block",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:block_pic_pink",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pink Bakery Floor Tile",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:tile_floor_pink",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/tools/item_fork",
+      "name": "Oversized Fork",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:fork",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/tools/item_jar_glass_empty",
+      "name": "Empty Jar",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:glass_jar",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/tools/item_whisk",
+      "name": "Whisk",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:whisk",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia Display Tray",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:display_tray_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo Display Tray",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:display_tray_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch Display Tray",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:display_tray_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Display Tray",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:display_tray_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak Display Tray",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:display_tray_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Iron Display Tray",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:display_tray_iron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle Display Tray",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:display_tray_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove Display Tray",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:display_tray_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak Display Tray",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:display_tray_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak Display Tray",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:display_tray_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Quartz Display Tray",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:display_tray_quartz",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce Display Tray",
+      "cost": 1200,
+      "sell": 250,
+      "data": 0,
+      "item": "sgs_cake:display_tray_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "id": "cf_farm_products",
+  "name": "§l§0(§1§lPROCESSED FARM PRODUCTS§l§0)",
+  "icon": "textures/items/bread",
+  "description": "Animal feed, cheese and jars",
+  "itemCount": 25,
+  "items": [
+    {
+      "textures": "textures/sgs/farm/items/food/item_cheese",
+      "name": "Cheese Wedge",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:cheese",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_cheese_sauce",
+      "name": "Cheese Sauce",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:cheese_sauce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_cheese_wheel",
+      "name": "Cheese Wheel",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:cheese_wheel",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_egg_boiled",
+      "name": "Boiled Egg",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:egg_boiled",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_oil",
+      "name": "Oil",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:oil",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_juice_apple",
+      "name": "Apple Juice",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:juice_apple",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_juice_blackcurrant",
+      "name": "Blackcurant Juice",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:juice_blackcurrant",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_juice_cherry",
+      "name": "Cherry Juice",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:juice_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_juice_grape_green",
+      "name": "Green Grape Juice",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:juice_grape_green",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_juice_grape_red",
+      "name": "Red Grape Juice",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:juice_grape_red",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_juice_lemon",
+      "name": "Lemon Juice",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:juice_lemon",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_juice_lime",
+      "name": "Lime Juice",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:juice_lime",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_juice_orange",
+      "name": "Orange Juice",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:juice_orange",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_juice_passionfruit",
+      "name": "Passionfruit Juice",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:juice_passionfruit",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_juice_peach",
+      "name": "Peach Juice",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:juice_peach",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_juice_pear",
+      "name": "Pear Juice",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:juice_pear",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_juice_pineapple",
+      "name": "Pineapple Juice",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:juice_pineapple",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_juice_redcurrant",
+      "name": "Redcurrant Juice",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:juice_redcurrant",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_jam_blackberry",
+      "name": "Blackberry Jam",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:jam_blackberry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_jam_blueberry",
+      "name": "Blueberry Jam",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:jam_blueberry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_jam_gooseberry",
+      "name": "Gooseberry Jam",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:jam_gooseberry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_jam_raspberry",
+      "name": "Raspberry Jam",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:jam_raspberry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_jam_strawberry",
+      "name": "Strawberry Jam",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:jam_strawberry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_jar_glass_empty",
+      "name": "Empty Jar",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:jar",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_leek_cheese",
+      "name": "Cheesy Leeks",
+      "cost": 500,
+      "sell": 120,
+      "data": 0,
+      "item": "sgs_farm:leek_cheese",
+      "addon": "Crops & Farms 1.21"
+    }
+  ]
+}

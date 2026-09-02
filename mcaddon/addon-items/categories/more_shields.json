@@ -1,0 +1,540 @@
+{
+  "id": "more_shields",
+  "name": "§l§0(§e§lCUSTOM SHIELDS§l§0)",
+  "icon": "textures/items/shield",
+  "description": "Netherite, emerald, amethyst, shulker and elemental shields",
+  "itemCount": 59,
+  "items": [
+    {
+      "textures": "textures/blocks/items/dripstone_shield",
+      "name": "Dripstone Shield",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "rms_dripstone:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/magma_shield",
+      "name": "Magma Shield",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "rms_magma:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/dripstone_shield",
+      "name": "Dripstone Shield",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "rms_dripstone:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/magma_shield",
+      "name": "Magma Shield",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "rms_magma:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/amethyst_shield",
+      "name": "Amethyst Shield",
+      "cost": 75000,
+      "sell": 15000,
+      "data": 0,
+      "item": "rms_amethyst:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/breeze_shield",
+      "name": "Breeze Shield",
+      "cost": 120000,
+      "sell": 24000,
+      "data": 0,
+      "item": "rms_breeze:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/copper/0",
+      "name": "Shield C",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_copper_0:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/diamond_shield",
+      "name": "Diamond Shield",
+      "cost": 120000,
+      "sell": 24000,
+      "data": 0,
+      "item": "rms_diamond:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/dragon_shield",
+      "name": "Ender Dragon Shield",
+      "cost": 180000,
+      "sell": 36000,
+      "data": 0,
+      "item": "rms_dragon:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/emerald_shield",
+      "name": "Emerald Shield",
+      "cost": 75000,
+      "sell": 15000,
+      "data": 0,
+      "item": "rms_emerald:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/golden_shield",
+      "name": "Golden Shield",
+      "cost": 75000,
+      "sell": 15000,
+      "data": 0,
+      "item": "rms_golden:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/iron_shield",
+      "name": "Reinforced Iron Shield",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "rms_iron:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/netherite_shield",
+      "name": "Netherite Shield",
+      "cost": 180000,
+      "sell": 36000,
+      "data": 0,
+      "item": "rms_netherite:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/shulker_shield",
+      "name": "Shulker Shield",
+      "cost": 120000,
+      "sell": 24000,
+      "data": 0,
+      "item": "rms_shulker:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/warden_shield",
+      "name": "Warden Echo Shield",
+      "cost": 180000,
+      "sell": 36000,
+      "data": 0,
+      "item": "rms_warden:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/amethyst_shield",
+      "name": "Amethyst Shield",
+      "cost": 75000,
+      "sell": 15000,
+      "data": 0,
+      "item": "rms_amethyst:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/breeze_shield",
+      "name": "Breeze Shield",
+      "cost": 120000,
+      "sell": 24000,
+      "data": 0,
+      "item": "rms_breeze:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/diamond_shield",
+      "name": "Diamond Shield",
+      "cost": 120000,
+      "sell": 24000,
+      "data": 0,
+      "item": "rms_diamond:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/dragon_shield",
+      "name": "Ender Dragon Shield",
+      "cost": 180000,
+      "sell": 36000,
+      "data": 0,
+      "item": "rms_dragon:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/emerald_shield",
+      "name": "Emerald Shield",
+      "cost": 75000,
+      "sell": 15000,
+      "data": 0,
+      "item": "rms_emerald:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/golden_shield",
+      "name": "Golden Shield",
+      "cost": 75000,
+      "sell": 15000,
+      "data": 0,
+      "item": "rms_golden:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/iron_shield",
+      "name": "Reinforced Iron Shield",
+      "cost": 55000,
+      "sell": 11000,
+      "data": 0,
+      "item": "rms_iron:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/netherite_shield",
+      "name": "Netherite Shield",
+      "cost": 180000,
+      "sell": 36000,
+      "data": 0,
+      "item": "rms_netherite:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/shulker_shield",
+      "name": "Shulker Shield",
+      "cost": 120000,
+      "sell": 24000,
+      "data": 0,
+      "item": "rms_shulker:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/torch_shield",
+      "name": "Torch Shield",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms:torch_shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/warden_shield",
+      "name": "Warden Echo Shield",
+      "cost": 180000,
+      "sell": 36000,
+      "data": 0,
+      "item": "rms_warden:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/acacia",
+      "name": "Escudo (Acácia)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_acacia:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/bamboo",
+      "name": "Escudo (Bambu)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_bamboo:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/birch",
+      "name": "Escudo (Bétula)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_birch:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/cherry",
+      "name": "Escudo (Cerejeira)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_cherry:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/crimson",
+      "name": "Escudo (Carmesim)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_crimson:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/dark_oak",
+      "name": "Escudo (Carvalho escuro)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_dark_oak:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/jungle",
+      "name": "Escudo (Selva)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_jungle:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/mangrove",
+      "name": "Escudo (Mangal)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_mangrove:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/oak",
+      "name": "Escudo (Carvalho)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_oak:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/oak",
+      "name": "Escudo (Carvalho pálido)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_pale_oak:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/spruce",
+      "name": "Escudo (Abeto)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_spruce:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/warped",
+      "name": "Escudo (Distorcido)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_warped:shield_c",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/acacia",
+      "name": "Escudo (Acácia)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_acacia:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/bamboo",
+      "name": "Escudo (Bambu)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_bamboo:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/birch",
+      "name": "Escudo (Bétula)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_birch:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/cherry",
+      "name": "Escudo (Cerejeira)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_cherry:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/crimson",
+      "name": "Escudo (Carmesim)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_crimson:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/dark_oak",
+      "name": "Escudo (Carvalho escuro)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_dark_oak:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/jungle",
+      "name": "Escudo (Selva)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_jungle:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/mangrove",
+      "name": "Escudo (Mangal)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_mangrove:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/oak",
+      "name": "Escudo (Carvalho)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_oak:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/oak",
+      "name": "Escudo (Carvalho pálido)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_pale_oak:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/spruce",
+      "name": "Escudo (Abeto)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_spruce:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/vanilla_shield_variants/warped",
+      "name": "Escudo (Distorcido)",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_warped:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/copper/0",
+      "name": "Shield",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_copper_0:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/copper/0",
+      "name": "Shield",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_copper_1:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/copper/0",
+      "name": "Shield",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_copper_2:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/copper/0",
+      "name": "Shield",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_copper_3:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/items/shield",
+      "name": "Shield",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_vanilla_shield_variants_icon:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/copper/0",
+      "name": "Shield",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_copper_0_waxed:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/copper/0",
+      "name": "Shield",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_copper_1_waxed:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/copper/0",
+      "name": "Shield",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_copper_2_waxed:shield",
+      "addon": "More Shields"
+    },
+    {
+      "textures": "textures/blocks/items/copper/0",
+      "name": "Shield",
+      "cost": 45000,
+      "sell": 9000,
+      "data": 0,
+      "item": "rms_copper_3_waxed:shield",
+      "addon": "More Shields"
+    }
+  ]
+}

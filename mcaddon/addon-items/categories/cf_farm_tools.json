@@ -1,0 +1,1566 @@
+{
+  "id": "cf_farm_tools",
+  "name": "§l§0(§a§lFARM TOOLS & EQUIPMENT§l§0)",
+  "icon": "textures/items/diamond_hoe",
+  "description": "Watering cans, scythes and sprinklers",
+  "itemCount": 173,
+  "items": [
+    {
+      "textures": "textures/sgs/farm/items/item_cauliflower",
+      "name": "Cauliflower Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:cauliflower",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_melon_canary",
+      "name": "Canary Melon Block",
+      "cost": 3500,
+      "sell": 700,
+      "data": 0,
+      "item": "sgs_farm:melon_canary",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_melon_cantaloupe",
+      "name": "Cantaloupe Melon Block",
+      "cost": 3500,
+      "sell": 700,
+      "data": 0,
+      "item": "sgs_farm:melon_cantaloupe",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_bush_ivy",
+      "name": "Boston Ivy Bush Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_bush_ivy",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_bush_jasmine_carolina",
+      "name": "Carolina Jasmine Bush Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_bush_jasmine_carolina",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_bush_jasmine_pink",
+      "name": "Hardy Pink Jasmine Bush Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_bush_jasmine_pink",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_bush_jasmine_star",
+      "name": "Star Jasmine Bush Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_bush_jasmine_star",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_bush_susan",
+      "name": "Black Eyed Susan Bush Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_bush_susan",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_bush_virginia",
+      "name": "Virgina Creeper Bush Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_bush_virginia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_bush_wisteria",
+      "name": "Lavender Wisteria Bush Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_bush_wisteria",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_buttercup",
+      "name": "Buttercup Meadow Flower Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_buttercup",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_daisy",
+      "name": "Daisy Meadow Flower Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_daisy",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_forgetmenot",
+      "name": "Forget-Me-Not Meadow Flower Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_forgetmenot",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_grass_l",
+      "name": "Tall Wild Grass Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_grass_l",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_grass_m",
+      "name": "Medium Wild Grass Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_grass_m",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_grass_s",
+      "name": "Short Wild Grass Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_grass_s",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_ladys_bedstraw",
+      "name": "Lady's Bedstraw Meadow Flower Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_ladys_bedstraw",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_musk_mallow",
+      "name": "Musk Mallow Meadow Flower Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_musk_mallow",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_oxeye_daisy",
+      "name": "Oxeye Daisy Meadow Flower Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_oxeye_daisy",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_poppy",
+      "name": "Poppy Meadow Flower Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_poppy",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_vipers_bugloss",
+      "name": "Viper's Bugloss Meadow Flower Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_vipers_bugloss",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_wild_carrot",
+      "name": "Wild Carrot Meadow Flower Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_wild_carrot",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bottle Rack",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:bottle_rack",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jar Shelf",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:jar_rack",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/item_herb_pot",
+      "name": "Herb Pot Block",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:herb_pot",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Decorative Ivy",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:ivy",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/ivy/ivy_hanging",
+      "name": "Hanging Ivy",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:ivy_hanging",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Green Apple Tree Leaves",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:leaves_apple_green",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pink Apple Tree Leaves",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:leaves_apple_pink",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Avocado Tree Leaves",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:leaves_avocado",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Tree Leaves",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:leaves_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chestnut Tree Leaves",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:leaves_chestnut",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Hazelnut Tree Leaves",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:leaves_hazelnut",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Lemon Tree Leaves",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:leaves_lemon",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Lime Tree Leaves",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:leaves_lime",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Olive Tree Leaves",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:leaves_olive",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Orange Tree Leaves",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:leaves_orange",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Peach Tree Leaves",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:leaves_peach",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pear Tree Leaves",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:leaves_pear",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Stove Pot",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:fun_stove_pot",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planter/planter_acacia",
+      "name": "Acacia Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Small Acacia Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_acacia_small",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planter/planter_bamboo",
+      "name": "Bamboo Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Small Bamboo Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_bamboo_small",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planter/planter_birch",
+      "name": "Birch Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Small Birch Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_birch_small",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planter/planter_cherry",
+      "name": "Cherry Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Small Cherry Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_cherry_small",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planter/planter_dark_oak",
+      "name": "Dark Oak Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Small Dark Oak Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_dark_oak_small",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planter/planter_jungle",
+      "name": "Jungle Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Small Jungle Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_jungle_small",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planter/planter_mangrove",
+      "name": "Mangrove Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Small Mangrove Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_mangrove_small",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planter/planter_oak",
+      "name": "Oak Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Small Oak Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_oak_small",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planter/planter_painted_white",
+      "name": "White Painted Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_painted_white",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Small White Painted Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_painted_white_small",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planter/planter_oak_pale",
+      "name": "Pale Oak Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Small Pale Oak Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_pale_oak_small",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planter/planter_spruce",
+      "name": "Spruce Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Small Spruce Planter",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:planter_spruce_small",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Ground Sprinkler",
+      "cost": 3500,
+      "sell": 700,
+      "data": 0,
+      "item": "sgs_farm:fun_sprinkler",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_cauliflower",
+      "name": "Cauliflower Seeds",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:cauliflower_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_melon_canary",
+      "name": "Canary Melon Seeds",
+      "cost": 3500,
+      "sell": 700,
+      "data": 0,
+      "item": "sgs_farm:melon_canary_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/seed_melon_cantaloupe",
+      "name": "Cantaloupe Melon Seeds",
+      "cost": 3500,
+      "sell": 700,
+      "data": 0,
+      "item": "sgs_farm:melon_cantaloupe_seed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_cauliflower",
+      "name": "Cauliflower",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:cauliflower_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_melon_canary",
+      "name": "Canary Melon",
+      "cost": 3500,
+      "sell": 700,
+      "data": 0,
+      "item": "sgs_farm:melon_canary_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_melon_cantaloupe",
+      "name": "Cantaloupe Melon",
+      "cost": 3500,
+      "sell": 700,
+      "data": 0,
+      "item": "sgs_farm:melon_cantaloupe_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_bush_ivy",
+      "name": "Boston Ivy Bush",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_bush_ivy_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_bush_jasmine_carolina",
+      "name": "Carolina Jasmine Bush",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_bush_jasmine_carolina_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_bush_jasmine_pink",
+      "name": "Hardy Pink Jasmine Bush",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_bush_jasmine_pink_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_bush_jasmine_star",
+      "name": "Star Jasmine Bush",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_bush_jasmine_star_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_bush_susan",
+      "name": "Black Eyed Susan Bush",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_bush_susan_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_bush_virginia",
+      "name": "Virginia Creeper Bush",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_bush_virginia_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_bush_wisteria",
+      "name": "Lavender Wisteria Bush",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_bush_wisteria_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_buttercup",
+      "name": "Buttercup Meadow Flower",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_buttercup_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_daisy",
+      "name": "Daisy Meadow Flower",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_daisy_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_forgetmenot",
+      "name": "Forget-Me-Not Meadow Flower",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_forgetmenot_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_grass_l",
+      "name": "Tall Wild Grass",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_grass_l_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_grass_m",
+      "name": "Medium Wild Grass",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_grass_m_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_grass_s",
+      "name": "Short Wild Grass",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_grass_s_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_ladys_bedstraw",
+      "name": "Lady's Bedstraw Meadow Flower",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_ladys_bedstraw_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_musk_mallow",
+      "name": "Musk Mallow Meadow Flower",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_musk_mallow_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_oxeye_daisy",
+      "name": "Oxeye Daisy Meadow Flower",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_oxeye_daisy_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_poppy",
+      "name": "Poppy Meadow Flower",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_poppy_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_vipers_bugloss",
+      "name": "Viper's Bugloss Meadow Flower",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_vipers_bugloss_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/flowers/item_flower_meadow_wild_carrot",
+      "name": "Wild Carrot Meadow Flower",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:flower_meadow_wild_carrot_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_melon_slice_canary",
+      "name": "Canary Melon Slice",
+      "cost": 3500,
+      "sell": 700,
+      "data": 0,
+      "item": "sgs_farm:melon_slice_canary",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_melon_slice_cantaloupe",
+      "name": "Cantaloupe Melon Slice",
+      "cost": 3500,
+      "sell": 700,
+      "data": 0,
+      "item": "sgs_farm:melon_slice_cantaloupe",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_potato_mashed",
+      "name": "Mashed Potato",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:potato_mashed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/item_rack_bottle",
+      "name": "Bottle Rack",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:bottle_rack_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/item_rack_jar",
+      "name": "Jar Shelf",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:jar_rack_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/tools/item_stove_pot",
+      "name": "Stove Pot",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:fun_stove_pot_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/guidebook",
+      "name": "Farmer's Guidebook",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:guidebook",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/item_herb_pot",
+      "name": "Herb Pot",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:herb_pot_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/item_wildflower_fertillizer",
+      "name": "Flower Fertilizer",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:wildflower_fertillizer",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/tools/icon_watering_can",
+      "name": "Watering Can",
+      "cost": 3500,
+      "sell": 700,
+      "data": 0,
+      "item": "sgs_farm:watering_can",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Acacia",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_board_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Acacia",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_chainlink_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Acacia",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_dogear_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Acacia",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_estate_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Acacia",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_picket_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Acacia",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_rustic_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Acacia",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_wire_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Bamboo",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_board_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Bamboo",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_chainlink_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Bamboo",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_dogear_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Bamboo",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_estate_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Bamboo",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_picket_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Bamboo",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_rustic_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Bamboo",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_wire_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Birch",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_board_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Birch",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_chainlink_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Birch",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_dogear_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Birch",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_estate_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Birch",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_picket_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Birch",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_rustic_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Birch",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_wire_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Cherry",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_board_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Cherry",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_chainlink_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Cherry",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_dogear_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Cherry",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_estate_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Cherry",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_picket_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Cherry",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_rustic_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Cherry",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_wire_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Dark Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_board_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Dark Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_chainlink_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Dark Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_dogear_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Dark Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_estate_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Dark Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_picket_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Dark Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_rustic_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Dark Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_wire_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Jungle",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_board_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Jungle",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_chainlink_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Jungle",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_dogear_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Jungle",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_estate_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Jungle",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_picket_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Jungle",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_rustic_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Jungle",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_wire_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Mangrove",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_board_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Mangrove",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_chainlink_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Mangrove",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_dogear_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Mangrove",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_estate_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Mangrove",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_picket_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Mangrove",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_rustic_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Mangrove",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_wire_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_board_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_chainlink_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_dogear_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_estate_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_picket_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_rustic_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_wire_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Pale Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_board_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Pale Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_chainlink_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Pale Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_dogear_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Pale Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_estate_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Pale Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_picket_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Pale Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_rustic_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Pale Oak",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_wire_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Spruce",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_board_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Spruce",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_chainlink_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Spruce",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_dogear_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Spruce",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_estate_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Spruce",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_picket_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Spruce",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_rustic_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Spruce",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:dec_fence_wire_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_cauliflower",
+      "name": "Cauliflower Cropbox",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:cropbox_cauliflower",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_melon_canary",
+      "name": "Canary Melon Cropbox",
+      "cost": 3500,
+      "sell": 700,
+      "data": 0,
+      "item": "sgs_farm:cropbox_melon_canary",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_melon_cantaloupe",
+      "name": "Cantaloupe Melon Cropbox",
+      "cost": 3500,
+      "sell": 700,
+      "data": 0,
+      "item": "sgs_farm:cropbox_melon_cantaloupe",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_cauliflower_cheese",
+      "name": "Cheesy Cauliflower",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:cauliflower_cheese",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_potato",
+      "name": "Potato Cropbox",
+      "cost": 1500,
+      "sell": 300,
+      "data": 0,
+      "item": "sgs_farm:cropbox_potato",
+      "addon": "Crops & Farms 1.21"
+    }
+  ]
+}

@@ -1,0 +1,513 @@
+{
+  "id": "cb_drinks_desserts",
+  "name": "§l§0(§b§lDRINKS & SHAKES§l§0)",
+  "icon": "textures/items/potion_bottle_drinkable",
+  "description": "Coffee, tea, juice and smoothies",
+  "itemCount": 56,
+  "items": [
+    {
+      "textures": "textures/sgs/cake/items/food/item_coffee_cake",
+      "name": "Cake Coffee",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:coffee_cake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_milk_chocolate_filled_danish",
+      "name": "Danish Choc Milk",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:milk_chocolate_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_coffee_filled_danish",
+      "name": "Danish Coffee",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:coffee_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_milkshake",
+      "name": "Milkshake Apple",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:apple_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_milkshake",
+      "name": "Milkshake Banana",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:banana_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_milkshake",
+      "name": "Milkshake Blueberry",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:blueberry_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dark_chocolate_milkshake",
+      "name": "Milkshake Choc Dark",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:dark_chocolate_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_milk_chocolate_milkshake",
+      "name": "Milkshake Choc Milk",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:milk_chocolate_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_white_chocolate_milkshake",
+      "name": "Milkshake Choc White",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:white_chocolate_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_coffee_milkshake",
+      "name": "Milkshake Coffee",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:coffee_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_milkshake",
+      "name": "Milkshake Mango",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:mango_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_matcha_milkshake",
+      "name": "Milkshake Matcha",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:matcha_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_milkshake",
+      "name": "Milkshake Plum",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:plum_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pumpkin_spice_milkshake",
+      "name": "Milkshake Pumpkin",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:pumpkin_spice_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_milkshake",
+      "name": "Milkshake Strawberry",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:strawberry_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweet_berry_milkshake",
+      "name": "Milkshake Sweet Berry",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_toffee_milkshake",
+      "name": "Milkshake Toffee",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:toffee_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_vanilla_milkshake",
+      "name": "Milkshake Vanilla",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:vanilla_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_steak_and_potato_pie",
+      "name": "Pie Steak",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:steak_and_potato_pie",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_milk_chocolate_filled_tart",
+      "name": "Tart Choc Milk",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:milk_chocolate_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_coffee_filled_tart",
+      "name": "Tart Coffee",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:coffee_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Milk Chocolate Cake Block",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:cake_block_choc_milk",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Coffee Cake Block",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:cake_block_coffee",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/potion_bottle_drinkable",
+      "name": "Coffee Bush Block",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:bush_coffee",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tea Bush Block",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:bush_tea",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bottle Rack",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:bottle_rack",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Milk Barrel",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:milk_barrel",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tea Pot",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:teapot",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/crop/seed_coffee",
+      "name": "Coffee Seeds",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:coffee_seed",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/crop/seed_tea",
+      "name": "Tea Seeds",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:tea_seed",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_coffee_beans",
+      "name": "Coffee Beans",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:coffee_beans",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_tea_leaf",
+      "name": "Tea Leaf",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:tea_leaf",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_juice",
+      "name": "Apple Juice",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:apple_juice",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_juice",
+      "name": "Banana Juice",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:banana_juice",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_juice",
+      "name": "Blueberry Juice",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:blueberry_juice",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_coffee_macaron",
+      "name": "Coffee Macaron",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:coffee_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_coffee_macaron_half",
+      "name": "Coffee Macaron Half",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:coffee_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_coffee_popsicle",
+      "name": "Toffee Popsicle",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:coffee_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dry_tea_leaf",
+      "name": "Dry Tea Leaf",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:dry_tea_leaf",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_juice",
+      "name": "Fruit Juice",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:fruit_juice",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_milkshake",
+      "name": "Fruit Milkshake",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:fruit_milkshake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_juice",
+      "name": "Mango Juice",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:mango_juice",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_milk_bottle",
+      "name": "Milk Bottle",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:milk_bottle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_milk_chocolate",
+      "name": "Milk Chocolate",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:milk_chocolate",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_milk_chocolate_candy",
+      "name": "Milk Chocolate Candy",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:milk_chocolate_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_milk_chocolate_glaze",
+      "name": "Milk Chocolate Glaze",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:milk_chocolate_glaze",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_milk_chocolate_glazed_donut",
+      "name": "Milk Chocolate Glazed Donut",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:milk_chocolate_glazed_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_milk_chocolate_lollypop",
+      "name": "Milk Chocolate Lollypop",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:milk_chocolate_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_milk_chocolate_macaron",
+      "name": "Milk Chocolate Macaron",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:milk_chocolate_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_milk_chocolate_macaron_half",
+      "name": "Milk Chocolate Macaron Half",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:milk_chocolate_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_milk_chocolate_popsicle",
+      "name": "Milk Chocolate Popsicle",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:milk_chocolate_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_juice",
+      "name": "Plum Juice",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:plum_juice",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_juice",
+      "name": "Strawberry Juice",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:strawberry_juice",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweetberry_juice",
+      "name": "Sweet Berry Juice",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_juice",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_water_bottle",
+      "name": "Water Bottle",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:water_bottle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/tools/item_bottle_glass_empty",
+      "name": "Empty Bottle",
+      "cost": 350,
+      "sell": 80,
+      "data": 0,
+      "item": "sgs_cake:bottle",
+      "addon": "Cakes & Bakes 1.0"
+    }
+  ]
+}

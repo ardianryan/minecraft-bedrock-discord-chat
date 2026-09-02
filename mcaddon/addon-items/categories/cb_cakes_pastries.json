@@ -1,0 +1,4212 @@
+{
+  "id": "cb_cakes_pastries",
+  "name": "§l§0(§c§lCAKES & PASTRIES§l§0)",
+  "icon": "textures/items/cake",
+  "description": "Deluxe cakes, tarts, and donuts",
+  "itemCount": 467,
+  "items": [
+    {
+      "textures": "textures/items/apple",
+      "name": "Block Inventory",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:block_inventory",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/apple",
+      "name": "Umbrella",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:umbrella",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/guidebook",
+      "name": "sgs_cake_item_guidebook",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:guidebook",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_baguette",
+      "name": "Bread Bag",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:baguette",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_bread",
+      "name": "Bread Loaf Banana",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banana_bread",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_farmhouse_loaf",
+      "name": "Bread Loaf Farm",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:farmhouse_loaf",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_seeded_loaf",
+      "name": "Bread Loaf Seed",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:seeded_loaf",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_tiger_loaf",
+      "name": "Bread Loaf Tiger",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tiger_loaf",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_wholemeal_loaf",
+      "name": "Bread Loaf Whole",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:wholemeal_loaf",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sour_bread",
+      "name": "Bread Sour",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sour_bread",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plain_swirl_bread",
+      "name": "Bread Swirl",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plain_swirl_bread",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_glazed_swirl_bread",
+      "name": "Bread Swirl Glaze",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:glazed_swirl_bread",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_cake",
+      "name": "Cake Apple",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_cake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_birthday_cake",
+      "name": "Cake Birthday",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:birthday_cake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_carrot_cake",
+      "name": "Cake Carrot",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:carrot_cake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_cheesecake",
+      "name": "Cake Cheese",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cheesecake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_chocolate_cake",
+      "name": "Cake Chocolate",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chocolate_cake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_black_forest_cake",
+      "name": "Cake Forest",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:black_forest_cake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sponge_cake",
+      "name": "Cake Sponge",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sponge_cake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_tiramisu",
+      "name": "Cake Tiramisu",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tiramisu",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_red_velvet_cake",
+      "name": "Cake Velvet",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:red_velvet_cake",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_filled_danish",
+      "name": "Danish Apple",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_filled_danish",
+      "name": "Danish Banana",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banana_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_filled_danish",
+      "name": "Danish Blueberry",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:blueberry_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dark_chocolate_filled_danish",
+      "name": "Danish Choc Dark",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:dark_chocolate_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_white_chocolate_filled_danish",
+      "name": "Danish Choc White",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:white_chocolate_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_filled_danish",
+      "name": "Danish Mango",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:mango_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_matcha_filled_danish",
+      "name": "Danish Matcha",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:matcha_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_filled_danish",
+      "name": "Danish Plum",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plum_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pumpkin_spice_filled_danish",
+      "name": "Danish Pumpkin",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:pumpkin_spice_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_filled_danish",
+      "name": "Danish Strawberry",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberry_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweet_berry_filled_danish",
+      "name": "Danish Sweet Berry",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_toffee_filled_danish",
+      "name": "Danish Toffee",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:toffee_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_vanilla_filled_danish",
+      "name": "Danish Vanilla",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:vanilla_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_croissant",
+      "name": "Pastry Croissant",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:croissant",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pain_au_chocolat",
+      "name": "Pastry Pain",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:pain_au_chocolat",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_stollen",
+      "name": "Pastry Stollen",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:stollen",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_strudel",
+      "name": "Pastry Strudel",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_strudel",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_pie",
+      "name": "Pie Apple",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_pie",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banoffee_pie",
+      "name": "Pie Banoffee",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banoffee_pie",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_and_blueberry_pie",
+      "name": "Pie Blueberry",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_and_blueberry_pie",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_chicken_pie",
+      "name": "Pie Chicken",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chicken_pie",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_pie",
+      "name": "Pie Fruit",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_pie",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_meat_pie",
+      "name": "Pie Meat",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:meat_pie",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_pie",
+      "name": "Pie Plum",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plum_pie",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pork_and_apple_pie",
+      "name": "Pie Pork",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:pork_and_apple_pie",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_spiced_pumpkin_pie",
+      "name": "Pie Pumpkin",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:spiced_pumpkin_pie",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_pie",
+      "name": "Pie Strawberry",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberry_pie",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_filled_tart",
+      "name": "Tart Apple",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_filled_tart",
+      "name": "Tart Banana",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banana_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_filled_tart",
+      "name": "Tart Blueberry",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:blueberry_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dark_chocolate_filled_tart",
+      "name": "Tart Choc Dark",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:dark_chocolate_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_white_chocolate_filled_tart",
+      "name": "Tart Choc White",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:white_chocolate_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_filled_tart",
+      "name": "Tart Mango",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:mango_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_matcha_filled_tart",
+      "name": "Tart Matcha",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:matcha_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_filled_tart",
+      "name": "Tart Plum",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plum_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pumpkin_spice_filled_tart",
+      "name": "Tart Pumpkin",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:pumpkin_spice_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_filled_tart",
+      "name": "Tart Strawberry",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberry_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweet_berry_filled_tart",
+      "name": "Tart Sweet Berry",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_toffee_filled_tart",
+      "name": "Tart Toffee",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:toffee_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_vanilla_filled_tart",
+      "name": "Tart Vanilla",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:vanilla_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Apple Cake Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_apple",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Banana Cake Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_banana",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Birthday Cake Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_birthday",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Blueberry Cake Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_blueberry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Dark Chocolate Cake Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_choc_dark",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "White Chocolate Cake Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_choc_white",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Mango Cake Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_mango",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Matcha Cake Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_matcha",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Nut Cake Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_nut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Plain Cake Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_plain",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Jam Cake Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_plain_jam",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Plum Cake Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_plum",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Pumpkin Cake Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_pumpkin",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Strawberry Cake Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_strawberry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Sweet Berry Cake Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_sweet_berry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Toffee Cake Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_toffee",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Vanilla Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_block_vanilla",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/cropbox/sack_empty",
+      "name": "Empty Sack",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sack_empty",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/cropbox/sack_grain",
+      "name": "Grain Sack",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sack_grain",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Blueberry Bush Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bush_blueberry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bush Pot",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bush_pot",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Strawberry Bush Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bush_strawberry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Vanilla Bush Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bush_vanilla",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Awning Support",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_support",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bakery Flagstone",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:flagstone",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/misc/basket_pic",
+      "name": "Picnic Basket",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:basket_pic",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Quartz Slab",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:board_quartz",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/misc/carpentry",
+      "name": "Baker's Furnishing Tools",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:carpentry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/misc/cauldron_copper",
+      "name": "Copper Cauldron",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cauldron_copper",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/misc/item_chop_board",
+      "name": "Pastry Board",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chop_board",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/misc/fruit_press",
+      "name": "Fruit Press",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_press",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Fruit Press Upper",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_press_upper",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/misc/millstone",
+      "name": "Millstone",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:millstone",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/misc/recipes",
+      "name": "Baker's Recipes",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:recipes",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Baker's Stove",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:stove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Water Barrel",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:water_barrel",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/misc/workbench",
+      "name": "Baker's Workbench",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:workbench",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/crop/fruit_almond",
+      "name": "Almond Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_almond",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Banana Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_banana",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mango Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_mango",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/crop/fruit_plum",
+      "name": "Plum Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_plum",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/crop/fruit_walnut",
+      "name": "Walnut Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_walnut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Almond Leaves",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:leaves_almond",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Banana Leaves",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:leaves_banana",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cinnamon Leaves",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:leaves_cinnamon",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mango Leaves",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:leaves_mango",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Plum Leaves",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:leaves_plum",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Walnut Leaves",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:leaves_walnut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/crop/log_cinnamon",
+      "name": "Cinnamon Log",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:log_cinnamon",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/blocks/crop/log_stripped_cinnamon",
+      "name": "Stripped Cinnamon Log",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:log_stripped_cinnamon",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Almond Sapling Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sapling_almond",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Banana Sapling Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sapling_banana",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cinnamon Sapling Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sapling_cinnamon",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mango Sapling Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sapling_mango",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Plum Sapling Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sapling_plum",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Walnut Sapling Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sapling_walnut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/entity/raccoon",
+      "name": "Raccoon",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:raccoon",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/crop/seed_blueberry",
+      "name": "Blueberry Seeds",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:blueberry_seed",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/crop/seed_strawberry",
+      "name": "Strawberry Seeds",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberry_seed",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/crop/seed_vanilla",
+      "name": "Vanilla Seeds",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:vanilla_seed",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry",
+      "name": "Blueberry",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:blueberry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry",
+      "name": "Strawberry",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_vanilla",
+      "name": "Vanilla",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:vanilla",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_bunting_black",
+      "name": "Black Bunting",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bunting_black",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_bunting_blue",
+      "name": "Blue Bunting",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bunting_blue",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_bunting_brown",
+      "name": "Brown Bunting",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bunting_brown",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_bunting_cyan",
+      "name": "Cyan Bunting",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bunting_cyan",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_bunting_gray",
+      "name": "Gray Bunting",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bunting_gray",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_bunting_green",
+      "name": "Green Bunting",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bunting_green",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_bunting_light_blue",
+      "name": "Light Blue Bunting",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bunting_light_blue",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_bunting_lime",
+      "name": "Lime Bunting",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bunting_lime",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_bunting_magenta",
+      "name": "Magenta Bunting",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bunting_magenta",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_bunting_orange",
+      "name": "Orange Bunting",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bunting_orange",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_bunting_purple",
+      "name": "Purple Bunting",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bunting_purple",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_bunting_red",
+      "name": "Red Bunting",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bunting_red",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_bunting_silver",
+      "name": "Silver Bunting",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bunting_silver",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_bunting_white",
+      "name": "White Bunting",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bunting_white",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_bunting_yellow",
+      "name": "Yellow Bunting",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bunting_yellow",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_umbrella_black",
+      "name": "Black Café Umbrella",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:umbrella_black",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_umbrella_blue",
+      "name": "Blue Café Umbrella",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:umbrella_blue",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_umbrella_brown",
+      "name": "Brown Café Umbrella",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:umbrella_brown",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_umbrella_cyan",
+      "name": "Cyan Café Umbrella",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:umbrella_cyan",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_umbrella_gray",
+      "name": "Gray Café Umbrella",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:umbrella_gray",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_umbrella_green",
+      "name": "Green Café Umbrella",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:umbrella_green",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_umbrella_light_blue",
+      "name": "Light Blue Café Umbrella",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:umbrella_light_blue",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_umbrella_lime",
+      "name": "Lime Café Umbrella",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:umbrella_lime",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_umbrella_magenta",
+      "name": "Magenta Café Umbrella",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:umbrella_magenta",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_umbrella_orange",
+      "name": "Orange Café Umbrella",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:umbrella_orange",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_umbrella_purple",
+      "name": "Purple Café Umbrella",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:umbrella_purple",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_umbrella_red",
+      "name": "Red Café Umbrella",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:umbrella_red",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_umbrella_silver",
+      "name": "Silver Café Umbrella",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:umbrella_silver",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_umbrella_white",
+      "name": "White Café Umbrella",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:umbrella_white",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/dec/item_umbrella_yellow",
+      "name": "Yellow Café Umbrella",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:umbrella_yellow",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_almond_croissant",
+      "name": "Almond Croissant",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:almond_croissant",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_candy",
+      "name": "Apple Candy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_glaze",
+      "name": "Apple Glaze",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_glaze",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_glazed_donut",
+      "name": "Apple Glazed Donut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_glazed_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_jam",
+      "name": "Apple Jam",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_jam",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_jelly",
+      "name": "Apple Jelly",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_jelly",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_lollypop",
+      "name": "Apple Lollypop",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_macaron",
+      "name": "Apple Macaron",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_macaron_half",
+      "name": "Apple Macaron Half",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_popsicle",
+      "name": "Apple Popsicle",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_slushy",
+      "name": "Apple Slushy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_slushy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_apple_spritzer",
+      "name": "Apple Spritzer",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:apple_spritzer",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_baked_plums",
+      "name": "Baked Plums",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:baked_plums",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_candy",
+      "name": "Banana Candy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banana_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_glaze",
+      "name": "Banana Glaze",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banana_glaze",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_glazed_donut",
+      "name": "Banana Glazed Donut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banana_glazed_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_jam",
+      "name": "Banana Jam",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banana_jam",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_jelly",
+      "name": "Banana Jelly",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banana_jelly",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_lollypop",
+      "name": "Banana Lollypop",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banana_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_macaron",
+      "name": "Banana Macaron",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banana_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_macaron_half",
+      "name": "Banana Macaron Half",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banana_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_popsicle",
+      "name": "Banana Popsicle",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banana_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_slushy",
+      "name": "Banana Slushy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banana_slushy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_split",
+      "name": "Banana Split",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banana_split",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana_spritzer",
+      "name": "Banana Spritzer",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banana_spritzer",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_candy",
+      "name": "Blueberry Candy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:blueberry_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_glaze",
+      "name": "Blueberry Glaze",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:blueberry_glaze",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_glazed_donut",
+      "name": "Blueberry Glazed Donut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:blueberry_glazed_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_jam",
+      "name": "Blueberry Jam",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:blueberry_jam",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_jelly",
+      "name": "Blueberry Jelly",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:blueberry_jelly",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_lollypop",
+      "name": "Blueberry Lollypop",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:blueberry_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_macaron",
+      "name": "Blueberry Macaron",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:blueberry_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_macaron_half",
+      "name": "Blueberry Macaron Half",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:blueberry_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_popsicle",
+      "name": "Blueberry Popsicle",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:blueberry_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_slushy",
+      "name": "Blueberry Slushy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:blueberry_slushy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_blueberry_spritzer",
+      "name": "Blueberry Spritzer",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:blueberry_spritzer",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_bread_slice",
+      "name": "Bread Slice",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bread_slice",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_bread_slice_strawberry_jam",
+      "name": "Bread Slice With Strawberry Jam",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bread_slice_with_strawberry_jam",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_bun",
+      "name": "Bun",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bun",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_bun_strawberry_jam",
+      "name": "Bun With Strawberry Jam",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:bun_with_strawberry_jam",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_cheese_scone",
+      "name": "Scone",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cheese_scone",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_chocolate_coated_biscuit",
+      "name": "Chocolate Coated Biscuit",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chocolate_coated_biscuit",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_chocolate_flavoured_biscuit",
+      "name": "Chocolate Flavoured Biscuit",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chocolate_flavoured_biscuit",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_chocolate_sunday",
+      "name": "Chocolate Sundae",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chocolate_sunday",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_cinnamon_roll",
+      "name": "Plain Cinnamon Roll",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plain_cinnamon_roll",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dark_chocolate",
+      "name": "Dark Chocolate",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:dark_chocolate",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dark_chocolate_candy",
+      "name": "Dark Chocolate Candy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:dark_chocolate_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dark_chocolate_glaze",
+      "name": "Dark Chocolate Glaze",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:dark_chocolate_glaze",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dark_chocolate_glazed_donut",
+      "name": "Dark Chocolate Glazed Donut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:dark_chocolate_glazed_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dark_chocolate_lollypop",
+      "name": "Dark Chocolate Lollypop",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:dark_chocolate_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dark_chocolate_macaron",
+      "name": "Dark Chocolate Macaron",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:dark_chocolate_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dark_chocolate_macaron_half",
+      "name": "Dark Chocolate Macaron Half",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:dark_chocolate_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dark_chocolate_popsicle",
+      "name": "Dark Chocolate Popsicle",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:dark_chocolate_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_dried_fruit_biscuit",
+      "name": "Dried Fruit Biscuit",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:dried_fruit_biscuit",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_egg_white",
+      "name": "Egg White",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:egg_white",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_candy",
+      "name": "Fruit Candy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_filled_danish",
+      "name": "Fruit Filled Danish",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_filled_danish",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_filled_tart",
+      "name": "Fruit Filled Tart",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_filled_tart",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_glaze",
+      "name": "Fruit Glaze",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_glaze",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_glazed_donut",
+      "name": "Fruit Glazed Donut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_glazed_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_jam",
+      "name": "Fruit Jam",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_jam",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_jelly",
+      "name": "Fruit Jelly",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_jelly",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_lollypop",
+      "name": "Fruit Lollypop",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_macaron",
+      "name": "Fruit Macaron",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_macaron_half",
+      "name": "Fruit Macaron Half",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_popsicle",
+      "name": "Fruit Popsicle",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_slushy",
+      "name": "Fruit Slushy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_slushy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_fruit_spritzer",
+      "name": "Fruit Spritzer",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:fruit_spritzer",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_glazed_cinnamon_roll",
+      "name": "Glazed Cinnamon Roll",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:glazed_cinnamon_roll",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_ground_almonds",
+      "name": "Ground Almonds",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:ground_almonds",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_ground_walnut",
+      "name": "Ground Walnut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:ground_walnut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_jam_filled_round_biscuit",
+      "name": "Jam Filled Round Biscuit",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:jam_filled_round_biscuit",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_lollypop_stick",
+      "name": "Lollypop Stick",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:lollypop_stick",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_candy",
+      "name": "Mango Candy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:mango_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_glaze",
+      "name": "Mango Glaze",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:mango_glaze",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_glazed_donut",
+      "name": "Mango Glazed Donut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:mango_glazed_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_jam",
+      "name": "Mango Jam",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:mango_jam",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_jelly",
+      "name": "Mango Jelly",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:mango_jelly",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_lollypop",
+      "name": "Mango Lollypop",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:mango_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_macaron",
+      "name": "Mango Macaron",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:mango_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_macaron_half",
+      "name": "Mango Macaron Half",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:mango_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_popsicle",
+      "name": "Mango Popsicle",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:mango_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_slushy",
+      "name": "Mango Slushy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:mango_slushy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_spritzer",
+      "name": "Mango Spritzer",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:mango_spritzer",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango_upsidedown_loaf",
+      "name": "Mango Upside-down Loaf",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:mango_upside-down_loaf",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_matcha_candy",
+      "name": "Matcha Candy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:matcha_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_matcha_glaze",
+      "name": "Matcha Glaze",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:matcha_glaze",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_matcha_glazed_donut",
+      "name": "Matcha Glazed Donut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:matcha_glazed_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_matcha_jelly",
+      "name": "Matcha Jelly",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:matcha_jelly",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_matcha_lollypop",
+      "name": "Matcha Lollypop",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:matcha_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_matcha_macaron",
+      "name": "Matcha Macaron",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:matcha_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_matcha_macaron_half",
+      "name": "Matcha Macaron Half",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:matcha_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_matcha_popsicle",
+      "name": "Matcha Popsicle",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:matcha_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_matcha_slushy",
+      "name": "Matcha Slushy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:matcha_slushy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_matcha_spritzer",
+      "name": "Matcha Spritzer",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:matcha_spritzer",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pie_casing",
+      "name": "Pie Casing",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:pie_casing",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plain_biscuit",
+      "name": "Plain Biscuit",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plain_biscuit",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plain_cake_layer",
+      "name": "Plain Cake Layer",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plain_cake_layer",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plain_candy",
+      "name": "Plain Candy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plain_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plain_donut",
+      "name": "Plain Donut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plain_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plain_jelly",
+      "name": "Plain Jelly",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plain_jelly",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plain_lollypop",
+      "name": "Plain Lollypop",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plain_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plain_macaron",
+      "name": "Plain Macaron",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plain_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plain_macaron_half",
+      "name": "Plain Macaron Half",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plain_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_puff_layer",
+      "name": "Puff Layer",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:puff_layer",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plain_tart",
+      "name": "Plain Tart Shell",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plain_tart_shell",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_candy",
+      "name": "Plum Candy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plum_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_glaze",
+      "name": "Plum Glaze",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plum_glaze",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_glazed_donut",
+      "name": "Plum Glazed Donut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plum_glazed_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_jam",
+      "name": "Plum Jam",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plum_jam",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_jelly",
+      "name": "Plum Jelly",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plum_jelly",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_lollypop",
+      "name": "Plum Lollypop",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plum_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_macaron",
+      "name": "Plum Macaron",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plum_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_macaron_half",
+      "name": "Plum Macaron Half",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plum_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_popsicle",
+      "name": "Plum Popsicle",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plum_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_slushy",
+      "name": "Plum Slushy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plum_slushy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum_spritzer",
+      "name": "Plum Spritzer",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plum_spritzer",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pretzel",
+      "name": "Pretzel",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:pretzel",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pumpkin_spice_candy",
+      "name": "Pumpkin Spice Candy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:pumpkin_spice_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pumpkin_spice_glaze",
+      "name": "Pumpkin Spice Glaze",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:pumpkin_spice_glaze",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pumpkin_spice_glazed_donut",
+      "name": "Pumpkin Spice Glazed Donut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:pumpkin_spice_glazed_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pumpkin_spice_jelly",
+      "name": "Pumpkin Spice Jelly",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:pumpkin_spice_jelly",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pumpkin_spice_lollypop",
+      "name": "Pumpkin Spice Lollypop",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:pumpkin_spice_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pumpkin_spice_macaron",
+      "name": "Pumpkin Spice Macaron",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:pumpkin_spice_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pumpkin_spice_macaron_half",
+      "name": "Pumpkin Spice Macaron Half",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:pumpkin_spice_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_pumpkin_spice_popsicle",
+      "name": "Pumpkin Spice Popsicle",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:pumpkin_spice_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_scones_and_jam",
+      "name": "Scones And Jam",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:scones_and_jam",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberries_and_chocolate",
+      "name": "Strawberries And Chocolate",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberries_and_chocolate",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_candy",
+      "name": "Strawberry Candy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberry_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_glaze",
+      "name": "Strawberry Glaze",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberry_glaze",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_glazed_donut",
+      "name": "Strawberry Glazed Donut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberry_glazed_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_jam",
+      "name": "Strawberry Jam",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberry_jam",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_jelly",
+      "name": "Strawberry Jelly",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberry_jelly",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_lollypop",
+      "name": "Strawberry Lollypop",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberry_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_macaron",
+      "name": "Strawberry Macaron",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberry_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_macaron_half",
+      "name": "Strawberry Macaron Half",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberry_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_popsicle",
+      "name": "Strawberry Popsicle",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberry_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_slushy",
+      "name": "Strawberry Slushy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberry_slushy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_strawberry_spritzer",
+      "name": "Strawberry Spritzer",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:strawberry_spritzer",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweet_berry_candy",
+      "name": "Sweet Berry Candy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweet_berry_glaze",
+      "name": "Sweet Berry Glaze",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_glaze",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweet_berry_glazed_donut",
+      "name": "Sweet Berry Glazed Donut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_glazed_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweetberry_jam",
+      "name": "Sweet Berry Jam",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_jam",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweet_berry_jelly",
+      "name": "Sweet Berry Jelly",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_jelly",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweet_berry_lollypop",
+      "name": "Sweet Berry Lollypop",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweet_berry_macaron",
+      "name": "Sweet Berry Macaron",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweet_berry_macaron_half",
+      "name": "Sweet Berry Macaron Half",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweet_berry_popsicle",
+      "name": "Sweet Berry Popsicle",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweet_berry_slushy",
+      "name": "Sweet Berry Slushy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_slushy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_sweet_berry_spritzer",
+      "name": "Sweet Berry Spritzer",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:sweet_berry_spritzer",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_toffee",
+      "name": "Toffee",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:toffee",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_toffee_candy",
+      "name": "Toffee Candy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:toffee_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_toffee_glaze",
+      "name": "Toffee Glaze",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:toffee_glaze",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_toffee_glazed_donut",
+      "name": "Toffee Glazed Donut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:toffee_glazed_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_toffee_lollypop",
+      "name": "Toffee Lollypop",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:toffee_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_toffee_macaron",
+      "name": "Toffee Macaron",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:toffee_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_toffee_macaron_half",
+      "name": "Toffee Macaron Half",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:toffee_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_toffee_popsicle",
+      "name": "Toffee Popsicle",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:toffee_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_toffee_sunday",
+      "name": "Toffee Sundae",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:toffee_sunday",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_vanilla_candy",
+      "name": "Vanilla Candy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:vanilla_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_vanilla_glaze",
+      "name": "Vanilla Glaze",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:vanilla_glaze",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_vanilla_glazed_donut",
+      "name": "Vanilla Glazed Donut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:vanilla_glazed_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_vanilla_lollypop",
+      "name": "Vanilla Lollypop",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:vanilla_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_vanilla_macaron",
+      "name": "Vanilla Macaron",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:vanilla_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_vanilla_macaron_half",
+      "name": "Vanilla Macaron Half",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:vanilla_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_vanilla_popsicle",
+      "name": "Vanilla Popsicle",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:vanilla_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_white_chocolate",
+      "name": "White Chocolate",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:white_chocolate",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_white_chocolate_candy",
+      "name": "White Chocolate Candy",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:white_chocolate_candy",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_white_chocolate_glaze",
+      "name": "White Chocolate Glaze",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:white_chocolate_glaze",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_white_chocolate_glazed_donut",
+      "name": "White Chocolate Glazed Donut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:white_chocolate_glazed_donut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_white_chocolate_lollypop",
+      "name": "White Chocolate Lollypop",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:white_chocolate_lollypop",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_white_chocolate_macaron",
+      "name": "White Chocolate Macaron",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:white_chocolate_macaron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_white_chocolate_macaron_half",
+      "name": "White Chocolate Macaron Half",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:white_chocolate_macaron_half",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_white_chocolate_popsicle",
+      "name": "White Chocolate Popsicle",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:white_chocolate_popsicle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Iron Oversized Cake Plinth",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_plinth_iron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Quartz Oversized Cake Plinth",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_plinth_quartz",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Spruce Oversized Cake Plinth",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cake_plinth_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Black Awning",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_black",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Black Awning Top",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_top_black",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Black Picnic Blanket Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:block_pic_black",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Black Bakery Floor Tile",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tile_floor_black",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Blue Awning",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_blue",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Blue Awning Top",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_top_blue",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Blue Picnic Blanket Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:block_pic_blue",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Blue Bakery Floor Tile",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tile_floor_blue",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Brown Awning",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_brown",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Brown Awning Top",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_top_brown",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Brown Picnic Blanket Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:block_pic_brown",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Brown Bakery Floor Tile",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tile_floor_brown",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cyan Awning",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_cyan",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cyan Awning Top",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_top_cyan",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cyan Picnic Blanket Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:block_pic_cyan",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cyan Bakery Floor Tile",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tile_floor_cyan",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Gray Awning",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_gray",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Gray Awning Top",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_top_gray",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Gray Picnic Blanket Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:block_pic_gray",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Gray Bakery Floor Tile",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tile_floor_gray",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Green Awning",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_green",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Green Awning Top",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_top_green",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Green Picnic Blanket Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:block_pic_green",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Green Bakery Floor Tile",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tile_floor_green",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Light Blue Awning",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_light_blue",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Light Blue Awning Top",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_top_light_blue",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Light Blue Picnic Blanket Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:block_pic_light_blue",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Light Blue Bakery Floor Tile",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tile_floor_light_blue",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Lime Awning",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_lime",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Lime Awning Top",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_top_lime",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Lime Picnic Blanket Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:block_pic_lime",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Lime Bakery Floor Tile",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tile_floor_lime",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Magenta Awning",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_magenta",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Magenta Awning Top",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_top_magenta",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Magenta Picnic Blanket Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:block_pic_magenta",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Magenta Bakery Floor Tile",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tile_floor_magenta",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Orange Awning",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_orange",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Orange Awning Top",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_top_orange",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Orange Picnic Blanket Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:block_pic_orange",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Orange Bakery Floor Tile",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tile_floor_orange",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Purple Awning",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_purple",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Purple Awning Top",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_top_purple",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Purple Picnic Blanket Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:block_pic_purple",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Purple Bakery Floor Tile",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tile_floor_purple",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Red Awning",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_red",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Red Awning Top",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_top_red",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Red Picnic Blanket Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:block_pic_red",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Red Bakery Floor Tile",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tile_floor_red",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Silver Awning",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_silver",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Silver Awning Top",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_top_silver",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Silver Picnic Blanket Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:block_pic_silver",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Silver Bakery Floor Tile",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tile_floor_silver",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "White Awning Top",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_top_white",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "White Awning",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_white",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "White Picnic Blanket Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:block_pic_white",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "White Bakery Floor Tile",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tile_floor_white",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Yellow Awning Top",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_top_yellow",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Yellow Awning",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:awning_yellow",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Yellow Picnic Blanket Block",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:block_pic_yellow",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Yellow Bakery Floor Tile",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:tile_floor_yellow",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Display Wicker Basket",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:basket_display",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Display Wicker Basket (Cloth)",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:basket_display_cloth",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Short Wicker Basket",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:basket_short",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Short Wicker Basket (Cloth)",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:basket_short_cloth",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tall Wicker Basket",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:basket_tall",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Tall Wicker Basket (Cloth)",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:basket_tall_cloth",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia A-Board",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:a_board_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia Café Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_cafe_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia Wooden Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_wood_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia Wooden Stool",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:stool_wood_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo A-Board",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:a_board_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo Café Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_cafe_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo Wooden Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_wood_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo Wooden Stool",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:stool_wood_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch A-Board",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:a_board_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch Café Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_cafe_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch Wooden Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_wood_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch Wooden Stool",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:stool_wood_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry A-Board",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:a_board_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Café Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_cafe_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Wooden Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_wood_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Wooden Stool",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:stool_wood_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak A-Board",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:a_board_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak Café Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_cafe_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak Wooden Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_wood_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak Wooden Stool",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:stool_wood_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle A-Board",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:a_board_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle Café Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_cafe_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle Wooden Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_wood_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle Wooden Stool",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:stool_wood_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove A-Board",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:a_board_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove Café Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_cafe_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove Wooden Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_wood_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove Wooden Stool",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:stool_wood_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak A-Board",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:a_board_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak Café Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_cafe_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak Wooden Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_wood_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak Wooden Stool",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:stool_wood_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak A-Board",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:a_board_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak Café Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_cafe_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak Wooden Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_wood_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak Wooden Stool",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:stool_wood_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce A-Board",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:a_board_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce Café Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_cafe_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce Wooden Chair",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:chair_wood_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce Wooden Stool",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:stool_wood_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_almond",
+      "name": "Almond",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:almond",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_banana",
+      "name": "Banana",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:banana",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_cinnamon",
+      "name": "Cinnamon",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:cinnamon",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_mango",
+      "name": "Mango",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:mango",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_plum",
+      "name": "Plum",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:plum",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/sgs/cake/items/food/item_walnut",
+      "name": "Walnut",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:walnut",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Acacia Cake Stand & Dome",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_dome_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Acacia Cake Stand",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_short_acacia",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Bamboo Cake Stand & Dome",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_dome_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Bamboo Cake Stand",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_short_bamboo",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Birch Cake Stand & Dome",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_dome_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Birch Cake Stand",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_short_birch",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Cherry Cake Stand & Dome",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_dome_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Cherry Cake Stand",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_short_cherry",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Dark Oak Cake Stand & Dome",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_dome_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Dark Oak Cake Stand",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_short_dark_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Iron Cake Stand & Dome",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_dome_iron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Iron Cake Stand",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_short_iron",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Jungle Cake Stand & Dome",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_dome_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Jungle Cake Stand",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_short_jungle",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Mangrove Cake Stand & Dome",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_dome_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Mangrove Cake Stand",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_short_mangrove",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Oak Cake Stand & Dome",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_dome_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Oak Cake Stand",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_short_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Pale Oak Cake Stand & Dome",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_dome_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Pale Oak Cake Stand",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_short_pale_oak",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Quartz Cake Stand & Dome",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_dome_quartz",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Quartz Cake Stand",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_short_quartz",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Spruce Cake Stand & Dome",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_dome_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    },
+    {
+      "textures": "textures/items/cake",
+      "name": "Short Spruce Cake Stand",
+      "cost": 650,
+      "sell": 150,
+      "data": 0,
+      "item": "sgs_cake:display_cake_short_spruce",
+      "addon": "Cakes & Bakes 1.0"
+    }
+  ]
+}

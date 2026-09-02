@@ -5,8 +5,9 @@ dist/
 client/node_modules/
 client/dist/
 scratch/
-mcaddon/
-KiwEssentials/
+mcaddon/*
+!mcaddon/addon-items/
+!mcaddon/addon-items/**
 KiwBP/
 KiwRP/
 releases/

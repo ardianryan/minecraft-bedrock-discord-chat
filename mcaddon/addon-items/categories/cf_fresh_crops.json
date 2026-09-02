@@ -1,0 +1,4788 @@
+{
+  "id": "cf_fresh_crops",
+  "name": "§l§0(§5§lFRESH CROPS & HARVEST§l§0)",
+  "icon": "textures/items/carrot",
+  "description": "Garlic, onions, vegetables and fruits",
+  "itemCount": 531,
+  "items": [
+    {
+      "textures": "textures/items/kelp_dried",
+      "name": "Dried Kelp",
+      "cost": 75,
+      "sell": 20,
+      "data": 0,
+      "item": "minecraft:dried_kelp",
+      "addon": "Vanilla"
+    },
+    {
+      "textures": "textures/items/kelp",
+      "name": "Kelp",
+      "cost": 60,
+      "sell": 15,
+      "data": 0,
+      "item": "minecraft:kelp",
+      "addon": "Vanilla"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_artichoke",
+      "name": "Artichoke Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:artichoke",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_asparagus",
+      "name": "Asparagus Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:asparagus",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_basil",
+      "name": "Basil Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:basil",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_beans_green",
+      "name": "Beans Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:beans_green",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_blackberries",
+      "name": "Blackberries Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:blackberries",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_blackcurrants",
+      "name": "Blackcurrants Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:blackcurrants",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_blueberries",
+      "name": "Blueberries Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:blueberries",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_broccoli",
+      "name": "Broccoli Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:broccoli",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_butternut_squash",
+      "name": "Butternut Squash Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:butternut_squash",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_cabbage_green",
+      "name": "Green Cabbage Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cabbage_green",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_cabbage_red",
+      "name": "Red Cabbage Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cabbage_red",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_cilantro",
+      "name": "Cilantro Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cilantro",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_cress",
+      "name": "Cress Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cress",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_cucumber",
+      "name": "Cucumber Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cucumber",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_eggplant",
+      "name": "Eggplant Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:eggplant",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_fennel",
+      "name": "Fennel Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fennel",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/fruit_apple_green",
+      "name": "Green Apple Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_apple_green",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/fruit_apple_pink",
+      "name": "Pink Apple Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_apple_pink",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/fruit_avocado",
+      "name": "Avocado Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_avocado",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/fruit_cherry",
+      "name": "Cherry Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/fruit_chestnut",
+      "name": "Chestnut Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_chestnut",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/fruit_hazelnut",
+      "name": "Hazelnut Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_hazelnut",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/fruit_lemon",
+      "name": "Lemon Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_lemon",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/fruit_lime",
+      "name": "Lime Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_lime",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/fruit_olive",
+      "name": "Olive Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_olive",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/fruit_orange",
+      "name": "Orange Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_orange",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/fruit_peach",
+      "name": "Peach Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_peach",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/fruit_pear",
+      "name": "Pear Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_pear",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_garlic",
+      "name": "Garlic Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:garlic",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_ginger",
+      "name": "Ginger Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:ginger",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_gooseberry",
+      "name": "Gooseberry Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:gooseberry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_grape_green",
+      "name": "Green Grape Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:grape_green",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_grape_red",
+      "name": "Red Grape Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:grape_red",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_lavender",
+      "name": "Lavender Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:lavender",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_leeks",
+      "name": "Leeks Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:leeks",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_lettuce",
+      "name": "Lettuce Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:lettuce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_maize",
+      "name": "Maize Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:maize",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_mint",
+      "name": "Mint Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:mint",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_onions_red",
+      "name": "Red Onion Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:onions_red",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_onions_spring",
+      "name": "Spring Onion Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:onions_spring",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_onions_white",
+      "name": "White Onions Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:onions_white",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_pak_choi",
+      "name": "Pak Choi Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:pak_choi",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_parsnip",
+      "name": "Parsnip Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:parsnip",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_passionfruit",
+      "name": "Passionfruit Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:passionfruit",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_peanuts",
+      "name": "Peanuts Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:peanuts",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_peas_garden",
+      "name": "Peas Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:peas_garden",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_peppers_bell",
+      "name": "Bell Peppers Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:peppers_bell",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_peppers_chili",
+      "name": "Chilli Peppers Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:peppers_chili",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_pineapple",
+      "name": "Pineapple Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:pineapple",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_radish",
+      "name": "Radish Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:radish",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_raspberries",
+      "name": "Raspberries Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:raspberries",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_redcurrants",
+      "name": "Redcurrants Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:redcurrants",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_rhubarb",
+      "name": "Rhubarb Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:rhubarb",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_rice",
+      "name": "Rice Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:rice",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_rosemary",
+      "name": "Rosemary Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:rosemary",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_rye",
+      "name": "Rye Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:rye",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_spinach",
+      "name": "Spinach Sapling Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:spinach",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_strawberries",
+      "name": "Strawberry Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:strawberries",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_summer_squash",
+      "name": "Summer Squash Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:summer_squash",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_swede",
+      "name": "Swede Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:swede",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_sweetcorn",
+      "name": "Sweetcorn Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:sweetcorn",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Sweetcorn Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:sweetcorn_top",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_thyme",
+      "name": "Thyme Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:thyme",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_tomato_beef",
+      "name": "Beef Tomato Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:tomato_beef",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_tomato_cherry",
+      "name": "Cherry Tomato Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:tomato_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_turnip",
+      "name": "Turnip Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:turnip",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_wasabi",
+      "name": "Wasabi Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:wasabi",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_watercress",
+      "name": "Watercress Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:watercress",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_yam",
+      "name": "Yam Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:yam",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_zucchini",
+      "name": "Zuccini Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:zucchini",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/a_frame_empty",
+      "name": "A-Frame",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:a_frame",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/p_frame_empty",
+      "name": "P-Frame",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:p_frame",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Blueprints",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fun_blueprint",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chopping Board",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fun_chop_board",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Millstone",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fun_millstone",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Paint Station",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fun_paint_station",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Prep Table",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fun_prep_table",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Hand Saw",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fun_saw_hand",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Stove",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fun_stove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Stove Oven",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fun_stove_oven",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Stove Pan",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fun_stove_pan",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/misc/workbench",
+      "name": "Workbench",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:workbench",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Vine-Frame",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:vine_frame",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Fruit Press",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_press",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/keg/keg_acacia",
+      "name": "Acacia Keg",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:keg_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/keg/keg_bamboo",
+      "name": "Bamboo Keg",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:keg_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/keg/keg_birch",
+      "name": "Birch Keg",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:keg_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/keg/keg_cherry",
+      "name": "Cherry Keg",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:keg_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/keg/keg_dark_oak",
+      "name": "Dark Oak Keg",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:keg_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/keg/keg_jungle",
+      "name": "Jungle Keg",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:keg_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/keg/keg_mangrove",
+      "name": "Mangrove Keg",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:keg_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/keg/keg_oak",
+      "name": "Oak Keg",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:keg_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/keg/keg_oak_pale",
+      "name": "Pale Oak Keg",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:keg_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/keg/keg_spruce",
+      "name": "Spruce Keg",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:keg_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/kiln/oven_kiln",
+      "name": "Kiln Brick",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:kiln_brick",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_black",
+      "name": "Black Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_black",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_blue",
+      "name": "Blue Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_blue",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_brown",
+      "name": "Brown Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_brown",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_cyan",
+      "name": "Cyan Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_cyan",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_dark_green",
+      "name": "Dark Green Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_dark_green",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_dark_red",
+      "name": "Dark Red Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_dark_red",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_gray",
+      "name": "Gray Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_gray",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_green",
+      "name": "Green Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_green",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_light_blue",
+      "name": "Light Blue Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_light_blue",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_lime",
+      "name": "Lime Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_lime",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_magenta",
+      "name": "Magenta Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_magenta",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_orange",
+      "name": "Orange Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_orange",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_pink",
+      "name": "Pink Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_pink",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_purple",
+      "name": "Purple Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_purple",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_red",
+      "name": "Red Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_red",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_silver",
+      "name": "Silver Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_silver",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_white",
+      "name": "White Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_white",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/planks/plank_painted_yellow",
+      "name": "Yellow Painted Plank",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plank_painted_yellow",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Water Pump",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fun_pump",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/tiles/brick_fired_andesite",
+      "name": "Kiln-fired Andesite Bricks",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:brick_fired_andesite",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/tiles/brick_fired_diorite",
+      "name": "Kiln-fired Diorite Bricks",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:brick_fired_diorite",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/tiles/brick_fired_granite",
+      "name": "Kiln-fired Granite Bricks",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:brick_fired_granite",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/tiles/brick_fired_stone",
+      "name": "Kiln-fired Stone Bricks",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:brick_fired_stone",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/tiles/tile_fired_andesite",
+      "name": "Kiln-fired Andesite Tile",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:tile_fired_andesite",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/tiles/tile_fired_diorite",
+      "name": "Kiln-fired Diorite Tile",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:tile_fired_diorite",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/tiles/tile_fired_granite",
+      "name": "Kiln-fired Granite Tile",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:tile_fired_granite",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/tiles/tile_fired_stone",
+      "name": "Kiln-fired Stone Tile",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:tile_fired_stone",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Meadow Grass Block",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:meadow_block",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Stone Path",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:path_stone",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cart Wheel",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cart_wheel",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_acacia",
+      "name": "Acacia Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_acacia_d",
+      "name": "Acacia Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_acacia_d",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_bamboo",
+      "name": "Bamboo Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_bamboo_d",
+      "name": "Bamboo Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_bamboo_d",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_birch",
+      "name": "Birch Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_birch_d",
+      "name": "Birch Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_birch_d",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_cherry",
+      "name": "Cherry Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_cherry_d",
+      "name": "Cherry Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_cherry_d",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_dark_oak",
+      "name": "Dark Oak Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_dark_oak_d",
+      "name": "Dark Oak Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_dark_oak_d",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_jungle",
+      "name": "Jungle Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_jungle_d",
+      "name": "Jungle Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_jungle_d",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_mangrove",
+      "name": "Mangrove Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_mangrove_d",
+      "name": "Mangrove Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_mangrove_d",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_oak",
+      "name": "Oak Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_oak_d",
+      "name": "Oak Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_oak_d",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_painted_white",
+      "name": "White Painted Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_painted_white",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_painted_white_d",
+      "name": "White Painted Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_painted_white_d",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_painted_white",
+      "name": "Pale Oak Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_painted_white_d",
+      "name": "Pale Oak Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_pale_oak_d",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_spruce",
+      "name": "Spruce Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_spruce_d",
+      "name": "Spruce Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_spruce_d",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_artichoke",
+      "name": "Artichoke",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:artichoke_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_asparagus",
+      "name": "Asparagus",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:asparagus_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_beans_green",
+      "name": "Green Beans",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:beans_green_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_blackberries",
+      "name": "Blackberry",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:blackberries_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_blackcurrants",
+      "name": "Blackcurrants",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:blackcurrants_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_blueberries",
+      "name": "Blueberries",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:blueberries_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_broccoli",
+      "name": "Broccoli",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:broccoli_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_butternut_squash",
+      "name": "Butternut Squash",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:butternut_squash_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_cabbage_green",
+      "name": "Green Cabbage",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cabbage_green_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_cabbage_red",
+      "name": "Red Cabbage",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cabbage_red_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_cress",
+      "name": "Cress",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cress_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_cucumber",
+      "name": "Cucumber",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cucumber_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_eggplant",
+      "name": "Eggplant",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:eggplant_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_fennel",
+      "name": "Fennel",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fennel_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_apple_green",
+      "name": "Green Apple",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_apple_green_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_apple_pink",
+      "name": "Pink Apple",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_apple_pink_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_avocado",
+      "name": "Avocado",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_avocado_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_cherry",
+      "name": "Cherries",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_cherry_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_chestnut",
+      "name": "Chestnut",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_chestnut_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_hazelnut",
+      "name": "Hazelnut",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_hazelnut_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_lemon",
+      "name": "Lemon",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_lemon_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_lime",
+      "name": "Lime",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_lime_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_olive",
+      "name": "Olive",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_olive_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_orange",
+      "name": "Orange",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_orange_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_peach",
+      "name": "Peach",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_peach_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_pear",
+      "name": "Pear",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fruit_pear_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_garlic",
+      "name": "Garlic",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:garlic_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_ginger",
+      "name": "Ginger",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:ginger_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_gooseberry",
+      "name": "Gooseberries",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:gooseberry_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_grape_green",
+      "name": "Green Grapes",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:grape_green_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_grape_red",
+      "name": "Red Grapes",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:grape_red_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_leeks",
+      "name": "Leek",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:leeks_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_lettuce",
+      "name": "Lettuce",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:lettuce_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_maize",
+      "name": "Maize",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:maize_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_onions_red",
+      "name": "Red Onion",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:onions_red_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_onions_spring",
+      "name": "Spring Onion",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:onions_spring_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_onions_white",
+      "name": "White Onion",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:onions_white_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_pak_choi",
+      "name": "Pak Choi",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:pak_choi_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_parsnip",
+      "name": "Parsnip",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:parsnip_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_passionfruit",
+      "name": "Passionfruit",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:passionfruit_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_peanuts",
+      "name": "Peanuts",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:peanuts_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_peas_garden",
+      "name": "Peas",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:peas_garden_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_peppers_bell",
+      "name": "Bell Pepper",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:peppers_bell_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_peppers_chili",
+      "name": "Chili",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:peppers_chili_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_pineapple",
+      "name": "Pineapple",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:pineapple_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_radish",
+      "name": "Radish",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:radish_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_raspberries",
+      "name": "Raspberry",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:raspberries_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_redcurrants",
+      "name": "Redcurrants",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:redcurrants_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_rhubarb",
+      "name": "Rhubarb",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:rhubarb_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_rice",
+      "name": "Rice",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:rice_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_rye",
+      "name": "Rye",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:rye_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_spinach",
+      "name": "Spinach",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:spinach_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_strawberries",
+      "name": "Strawberry",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:strawberries_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_summer_squash",
+      "name": "Summer Squash",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:summer_squash_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_swede",
+      "name": "Swede",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:swede_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_sweetcorn",
+      "name": "Sweetcorn",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:sweetcorn_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_tomato_beef",
+      "name": "Beef Tomato",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:tomato_beef_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_tomato_cherry",
+      "name": "Cherry Tomatoes",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:tomato_cherry_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_turnip",
+      "name": "Turnip",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:turnip_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_wasabi",
+      "name": "Wasabi",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:wasabi_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_watercress",
+      "name": "Watercress",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:watercress_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_yam",
+      "name": "Yam",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:yam_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_zucchini",
+      "name": "Zuccini",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:zucchini_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_artichoke_roasted",
+      "name": "Roast Artichoke",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:artichoke_roasted",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_avocado_maki",
+      "name": "Avocado Maki",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:avocado_maki",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_bacon",
+      "name": "Bacon",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:bacon",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_beef_patty",
+      "name": "Cooked Beef Patty",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:beef_patty",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_bread_slice",
+      "name": "Slice of Bread",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:bread_slice",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_breadcrumbs",
+      "name": "Breadcrumbs",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:breadcrumbs",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_brioche_bun",
+      "name": "Brioche Bun",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:brioche_bun",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_butter",
+      "name": "Butter",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:butter",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_carrot_roasted",
+      "name": "Roasted Carrots",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:carrot_roasted",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_ceramic_dish",
+      "name": "Ceramic Dish",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:ceramic_dish",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_chicken_tender",
+      "name": "Cooked Chicken Tender",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:chicken_tender",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_crumble_top",
+      "name": "Crumble Topping",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:crumble_top",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_dressing",
+      "name": "Dressing",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dressing",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_egg_fried",
+      "name": "Fried Egg",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:egg_fried",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_fried_maki",
+      "name": "Fried Maki",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fried_maki",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_fried_uramaki",
+      "name": "Fried Uramaki",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fried_uramaki",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_kappa_maki",
+      "name": "Kappa Maki",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:kappa_maki",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_knife",
+      "name": "Knife",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:knife",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_leek_roasted",
+      "name": "Roasted Leeks",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:leek_roasted",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_maki_roll",
+      "name": "Maki Roll",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:maki_roll",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_mushroom_fried",
+      "name": "Pan-Fried Mushroom",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:mushroom_fried",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_nigiri",
+      "name": "Nigiri",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:nigiri",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_nori",
+      "name": "Nori Sheets",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:nori",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_parsnip_roasted",
+      "name": "Roasted Parsnip",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:parsnip_roasted",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_pasta_cooked",
+      "name": "Cooked Pasta",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:pasta_cooked",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_pepperoni",
+      "name": "Pepperoni",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:pepperoni",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_pizza_garlic",
+      "name": "Garlic Bread",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:pizza_garlic",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_plate",
+      "name": "Plate",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:plate",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_popcorn",
+      "name": "Popcorn",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:popcorn",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_roasting_tray",
+      "name": "Roasting Tray",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:roasting_tray",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_rolling_pin",
+      "name": "Rolling Pin",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:rolling_pin",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_sashimi",
+      "name": "Sashimi",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:sashimi",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_squash_roasted",
+      "name": "Roasted Squash",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:squash_roasted",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_tea_herbal",
+      "name": "Herbal Tea",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:tea_herbal",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_tea_mint",
+      "name": "Mint Tea",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:tea_mint",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_tortillas",
+      "name": "Tortillas",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:tortillas",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_uramaki",
+      "name": "Uramaki",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:uramaki",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_veg_fajitas",
+      "name": "Fajita Veggies",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:veg_fajitas",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_whisk",
+      "name": "Whisk",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:whisk",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_basil",
+      "name": "Basil",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:basil_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_cilantro",
+      "name": "Cilantro",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cilantro_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_lavender",
+      "name": "Lavender",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:lavender_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_mint",
+      "name": "Mint",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:mint_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_rosemary",
+      "name": "Rosemary",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:rosemary_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/item_thyme",
+      "name": "Thyme",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:thyme_crop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/entities/item_cart_cargo_oak",
+      "name": "Cart: Cargo (Decorative)",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cart_cargo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/entities/item_cart_harvest",
+      "name": "Cart: Harvester",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cart_harvest",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/entities/item_cart_plough",
+      "name": "Cart: Plough",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cart_plough",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/entities/item_harness",
+      "name": "Horse Harness",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:harness",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/item_axle",
+      "name": "Axle",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:axle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/item_dye_dark_green",
+      "name": "Dark Green Dye",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dye_dark_green",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/item_dye_dark_red",
+      "name": "Dark Red Dye",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dye_dark_red",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/tools/item_blueprint",
+      "name": "Blueprints",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fun_blueprint_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/tools/item_chop_board",
+      "name": "Chopping Board",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fun_chop_board_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/tools/item_paint_station",
+      "name": "Paint Station",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fun_paint_station_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/tools/item_stove_oven",
+      "name": "Stove Oven",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fun_stove_oven_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/tools/item_stove_pan",
+      "name": "Stove Pan",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fun_stove_pan_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/item_gear",
+      "name": "Gear",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:gear",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/item_rubber",
+      "name": "Rubber",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:rubber",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/tools/item_saw_hand",
+      "name": "Hand Saw",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fun_saw_hand_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/icons/icon_settings",
+      "name": "Settings Key",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:settings_key",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/misc/item_tire",
+      "name": "Tire",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:tire",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/tools/item_sickle_iron",
+      "name": "Sickle",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:sickle_iron",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/entities/item_mach_harvest",
+      "name": "Machine: Harvester",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:mach_harvest",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/entities/item_mach_plough",
+      "name": "Machine: Plough",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:mach_plough",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_acacia",
+      "name": "Acacia Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_acacia_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_acacia_d",
+      "name": "Acacia Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_acacia_d_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_bamboo",
+      "name": "Bamboo Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_bamboo_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_bamboo_d",
+      "name": "Bamboo Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_bamboo_d_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_birch",
+      "name": "Birch Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_birch_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_birch_d",
+      "name": "Birch Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_birch_d_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_cherry",
+      "name": "Cherry Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_cherry_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_cherry_d",
+      "name": "Cherry Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_cherry_d_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_dark_oak",
+      "name": "Dark Oak Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_dark_oak_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_dark_oak_d",
+      "name": "Dark Oak Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_dark_oak_d_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_jungle",
+      "name": "Jungle Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_jungle_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_jungle_d",
+      "name": "Jungle Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_jungle_d_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_mangrove",
+      "name": "Mangrove Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_mangrove_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_mangrove_d",
+      "name": "Mangrove Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_mangrove_d_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_oak",
+      "name": "Oak Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_oak_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_oak_d",
+      "name": "Oak Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_oak_d_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_painted_white",
+      "name": "White Painted Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_painted_white_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_painted_white_d",
+      "name": "White Painted Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_painted_white_d_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_painted_white",
+      "name": "Pale Oak Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_pale_oak_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_painted_white_d",
+      "name": "Pale Oak Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_pale_oak_d_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_spruce",
+      "name": "Spruce Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_spruce_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/w/item_window_farm_spruce_d",
+      "name": "Spruce Double Farmhouse Window",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:window_farm_spruce_d_item",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Gate Acacia",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_board_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Gate Acacia",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_chainlink_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Gate Acacia",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_dogear_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Gate Acacia",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_estate_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Gate Acacia",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_picket_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Gate Acacia",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_rustic_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Gate Acacia",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_wire_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Gate Bamboo",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_board_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Gate Bamboo",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_chainlink_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Gate Bamboo",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_dogear_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Gate Bamboo",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_estate_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Gate Bamboo",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_picket_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Gate Bamboo",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_rustic_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Gate Bamboo",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_wire_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Gate Birch",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_board_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Gate Birch",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_chainlink_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Gate Birch",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_dogear_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Gate Birch",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_estate_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Gate Birch",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_picket_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Gate Birch",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_rustic_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Gate Birch",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_wire_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Gate Cherry",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_board_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Gate Cherry",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_chainlink_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Gate Cherry",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_dogear_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Gate Cherry",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_estate_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Gate Cherry",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_picket_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Gate Cherry",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_rustic_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Gate Cherry",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_wire_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Gate Dark Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_board_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Gate Dark Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_chainlink_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Gate Dark Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_dogear_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Gate Dark Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_estate_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Gate Dark Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_picket_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Gate Dark Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_rustic_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Gate Dark Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_wire_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Gate Jungle",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_board_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Gate Jungle",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_chainlink_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Gate Jungle",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_dogear_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Gate Jungle",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_estate_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Gate Jungle",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_picket_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Gate Jungle",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_rustic_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Gate Jungle",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_wire_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Gate Mangrove",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_board_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Gate Mangrove",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_chainlink_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Gate Mangrove",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_dogear_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Gate Mangrove",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_estate_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Gate Mangrove",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_picket_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Gate Mangrove",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_rustic_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Gate Mangrove",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_wire_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Gate Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_board_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Gate Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_chainlink_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Gate Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_dogear_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Gate Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_estate_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Gate Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_picket_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Gate Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_rustic_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Gate Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_wire_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Gate Pale Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_board_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Gate Pale Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_chainlink_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Gate Pale Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_dogear_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Gate Pale Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_estate_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Gate Pale Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_picket_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Gate Pale Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_rustic_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Gate Pale Oak",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_wire_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Board Fence Gate Spruce",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_board_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chainlink Fence Gate Spruce",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_chainlink_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dog-Ear Fence Gate Spruce",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_dogear_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Estate Fence Gate Spruce",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_estate_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Picket Fence Gate Spruce",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_picket_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Rustic Fence Gate Spruce",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_rustic_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Wire Fence Gate Spruce",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_gate_wire_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_artichoke",
+      "name": "Artichoke Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_artichoke",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_asparagus",
+      "name": "Asparagus Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_asparagus",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_beans_green",
+      "name": "Green Beans Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_beans_green",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_blackberry",
+      "name": "Blackberry Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_blackberries",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_blackcurrant",
+      "name": "Blackcurrant Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_blackcurrants",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_blueberry",
+      "name": "Blueberry Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_blueberries",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_broccoli",
+      "name": "Broccoli Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_broccoli",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_squash_butternut",
+      "name": "Butternut Squash Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_butternut_squash",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_cabbage_green",
+      "name": "Green Cabbage Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_cabbage_green",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_cabbage_red",
+      "name": "Red Cabbage Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_cabbage_red",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_cress",
+      "name": "Cress Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_cress",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_cucumber",
+      "name": "Cucumber Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_cucumber",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_eggplant",
+      "name": "Eggplant Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_eggplant",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_fennel",
+      "name": "Fennel Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_fennel",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_apple_green",
+      "name": "Green Apple Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_fruit_apple_green",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_apple_pink",
+      "name": "Pink Apple Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_fruit_apple_pink",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_avocado",
+      "name": "Avocado Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_fruit_avocado",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_cherry",
+      "name": "Cherry Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_fruit_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_chestnut",
+      "name": "Chestnut Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_fruit_chestnut",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_hazelnut",
+      "name": "Hazelnut Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_fruit_hazelnut",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_lemon",
+      "name": "Lemon Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_fruit_lemon",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_lime",
+      "name": "Lime Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_fruit_lime",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_olive",
+      "name": "Olive Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_fruit_olive",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_orange",
+      "name": "Orange Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_fruit_orange",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_peach",
+      "name": "Peach Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_fruit_peach",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_pear",
+      "name": "Pear Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_fruit_pear",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_garlic",
+      "name": "Garlic Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_garlic",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_ginger",
+      "name": "Ginger Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_ginger",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_gooseberry",
+      "name": "Gooseberry Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_gooseberry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_grape_green",
+      "name": "Green Grape Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_grape_green",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_grape_red",
+      "name": "Red Grape Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_grape_red",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_leeks",
+      "name": "Leeks Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_leeks",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_lettuce",
+      "name": "Lettuce Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_lettuce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_maize",
+      "name": "Maize Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_maize",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_onion_red",
+      "name": "Red Onion Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_onions_red",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_onion_spring",
+      "name": "Spring Onion Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_onions_spring",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_onion_white",
+      "name": "White Onion Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_onions_white",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_pak_choi",
+      "name": "Pak Choi Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_pak_choi",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_parsnip",
+      "name": "Parsnip Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_parsnip",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_passionfruit",
+      "name": "Passionfruit Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_passionfruit",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_peanut",
+      "name": "Peanuts Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_peanuts",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_peas_garden",
+      "name": "Peas Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_peas_garden",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_pepper_bell",
+      "name": "Bellpepper Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_peppers_bell",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_pepper_chili",
+      "name": "Chili Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_peppers_chili",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_pineapple",
+      "name": "Pineapple Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_pineapple",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_radish",
+      "name": "Radish Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_radish",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_raspberry",
+      "name": "Raspberry Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_raspberries",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_redcurrant",
+      "name": "Redcurrant Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_redcurrants",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_rhubarb",
+      "name": "Rhubarb Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_rhubarb",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_rice",
+      "name": "Rice Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_rice",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_rye",
+      "name": "Rye Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_rye",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_spinach",
+      "name": "Spinach Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_spinach",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_strawberry",
+      "name": "Strawberry Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_strawberries",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_squash_summer",
+      "name": "Summer Squash Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_summer_squash",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_swede",
+      "name": "Swede Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_swede",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_sweetcorn",
+      "name": "Sweetcorn Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_sweetcorn",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_tomato_beef",
+      "name": "Beef Tomato Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_tomato_beef",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_tomato_cherry",
+      "name": "Cherry Tomato Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_tomato_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_turnip",
+      "name": "Turnip Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_turnip",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_wasabi",
+      "name": "Wasabi Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_wasabi",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_watercress",
+      "name": "Watercress Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_watercress",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_yam",
+      "name": "Yam Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_yam",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_zucchini",
+      "name": "Zuccini Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_zucchini",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/display/display_board",
+      "name": "Display Board",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_board",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/display/display_plate",
+      "name": "Display Plate",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_plate",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/display/display_stand",
+      "name": "Display Stand",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_stand",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/items/bread",
+      "name": "Bread Loaf",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_bread_loaf",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Beef Burger",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_burger_beef",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chicken Burger",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_burger_chicken",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Beef Burger",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_burger_mushroom",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Beef Fajitas",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_fajitas_beef",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Chicken Fajitas",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_fajitas_chicken",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Veggie Fajitas",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_fajitas_veg",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Hawaiian Pizza",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_pizza_hawaiian",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Margherita Pizza",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_pizza_margherita",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pepperoni Pizza",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_pizza_pepperoni",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Veggie Pizza",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_pizze_veg",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bacon Sandwich",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_sandwich_bacon",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Roast Beef Sandwich",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_sandwich_beef",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "BLT Sandwich",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_sandwich_blt",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Egg and Cress Sandwich",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_sandwich_egg",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Ham Salad Sandwich",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_sandwich_ham",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pork Sandwich",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:display_sandwich_pork",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Acacia Steps",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_steps_acacia",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Bamboo Steps",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_steps_bamboo",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Birch Steps",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_steps_birch",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Cherry Steps",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_steps_cherry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Dark Oak Steps",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_steps_dark_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Jungle Steps",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_steps_jungle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Mangrove Steps",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_steps_mangrove",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Oak Steps",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_steps_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Pale Oak Steps",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_steps_pale_oak",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Spruce Steps",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_steps_spruce",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "Step Support",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:step_support",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/blocks/crafting_table_front",
+      "name": "White Painted Steps",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:dec_steps_white_painted",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_bottle_glass_empty",
+      "name": "Empty Bottle",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:bottle",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_chili_con_carne",
+      "name": "Chili Con Carne",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:chili_con_carne",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_rice_cooked",
+      "name": "Cooked Rice",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:rice_cooked",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_rice_fried_egg",
+      "name": "Egg Fried Rice",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:rice_fried_egg",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_rice_fried_meat",
+      "name": "House Special Fried Rice",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:rice_fried_meat",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_rice_fried_mushroom",
+      "name": "Mushroom Fried Rice",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:rice_fried_mushroom",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_rice_fried_veg",
+      "name": "Veggie Fried Rice",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:rice_fried_veg",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_salad_fruit",
+      "name": "Fruit Salad",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:salad_fruit",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_salad_fruit_berry",
+      "name": "Berry Fruit Salad",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:salad_fruit_berry",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_salad_fruit_trop",
+      "name": "Tropical Fruit Salad",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:salad_fruit_trop",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_salad_green",
+      "name": "Green Salad",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:salad_green",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_salad_nicoise",
+      "name": "Salad Nicoise",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:salad_nicoise",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_salad_tomato",
+      "name": "Tomato Salad",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:salad_tomato",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_soup_corn",
+      "name": "Corn Soup",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:soup_corn",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_soup_minestrone",
+      "name": "Minestrone Soup",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:soup_minestrone",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_soup_pea",
+      "name": "Pea Soup",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:soup_pea",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_soup_vegatable",
+      "name": "Vegetable Soup",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:soup_vegatable",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_stew_beef",
+      "name": "Beef Stew",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:stew_beef",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_stew_chicken",
+      "name": "Coq au Vin",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:stew_chicken",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_stew_lamb",
+      "name": "Lamb Stew",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:stew_lamb",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_stew_veg",
+      "name": "Vegetable Stew",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:stew_veg",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_crumble_apple",
+      "name": "Apple Crumble",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:crumble_apple",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_crumble_rhubarb",
+      "name": "Rhubarb Crumble",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:crumble_rhubarb",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_lasagne_beef",
+      "name": "Beef Lasagne",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:lasagne_beef",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_lasagne_veg",
+      "name": "Veggie Lasagne",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:lasagne_veg",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_bread_loaf",
+      "name": "Bread Loaf",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:bread_loaf",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_burger_beef",
+      "name": "Beef Burger",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:burger_beef",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_burger_chicken",
+      "name": "Chicken Burger",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:burger_chicken",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_burger_mushroom",
+      "name": "Mushroom Burger",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:burger_mushroom",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_fajitas_beef",
+      "name": "Beef Fajitas",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fajitas_beef",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_fajitas_chicken",
+      "name": "Chicken Fajitas",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fajitas_chicken",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_fajitas_veg",
+      "name": "Veggie Fajitas",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:fajitas_veg",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_pizza_hawaiian",
+      "name": "Hawaiian Pizza",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:pizza_hawaiian",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_pizza_margherita",
+      "name": "Margherita Pizza",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:pizza_margherita",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_pizza_pepperoni",
+      "name": "Pepperoni Pizza",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:pizza_pepperoni",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_pizze_veg",
+      "name": "Veggie Pizza",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:pizze_veg",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_sandwich_bacon",
+      "name": "Bacon Sandwich",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:sandwich_bacon",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_sandwich_beef",
+      "name": "Roast Beef Sandwich",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:sandwich_beef",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_sandwich_blt",
+      "name": "BLT Sandwich",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:sandwich_blt",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_sandwich_egg",
+      "name": "Egg and Cress Sandwich",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:sandwich_egg",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_sandwich_ham",
+      "name": "Ham Salad Sandwich",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:sandwich_ham",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_sandwich_pork",
+      "name": "Roast Pork Sandwich",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:sandwich_pork",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_pesto",
+      "name": "Green Pesto",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:pesto",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_sauce_bolognese",
+      "name": "Bolognese Sauce",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:sauce_bolognese",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_sauce_tomato",
+      "name": "Tomato Sauce",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:sauce_tomato",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_spread_chocolate",
+      "name": "Chocolate Spread",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:spread_chocolate",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_spread_peanut",
+      "name": "Peanut Butter",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:spread_peanut",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_asparagus_sauteed",
+      "name": "Sauteed Asparagus",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:asparagus_sauteed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_bacon_eggs",
+      "name": "Bacon & Eggs",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:bacon_eggs",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_cabbage_braised",
+      "name": "Braised Red Cabbage",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cabbage_braised",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_cabbage_sauteed",
+      "name": "Sauteed Green Cabbage",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cabbage_sauteed",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_pasta_bolognese",
+      "name": "Spaghetti Bolognese",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:pasta_bolognese",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_pasta_carbonara",
+      "name": "Spaghetti Carbonara",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:pasta_carbonara",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_pasta_pesto",
+      "name": "Pesto Pasta",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:pasta_pesto",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_pasta_tomato",
+      "name": "Tomato Pasta",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:pasta_tomato",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_roast_dinner_chicken",
+      "name": "Roast Chicken Dinner",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:roast_dinner_chicken",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_roast_dinner_pork",
+      "name": "Roast Pork Dinner",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:roast_dinner_pork",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_sushi_menu",
+      "name": "Sushi Menu",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:sushi_menu",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_ratatouille",
+      "name": "Ratatouille",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:ratatouille",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_roasted_veg_summer",
+      "name": "Roasted Summer Veg",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:roasted_veg_summer",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/items/food/item_roasted_veg_winter",
+      "name": "Roasted Winter Veg",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:roasted_veg_winter",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_apple",
+      "name": "Apple Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_apple",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_beetroot",
+      "name": "Beetroot Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_beetroot",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_carrot",
+      "name": "Carrot Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_carrot",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_empty",
+      "name": "Empty Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_empty",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_glow_berries",
+      "name": "Glow Berries Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_glow_berries",
+      "addon": "Crops & Farms 1.21"
+    },
+    {
+      "textures": "textures/sgs/farm/blocks/cropbox/cropbox_wheat",
+      "name": "Wheat Cropbox",
+      "cost": 180,
+      "sell": 45,
+      "data": 0,
+      "item": "sgs_farm:cropbox_wheat",
+      "addon": "Crops & Farms 1.21"
+    }
+  ]
+}

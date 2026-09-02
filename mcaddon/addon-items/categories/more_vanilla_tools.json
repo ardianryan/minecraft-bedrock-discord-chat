@@ -1,0 +1,504 @@
+{
+  "id": "more_vanilla_tools",
+  "name": "§l§0(§c§lADVANCED WEAPONS & TOOLS§l§0)",
+  "icon": "textures/items/netherite_sword",
+  "description": "Sculkite, dragonforge, breeze, enderian and beehive tools",
+  "itemCount": 55,
+  "items": [
+    {
+      "textures": "textures/items/netherite_sword",
+      "name": "Ore Block",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "sculkite:ore_block",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/pickaxe",
+      "name": "Axe",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "breeze:axe",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/boots",
+      "name": "Boots",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "breeze:boots",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/chestplate",
+      "name": "Chestplate",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "breeze:chestplate",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/helmet",
+      "name": "Helmet",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "breeze:helmet",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/hoe",
+      "name": "Hoe",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "breeze:hoe",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/leggings",
+      "name": "Leggings",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "breeze:leggings",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/pickaxe",
+      "name": "Pickaxe",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "breeze:pickaxe",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/shovel",
+      "name": "Shovel",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "breeze:shovel",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/sword",
+      "name": "Sword",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "breeze:sword",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/boots",
+      "name": "Beehive Boots",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "beehive:boots",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/chestplate",
+      "name": "Beehive Chestplate",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "beehive:chestplate",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/helmet",
+      "name": "Beehive Helmet",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "beehive:helmet",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/leggings",
+      "name": "Perneiras de Beehive",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "beehive:leggings",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/pickaxe",
+      "name": "Beehive Battleaxe",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "beehive:axe",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/hoe",
+      "name": "Beehive Hoe",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "beehive:hoe",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/pickaxe",
+      "name": "Beehive Pickaxe",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "beehive:pickaxe",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/shovel",
+      "name": "Beehive Shovel",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "beehive:shovel",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/sword",
+      "name": "Beehive Sword",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "beehive:sword",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/boots",
+      "name": "Boots of forja de dragón",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "dragonforge:boots",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/chestplate",
+      "name": "Chestplate of forja de dragón",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "dragonforge:chestplate",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/helmet",
+      "name": "Helmet of forja de dragón",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "dragonforge:helmet",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/leggings",
+      "name": "Perneiras de forja de dragón",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "dragonforge:leggings",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/mace",
+      "name": "Mace of forja de dragón",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "dragonforge:mace",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/pickaxe",
+      "name": "Axe of enderian",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "enderian:axe",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/hoe",
+      "name": "Hoe of enderian",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "enderian:hoe",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/pickaxe",
+      "name": "Pickaxe of enderian",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "enderian:pickaxe",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/shovel",
+      "name": "Shovel of enderian",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "enderian:shovel",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/sword",
+      "name": "Sword of enderian",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "enderian:sword",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/boots",
+      "name": "Prismarite Boots",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "prismarite:boots",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/chestplate",
+      "name": "Prismarite Chestplate",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "prismarite:chestplate",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/helmet",
+      "name": "Prismarite Helmet",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "prismarite:helmet",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/leggings",
+      "name": "Perneiras de Prismarite",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "prismarite:leggings",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/pickaxe",
+      "name": "Prismarite Battleaxe",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "prismarite:axe",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/hoe",
+      "name": "Prismarite Hoe",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "prismarite:hoe",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/pickaxe",
+      "name": "Prismarite Pickaxe",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "prismarite:pickaxe",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/shovel",
+      "name": "Prismarite Shovel",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "prismarite:shovel",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/sword",
+      "name": "Prismarite Sword",
+      "cost": 95000,
+      "sell": 19000,
+      "data": 0,
+      "item": "prismarite:sword",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/boots",
+      "name": "Boots of sculkite",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "sculkite:boots",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/chestplate",
+      "name": "Chestplate of sculkite",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "sculkite:chestplate",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/helmet",
+      "name": "Helmet of sculkite",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "sculkite:helmet",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/leggings",
+      "name": "Perneiras de sculkite",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "sculkite:leggings",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/pickaxe",
+      "name": "Axe of sculkite",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "sculkite:axe",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/hoe",
+      "name": "Sculkite Hoe",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "sculkite:hoe",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/pickaxe",
+      "name": "Pickaxe of sculkite",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "sculkite:pickaxe",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/shovel",
+      "name": "Shovel of sculkite",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "sculkite:shovel",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/sword",
+      "name": "Sword of sculkite",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "sculkite:sword",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/boots",
+      "name": "Boots of shulkite",
+      "cost": 150000,
+      "sell": 30000,
+      "data": 0,
+      "item": "shulkite:boots",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/chestplate",
+      "name": "Chestplate of shulkite",
+      "cost": 150000,
+      "sell": 30000,
+      "data": 0,
+      "item": "shulkite:chestplate",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/helmet",
+      "name": "Helmet of shulkite",
+      "cost": 150000,
+      "sell": 30000,
+      "data": 0,
+      "item": "shulkite:helmet",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/leggings",
+      "name": "Perneiras de shulkite",
+      "cost": 150000,
+      "sell": 30000,
+      "data": 0,
+      "item": "shulkite:leggings",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/boots",
+      "name": "Boots of enderian",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "enderian:boots",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/chestplate",
+      "name": "Chestplate of enderian",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "enderian:chestplate",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/helmet",
+      "name": "Helmet of enderian",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "enderian:helmet",
+      "addon": "More Vanilla Tools"
+    },
+    {
+      "textures": "textures/items/dragonforge/leggings",
+      "name": "Perneiras de enderian",
+      "cost": 220000,
+      "sell": 45000,
+      "data": 0,
+      "item": "enderian:leggings",
+      "addon": "More Vanilla Tools"
+    }
+  ]
+}

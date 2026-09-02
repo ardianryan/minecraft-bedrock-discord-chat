@@ -1,0 +1,107 @@
+{
+  "id": "ultimate_drills",
+  "name": "§l§0(§6§lULTIMATE MINING DRILLS§l§0)",
+  "icon": "textures/items/diamonddrill",
+  "description": "High-tech laser mining drills and specialized excavation tools",
+  "itemCount": 14,
+  "items": [
+    {
+      "name": "Copper Drill",
+      "item": "drills:copper_drill",
+      "cost": 150000,
+      "sell": 30000,
+      "textures": "textures/items/copperdrill"
+    },
+    {
+      "name": "Iron Drill",
+      "item": "drills:iron_drill",
+      "cost": 180000,
+      "sell": 36000,
+      "textures": "textures/items/irondrill"
+    },
+    {
+      "name": "Gold Drill",
+      "item": "drills:gold_drill",
+      "cost": 220000,
+      "sell": 44000,
+      "textures": "textures/items/golddrill"
+    },
+    {
+      "name": "Amethyst Drill",
+      "item": "drills:amethyst_drill",
+      "cost": 240000,
+      "sell": 48000,
+      "textures": "textures/items/amethystdrill"
+    },
+    {
+      "name": "Diamond Drill",
+      "item": "drills:diamond_drill",
+      "cost": 280000,
+      "sell": 56000,
+      "textures": "textures/items/diamonddrill"
+    },
+    {
+      "name": "Emerald Drill",
+      "item": "drills:emerald_drill",
+      "cost": 300000,
+      "sell": 60000,
+      "textures": "textures/items/emeralddrill"
+    },
+    {
+      "name": "Prismarine Drill",
+      "item": "drills:prismarine_drill",
+      "cost": 320000,
+      "sell": 64000,
+      "textures": "textures/items/prismarinedrill"
+    },
+    {
+      "name": "Chorus Drill",
+      "item": "drills:chorus_drill",
+      "cost": 340000,
+      "sell": 68000,
+      "textures": "textures/items/chorusdrill"
+    },
+    {
+      "name": "Magma Drill",
+      "item": "drills:magma_drill",
+      "cost": 380000,
+      "sell": 76000,
+      "textures": "textures/items/magmadrill"
+    },
+    {
+      "name": "Sculk Drill",
+      "item": "drills:skulk_drill",
+      "cost": 400000,
+      "sell": 80000,
+      "textures": "textures/items/sculkdrill"
+    },
+    {
+      "name": "Netherite Drill",
+      "item": "drills:netherite_drill",
+      "cost": 450000,
+      "sell": 90000,
+      "textures": "textures/items/netheritedrill"
+    },
+    {
+      "name": "Multi Drill",
+      "item": "drills:multi_drill",
+      "cost": 480000,
+      "sell": 96000,
+      "textures": "textures/items/multidrill"
+    },
+    {
+      "name": "Prospector Drill",
+      "item": "drills:prospector_drill",
+      "cost": 500000,
+      "sell": 100000,
+      "textures": "textures/items/prospectordrill"
+    },
+    {
+      "name": "X-Ray Drill",
+      "item": "drills:xray_drill",
+      "cost": 550000,
+      "sell": 110000,
+      "textures": "textures/items/xraydrill"
+    }
+  ]
+}
