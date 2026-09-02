@@ -9,7 +9,8 @@ import {
   AlertTriangle, 
   CheckCircle2, 
   MapPin, 
-  Compass 
+  Compass,
+  Check
 } from 'lucide-react';
 
 interface WorldStats {
@@ -101,214 +102,331 @@ export const WorldMaintenancePanel: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6">
-      {/* Header Banner */}
-      <div className="bg-gradient-to-r from-emerald-900/40 via-teal-900/30 to-slate-900/50 border border-emerald-500/20 rounded-2xl p-6 backdrop-blur-md">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="space-y-1">
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400">
-                <Database className="w-6 h-6" />
-              </div>
-              <div>
-                <h2 className="text-xl font-bold text-white tracking-wide flex items-center gap-2">
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      
+      {/* 1. HERO BANNER CARD */}
+      <div className="office-panel-card" style={{ 
+        background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(15, 23, 42, 0.8) 100%)',
+        borderColor: 'rgba(52, 211, 153, 0.3)',
+        padding: '22px 26px'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <div style={{ 
+              width: '52px', 
+              height: '52px', 
+              borderRadius: '14px', 
+              background: 'rgba(16, 185, 129, 0.18)', 
+              border: '1px solid rgba(52, 211, 153, 0.4)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#34d399',
+              boxShadow: '0 0 20px rgba(16, 185, 129, 0.25)'
+            }}>
+              <Database size={26} />
+            </div>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f8fafc', margin: 0 }}>
                   Smart Chunk & World Maintenance
-                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono">
-                    Zero World Border
-                  </span>
                 </h2>
-                <p className="text-sm text-slate-400">
-                  Automatically prune empty transient exploration chunks without restricting player exploration freedom.
-                </p>
+                <span className="badge-role" style={{ 
+                  background: 'rgba(52, 211, 153, 0.15)', 
+                  color: '#34d399', 
+                  borderColor: 'rgba(52, 211, 153, 0.35)',
+                  fontSize: '0.72rem'
+                }}>
+                  Zero World Border
+                </span>
               </div>
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', margin: '4px 0 0' }}>
+                Automatically prune empty transient exploration chunks without restricting player exploration freedom.
+              </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <button
+              type="button"
               onClick={fetchWorldHealth}
               disabled={isLoading || isPruning}
-              className="flex items-center gap-2 px-4 py-2.5 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-200 rounded-xl font-medium text-sm transition-all disabled:opacity-50"
+              className="office-btn-secondary"
+              style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 18px', fontSize: '0.85rem' }}
             >
-              <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
-              Scan World
+              <RefreshCw size={15} className={isLoading ? 'spin-icon' : ''} />
+              <span>Scan World</span>
             </button>
 
             <button
+              type="button"
               onClick={() => setShowConfirmModal(true)}
               disabled={isLoading || isPruning || (stats?.estimatedPrunableChunks ?? 0) === 0}
-              className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-xl font-semibold text-sm shadow-lg shadow-emerald-950/40 transition-all disabled:opacity-50"
+              className="office-btn-primary"
+              style={{ 
+                background: 'linear-gradient(135deg, #10b981, #059669)', 
+                borderColor: '#10b981',
+                boxShadow: '0 4px 16px rgba(16, 185, 129, 0.35)',
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '8px', 
+                padding: '10px 20px', 
+                fontSize: '0.85rem' 
+              }}
             >
-              <Sparkles className="w-4 h-4" />
-              Smart Clean Chunks
+              <Sparkles size={16} />
+              <span>Smart Clean Chunks</span>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Error / Status Notice */}
+      {/* ERROR NOTICE */}
       {statusMessage && (
-        <div className="p-4 rounded-xl border bg-rose-950/30 border-rose-500/30 text-rose-300 flex items-start gap-3">
-          <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5" />
-          <p className="text-sm">{statusMessage}</p>
+        <div className="office-alert-pill error" style={{ margin: 0 }}>
+          <AlertTriangle size={18} />
+          <span>{statusMessage}</span>
         </div>
       )}
 
-      {/* Result Notice */}
+      {/* RESULT NOTICE */}
       {pruneResult && (
-        <div className={`p-4 rounded-xl border flex items-start gap-3 ${
-          pruneResult.success 
-            ? 'bg-emerald-950/30 border-emerald-500/30 text-emerald-300' 
-            : 'bg-rose-950/30 border-rose-500/30 text-rose-300'
-        }`}>
-          {pruneResult.success ? <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" /> : <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5" />}
-          <div className="text-sm space-y-1">
-            <p className="font-semibold">{pruneResult.message}</p>
+        <div className={`office-alert-pill ${pruneResult.success ? 'success' : 'error'}`} style={{ margin: 0 }}>
+          {pruneResult.success ? <CheckCircle2 size={18} /> : <AlertTriangle size={18} />}
+          <div>
+            <strong>{pruneResult.message}</strong>
             {pruneResult.success && (
-              <p className="text-xs text-emerald-400/80">
-                Storage reclaimed: <span className="font-bold text-white">{pruneResult.freedFormatted}</span> ({pruneResult.prunedChunksCount.toLocaleString()} transient chunks pruned).
-              </p>
+              <div style={{ fontSize: '0.78rem', marginTop: '2px', opacity: 0.9 }}>
+                Storage reclaimed: <strong>{pruneResult.freedFormatted}</strong> ({pruneResult.prunedChunksCount.toLocaleString()} transient chunks pruned).
+              </div>
             )}
           </div>
         </div>
       )}
 
-      {/* Metrics Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Total World Size */}
-        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 backdrop-blur-sm">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
-            <span className="text-xs font-medium uppercase tracking-wider">World Database Size</span>
-            <HardDrive className="w-4 h-4 text-cyan-400" />
+      {/* 2. STATS METRIC GRID */}
+      <div className="office-stats-row">
+        {/* World Size */}
+        <div className="metric-stat-card">
+          <div className="metric-icon-wrap" style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8' }}>
+            <HardDrive size={24} />
           </div>
-          <div className="text-2xl font-black text-white">
-            {stats?.totalSizeFormatted || '0 B'}
+          <div className="metric-details">
+            <span className="metric-label">World Database Size</span>
+            <span className="metric-number">{stats?.totalSizeFormatted || '0 B'}</span>
+            <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+              {stats?.totalFiles.toLocaleString() || 0} active LevelDB files
+            </span>
           </div>
-          <p className="text-xs text-slate-500 mt-1">
-            {stats?.totalFiles.toLocaleString() || 0} active LevelDB files
-          </p>
         </div>
 
-        {/* Total Chunks */}
-        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 backdrop-blur-sm">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
-            <span className="text-xs font-medium uppercase tracking-wider">Total Generated Chunks</span>
-            <Layers className="w-4 h-4 text-indigo-400" />
+        {/* Total Generated Chunks */}
+        <div className="metric-stat-card">
+          <div className="metric-icon-wrap user-bg">
+            <Layers size={24} />
           </div>
-          <div className="text-2xl font-black text-white">
-            {stats?.estimatedTotalChunks.toLocaleString() || 0}
+          <div className="metric-details">
+            <span className="metric-label">Generated Chunks</span>
+            <span className="metric-number">{stats?.estimatedTotalChunks.toLocaleString() || 0}</span>
+            <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+              Explored territory
+            </span>
           </div>
-          <p className="text-xs text-slate-500 mt-1">
-            Explored world territory
-          </p>
         </div>
 
         {/* Protected Chunks */}
-        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 backdrop-blur-sm">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
-            <span className="text-xs font-medium uppercase tracking-wider">Protected Zones (Safe)</span>
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+        <div className="metric-stat-card">
+          <div className="metric-icon-wrap ign-bg">
+            <ShieldCheck size={24} />
           </div>
-          <div className="text-2xl font-black text-emerald-400">
-            {stats?.estimatedProtectedChunks.toLocaleString() || 0} <span className="text-sm text-slate-400 font-normal">chunks</span>
+          <div className="metric-details">
+            <span className="metric-label">Protected Zones (Safe)</span>
+            <span className="metric-number" style={{ color: '#34d399' }}>
+              {stats?.estimatedProtectedChunks.toLocaleString() || 0} <small style={{ fontSize: '0.75rem', fontWeight: 500, color: 'var(--text-muted)' }}>chunks</small>
+            </span>
+            <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+              Spawn, Claims, Homes, & Builds
+            </span>
           </div>
-          <p className="text-xs text-slate-500 mt-1">
-            Spawn, Claims, Homes, & Builds
-          </p>
         </div>
 
         {/* Space Savings */}
-        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 backdrop-blur-sm">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
-            <span className="text-xs font-medium uppercase tracking-wider">Potential Savings</span>
-            <Sparkles className="w-4 h-4 text-amber-400" />
+        <div className="metric-stat-card">
+          <div className="metric-icon-wrap" style={{ background: 'rgba(251, 191, 36, 0.15)', color: '#fbbf24' }}>
+            <Sparkles size={24} />
           </div>
-          <div className="text-2xl font-black text-amber-400">
-            {stats?.estimatedSpaceSavingsFormatted || '0 B'}
+          <div className="metric-details">
+            <span className="metric-label">Potential Space Savings</span>
+            <span className="metric-number" style={{ color: '#fbbf24' }}>
+              {stats?.estimatedSpaceSavingsFormatted || '0 B'}
+            </span>
+            <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+              ~{stats?.estimatedPrunableChunks.toLocaleString() || 0} transient chunks
+            </span>
           </div>
-          <p className="text-xs text-slate-500 mt-1">
-            ~{stats?.estimatedPrunableChunks.toLocaleString() || 0} transient chunks
-          </p>
         </div>
       </div>
 
-      {/* Protected Zones Breakdown */}
-      <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 backdrop-blur-sm space-y-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-5 h-5 text-emerald-400" />
-            <h3 className="text-base font-bold text-white">Protected Whitelisted Zones & Areas</h3>
+      {/* 3. PROTECTED ZONES WHITELIST CARD */}
+      <div className="office-panel-card">
+        <div className="office-panel-header" style={{ borderBottom: '1px solid var(--border-subtle)', paddingBottom: '14px', marginBottom: '14px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <ShieldCheck size={20} color="#34d399" />
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#f8fafc', margin: 0 }}>
+              Protected Whitelisted Zones & Player Builds
+            </h3>
           </div>
-          <span className="text-xs text-slate-400 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+          <span className="badge-role" style={{ background: 'rgba(148, 163, 184, 0.12)', color: '#cbd5e1', borderColor: 'rgba(148, 163, 184, 0.25)' }}>
             {zones.length} Registered Areas
           </span>
         </div>
 
-        <div className="divide-y divide-slate-800/80 max-h-72 overflow-y-auto pr-2">
-          {zones.length === 0 ? (
-            <div className="py-6 text-center text-sm text-slate-500">
-              No custom zones detected yet. Main world spawn is automatically protected.
-            </div>
-          ) : (
-            zones.map((zone) => (
-              <div key={zone.id} className="py-3 flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-300">
-                    {zone.type === 'spawn' ? <Compass className="w-4 h-4 text-amber-400" /> : <MapPin className="w-4 h-4 text-emerald-400" />}
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-slate-200">{zone.name}</p>
-                    <p className="text-xs text-slate-400">
-                      Dimension: <span className="text-slate-300 capitalize">{zone.dimension}</span> | Chunk Coords: ({zone.minChunkX}, {zone.minChunkZ}) to ({zone.maxChunkX}, {zone.maxChunkZ})
-                    </p>
-                  </div>
-                </div>
-
-                <div className="text-right">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                    <ShieldCheck className="w-3 h-3" /> Protected
-                  </span>
-                </div>
-              </div>
-            ))
-          )}
+        <div style={{ overflowX: 'auto' }}>
+          <table className="office-data-table">
+            <thead>
+              <tr>
+                <th style={{ width: '40px' }}>Type</th>
+                <th>Zone Name / Description</th>
+                <th>Dimension</th>
+                <th>Chunk Bounds (Min ➔ Max)</th>
+                <th style={{ textAlign: 'right' }}>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {zones.length === 0 ? (
+                <tr>
+                  <td colSpan={5} style={{ textAlign: 'center', padding: '28px', color: 'var(--text-muted)' }}>
+                    No custom zones detected yet. Main world spawn area is automatically protected.
+                  </td>
+                </tr>
+              ) : (
+                zones.map((zone) => (
+                  <tr key={zone.id}>
+                    <td>
+                      <div style={{ 
+                        width: '32px', 
+                        height: '32px', 
+                        borderRadius: '8px', 
+                        background: zone.type === 'spawn' ? 'rgba(251, 191, 36, 0.15)' : 'rgba(52, 211, 153, 0.15)',
+                        color: zone.type === 'spawn' ? '#fbbf24' : '#34d399',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}>
+                        {zone.type === 'spawn' ? <Compass size={16} /> : <MapPin size={16} />}
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ fontWeight: 600, color: '#f8fafc' }}>{zone.name}</div>
+                      {zone.owner && <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Owner: {zone.owner}</div>}
+                    </td>
+                    <td>
+                      <span className="badge-role" style={{ textTransform: 'capitalize' }}>
+                        {zone.dimension}
+                      </span>
+                    </td>
+                    <td style={{ fontFamily: 'monospace', fontSize: '0.78rem', color: '#94a3b8' }}>
+                      ({zone.minChunkX}, {zone.minChunkZ}) ➔ ({zone.maxChunkX}, {zone.maxChunkZ})
+                    </td>
+                    <td style={{ textAlign: 'right' }}>
+                      <span className="badge-role" style={{ background: 'rgba(52, 211, 153, 0.15)', color: '#34d399', borderColor: 'rgba(52, 211, 153, 0.3)' }}>
+                        <Check size={12} style={{ marginRight: 4 }} /> Protected
+                      </span>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
         </div>
       </div>
 
-      {/* Confirmation Modal */}
+      {/* 4. CONFIRMATION MODAL */}
       {showConfirmModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 space-y-5 shadow-2xl">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl text-amber-400">
-                <AlertTriangle className="w-6 h-6" />
+        <div style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 9999,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: 'rgba(0, 0, 0, 0.75)',
+          backdropFilter: 'blur(8px)',
+          padding: '16px'
+        }}>
+          <div style={{
+            background: 'var(--bg-card)',
+            border: '1px solid var(--border-subtle)',
+            borderRadius: '16px',
+            maxWidth: '460px',
+            width: '100%',
+            padding: '24px',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.6)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '18px'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <div style={{
+                width: '44px',
+                height: '44px',
+                borderRadius: '12px',
+                background: 'rgba(251, 191, 36, 0.15)',
+                border: '1px solid rgba(251, 191, 36, 0.3)',
+                color: '#fbbf24',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <AlertTriangle size={22} />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-white">Confirm Smart Chunk Prune</h3>
-                <p className="text-xs text-slate-400">Prune uninhabited exploration chunks</p>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#f8fafc', margin: 0 }}>
+                  Confirm Smart Chunk Prune
+                </h3>
+                <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', margin: '2px 0 0' }}>
+                  Prune uninhabited exploration chunks
+                </p>
               </div>
             </div>
 
-            <div className="text-sm text-slate-300 space-y-2 bg-slate-950/60 p-4 rounded-xl border border-slate-800">
-              <p>
-                The system will prune approximately <span className="font-bold text-amber-400">{stats?.estimatedPrunableChunks.toLocaleString()} chunks</span> that players only passed through during exploration.
+            <div style={{
+              background: 'rgba(0, 0, 0, 0.35)',
+              border: '1px solid var(--border-subtle)',
+              borderRadius: '12px',
+              padding: '16px',
+              fontSize: '0.85rem',
+              color: '#cbd5e1',
+              lineHeight: 1.5
+            }}>
+              <p style={{ margin: '0 0 10px' }}>
+                The system will prune approximately <strong style={{ color: '#fbbf24' }}>{stats?.estimatedPrunableChunks.toLocaleString()} transient chunks</strong> that players only passed through during exploration.
               </p>
-              <ul className="text-xs text-slate-400 space-y-1 list-disc list-inside">
-                <li>All bases, buildings, spawn area, & claims are <span className="text-emerald-400 font-semibold">100% safe & protected</span>.</li>
+              <ul style={{ margin: 0, paddingLeft: '18px', fontSize: '0.78rem', color: '#94a3b8' }}>
+                <li>All bases, buildings, spawn area, & claims are <strong style={{ color: '#34d399' }}>100% safe & protected</strong>.</li>
                 <li>An automatic safety backup snapshot is created before pruning.</li>
               </ul>
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-2">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '12px', marginTop: '4px' }}>
               <button
+                type="button"
                 onClick={() => setShowConfirmModal(false)}
-                className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-sm font-medium transition-all"
+                className="office-btn-secondary"
+                style={{ padding: '8px 18px', fontSize: '0.85rem' }}
               >
                 Cancel
               </button>
               <button
+                type="button"
                 onClick={handleExecutePrune}
-                className="px-5 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-xl text-sm font-semibold shadow-lg transition-all"
+                className="office-btn-primary"
+                style={{ 
+                  background: 'linear-gradient(135deg, #10b981, #059669)',
+                  borderColor: '#10b981',
+                  padding: '8px 20px', 
+                  fontSize: '0.85rem' 
+                }}
               >
                 Confirm & Prune Chunks
               </button>
@@ -316,6 +434,7 @@ export const WorldMaintenancePanel: React.FC = () => {
           </div>
         </div>
       )}
+
     </div>
   );
 };
