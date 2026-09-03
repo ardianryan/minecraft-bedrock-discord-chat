@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { getSetting } from '../db.js';
+import { getSetting, setSetting } from '../db.js';
 import { getLiveServerStats, sendServerConsoleCommand, PanelConfig } from './panel.js';
 
 export interface ProtectedZone {
@@ -57,6 +57,36 @@ export interface PruneResult {
 // In-memory persistent store for protected zones
 const protectedZonesStore = new Map<string, ProtectedZone>();
 let lastPruneTime: string | null = null;
+let isStoreLoadedFromDb = false;
+
+// Initialize from DB cache on first access
+async function ensureStoreLoaded() {
+  if (isStoreLoadedFromDb) return;
+  isStoreLoadedFromDb = true;
+  try {
+    const raw = await getSetting('protected_zones_cache', '');
+    if (raw) {
+      const arr = JSON.parse(raw);
+      if (Array.isArray(arr)) {
+        for (const z of arr) {
+          if (z && z.id) protectedZonesStore.set(z.id, z);
+        }
+      }
+    }
+  } catch {}
+}
+ensureStoreLoaded().catch(() => {});
+
+let saveDebounceTimer: any = null;
+function persistStoreToDb() {
+  if (saveDebounceTimer) clearTimeout(saveDebounceTimer);
+  saveDebounceTimer = setTimeout(async () => {
+    try {
+      const arr = Array.from(protectedZonesStore.values());
+      await setSetting('protected_zones_cache', JSON.stringify(arr));
+    } catch {}
+  }, 2000);
+}
 
 export function formatBytes(bytes: number): string {
   if (!bytes || bytes <= 0) return '0 B';
@@ -71,6 +101,7 @@ export function registerProtectedZone(zone: Omit<ProtectedZone, 'updatedAt'>) {
     ...zone,
     updatedAt: new Date().toISOString()
   });
+  persistStoreToDb();
 }
 
 export function registerBulkProtectedChunks(chunks: Array<{ x: number; z: number; dim?: string; reason?: string }>) {
@@ -88,6 +119,7 @@ export function registerBulkProtectedChunks(chunks: Array<{ x: number; z: number
       updatedAt: new Date().toISOString()
     });
   }
+  persistStoreToDb();
 }
 
 export function getProtectedZones(): ProtectedZone[] {
