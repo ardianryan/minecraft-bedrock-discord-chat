@@ -317,6 +317,55 @@ if (world.afterEvents?.chatSend?.subscribe) {
 if (system.afterEvents?.scriptEventReceive?.subscribe) {
   system.afterEvents.scriptEventReceive.subscribe((event) => {
     try {
+      if (event.id === "mgc:sync" || event.id === "mgc:sync_zones") {
+        syncWorldZonesAndChunks(true);
+      }
+      if (event.id === "mgc:debug" || event.id === "mgc:debug_props") {
+        try {
+          const allProps = (typeof world.getDynamicPropertyIds === "function") ? (world.getDynamicPropertyIds() || []) : [];
+          console.warn("[MGC-BRIDGE DEBUG] Total world dynamic properties: " + allProps.length);
+          for (const pid of allProps) {
+            const raw = world.getDynamicProperty(pid);
+            console.warn("[MGC-BRIDGE DEBUG WORLD PROP] Key: " + pid + " => " + String(raw).slice(0, 150));
+          }
+
+          // Test specific known keys
+          const testKeys = ["warps", "warps_meta", "pwarp_index", "land_player_names", "land_claims", "land_claim_counter", "lobby_protected_regions", "protectedRegions", "isDbMigrated", "whitelist_enabled"];
+          for (const k of testKeys) {
+            const val = world.getDynamicProperty(k);
+            console.warn("[MGC-BRIDGE PROBE WORLD] " + k + " = " + (val ? String(val).slice(0, 100) : "<null>"));
+          }
+
+          // Check online players
+          const players = (typeof world.getAllPlayers === "function") ? world.getAllPlayers() : (world.getPlayers ? world.getPlayers() : []);
+          console.warn("[MGC-BRIDGE DEBUG] Online Players: " + players.length);
+          for (const p of players) {
+            console.warn("[MGC-BRIDGE PROBE PLAYER] Name: " + p.name + " | ID: " + p.id);
+            const pKeys = [
+              "land_claims_" + p.id,
+              "land_claims_" + p.name,
+              "land_claims_safe_" + p.id,
+              "land_claims_safe_" + p.name,
+              "sethome:" + p.id,
+              "sethome:" + p.name
+            ];
+            for (const pk of pKeys) {
+              const pv = world.getDynamicProperty(pk);
+              console.warn("[MGC-BRIDGE PROBE WORLD FOR PLAYER] " + pk + " = " + (pv ? String(pv).slice(0, 100) : "<null>"));
+            }
+            if (typeof p.getDynamicPropertyIds === "function") {
+              const pProps = p.getDynamicPropertyIds() || [];
+              console.warn("[MGC-BRIDGE PLAYER PROPS] " + p.name + " entity props: " + pProps.join(", "));
+              for (const ep of pProps) {
+                const epv = p.getDynamicProperty(ep);
+                console.warn("[MGC-BRIDGE ENTITY PROP] " + ep + " = " + String(epv).slice(0, 80));
+              }
+            }
+          }
+        } catch(err) {
+          console.warn("[MGC-BRIDGE DEBUG] Error in debug command:", err);
+        }
+      }
       if (event.id === "mgc:chat") {
         const payload = JSON.parse(event.message);
         if (payload?.sender && payload?.message) {
@@ -650,18 +699,56 @@ try {
   }
 } catch (e) {}
 
-// Periodically sync protected chunks & zones (Spawns, Warps, PWarps, Claims, Lobby) every 2 minutes (2400 ticks)
-system.runInterval(async () => {
+// ========================================================
+// Comprehensive World Zones & Chunks Sync (Claims, Warps, PWarps, Lobbies, Homes)
+// ========================================================
+let lastZoneSyncTime = 0;
+
+function safeParseKiw(raw) {
+  if (!raw) return null;
+  if (typeof raw === "object") return raw;
+  if (typeof raw !== "string") return null;
+  // 1. Try direct JSON.parse
+  try { return JSON.parse(raw); } catch {}
+  // 2. Try KiwEssentials Database.js unescape (escaped double-quotes)
+  try {
+    const unescaped = raw.replace(/\\"/g, '"').replace(/\\\\/g, "\\");
+    return JSON.parse(unescaped);
+  } catch {}
+  // 3. Try slicing substring between [ ] or { }
+  try {
+    const a = raw.indexOf("["), b = raw.lastIndexOf("]");
+    if (a >= 0 && b > a) return JSON.parse(raw.slice(a, b + 1));
+    const c = raw.indexOf("{"), d = raw.lastIndexOf("}");
+    if (c >= 0 && d > c) return JSON.parse(raw.slice(c, d + 1));
+  } catch {}
+  return null;
+}
+
+export async function syncWorldZonesAndChunks(force = false) {
+  const now = Date.now();
+  if (!force && now - lastZoneSyncTime < 15000) return; // Debounce 15s
+  lastZoneSyncTime = now;
+
   try {
     const zones = [];
-    const chunks = Array.from(modifiedChunks.values());
+    const chunks = (typeof modifiedChunks !== "undefined" && modifiedChunks) ? Array.from(modifiedChunks.values()) : [];
+    const seenZoneIds = new Set();
+
+    const addZone = (z) => {
+      if (!z || !z.id || seenZoneIds.has(z.id)) return;
+      seenZoneIds.add(z.id);
+      zones.push(z);
+    };
+
+    const allPropIds = (typeof world.getDynamicPropertyIds === "function") ? (world.getDynamicPropertyIds() || []) : [];
 
     // 1. World Spawn Area
     try {
       const spawn = world.getDefaultSpawnLocation();
       if (spawn) {
         const sc = getChunkCoord(spawn);
-        zones.push({
+        addZone({
           id: "spawn_zone",
           name: "World Spawn Protection Area",
           type: "spawn",
@@ -673,48 +760,63 @@ system.runInterval(async () => {
           blockX: Math.round(spawn.x),
           blockY: Math.round(spawn.y),
           blockZ: Math.round(spawn.z),
-          description: "Main World Spawn Point & Protection"
+          description: "Main World Spawn Point & Protection",
+          owner: "Server World"
         });
       }
     } catch {}
 
-    // 2. Server Warps (KiwEssentials)
+    // 2. Server Warps (KiwEssentials warps, warps_chunk_*, warp\uE812*)
+    let warpsCount = 0;
     try {
       const warpList = [];
       const rawWarps = world.getDynamicProperty("warps");
       if (rawWarps) {
-        try {
-          const parsed = JSON.parse(rawWarps);
-          if (Array.isArray(parsed)) warpList.push(...parsed);
-          else if (typeof parsed === "object") warpList.push(...Object.values(parsed));
-        } catch {}
+        const parsed = safeParseKiw(rawWarps);
+        if (Array.isArray(parsed)) warpList.push(...parsed);
+        else if (parsed && typeof parsed === "object") warpList.push(...Object.values(parsed));
       }
+
       const rawMeta = world.getDynamicProperty("warps_meta");
       if (rawMeta) {
-        try {
-          const meta = JSON.parse(rawMeta);
-          const totalChunks = meta.totalChunks || 0;
-          for (let i = 0; i < totalChunks; i++) {
-            const chunkStr = world.getDynamicProperty("warps_chunk_" + i);
-            if (chunkStr) {
-              const chunkWarps = JSON.parse(chunkStr);
-              if (Array.isArray(chunkWarps)) warpList.push(...chunkWarps);
+        const meta = safeParseKiw(rawMeta);
+        const totalChunks = meta?.totalChunks || meta?.chunkCount || 0;
+        for (let i = 0; i < totalChunks; i++) {
+          const chunkStr = world.getDynamicProperty("warps_chunk_" + i);
+          if (chunkStr) {
+            const chunkWarps = safeParseKiw(chunkStr);
+            if (Array.isArray(chunkWarps)) warpList.push(...chunkWarps);
+            else if (chunkWarps && typeof chunkWarps === "object") warpList.push(...Object.values(chunkWarps));
+          }
+        }
+      }
+
+      for (const pid of allPropIds) {
+        if (pid.startsWith("warps_chunk_") || pid.startsWith("warp\uE812")) {
+          const chunkStr = world.getDynamicProperty(pid);
+          if (chunkStr) {
+            const parsed = safeParseKiw(chunkStr);
+            if (Array.isArray(parsed)) warpList.push(...parsed);
+            else if (parsed && typeof parsed === "object") {
+              if (parsed.location || parsed.pos || parsed.x !== undefined) warpList.push(parsed);
+              else warpList.push(...Object.values(parsed));
             }
           }
-        } catch {}
+        }
       }
 
       for (const w of warpList) {
         if (!w || !w.name) continue;
         const loc = w.location || w.pos || w;
-        if (loc.x !== undefined && loc.z !== undefined) {
+        if (loc && loc.x !== undefined && loc.z !== undefined) {
           const cx = Math.floor(loc.x / 16);
           const cz = Math.floor(loc.z / 16);
-          zones.push({
-            id: `warp_${w.name}`,
-            name: `Warp: ${w.name}`,
+          const dim = (w.dimension || loc.dimension || "overworld").replace("minecraft:", "");
+          addZone({
+            id: "warp_" + w.name,
+            name: "Warp: " + w.name,
             type: "warp",
-            dimension: w.dimension || "overworld",
+            dimension: dim,
             minChunkX: cx - 2,
             minChunkZ: cz - 2,
             maxChunkX: cx + 2,
@@ -725,87 +827,154 @@ system.runInterval(async () => {
             description: w.description || "Server Fast Travel Warp",
             owner: w.createdBy || "Server Admin"
           });
+          warpsCount++;
         }
       }
-    } catch {}
+    } catch (err) {
+      console.warn("[MGC-BRIDGE] Error parsing server warps:", err);
+    }
 
-    // 3. Player Warps (PWarp)
+    // 3. Player Warps (PWarp - supports Database('pwarp') with \uE812, pwarp_index, and pwarp_*)
+    let pwarpsCount = 0;
     try {
-      const pwarpNamesRaw = world.getDynamicProperty("pwarp_index");
-      if (pwarpNamesRaw) {
-        const pwarpNames = JSON.parse(pwarpNamesRaw);
-        if (Array.isArray(pwarpNames)) {
-          for (const name of pwarpNames) {
-            const raw = world.getDynamicProperty(`pwarp_${name}`);
+      const pwarpList = [];
+
+      for (const pid of allPropIds) {
+        if (pid.startsWith("pwarp\uE812") || (pid.startsWith("pwarp_") && pid !== "pwarp_index" && !pid.includes("invite") && !pid.includes("cooldown") && !pid.includes("limit") && !pid.includes("cost") && !pid.includes("teleport"))) {
+          const raw = world.getDynamicProperty(pid);
+          if (raw) {
+            const parsed = safeParseKiw(raw);
+            if (parsed && typeof parsed === "object") {
+              const pwName = parsed.name || (pid.startsWith("pwarp\uE812") ? pid.slice(7) : pid.slice(6));
+              pwarpList.push({ ...parsed, name: pwName });
+            }
+          }
+        }
+      }
+
+      const pwarpIndexRaw = world.getDynamicProperty("pwarp_index");
+      if (pwarpIndexRaw) {
+        const indexArr = safeParseKiw(pwarpIndexRaw);
+        if (Array.isArray(indexArr)) {
+          for (const name of indexArr) {
+            const raw = world.getDynamicProperty("pwarp_" + name) || world.getDynamicProperty("pwarp\uE812" + name);
             if (raw) {
-              const pw = JSON.parse(raw);
-              if (pw && pw.location) {
-                const cx = Math.floor(pw.location.x / 16);
-                const cz = Math.floor(pw.location.z / 16);
-                zones.push({
-                  id: `pwarp_${pw.name || name}`,
-                  name: `PWarp: ${pw.name || name}`,
-                  type: "pwarp",
-                  dimension: pw.dimension || "overworld",
-                  minChunkX: cx - 2,
-                  minChunkZ: cz - 2,
-                  maxChunkX: cx + 2,
-                  maxChunkZ: cz + 2,
-                  blockX: Math.round(pw.location.x),
-                  blockY: Math.round(pw.location.y ?? 64),
-                  blockZ: Math.round(pw.location.z),
-                  owner: pw.ownerName || pw.owner || "Player",
-                  ownerName: pw.ownerName || pw.owner,
-                  description: pw.description || (pw.isPublic ? "Public Player Warp" : "Private Player Warp"),
-                  isPublic: pw.isPublic ?? true
-                });
+              const parsed = safeParseKiw(raw);
+              if (parsed && typeof parsed === "object") {
+                pwarpList.push({ ...parsed, name: parsed.name || name });
               }
             }
           }
         }
       }
-    } catch {}
 
-    // 4. Player Land Claims (KiwEssentials Land System)
+      for (const pw of pwarpList) {
+        if (!pw || !pw.name) continue;
+        const loc = pw.location || pw.pos || pw;
+        if (loc && loc.x !== undefined && loc.z !== undefined) {
+          const cx = Math.floor(loc.x / 16);
+          const cz = Math.floor(loc.z / 16);
+          const dim = (pw.dimension || loc.dimension || "overworld").replace("minecraft:", "");
+          const ownerName = pw.ownerName || pw.owner || "Player";
+          addZone({
+            id: "pwarp_" + pw.name,
+            name: "PWarp: " + pw.name,
+            type: "pwarp",
+            dimension: dim,
+            minChunkX: cx - 2,
+            minChunkZ: cz - 2,
+            maxChunkX: cx + 2,
+            maxChunkZ: cz + 2,
+            blockX: Math.round(loc.x),
+            blockY: Math.round(loc.y ?? 64),
+            blockZ: Math.round(loc.z),
+            owner: ownerName,
+            ownerName: ownerName,
+            description: pw.description || (pw.isPublic ? "Public Player Warp" : "Private Player Warp"),
+            isPublic: pw.isPublic ?? true
+          });
+          pwarpsCount++;
+        }
+      }
+    } catch (err) {
+      console.warn("[MGC-BRIDGE] Error parsing pwarps:", err);
+    }
+
+    // 4. Player Land Claims (KiwEssentials Land System - land_claims_*, land_claims_safe_*, land_player_names)
+    let claimsCount = 0;
     try {
       let playerNamesMap = {};
       const rawNames = world.getDynamicProperty("land_player_names");
       if (rawNames) {
-        try { playerNamesMap = JSON.parse(rawNames) || {}; } catch {}
+        playerNamesMap = safeParseKiw(rawNames) || {};
       }
 
+      try {
+        const pList = (typeof world.getAllPlayers === "function") ? world.getAllPlayers() : (world.getPlayers ? world.getPlayers() : []);
+        for (const p of pList) {
+          if (p?.id) playerNamesMap[p.id] = p.name || p.id;
+          if (p?.name) playerNamesMap[p.name] = p.name;
+        }
+      } catch {}
+
+      const candidateClaimKeys = new Set();
+      for (const pid of Object.keys(playerNamesMap)) {
+        candidateClaimKeys.add("land_claims_" + pid);
+        candidateClaimKeys.add("land_claims_safe_" + pid);
+      }
+      for (const pid of allPropIds) {
+        if (pid.startsWith("land_claims_") && !pid.includes("revision") && !pid.includes("counter") && !pid.includes("corrupt")) {
+          candidateClaimKeys.add(pid);
+        }
+      }
+      candidateClaimKeys.add("land_claims");
+
       const claimList = [];
-      if (typeof world.getDynamicPropertyIds === "function") {
-        const allIds = world.getDynamicPropertyIds();
-        for (const pid of allIds) {
-          if (pid.startsWith("land_claims_safe_") || (pid.startsWith("land_claims_") && !pid.includes("revision") && !pid.includes("counter") && !pid.includes("corrupt"))) {
-            try {
-              const raw = world.getDynamicProperty(pid);
-              if (raw) {
-                const parsed = JSON.parse(raw);
-                if (Array.isArray(parsed)) claimList.push(...parsed);
-                else if (parsed && typeof parsed === "object") claimList.push(parsed);
+      const seenClaimIds = new Set();
+
+      for (const key of candidateClaimKeys) {
+        const raw = world.getDynamicProperty(key);
+        if (raw) {
+          const parsed = safeParseKiw(raw);
+          if (Array.isArray(parsed)) {
+            for (const c of parsed) {
+              const cid = c.claimId || c.id || JSON.stringify(c.pos1);
+              if (cid && !seenClaimIds.has(cid)) {
+                seenClaimIds.add(cid);
+                claimList.push(c);
               }
-            } catch {}
+            }
+          } else if (parsed && typeof parsed === "object") {
+            for (const [cid, c] of Object.entries(parsed)) {
+              if (c && typeof c === "object" && !seenClaimIds.has(cid)) {
+                seenClaimIds.add(cid);
+                claimList.push({ ...c, claimId: c.claimId || cid });
+              }
+            }
           }
         }
       }
 
       for (const cl of claimList) {
         if (!cl) continue;
-        const p1 = cl.pos1 || { x: cl.x1, y: cl.y1, z: cl.z1 };
-        const p2 = cl.pos2 || { x: cl.x2, y: cl.y2, z: cl.z2 };
-        if (p1?.x !== undefined && p1?.z !== undefined) {
-          const x1 = Math.min(p1.x, p2?.x ?? p1.x);
-          const z1 = Math.min(p1.z, p2?.z ?? p1.z);
-          const x2 = Math.max(p1.x, p2?.x ?? p1.x);
-          const z2 = Math.max(p1.z, p2?.z ?? p1.z);
+        const p1 = cl.pos1 || { x: cl.x1, y: cl.y1, z: cl.z1, dimension: cl.dimension };
+        const p2 = cl.pos2 || { x: cl.x2, y: cl.y2, z: cl.z2, dimension: cl.dimension };
+        if (p1 && p1.x !== undefined && p1.z !== undefined) {
+          const x1 = Math.min(p1.x, (p2 && p2.x !== undefined) ? p2.x : p1.x);
+          const z1 = Math.min(p1.z, (p2 && p2.z !== undefined) ? p2.z : p1.z);
+          const x2 = Math.max(p1.x, (p2 && p2.x !== undefined) ? p2.x : p1.x);
+          const z2 = Math.max(p1.z, (p2 && p2.z !== undefined) ? p2.z : p1.z);
+          const dim = (p1.dimension || cl.dimension || cl._dim || "overworld").replace("minecraft:", "");
           const ownerDisplay = playerNamesMap[cl.owner] || cl.ownerName || cl.owner || "Unknown Player";
-          zones.push({
-            id: `claim_${cl.id || cl.claimId || `${x1}_${z1}`}`,
-            name: `Land: ${cl.name || ownerDisplay + "'s Claim"}`,
+          const claimName = cl.name || (ownerDisplay + "'s Claim");
+          const sizeW = Math.abs(x2 - x1) + 1;
+          const sizeH = Math.abs(z2 - z1) + 1;
+          
+          addZone({
+            id: "claim_" + (cl.claimId || cl.id || (x1 + "_" + z1)),
+            name: "Land: " + claimName,
             type: "claim",
-            dimension: cl.dimension || cl.dim || "overworld",
+            dimension: dim,
             minChunkX: Math.floor(x1 / 16),
             minChunkZ: Math.floor(z1 / 16),
             maxChunkX: Math.floor(x2 / 16),
@@ -815,52 +984,85 @@ system.runInterval(async () => {
             blockZ: Math.round(z1),
             owner: ownerDisplay,
             ownerName: ownerDisplay,
-            description: cl.description || `Size: ${Math.abs(x2 - x1) + 1}x${Math.abs(z2 - z1) + 1} blocks`,
+            description: cl.description || ("Size: " + sizeW + "x" + sizeH + " blocks (" + (sizeW * sizeH).toLocaleString() + " blocks²)"),
             membersCount: Array.isArray(cl.members) ? cl.members.length : 0
           });
+          claimsCount++;
         }
       }
-    } catch {}
+    } catch (err) {
+      console.warn("[MGC-BRIDGE] Error parsing land claims:", err);
+    }
 
-    // 5. Lobby & Admin Protected Regions
+    // 5. Lobby & Admin Protected Regions (lobby_protected_regions, protectedRegions, lobby_regions)
+    let lobbyCount = 0;
     try {
-      const rawRegions = world.getDynamicProperty("protectedRegions") || world.getDynamicProperty("lobby_protected_regions");
-      if (rawRegions) {
-        const regions = JSON.parse(rawRegions);
-        if (Array.isArray(regions)) {
-          for (const reg of regions) {
-            if (reg.pos1 && reg.pos2) {
-              const x1 = Math.min(reg.pos1.x, reg.pos2.x);
-              const z1 = Math.min(reg.pos1.z, reg.pos2.z);
-              const x2 = Math.max(reg.pos1.x, reg.pos2.x);
-              const z2 = Math.max(reg.pos1.z, reg.pos2.z);
-              zones.push({
-                id: `lobby_${reg.id || reg.name}`,
-                name: `Lobby: ${reg.name}`,
-                type: "lobby",
-                dimension: "overworld",
-                minChunkX: Math.floor(x1 / 16),
-                minChunkZ: Math.floor(z1 / 16),
-                maxChunkX: Math.floor(x2 / 16),
-                maxChunkZ: Math.floor(z2 / 16),
-                blockX: Math.round(x1),
-                blockY: Math.round(reg.pos1.y ?? 64),
-                blockZ: Math.round(z1),
-                owner: reg.createdBy || "Admin",
-                description: `Mode: ${reg.mode || "Protected Lobby"}`
-              });
+      const regionKeys = ["lobby_protected_regions", "protectedRegions", "lobby_regions"];
+      for (const rk of regionKeys) {
+        const rawRegions = world.getDynamicProperty(rk);
+        if (rawRegions) {
+          const regions = safeParseKiw(rawRegions);
+          if (Array.isArray(regions)) {
+            for (const reg of regions) {
+              if (reg && reg.pos1 && reg.pos2) {
+                const x1 = Math.min(reg.pos1.x, reg.pos2.x);
+                const z1 = Math.min(reg.pos1.z, reg.pos2.z);
+                const x2 = Math.max(reg.pos1.x, reg.pos2.x);
+                const z2 = Math.max(reg.pos1.z, reg.pos2.z);
+                const dim = (reg.dimension || "overworld").replace("minecraft:", "");
+                addZone({
+                  id: "lobby_" + (reg.id || reg.name),
+                  name: "Lobby: " + reg.name,
+                  type: "lobby",
+                  dimension: dim,
+                  minChunkX: Math.floor(x1 / 16),
+                  minChunkZ: Math.floor(z1 / 16),
+                  maxChunkX: Math.floor(x2 / 16),
+                  maxChunkZ: Math.floor(z2 / 16),
+                  blockX: Math.round(x1),
+                  blockY: Math.round(reg.pos1.y ?? 64),
+                  blockZ: Math.round(z1),
+                  owner: reg.createdBy || "Server Admin",
+                  description: "Mode: " + (reg.mode || "Protected Lobby")
+                });
+                lobbyCount++;
+              }
             }
           }
         }
       }
-    } catch {}
+    } catch (err) {
+      console.warn("[MGC-BRIDGE] Error parsing lobby regions:", err);
+    }
 
+    // Dispatch payload to Hono Backend
     if (zones.length > 0 || chunks.length > 0) {
       await sendRequest("/world/protected-chunks", HttpRequestMethod.Post, {
         zones,
         chunks: chunks.slice(0, 500)
       });
+      console.warn("[MGC-BRIDGE] Synchronized " + zones.length + " world zones (" + claimsCount + " claims, " + warpsCount + " warps, " + pwarpsCount + " pwarps, " + lobbyCount + " lobbies/spawns) to backend!");
     }
-  } catch (err) {}
-}, 2400);
+  } catch (err) {
+    console.warn("[MGC-BRIDGE] Zone sync error:", err);
+  }
+}
 
+// Initial Sync at startup (after 5 seconds / 100 ticks)
+system.runTimeout(() => {
+  syncWorldZonesAndChunks(true);
+}, 100);
+
+// Recurring sync every 60 seconds (1200 ticks)
+system.runInterval(() => {
+  syncWorldZonesAndChunks(false);
+}, 1200);
+
+// Sync on player join
+world.afterEvents.playerSpawn?.subscribe(({ initialSpawn }) => {
+  if (initialSpawn) {
+    system.runTimeout(() => {
+      syncWorldZonesAndChunks(false);
+    }, 60);
+  }
+});
